@@ -36,7 +36,7 @@ CurrentRoot.Worlds = [ # unfortunately the functional method does not yet have a
                 'Specular'  : (R,G,B,A),
                 'Emissive'  : (R,G,B,A),
                 'Glossiness': 25.0,
-                'Textures'  : [
+                'Textures'  : [ # WIP
                   { 'Name'  : TextureName,
                     'Images': [
                       { 'Name'  : ImageName,
