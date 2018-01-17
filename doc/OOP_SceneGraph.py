@@ -60,7 +60,7 @@ UV        = Object.UVs[        channel, index ] # typically 32 channels
 Weight    = Object.Weights[    index ]
 Primitive = Object.Primitives[ channel, index ] # unlimited channels supporting names, works as multimple meshes
 
-Facepoint = Primitive.Facepoints[index]
+Facepoint = Primitive.Facepoints.new() # reference by Primitive.Facepoints[index]
 
     Facepoint.VerticeIndex           = index
     Facepoint.NormalIndex            = index
