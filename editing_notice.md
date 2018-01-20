@@ -1,6 +1,4 @@
-Tcll:
-
-**Please do not edit until this file is deleted.**<br>
+**Please do not edit this repo until this file is deleted.**<br>
 or if you intend to make edits, please discuss them with me over on either my discord server, or DM me.<br>
 email me if you need my discord info.
 
