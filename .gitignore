@@ -1,0 +1,14 @@
+# Project Directory
+.idea/
+
+# binary files:
+*.dll
+*.py[dco]
+*.so
+
+# binary directories
+__pycache__/
+app/
+
+# other
+*.ttf
