@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module type="PYTHON_MODULE" version="4">
+  <component name="NewModuleRootManager">
+    <content url="file://$MODULE_DIR$/../..">
+      <sourceFolder url="file://$MODULE_DIR$/../.." isTestSource="false" />
+      <excludeFolder url="file://$MODULE_DIR$/../../DMesh" />
+      <excludeFolder url="file://$MODULE_DIR$/../../app/PyLib_27" />
+      <excludeFolder url="file://$MODULE_DIR$/../../app/linux" />
+      <excludeFolder url="file://$MODULE_DIR$/../../app/mac" />
+      <excludeFolder url="file://$MODULE_DIR$/../../app/win" />
+      <excludeFolder url="file://$MODULE_DIR$/../../config" />
+      <excludeFolder url="file://$MODULE_DIR$/../../fonts" />
+      <excludeFolder url="file://$MODULE_DIR$/../../idlelib" />
+      <excludeFolder url="file://$MODULE_DIR$/../../lang" />
+      <excludeFolder url="file://$MODULE_DIR$/../../libs/other" />
+      <excludeFolder url="file://$MODULE_DIR$/../../plugins/removed" />
+      <excludeFolder url="file://$MODULE_DIR$/.." />
+      <excludeFolder url="file://$MODULE_DIR$/../../removed" />
+      <excludeFolder url="file://$MODULE_DIR$/../../scripts/other" />
+      <excludeFolder url="file://$MODULE_DIR$/../../scripts/used srcs" />
+      <excludeFolder url="file://$MODULE_DIR$/../../tmp" />
+    </content>
+    <orderEntry type="jdk" jdkName="Python 3.4.3 | Anaconda 2.3.0 (32-bit)" jdkType="Python SDK" />
+    <orderEntry type="sourceFolder" forTests="false" />
+  </component>
+  <component name="PackageRequirementsSettings">
+    <option name="requirementsPath" value="" />
+  </component>
+  <component name="TestRunnerService">
+    <option name="projectConfiguration" value="Nosetests" />
+    <option name="PROJECT_TEST_RUNNER" value="Nosetests" />
+  </component>
+</module>
