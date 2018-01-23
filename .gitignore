@@ -1,6 +1,3 @@
-# Project Directory
-.idea/
-
 # binary files:
 *.dll
 *.py[dco]
