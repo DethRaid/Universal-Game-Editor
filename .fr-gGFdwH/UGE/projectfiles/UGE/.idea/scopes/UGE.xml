@@ -1,0 +1,3 @@
+<component name="DependencyValidationManager">
+  <scope name="UGE" pattern="file:API//*||file:loader.py||file:app/PyLib//*" />
+</component>

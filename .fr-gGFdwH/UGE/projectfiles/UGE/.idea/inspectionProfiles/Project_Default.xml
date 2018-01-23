@@ -1,0 +1,202 @@
+<component name="InspectionProjectProfileManager">
+  <profile version="1.0" is_locked="false">
+    <option name="myName" value="Project Default" />
+    <option name="myLocal" value="false" />
+    <inspection_tool class="InconsistentLineSeparators" enabled="true" level="WARNING" enabled_by_default="true" />
+    <inspection_tool class="ProblematicWhitespace" enabled="true" level="WARNING" enabled_by_default="true" />
+    <inspection_tool class="PyComparisonWithNoneInspection" enabled="false" level="WEAK WARNING" enabled_by_default="false" />
+    <inspection_tool class="PyCompatibilityInspection" enabled="false" level="WARNING" enabled_by_default="false">
+      <option name="ourVersions">
+        <value>
+          <list size="2">
+            <item index="0" class="java.lang.String" itemvalue="2.7" />
+            <item index="1" class="java.lang.String" itemvalue="3.4" />
+          </list>
+        </value>
+      </option>
+    </inspection_tool>
+    <inspection_tool class="PyDefaultArgumentInspection" enabled="false" level="WARNING" enabled_by_default="false" />
+    <inspection_tool class="PyMandatoryEncodingInspection" enabled="true" level="WARNING" enabled_by_default="true">
+      <option name="myEncodingFormatIndex" value="1" />
+    </inspection_tool>
+    <inspection_tool class="PyMethodParametersInspection" enabled="false" level="WEAK WARNING" enabled_by_default="false" />
+    <inspection_tool class="PyMissingConstructorInspection" enabled="false" level="WARNING" enabled_by_default="false" />
+    <inspection_tool class="PyPep8NamingInspection" enabled="false" level="WEAK WARNING" enabled_by_default="false" />
+    <inspection_tool class="PyPropertyAccessInspection" enabled="false" level="WARNING" enabled_by_default="false" />
+    <inspection_tool class="PyPropertyDefinitionInspection" enabled="false" level="WARNING" enabled_by_default="false" />
+    <inspection_tool class="PyProtectedMemberInspection" enabled="false" level="WEAK WARNING" enabled_by_default="false" />
+    <inspection_tool class="PyShadowingBuiltinsInspection" enabled="true" level="WEAK WARNING" enabled_by_default="true">
+      <option name="ignoredNames">
+        <list>
+          <option value="map" />
+          <option value="apply" />
+          <option value="range" />
+          <option value="reload" />
+          <option value="print_function" />
+        </list>
+      </option>
+    </inspection_tool>
+    <inspection_tool class="PyStatementEffectInspection" enabled="false" level="WARNING" enabled_by_default="false" />
+    <inspection_tool class="PyUnresolvedReferencesInspection" enabled="true" level="WARNING" enabled_by_default="true">
+      <option name="ignoredIdentifiers">
+        <list>
+          <option value="scripts.test.*" />
+          <option value="UGE_POINTS" />
+          <option value="UGE_LINES" />
+          <option value="UGE_LINESTRIP" />
+          <option value="UGE_TRIANGLES" />
+          <option value="UGE_TRIANGLESTRIP" />
+          <option value="UGE_TRIANGLEFAN" />
+          <option value="UGE_QUADS" />
+          <option value="UGE_QUADSTRIP" />
+          <option value="UGE_POLYGON" />
+          <option value="u8" />
+          <option value="s8" />
+          <option value="f8" />
+          <option value="h8" />
+          <option value="bu8" />
+          <option value="bs8" />
+          <option value="bf8" />
+          <option value="bh8" />
+          <option value="u16" />
+          <option value="s16" />
+          <option value="f16" />
+          <option value="h16" />
+          <option value="bu16" />
+          <option value="bs16" />
+          <option value="bf16" />
+          <option value="bh16" />
+          <option value="u24" />
+          <option value="s24" />
+          <option value="f24" />
+          <option value="h24" />
+          <option value="bu24" />
+          <option value="bs24" />
+          <option value="bf24" />
+          <option value="bh24" />
+          <option value="u32" />
+          <option value="s32" />
+          <option value="f32" />
+          <option value="h32" />
+          <option value="bu32" />
+          <option value="bs32" />
+          <option value="bf32" />
+          <option value="bh32" />
+          <option value="u64" />
+          <option value="s64" />
+          <option value="f64" />
+          <option value="h64" />
+          <option value="bu64" />
+          <option value="bs64" />
+          <option value="bf64" />
+          <option value="bh64" />
+          <option value="array" />
+          <option value="struct" />
+          <option value="label" />
+          <option value="switch" />
+          <option value="case" />
+          <option value="jump" />
+          <option value="skip" />
+          <option value="pad" />
+          <option value="ugeSetScene" />
+          <option value="ugeSetObject" />
+          <option value="ugeSetMesh" />
+          <option value="ugeSetPrimitive" />
+          <option value="ugeSetFacepoint" />
+          <option value="ugeSetWeight" />
+          <option value="ugeSetVert" />
+          <option value="ugeSetUTVert" />
+          <option value="ugeSetNormal" />
+          <option value="ugeSetUTNormal" />
+          <option value="ugeSetColor" />
+          <option value="ugeSetUV" />
+          <option value="ugeSetObjectParent" />
+          <option value="ugeScriptType" />
+          <option value="ugeScriptFormats" />
+          <option value="ugeScriptLibs" />
+          <option value="UGE_MODEL_SCRIPT" />
+          <option value="UGE_IMAGE_SCRIPT" />
+          <option value="UGE_PALETTE_SCRIPT" />
+          <option value="UGE_ANIMATION_SCRIPT" />
+          <option value="UGE_COMPRESSION_SCRIPT" />
+          <option value="UGE_ARCHIVE_SCRIPT" />
+          <option value="ugeSetImage" />
+          <option value="ugeSetImageWidth" />
+          <option value="ugeSetImageHeight" />
+          <option value="ugeSetImageData" />
+          <option value="ugeSetImagePalette" />
+          <option value="UGE_TEX_REPEAT" />
+          <option value="UGE_TEX_CLAMP_EDGE" />
+          <option value="UGE_TEX_MIRRORED_REPEAT" />
+          <option value="UGE_TEX_2D" />
+          <option value="UGE_TEX_WRAP_S" />
+          <option value="UGE_TEX_WRAP_T" />
+          <option value="ugeSetTexture" />
+          <option value="ugeSetTexParam" />
+          <option value="ugeSetMaterial" />
+          <option value="ugeSetMatAmbient" />
+          <option value="ugeSetMatDiffuse" />
+          <option value="ugeSetMatSpecular" />
+          <option value="ugeSetMatShine" />
+          <option value="ugeSetBone" />
+          <option value="ugeSetBoneParent" />
+          <option value="ugeSetBoneLoc" />
+          <option value="ugeSetBoneRot" />
+          <option value="ugeSetBoneSca" />
+          <option value="ugeSetBonePrev" />
+          <option value="string" />
+          <option value="ugeSetVertArr" />
+          <option value="ugeSetNormalArr" />
+          <option value="ugeSetColorArr" />
+          <option value="ugeSetUVArr" />
+          <option value="ugeSetVertIndex" />
+          <option value="ugeSetNormalIndex" />
+          <option value="ugeSetColorIndex" />
+          <option value="ugeSetUVIndex" />
+          <option value="field" />
+          <option value="ugeMtxCompose" />
+          <option value="ugeMtxDecompose" />
+          <option value="ugeMtxTranspose" />
+          <option value="ugeMtxMultiply" />
+          <option value="ugeGetFileOffset" />
+          <option value="" />
+          <option value="" />
+          <option value="" />
+          <option value="" />
+          <option value="scripts.HAL_Labs_HSD.structs" />
+          <option value="scripts.HAL_Labs_HSD.readimg" />
+          <option value="scripts.HAL_Labs_HSD.readpal" />
+          <option value="u" />
+          <option value="s" />
+          <option value="f" />
+          <option value="h" />
+          <option value="bu" />
+          <option value="bs" />
+          <option value="bf" />
+          <option value="bh" />
+          <option value="scripts.MMD_PMX.boneIdx" />
+          <option value="scripts.MMD_PMX.texIdx" />
+          <option value="scripts.MMD_PMX.vertIdx" />
+          <option value="QtCore" />
+          <option value="QtGui" />
+          <option value="Qt" />
+          <option value="CONST.*" />
+          <option value="plugins.GUI.VIEWER" />
+          <option value="plugins.GUI.CONST" />
+          <option value="imp" />
+          <option value="math" />
+          <option value="function" />
+          <option value="method" />
+          <option value="builtin_function_or_method" />
+          <option value="mappingproxy" />
+          <option value="generator" />
+          <option value="code" />
+          <option value="module" />
+          <option value="traceback" />
+          <option value="frame" />
+          <option value="numtype" />
+        </list>
+      </option>
+    </inspection_tool>
+  </profile>
+</component>
