@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{b6b7067d-0471-4218-bc5f-d14c88df7ca8}</ProjectGuid>
+    <ProjectHome>..</ProjectHome>
+    <StartupFile>SIDE_loader.py</StartupFile>
+    <SearchPath>..\</SearchPath>
+    <WorkingDirectory>.</WorkingDirectory>
+    <OutputPath>..</OutputPath>
+    <Name>SIDE</Name>
+    <RootNamespace>PythonApplication1</RootNamespace>
+    <IsWindowsApplication>False</IsWindowsApplication>
+    <InterpreterId>{e127bde4-aa75-4cff-a425-51eea945a54f}</InterpreterId>
+    <InterpreterVersion>2.7</InterpreterVersion>
+    <LaunchProvider>Standard Python launcher</LaunchProvider>
+    <CommandLineArguments>x86</CommandLineArguments>
+    <InterpreterPath>../UMC_v3.0a/app/win/x86/pythonw.exe</InterpreterPath>
+    <InterpreterArguments>-E -S</InterpreterArguments>
+    <EnableNativeCodeDebugging>True</EnableNativeCodeDebugging>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <DebugSymbols>true</DebugSymbols>
+    <EnableUnmanagedDebugging>true</EnableUnmanagedDebugging>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <DebugSymbols>true</DebugSymbols>
+    <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="SIDE\analysis.py" />
+    <Compile Include="SIDE\CodeEditor.py" />
+    <Compile Include="SIDE\common.py" />
+    <Compile Include="SIDE\HexViewer.py" />
+    <Compile Include="SIDE\Selectors.py" />
+    <Compile Include="SIDE\TextViewer.py" />
+    <Compile Include="SIDE\TreeViewer.py" />
+    <Compile Include="SIDE\Wrappers.py" />
+    <Compile Include="SIDE\__init__.py" />
+    <Compile Include="SIDE_loader.py" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="SIDE\" />
+  </ItemGroup>
+  <ItemGroup>
+    <InterpreterReference Include="{e127bde4-aa75-4cff-a425-51eea945a54f}\2.7" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.Common.targets" />
+</Project>
