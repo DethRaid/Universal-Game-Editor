@@ -614,7 +614,7 @@
     <property name="full.screen.before.presentation.mode" value="false" />
     <property name="TODO_SCOPE" value="Project Files" />
     <property name="last.edited.regexp" value="" />
-    <property name="settings.editor.selected.configurable" value="preferences.sourceCode.Python" />
+    <property name="settings.editor.selected.configurable" value="preferences.customizations" />
     <property name="project.structure.last.edited" value="Global Libraries" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
@@ -826,16 +826,15 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1460853783445</updated>
-      <workItem from="1516733564529" duration="368000" />
+      <workItem from="1516733564529" duration="1483000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="368000" />
+    <option name="totallyTimeSpent" value="1483000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="25" width="3200" height="1150" extended-state="0" />
-    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32777232" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
