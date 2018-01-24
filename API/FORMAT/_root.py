@@ -12,6 +12,7 @@ def private():
     class Root(UGEObject):
         """UGE Root"""
         __public__ = {'Worlds':{'p','w'}, 'Scenes':{'p','w'}, 'Materials':{'p','w'}, 'Shaders':{'p','w'}, 'Textures':{'p','w'}, 'Images':{'p','w'}, 'Objects':{'p','w'}}
+        ['Worlds', 'Scenes', 'Materials', 'Shaders', 'Textures', 'Images', 'Objects']
         # noinspection PyUnusedLocal
         def __new__(cls,*other: tuple):
             Rt = newUGEObject(cls,*other)
