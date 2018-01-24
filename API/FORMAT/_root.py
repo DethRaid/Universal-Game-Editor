@@ -1,35 +1,35 @@
 # -*- coding: utf-8 -*-
 """UGE Root class and associate functions"""
 
-from . import World, Scene, Object, Material, Shader, Texture, Image
 from . import Roots
 from . import ugeSetWorld, ugeSetScene, ugeSetObject
 from .. import CONST, UGE_GLOBAL_WRAPPER, register
-from ..OBJECT import UGEObject, UGECollection, CollectionProp
 
-class Root(UGEObject):
-    """UGE Root"""
-    __public__ = {'Worlds':{'p','w'}, 'Scenes':{'p','w'}, 'Materials':{'p','w'}, 'Shaders':{'p','w'}, 'Textures':{'p','w'}, 'Images':{'p','w'}, 'Objects':{'p','w'}}
-    # noinspection PyUnusedLocal
-    def __init__(Rt,*other: tuple):
-        Rt.Scenes =             UGECollection( Rt, Scene,    __builtin__ = "CurrentScene")
-        Rt.Worlds = Worlds =    UGECollection( Rt, World,    __builtin__ = "CurrentWorld")
-        Rt.Materials =          UGECollection( Rt, Material, __builtin__ = "CurrentMaterial")
-        Rt.Shaders =            UGECollection( Rt, Shader,   __builtin__ = "CurrentShader")
-        Rt.Textures =           UGECollection( Rt, Texture,  __builtin__ = "CurrentTexture")
-        Rt.Images =             UGECollection( Rt, Image,    __builtin__ = "CurrentImage")
-        Rt.Objects =            UGECollection( Rt, Object,   __builtin__ = "CurrentObject")
-        # noinspection PyStatementEffect
-        Worlds['UGE_Default_World'].Scenes["UGE_Default_Scene"]
-
-CollectionProp( Root, 'Scenes' )
-CollectionProp( Root, 'Worlds' )
-CollectionProp( Root, 'Materials' )
-CollectionProp( Root, 'Shaders' )
-CollectionProp( Root, 'Textures' )
-CollectionProp( Root, 'Images' )
-CollectionProp( Root, 'Objects' )
-        
+def private():
+    """private namespace"""
+    from . import World, Scene, Object, Material, Shader, Texture, Image
+    from ..OBJECT import UGEObject, newUGEObject, UGECollection, CollectionProp
+    
+    class Root(UGEObject):
+        """UGE Root"""
+        __public__ = {'Worlds':{'p','w'}, 'Scenes':{'p','w'}, 'Materials':{'p','w'}, 'Shaders':{'p','w'}, 'Textures':{'p','w'}, 'Images':{'p','w'}, 'Objects':{'p','w'}}
+        # noinspection PyUnusedLocal
+        def __new__(cls,*other: tuple):
+            Rt = newUGEObject(cls,*other)
+            # noinspection PyStatementEffect
+            Rt.Worlds['UGE_Default_World'].Scenes["UGE_Default_Scene"]
+            return Rt
+    
+    CollectionProp( Root, 'Scenes',     Scene,    __builtin__ = "CurrentScene" )
+    CollectionProp( Root, 'Worlds',     World,    __builtin__ = "CurrentWorld" )
+    CollectionProp( Root, 'Materials',  Material, __builtin__ = "CurrentMaterial" )
+    CollectionProp( Root, 'Shaders',    Shader,   __builtin__ = "CurrentShader" )
+    CollectionProp( Root, 'Textures',   Texture,  __builtin__ = "CurrentTexture" )
+    CollectionProp( Root, 'Images',     Image,    __builtin__ = "CurrentImage" )
+    CollectionProp( Root, 'Objects',    Object,   __builtin__ = "CurrentObject" )
+    
+    return Root, UGECollection( None, Root, __builtin__ = "CurrentRoot" )
+    
 validRootTypes = {str,Root,Root.__proxy__}
 
 # for SES/UI usage:

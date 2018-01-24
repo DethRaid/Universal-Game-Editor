@@ -4,7 +4,9 @@
     <option name="SCOPE_TYPE" value="3" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="983838c6-d952-43fb-b239-90a06b889443" name="Default" comment="" />
+    <list default="true" id="983838c6-d952-43fb-b239-90a06b889443" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/../../API/FORMAT/_root.py" afterPath="$PROJECT_DIR$/../../API/FORMAT/_root.py" />
+    </list>
     <ignored path="UGE.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -29,10 +31,10 @@
               <file leaf-file-name="_root.py" pinned="false" current-in-tab="true">
                 <entry file="file://$PROJECT_DIR$/../../API/FORMAT/_root.py">
                   <provider selected="true" editor-type-id="text-editor">
-                    <state relative-caret-position="405">
-                      <caret line="27" column="6" lean-forward="false" selection-start-line="27" selection-start-column="6" selection-end-line="27" selection-end-column="6" />
+                    <state relative-caret-position="330">
+                      <caret line="22" column="80" lean-forward="true" selection-start-line="22" selection-start-column="80" selection-end-line="22" selection-end-column="80" />
                       <folding>
-                        <element signature="e#70#138#0" expanded="true" />
+                        <element signature="e#70#89#0" expanded="true" />
                       </folding>
                     </state>
                   </provider>
@@ -288,7 +290,7 @@
                     <entry file="file://$PROJECT_DIR$/../../API/FORMAT/_vector.py">
                       <provider selected="true" editor-type-id="text-editor">
                         <state relative-caret-position="508">
-                          <caret line="49" column="16" lean-forward="true" selection-start-line="49" selection-start-column="16" selection-end-line="49" selection-end-column="16" />
+                          <caret line="49" column="16" lean-forward="false" selection-start-line="49" selection-start-column="16" selection-end-line="49" selection-end-column="16" />
                           <folding />
                         </state>
                       </provider>
@@ -543,7 +545,6 @@
         <option value="$PROJECT_DIR$/../../API/FORMAT/_material.py" />
         <option value="$PROJECT_DIR$/../../API/FORMAT/_world.py" />
         <option value="$PROJECT_DIR$/../../API/FORMAT/_scene.py" />
-        <option value="$PROJECT_DIR$/../../API/FORMAT/_root.py" />
         <option value="$PROJECT_DIR$/../../API/FORMAT/_object.py" />
         <option value="$PROJECT_DIR$/../../API/FORMAT/_rig.py" />
         <option value="$PROJECT_DIR$/../../API/types.py" />
@@ -552,6 +553,7 @@
         <option value="$PROJECT_DIR$/../../API/FORMAT/_vector.py" />
         <option value="$PROJECT_DIR$/../../test_FORMAT.py" />
         <option value="$PROJECT_DIR$/../../API/FORMAT/_mesh.py" />
+        <option value="$PROJECT_DIR$/../../API/FORMAT/_root.py" />
       </list>
     </option>
   </component>
@@ -867,12 +869,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1460853783445</updated>
-      <workItem from="1516733564529" duration="9335000" />
+      <workItem from="1516733564529" duration="10509000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="9335000" />
+    <option name="totallyTimeSpent" value="10509000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="25" width="3200" height="1150" extended-state="0" />
@@ -1264,21 +1266,21 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../../API/FORMAT/_root.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="405">
-          <caret line="27" column="6" lean-forward="false" selection-start-line="27" selection-start-column="6" selection-end-line="27" selection-end-column="6" />
-          <folding>
-            <element signature="e#70#138#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/../../API/FORMAT/_vector.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="508">
-          <caret line="49" column="16" lean-forward="true" selection-start-line="49" selection-start-column="16" selection-end-line="49" selection-end-column="16" />
+          <caret line="49" column="16" lean-forward="false" selection-start-line="49" selection-start-column="16" selection-end-line="49" selection-end-column="16" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../API/FORMAT/_root.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="22" column="80" lean-forward="true" selection-start-line="22" selection-start-column="80" selection-end-line="22" selection-end-column="80" />
+          <folding>
+            <element signature="e#70#89#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
