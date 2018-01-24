@@ -20,7 +20,7 @@
       <excludeFolder url="file://$MODULE_DIR$/../../scripts/used srcs" />
       <excludeFolder url="file://$MODULE_DIR$/../../tmp" />
     </content>
-    <orderEntry type="jdk" jdkName="Python 3.4.3 | Anaconda 2.3.0 (32-bit)" jdkType="Python SDK" />
+    <orderEntry type="jdk" jdkName="Python 3.4" jdkType="Python SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
   </component>
   <component name="PackageRequirementsSettings">
