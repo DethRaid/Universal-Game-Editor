@@ -1,7 +1,6 @@
 # -*- coding: utf-8 -*-
 """UGE Root class and associate functions"""
 
-from . import Roots
 from . import ugeSetWorld, ugeSetScene, ugeSetObject
 from .. import CONST, UGE_GLOBAL_WRAPPER, register
 
@@ -29,7 +28,9 @@ def private():
     CollectionProp( Root, 'Objects',    Object,   __builtin__ = "CurrentObject" )
     
     return Root, UGECollection( None, Root, __builtin__ = "CurrentRoot" )
-    
+
+Root, Roots = private()
+del private
 validRootTypes = {str,Root,Root.__proxy__}
 
 # for SES/UI usage:
