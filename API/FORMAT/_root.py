@@ -11,10 +11,8 @@ def private():
     
     class Root(UGEObject):
         """UGE Root"""
-        __public__ = {'Worlds':{'p','w'}, 'Scenes':{'p','w'}, 'Materials':{'p','w'}, 'Shaders':{'p','w'}, 'Textures':{'p','w'}, 'Images':{'p','w'}, 'Objects':{'p','w'}}
-        ['Worlds', 'Scenes', 'Materials', 'Shaders', 'Textures', 'Images', 'Objects']
-        # noinspection PyUnusedLocal
-        def __new__(cls,*other: tuple):
+        __slots__ = ['Worlds', 'Scenes', 'Materials', 'Shaders', 'Textures', 'Images', 'Objects']
+        def __new__(cls,*other: tuple, **kw):
             Rt = newUGEObject(cls,*other)
             # noinspection PyStatementEffect
             Rt.Worlds['UGE_Default_World'].Scenes["UGE_Default_Scene"]
@@ -28,6 +26,7 @@ def private():
     CollectionProp( Root, 'Images',     Image,    __builtin__ = "CurrentImage" )
     CollectionProp( Root, 'Objects',    Object,   __builtin__ = "CurrentObject" )
     
+    # TODO: (later) move this to Workspace constructor
     return Root, UGECollection( None, Root, __builtin__ = "CurrentRoot" )
 
 Root, Roots = private()
