@@ -397,6 +397,7 @@ def private():
 private()
 del private
 
+from ..OBJECT import properties
 def CollectionProp( cls: object, attr: str ) -> function:
     """reassigns a collection verification property to an existing member_descriptor attribute"""
     dsc = cls.__dict__[attr]
