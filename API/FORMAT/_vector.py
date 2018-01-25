@@ -382,13 +382,12 @@ class vector(object):
             (w if w!=None else 1) - ow if ow!=None else None
         )'''
 
-def VectorProp( cls: object, attr: str ) -> None:
+
+def VectorProp( cls: object, attr: str ):
     """reassigns a vector verification property to an existing member_descriptor attribute"""
+    initializers = properties[cls] = properties.get(cls,set())
     dsc = cls.__dict__[attr]
     dscget = dsc.__get__; dscset = dsc.__set__
-    def setter(obj, val) -> None:
-        """verify and set a vector"""
-        if hasattr(obj,attr): vec = dscget(obj,cls)
-        else: vec = vector( obj, 0 ); dscset( obj, vec )
-        vec['XYZW'] = val
+    def setter(obj, val): dscget(obj,cls)[:] = val
     property( dscget, setter )
+    initializers.add( lambda obj: dscset(obj,vector(obj,0)) )
