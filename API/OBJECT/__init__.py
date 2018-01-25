@@ -12,7 +12,7 @@ class extension(object):
         else: this.ext = extensions[applyto] = {}
     def __call__(this, func: function): this.ext[func.__name__] = func
 
-def private() -> None:
+def private():
     """link Hierarchical properties with descriptors"""
 
     newType = type.__new__
