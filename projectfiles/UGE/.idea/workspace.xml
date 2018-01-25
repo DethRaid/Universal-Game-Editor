@@ -100,16 +100,6 @@
                   </provider>
                 </entry>
               </file>
-              <file leaf-file-name="_texture.py" pinned="false" current-in-tab="false">
-                <entry file="file://$PROJECT_DIR$/../../API/FORMAT/_texture.py">
-                  <provider selected="true" editor-type-id="text-editor">
-                    <state relative-caret-position="270">
-                      <caret line="19" column="24" lean-forward="false" selection-start-line="19" selection-start-column="24" selection-end-line="19" selection-end-column="24" />
-                      <folding />
-                    </state>
-                  </provider>
-                </entry>
-              </file>
               <file leaf-file-name="_image.py" pinned="false" current-in-tab="false">
                 <entry file="file://$PROJECT_DIR$/../../API/FORMAT/_image.py">
                   <provider selected="true" editor-type-id="text-editor">
@@ -274,6 +264,16 @@
                       </provider>
                     </entry>
                   </file>
+                  <file leaf-file-name="__init__.py" pinned="false" current-in-tab="true">
+                    <entry file="file://$PROJECT_DIR$/../../API/OBJECT/__init__.py">
+                      <provider selected="true" editor-type-id="text-editor">
+                        <state relative-caret-position="447">
+                          <caret line="49" column="70" lean-forward="true" selection-start-line="49" selection-start-column="70" selection-end-line="49" selection-end-column="70" />
+                          <folding />
+                        </state>
+                      </provider>
+                    </entry>
+                  </file>
                   <file leaf-file-name="__init__.py" pinned="false" current-in-tab="false">
                     <entry file="file://$PROJECT_DIR$/../../API/FORMAT/__init__.py">
                       <provider selected="true" editor-type-id="text-editor">
@@ -284,7 +284,7 @@
                       </provider>
                     </entry>
                   </file>
-                  <file leaf-file-name="_vector.py" pinned="false" current-in-tab="true">
+                  <file leaf-file-name="_vector.py" pinned="false" current-in-tab="false">
                     <entry file="file://$PROJECT_DIR$/../../API/FORMAT/_vector.py">
                       <provider selected="true" editor-type-id="text-editor">
                         <state relative-caret-position="688">
@@ -867,16 +867,15 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1460853783445</updated>
-      <workItem from="1516733564529" duration="15526000" />
+      <workItem from="1516733564529" duration="16176000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="15526000" />
+    <option name="totallyTimeSpent" value="16176000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="25" width="3200" height="1150" extended-state="0" />
-    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32777232" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -971,14 +970,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/../../SIDE/__init__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="5190">
-          <caret line="346" column="4" lean-forward="false" selection-start-line="346" selection-start-column="4" selection-end-line="346" selection-end-column="4" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/../../SIDE/CodeEditor.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1260">
@@ -1279,6 +1270,14 @@
           <folding>
             <element signature="e#70#122#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../API/OBJECT/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="447">
+          <caret line="49" column="70" lean-forward="true" selection-start-line="49" selection-start-column="70" selection-end-line="49" selection-end-column="70" />
+          <folding />
         </state>
       </provider>
     </entry>
