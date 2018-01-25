@@ -1,16 +1,6 @@
 # -*- coding: utf-8 -*-
 """Heart of all UGEObject types"""
 
-"""
-class link(object): # DEPRECATED: use property(), seriously it's actually faster
-    __slots__ = ['__set__','__GET__']
-    __get__ = lambda dsc, prx, prxcls=None: dsc.__GET__(prx, prxcls) # Tcll - any other method throws an error
-    def __init__(dsc, Attr, setter=True, getproxy=True, default=None):
-        if setter: dsc.__set__ = lambda prx, value: GetRawObject(prx).__setattr__(Attr,value)
-        if getproxy: dsc.__GET__ = lambda prx, prxcls=None: dsc if prx is None else getattr(GetRawObject(prx).__getattribute__(Attr),'proxy',default)
-        else: dsc.__GET__ = lambda prx, objcls=None: dsc if prx is None else GetRawObject(prx).__getattribute__(Attr)
-"""
-
 class Hierarchical(object):
     """Hierarchical attributes"""
     __public__={'Parent':set(),'Child':set(),'Prev':set(),'Next':set()}
