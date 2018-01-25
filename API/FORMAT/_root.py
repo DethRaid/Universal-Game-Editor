@@ -4,6 +4,7 @@
 from . import ugeSetWorld, ugeSetScene, ugeSetObject
 from .. import CONST, UGE_GLOBAL_WRAPPER, register
 
+# noinspection PyShadowingNames
 def private():
     """private namespace"""
     from . import World, Scene, Object, Material, Shader, Texture, Image
