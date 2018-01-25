@@ -398,11 +398,17 @@ private()
 del private
 
 from ..OBJECT import properties
-def CollectionProp( cls: object, attr: str ) -> function:
+def CollectionProp( cls: object, attr: str, base: object, **kw ):
     """reassigns a collection verification property to an existing member_descriptor attribute"""
     name = cls.__name__; initializers = properties[name] = properties.get(name,set())
     dsc = cls.__dict__[attr]
     dscget = dsc.__get__; dscset = dsc.__set__
     def setter(obj, val) -> None: """verify and set a collection"""; dscget(obj,cls)[:] = val
     setattr(cls,attr,property( dscget, setter ))
-    return dsc.__set__
+    strbase = base.__class__ is str
+    def init(obj: UGECollection):
+        """Initializer"""
+        # NOTE: obj.__owner__ is for UGEObject sub-type objects that link to the owning UGEObject (otherwize the owner is itself).
+        own = getattr(obj,'__owner__',obj)
+        dscset(obj, UGECollection( own, getattr(own.__parents__[base],attr) if strbase else base, **kw ))
+    initializers.add(init)
