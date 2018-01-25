@@ -385,74 +385,17 @@ class UGECollection(object, metaclass=UGEObjectConstructor ):
             else:
                 raise TypeError('%s is not a supported item type.'%itemType.__name__)
         return current
-        
-    def __delitem__(cl,item):
-        """delete or unlink an object from the associated collections (if existent),
-        or delete a channel from this collection.
-        
-        Usage:
-        - <collection>[None]: delete current item
-        - <collection>[int(Index) or "Name"]: delete the specified item
-        - <collection>[channel,]: delete the specified channel"""
-        if item is tuple:
-            if len(item)==1: del cl.__channels__[item[0]]; return
-            print("WARNING: specified a channel to delete from when the operation is global.")
-            item = item[0]
-        if hasattr(item,'__value__'): item=item.__value__
-        if item is None: item = cl.current
-        
-        itemHash = hash(item)
-        indices = cl.__indices__
-        index=indices.pop(itemHash,None)
-        if index is None: print('WARNING: failed to delete nonexistent item %s'%item); return
-        cl.__objects__.pop(index)
-        for obj in cl.__objects__[index:]: indices[hash(obj)]-=1
-        for cl in cl.__inheritors__[cl.__root__]:
-            for items in cl.channels.values():
-                if itemHash in items: items.remove(itemHash)
-        
-    def remove(cl,item,channel=None):
-        """unassociates an object from the collection.
-        
-        Usage:
-        - <collection>.remove(None): removes the current item from all channels
-        - <collection>.remove(int(Index) or "Name"): removes the specified item from all channels
-        - <collection>.remove(*above*, 0 if channels): removes the item from channel 0 (if available)
-        - <collection>.remove(*above*, "Name" if named): removes the item from channel "Name" (if available)"""
-        if cl is cl.__root__: print('WARNING: cannot remove an object association from a root collection.'); return
-        if hasattr(item,'__value__'): item=item.__value__
-        if item is None: item = cl.current
-        
-        itemHash = hash(item)
-        if channel is None:
-            for ch,items in cl.__channels__.items():
-                if itemHash in items: items.remove(itemHash)
-        else:
-            if not cl.useChannels: print('WARNING: using channels on a non-channeled collection.')
-            
-            channelType = channel.__class__
-            if not cl.namedChannels and channelType is str:
-                raise TypeError('named channels are not supported in this collection.')
-            elif not (channelType is int or channelType is str):
-                raise TypeError('%s is not a valid channel type.'%channelType.__name__)
-            
-            itemType = item.__class__
-            if itemType in {int,str} or cl.__base__.__name__ in itemType.__name__:
-                cl.__channels__[channel].pop(itemHash)
-                # TODO: index
-            else:
-                raise TypeError('%s is not a supported item type.'%itemType.__name__)
 
 # noinspection PyUnresolvedReferences
-def reassign() -> None:
+def private():
     setglobal = __builtins__.__dict__.__setitem__
     setcurrent = UGECollection.current.__set__
     def setter(cl,val):
         setcurrent( cl, val )
         if cl.__builtin__: setglobal( cl.__builtin__, getattr(val,'proxy',val) )
     UGECollection.current = property( UGECollection.current.__get__, setter )
-reassign()
-del reassign
+private()
+del private
 
 def CollectionProp( cls: object, attr: str ) -> function:
     """reassigns a collection verification property to an existing member_descriptor attribute"""
