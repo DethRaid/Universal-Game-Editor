@@ -5,7 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="983838c6-d952-43fb-b239-90a06b889443" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/../../API/OBJECT/__init__.py" afterPath="$PROJECT_DIR$/../../API/OBJECT/__init__.py" />
+      <change beforePath="$PROJECT_DIR$/../../API/OBJECT/_channels.py" afterPath="$PROJECT_DIR$/../../API/OBJECT/_channels.py" />
     </list>
     <ignored path="UGE.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -286,7 +286,7 @@
                       </provider>
                     </entry>
                   </file>
-                  <file leaf-file-name="__init__.py" pinned="false" current-in-tab="true">
+                  <file leaf-file-name="__init__.py" pinned="false" current-in-tab="false">
                     <entry file="file://$PROJECT_DIR$/../../API/OBJECT/__init__.py">
                       <provider selected="true" editor-type-id="text-editor">
                         <state relative-caret-position="180">
@@ -294,6 +294,16 @@
                           <folding>
                             <element signature="e#3637#4162#0" expanded="false" />
                           </folding>
+                        </state>
+                      </provider>
+                    </entry>
+                  </file>
+                  <file leaf-file-name="_channels.py" pinned="false" current-in-tab="true">
+                    <entry file="file://$PROJECT_DIR$/../../API/OBJECT/_channels.py">
+                      <provider selected="true" editor-type-id="text-editor">
+                        <state relative-caret-position="30">
+                          <caret line="2" column="14" lean-forward="false" selection-start-line="2" selection-start-column="14" selection-end-line="2" selection-end-column="14" />
+                          <folding />
                         </state>
                       </provider>
                     </entry>
@@ -576,6 +586,7 @@
         <option value="$PROJECT_DIR$/../../API/FORMAT/_mesh.py" />
         <option value="$PROJECT_DIR$/../../API/FORMAT/_root.py" />
         <option value="$PROJECT_DIR$/../../API/OBJECT/__init__.py" />
+        <option value="$PROJECT_DIR$/../../API/OBJECT/_channels.py" />
       </list>
     </option>
   </component>
@@ -892,12 +903,12 @@
       <option name="presentableId" value="Default" />
       <updated>1460853783445</updated>
       <workItem from="1516733564529" duration="16176000" />
-      <workItem from="1516881662821" duration="1281000" />
+      <workItem from="1516881662821" duration="2282000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="17457000" />
+    <option name="totallyTimeSpent" value="18458000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="25" width="3200" height="1150" extended-state="0" />
@@ -1314,6 +1325,14 @@
           <folding>
             <element signature="e#3637#4162#0" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../API/OBJECT/_channels.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="14" lean-forward="false" selection-start-line="2" selection-start-column="14" selection-end-line="2" selection-end-column="14" />
+          <folding />
         </state>
       </provider>
     </entry>
