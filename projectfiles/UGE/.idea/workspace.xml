@@ -4,9 +4,7 @@
     <option name="SCOPE_TYPE" value="3" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="983838c6-d952-43fb-b239-90a06b889443" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/../../API/OBJECT/_channels.py" afterPath="$PROJECT_DIR$/../../API/OBJECT/_channels.py" />
-    </list>
+    <list default="true" id="983838c6-d952-43fb-b239-90a06b889443" name="Default" comment="" />
     <ignored path="UGE.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -82,11 +80,11 @@
                   </provider>
                 </entry>
               </file>
-              <file leaf-file-name="_mesh.py" pinned="false" current-in-tab="false">
+              <file leaf-file-name="_mesh.py" pinned="false" current-in-tab="true">
                 <entry file="file://$PROJECT_DIR$/../../API/FORMAT/_mesh.py">
                   <provider selected="true" editor-type-id="text-editor">
-                    <state relative-caret-position="920">
-                      <caret line="145" column="21" lean-forward="false" selection-start-line="145" selection-start-column="21" selection-end-line="145" selection-end-column="21" />
+                    <state relative-caret-position="650">
+                      <caret line="115" column="64" lean-forward="true" selection-start-line="115" selection-start-column="64" selection-end-line="115" selection-end-column="64" />
                       <folding />
                     </state>
                   </provider>
@@ -102,7 +100,7 @@
                   </provider>
                 </entry>
               </file>
-              <file leaf-file-name="_shader.py" pinned="false" current-in-tab="true">
+              <file leaf-file-name="_shader.py" pinned="false" current-in-tab="false">
                 <entry file="file://$PROJECT_DIR$/../../API/FORMAT/_shader.py">
                   <provider selected="true" editor-type-id="text-editor">
                     <state relative-caret-position="0">
@@ -903,12 +901,12 @@
       <option name="presentableId" value="Default" />
       <updated>1460853783445</updated>
       <workItem from="1516733564529" duration="16176000" />
-      <workItem from="1516881662821" duration="2282000" />
+      <workItem from="1516881662821" duration="2378000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="18458000" />
+    <option name="totallyTimeSpent" value="18554000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="25" width="3200" height="1150" extended-state="0" />
@@ -1286,14 +1284,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../../API/FORMAT/_mesh.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="920">
-          <caret line="145" column="21" lean-forward="false" selection-start-line="145" selection-start-column="21" selection-end-line="145" selection-end-column="21" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/../../API/FORMAT/_texture.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="270">
@@ -1332,6 +1322,14 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="30">
           <caret line="2" column="14" lean-forward="false" selection-start-line="2" selection-start-column="14" selection-end-line="2" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../API/FORMAT/_mesh.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="650">
+          <caret line="115" column="64" lean-forward="true" selection-start-line="115" selection-start-column="64" selection-end-line="115" selection-end-column="64" />
           <folding />
         </state>
       </provider>
