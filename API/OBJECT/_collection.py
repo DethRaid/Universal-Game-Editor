@@ -200,6 +200,38 @@ class UGECollection(object, metaclass=UGEObjectConstructor ):
         cls.new.__set__(cl,method(newitem,cl) if hasattr(base,'new') else cl.__call__)
 
         return cl
+
+    def new(cl, item: [str,int,dict]) -> UGEObject:
+        """create a new base item instance (unless existent) in the current or root collection,
+        then link this collection to it (unless linked) and set it as the current item."""
+    
+        item = getattr(item,'__value__',item)
+        itemType = item.__class__
+        strtype = itemType is str
+        inttype = itemType is int
+    
+        base = getbase(cl)
+        basedict = base.__dict__
+        nameable = 'Name' in basedict
+        indexable = 'Index' in basedict
+        if (strtype and nameable) or (inttype and indexable): return cl.__getitem__(item) # TODO: pull processing here (boost performance)
+        else:
+            if inttype:
+                raise KeyError(item)
+            if strtype:
+                raise TypeError('collection indices must be integers, not str')
+            items   = getitems(cl)
+            indices = getindices(cl)
+            objects = getobjects(cl)
+            Index   = len(items)
+            handler = gethandler(cl)
+            current = handler(mappingproxy(getbaseparents(cl)),cl,item,Index) if handler else\
+                base(mappingproxy(getbaseparents(cl)),cl,item,Index)
+            items[current] = Index
+            if indexable: indices[Index] = current
+            objects[current] = current
+        
+            return current
         
     def __repr__(this):
         disabled = getattr(this.__base__,'__disabled__',set()).__contains__
