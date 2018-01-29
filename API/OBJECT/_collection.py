@@ -32,129 +32,17 @@ def private():
     getbuiltin,     setbuiltin      = getset( privateAttrs, '__builtin__',     privatize=False )
     
     new = object.__new__
-    def __setitem__(this,item,value,channel=0):
-        """create a new base instance in the root or this collection (unless existent),
-        then link this instance to it (unless linked) and set it's current.
-        
-        Usage:
-        - <collection>[None] = value: change the current item
-        - <collection>[int() if useIDs else "Name"] = value: create or reference and return on channel 0
-        - <collection>[*above*, 1] = value (if useChannels): operate on channel 1
-        - <collection>[*above*, "Name"] = value (if namedChannels): operate on channel "Name" """
-        
-        if hasattr(item,'__value__'): item=item.__value__
-        if item is None:
-            if this.current is None:
-                raise TypeError('collection has no current item.')
-            item = this.current.Name
-        
-        indices = this.indices
-        itemHash = hash(item)
-        itemType = item.__class__
-        if itemType is tuple:
-            item, channel = item
-            
-            if hasattr(channel,'__value__'): channel=channel.__value__
-            channelType = channel.__class__
-            if not this.useChannels and channel!=0: print('WARNING: using channels on a non-channeled collection.')
-            if not this.namedChannels and channelType is str:
-                raise TypeError('named channels are not supported in this collection.')
-            elif not (channelType is int or channelType is str):
-                raise TypeError('%s is not a valid channel type.'%channelType.__name__)
-            
-            # since item has changed:
-            if hasattr(item,'__value__'): item=item.__value__
-            itemHash = hash(item)
-            itemType = item.__class__
-        
-        # bring the itemHashes out of the channel for fast access
-        channels = this.channels
-        if channel in channels: items = channels[channel]
-        else: items = channels[channel] = set()
-        
-        idx = indices.get(itemHash,None)
-        if idx is None: # item not registered
-            base = this.Base
-            if itemType is (int if this.useIDs else str) or base.__name__ in itemType.__name__:
-                parents = this.parents
-                if parents: # get current from parent
-                    parent = parents[-1]
-                    backup = parent.__parent__
-                    parent.__parent__ = this.__parent__ # pass the containing UGEObject up the hierarchy before initializing the base.
-                    this.current = current = parent(item,channel) # get current from parent
-                    parent.__parent__ = backup
-                    items.add(itemHash)
-                else:
-                    objects = this.objects
-                    indices[itemHash] = len(objects)
-                    this.current = current = base(item)
-                    current.__holder__ = this # reverse-link for hierarchical validation (search this collection)
-                    items.add(itemHash)
-                    objects.append(current)
-            else:
-                raise TypeError('%s is not a supported item type.'%itemType.__name__)
-        else:
-            if itemHash not in items: items.add(itemHash)
-            this.current = current = this.objects[idx]
-        current.__item__ = value
-        
     # noinspection PyUnboundLocalVariable,PyArgumentList
-    class UGECollection(object, metaclass=UGEObjectConstructor ):
+    class UGECollection(object):
         __slots__=[
+            '__repr',
             '__len__',
             '__contains__',
-            '__setitem__',
-            '__iter__',
-            'proxy',
-            #'useChannels',
-            #'namedChannels',
-            '__base__',
-            '__parent__',
+            'current',
+            # heirarchical
             '__root__',
-            '__objects__',
-            '__indices__',
-            '__inheritors__',
             '__parents__',
-            #'__channels__'
-            '__builtin__'
         ]
-        __public__ = {'current':{'p'},'new':{'p'},'__setitem__':set()}
-        __disabled__ = {'Name','Index'}
-    
-        # noinspection PyUnresolvedReferences
-        def __newproxy__(cls,obj):
-            prx=new(cls)
-            
-            orepr = obj.__repr__
-            cls.__repr__.__set__(prx, lambda:'<%s>'%orepr() )
-            
-            ohash = obj.__hash__
-            cls.__hash__.__set__(prx, lambda:ohash() )
-            
-            ogetitem = obj.__getitem__
-            def getitem(prx, item):
-                if item.__class__==tuple:
-                    if len(item)==1: return (I.proxy for I in ogetitem(item))
-                    elif item[1] is None: return ogetitem(item)
-                return ogetitem(item).proxy
-            cls.__getitem__.__set__(prx, getitem )
-            
-            oiter = obj.__iter__
-            cls.__iter__.__set__(prx, lambda:(item.proxy for item in oiter()) )
-            
-            ocall = obj.__call__
-            cls.__call__.__set__(prx, lambda *item: ocall(item) if len(item)>1 and item[1] is None else ocall(item).proxy )
-            '''
-            def items(prx):
-                src=GetRawObject(prx); objects=src.objects; indices=src.indices
-                return ((ch, (objects[indices[h]].proxy for h in items)) for ch,items in src.channels.items())
-            '''
-            PNS = cls.__dict__.__getitem__
-            ocl = obj.__class__
-            cls.__getattribute__.__set__(prx, lambda attr: PNS(attr).__get__(obj,ocl))
-            cls.__setattr__.__set__(prx, lambda attr, val: PNS(attr).__set__(obj,val))
-            return prx
-        
         def __new__(cls, Parent, Base, channels=False, named=False, **kw):
             """
             a (optionally channeled) collection of specific Object types which behaves similar
