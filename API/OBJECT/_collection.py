@@ -8,6 +8,21 @@ def private():
     from ..utilities import getset
     from ..OBJECT import basehandlers
     
+    privateRegistry = {}
+    getprivate = privateRegistry.__getitem__ # WARNING: do not use in __repr__ of target class
+    setprivate = privateRegistry.__setitem__
+    class privateAttrs(object):
+        """UGECollection private attributes"""
+        __slots__ = [
+            '__base__',
+            '__basehandler__',
+            '__baseparents__',
+            '__objects__',
+            '__items__',
+            '__indices__',
+            '__builtin__',
+            ]
+    
     def newitem(cl, *args,**kw):
         return
     
