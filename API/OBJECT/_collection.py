@@ -4,7 +4,9 @@
 def private():
     """private namespace"""
     
+    from . import UGEObject
     from ..utilities import getset
+    from ..OBJECT import basehandlers
     
     def newitem(cl, *args,**kw):
         return
