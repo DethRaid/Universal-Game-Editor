@@ -23,18 +23,16 @@ def private():
             '__builtin__',
             ]
         
+    getbase,        setbase         = getset( privateAttrs, '__base__',        privatize=False )
+    getbasehandler, setbasehandler  = getset( privateAttrs, '__basehandler__', privatize=False )
+    getbaseparents, setbaseparents  = getset( privateAttrs, '__baseparents__', privatize=False )
+    getobjects,     setobjects      = getset( privateAttrs, '__objects__',     privatize=False )
+    getitems,       setitems        = getset( privateAttrs, '__items__',       privatize=False )
+    getindices,     setindices      = getset( privateAttrs, '__indices__',     privatize=False )
+    getbuiltin,     setbuiltin      = getset( privateAttrs, '__builtin__',     privatize=False )
     
-    
-    
-    
-    
-    
-    
-    
-    def newitem(cl, *args,**kw):
-        return
-    
-    def setitem(this,item,value,channel=0):
+    new = object.__new__
+    def __setitem__(this,item,value,channel=0):
         """create a new base instance in the root or this collection (unless existent),
         then link this instance to it (unless linked) and set it's current.
         
