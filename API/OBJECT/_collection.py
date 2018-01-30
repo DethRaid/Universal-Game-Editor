@@ -37,6 +37,7 @@ def private():
         __slots__=[
             '__repr',
             '__len__',
+            '__iter__',
             '__contains__',
             'current',
             # heirarchical
@@ -76,22 +77,17 @@ def private():
                 cl.__parents__  = () # for Base instance creation
             
             setcurrent( cl, None )
-            setitems(   pr, {} ) # { Object: Index, ... }
+            items = {} # { Object: Index, ... }
+            setitems(   pr, items )
             setindices( pr, {} ) # { Index: Object, ... }
             
-            cl.__iter__ = channels.__iter__ if cl.useChannels else lambda: iter(channels[0][0])
-            if hasattr(base, '__item__'): cl.__setitem__ = setitem
-    
-            pcl = cls.__proxy__
-            prx = cl.proxy = cls.__proxy__(cl)
-            #prx.len = lambda cls,channel=0: len(channels.get(channel,[]))
-            olen = cl.__len__ = channels.__len__
-            pcl.__len__.__set__(prx, lambda:olen() )
-            ocont = cl.__contains__ = objects.__contains__
-            pcl.__contains__.__set__(prx, lambda other:ocont(other) )
-    
-            cls.new.__set__(cl,method(newitem,cl) if hasattr(base,'new') else cl.__call__)
-    
+            cl.__contains__ = items.__contains__
+            cl.__len__      = items.__len__
+            cl.__iter__     = items.__iter__
+            
+            basedict = getbase(pr).__dict__
+            showName = 'Name' in basedict; showIndex = 'Index' in basedict; showBoth = showName and showIndex
+            
             return cl
     
         def new(cl, item: [str,int,dict]) -> UGEObject:
