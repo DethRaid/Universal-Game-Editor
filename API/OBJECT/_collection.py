@@ -32,7 +32,6 @@ def private():
     getbuiltin,     setbuiltin      = getset( privateAttrs, '__builtin__',     privatize=False )
     
     new = object.__new__
-    # noinspection PyUnboundLocalVariable,PyArgumentList
     class UGECollection(object):
         __slots__=[
             '__repr',
@@ -76,18 +75,19 @@ def private():
                 cl.__root__     = cl # for quick lookup (passed down)
                 cl.__parents__  = () # for Base instance creation
             
-            setcurrent( cl, None )
             items = {} # { Object: Index, ... }
             setitems(   pr, items )
             setindices( pr, {} ) # { Index: Object, ... }
+            setcurrent( cl, None )
             
             cl.__contains__ = items.__contains__
             cl.__len__      = items.__len__
             cl.__iter__     = items.__iter__
             
-            basedict = getbase(pr).__dict__
+            basedict = getbase(pr).__dict__; iteritems = items.items
             showName = 'Name' in basedict; showIndex = 'Index' in basedict; showBoth = showName & showIndex
-            
+            cl.__repr__ = lambda: '<collection { %s } >'%( ', '.join( "%s%s%s: %s"%(
+                repr(obj.Name) if showName else '', ' | '*showBoth, Index if showIndex else '', obj ) for obj,Index in iteritems() ) )
             
             return cl
     
