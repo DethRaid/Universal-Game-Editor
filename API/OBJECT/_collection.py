@@ -121,16 +121,7 @@ def private():
                 if indexable: indices[Index] = current
                 objects[current] = current
             
-            return current
-            
-        def __repr__(this):
-            disabled = getattr(this.__base__,'__disabled__',set()).__contains__
-            showName = not disabled('Name'); showIndex = not disabled('Index'); both = showName and showIndex
-            return '<collection %s >'%( ', '.join( ('%s: { %s }' if this.useChannels else '%s{ %s }')%(
-                repr(channel) if this.useChannels else '', ', '.join( "%s%s%s: %s"%(
-                    repr(obj.Name) if showName else '', ' | '*both, Index if showIndex else '', obj
-                ) for obj,Index in items.items() )
-            ) for channel,(items,indices) in this.__channels__.items() ) )
+                return current
         
         def __call__(cl,*item):
             """create a new base instance in the root or this collection (unless existent),

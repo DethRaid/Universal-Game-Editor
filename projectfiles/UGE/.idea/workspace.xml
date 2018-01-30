@@ -299,8 +299,8 @@
                   <file leaf-file-name="_collection.py" pinned="false" current-in-tab="true">
                     <entry file="file://$PROJECT_DIR$/../../API/OBJECT/_collection.py">
                       <provider selected="true" editor-type-id="text-editor">
-                        <state relative-caret-position="729">
-                          <caret line="123" column="12" lean-forward="false" selection-start-line="123" selection-start-column="12" selection-end-line="123" selection-end-column="12" />
+                        <state relative-caret-position="-27">
+                          <caret line="123" column="30" lean-forward="false" selection-start-line="123" selection-start-column="30" selection-end-line="123" selection-end-column="30" />
                           <folding />
                         </state>
                       </provider>
@@ -918,12 +918,12 @@
       <workItem from="1517319748451" duration="177000" />
       <workItem from="1517320029536" duration="793000" />
       <workItem from="1517321348105" duration="1853000" />
-      <workItem from="1517332418327" duration="1209000" />
+      <workItem from="1517332418327" duration="1282000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="42351000" />
+    <option name="totallyTimeSpent" value="42424000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="25" width="3200" height="1150" extended-state="0" />
@@ -1730,8 +1730,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/../../API/OBJECT/_collection.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="729">
-          <caret line="123" column="12" lean-forward="false" selection-start-line="123" selection-start-column="12" selection-end-line="123" selection-end-column="12" />
+        <state relative-caret-position="-27">
+          <caret line="123" column="30" lean-forward="false" selection-start-line="123" selection-start-column="30" selection-end-line="123" selection-end-column="30" />
           <folding />
         </state>
       </provider>
