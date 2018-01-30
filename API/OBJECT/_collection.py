@@ -34,7 +34,7 @@ def private():
     new = object.__new__
     class UGECollection(object):
         __slots__=[
-            '__repr',
+            '__repr__',
             '__len__',
             '__iter__',
             '__contains__',
