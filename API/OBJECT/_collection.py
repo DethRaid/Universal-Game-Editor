@@ -44,8 +44,7 @@ def private():
             '__parents__',
         ]
         def __new__(cls, Parent: UGEObject, Base: UGEObject, **kw):
-            """
-            a collection of specific UGEObject types which behaves similar to an ordered collections.defaultdict.
+            """a collection of specific UGEObject types which behaves similar to an ordered collections.defaultdict.
             
             Parameters:
                 Parent : the UGEObject-type holding this collection (applied to <Base>.__parent__)
@@ -64,21 +63,21 @@ def private():
                 cl.__root__ = Base.__root__
                 cl.__parents__ = parents = Base.__parents__ + [Base]
             else:
-                setbase( pr, Base )
-                cl.__objects__ = objects = {} # { object:object } # hash > object: object = __objects__['Name']
-                
-                cl.__root__ = cl # for quick lookup (passed down)
-                cl.__parents__ = [] # for object addition and inheritor application
-    
+                setbase(        pr, Base )
+                setbaseparents( pr, {Parent.__name__:Parent} if Parent else {} )
+                sethandler(     pr, basehandlers[Base.__name__] )
+                setobjects(     pr, {}   ) # { object:object } # hash > object: object = __objects__['Name']
                 if '__builtin__' in kw:
-                    cl.__builtin__ = kw['__builtin__']
-                    __builtins__.__dict__[cl.__builtin__] = None
+                    setbuiltin( pr, kw['__builtin__'] )
+                    __builtins__[cl.__builtin__] = None
                 else: cl.__builtin__ = ''
+                
+                cl.__root__     = cl # for quick lookup (passed down)
+                cl.__parents__  = () # for Base instance creation
             
-            #disabled = getattr(base,'__disabled__',set()).__contains__
-            
-            cl.current=None
-            cl.__channels__ = channels = {} # { channel: ({ object: Index, ... }, { Index: object, ... }) }
+            setcurrent( cl, None )
+            setitems(   pr, {} ) # { Object: Index, ... }
+            setindices( pr, {} ) # { Index: Object, ... }
             
             cl.__iter__ = channels.__iter__ if cl.useChannels else lambda: iter(channels[0][0])
             if hasattr(base, '__item__'): cl.__setitem__ = setitem
