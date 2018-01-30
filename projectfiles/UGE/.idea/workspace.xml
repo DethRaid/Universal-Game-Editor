@@ -297,9 +297,11 @@
                   <file leaf-file-name="_collection.py" pinned="false" current-in-tab="true">
                     <entry file="file://$PROJECT_DIR$/../../API/OBJECT/_collection.py">
                       <provider selected="true" editor-type-id="text-editor">
-                        <state relative-caret-position="-27">
+                        <state relative-caret-position="246">
                           <caret line="123" column="30" lean-forward="false" selection-start-line="123" selection-start-column="30" selection-end-line="123" selection-end-column="30" />
-                          <folding />
+                          <folding>
+                            <element signature="e#4224#5636#0" expanded="false" />
+                          </folding>
                         </state>
                       </provider>
                     </entry>
@@ -916,12 +918,12 @@
       <workItem from="1517319748451" duration="177000" />
       <workItem from="1517320029536" duration="793000" />
       <workItem from="1517321348105" duration="1853000" />
-      <workItem from="1517332418327" duration="1865000" />
+      <workItem from="1517332418327" duration="1873000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="43007000" />
+    <option name="totallyTimeSpent" value="43015000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="25" width="3200" height="1150" extended-state="0" />
@@ -1276,7 +1278,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="6195">
           <caret line="413" column="25" lean-forward="false" selection-start-line="413" selection-start-column="25" selection-end-line="413" selection-end-column="25" />
-          <folding />
+          <folding>
+            <element signature="e#4224#5636#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1728,9 +1732,11 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/../../API/OBJECT/_collection.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-27">
+        <state relative-caret-position="246">
           <caret line="123" column="30" lean-forward="false" selection-start-line="123" selection-start-column="30" selection-end-line="123" selection-end-column="30" />
-          <folding />
+          <folding>
+            <element signature="e#4224#5636#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
