@@ -45,19 +45,16 @@ def private():
         ]
         def __new__(cls, Parent, Base, channels=False, named=False, **kw):
             """
-            a (optionally channeled) collection of specific Object types which behaves similar
-            to a collections.defaultdict in that it automatically creates a non-existent Object.
+            a collection of specific UGEObject types which behaves similar to an ordered collections.defaultdict.
             
             Parameters:
-                Parent : the Object-type holding this collection (applied to <Base>.__parent__)
-                Base : the Object-type used by the collection"""
+                Parent : the UGEObject-type holding this collection (applied to <Base>.__parent__)
+                Base : the UGEObject-type used in the collection"""
             cl = new(cls)
             pr = new(privateAttrs); setprivate(cl,pr)
             if Base.__class__ is UGECollection:
-                cl.useChannels = Base.useChannels
-                cl.namedChannels = Base.namedChannels
-                
-                cl.__base__ = base = Base.__base__
+                bpr = getprivate(Base)
+                setbase( pr, getbase(bpr) )
                 cl.__objects__ = objects = Base.__objects__
                 
                 cl.__root__ = Base.__root__
