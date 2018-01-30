@@ -297,7 +297,7 @@
                   <file leaf-file-name="_collection.py" pinned="false" current-in-tab="true">
                     <entry file="file://$PROJECT_DIR$/../../API/OBJECT/_collection.py">
                       <provider selected="true" editor-type-id="text-editor">
-                        <state relative-caret-position="795">
+                        <state relative-caret-position="543">
                           <caret line="113" column="90" lean-forward="false" selection-start-line="113" selection-start-column="90" selection-end-line="113" selection-end-column="90" />
                           <folding />
                         </state>
@@ -912,12 +912,12 @@
       <workItem from="1516733564529" duration="16176000" />
       <workItem from="1516881662821" duration="6042000" />
       <workItem from="1517233791595" duration="6017000" />
-      <workItem from="1517279003413" duration="3407000" />
+      <workItem from="1517279003413" duration="3466000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="31642000" />
+    <option name="totallyTimeSpent" value="31701000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="25" width="3200" height="1150" extended-state="0" />
@@ -1724,7 +1724,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/../../API/OBJECT/_collection.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="795">
+        <state relative-caret-position="543">
           <caret line="113" column="90" lean-forward="false" selection-start-line="113" selection-start-column="90" selection-end-line="113" selection-end-column="90" />
           <folding />
         </state>
