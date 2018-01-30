@@ -86,7 +86,8 @@ def private():
             cl.__iter__     = items.__iter__
             
             basedict = getbase(pr).__dict__
-            showName = 'Name' in basedict; showIndex = 'Index' in basedict; showBoth = showName and showIndex
+            showName = 'Name' in basedict; showIndex = 'Index' in basedict; showBoth = showName & showIndex
+            
             
             return cl
     
