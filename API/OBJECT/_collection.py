@@ -50,19 +50,9 @@ def private():
             
             Parameters:
                 Parent : the Object-type holding this collection (applied to <Base>.__parent__)
-                Base : the Object-type used by the collection
-                channels : use extra numbers to index a sub-array of objects (defaults to False) (ignored if inherited)
-                named : use extended channel support for both names and numbers (defaults to False) (ignored if inherited)
-            
-            example usage:
-            
-                Objects = collection(None, Object, channels=True)
-                
-                obj0 = Objects[ 'Object0' ] # create "Object0" on channel 0
-                Objects[ 'Object0', 1 ] # reference "Object0" and link on channel 1
-            """
+                Base : the Object-type used by the collection"""
             cl = new(cls)
-            # TODO: use less attributes (decrease complexity and memory use, and increase performance)
+            pr = new(privateAttrs); setprivate(cl,pr)
             if Base.__class__ is UGECollection:
                 cl.useChannels = Base.useChannels
                 cl.namedChannels = Base.namedChannels
@@ -72,10 +62,6 @@ def private():
                 
                 cl.__root__ = Base.__root__
                 cl.__parents__ = parents = Base.__parents__ + [Base]
-                cl.__inheritors__ = inheritors = Base.__inheritors__
-                for parent in parents: inheritors[parent].append(cl)
-    
-                cl.__builtin__ = Base.__builtin__
                 
             else:
                 cl.useChannels = channels
@@ -86,7 +72,6 @@ def private():
                 
                 cl.__root__ = cl # for quick lookup (passed down)
                 cl.__parents__ = [] # for object addition and inheritor application
-                cl.__inheritors__ = inheritors = {} # { this: [ <collection>, ... ] } # for object removal
     
                 if '__builtin__' in kw:
                     cl.__builtin__ = kw['__builtin__']
@@ -97,8 +82,6 @@ def private():
             
             cl.current=None
             cl.__channels__ = channels = {} # { channel: ({ object: Index, ... }, { Index: object, ... }) }
-            inheritors[cl] = [cl]
-            cl.__parent__ = Parent
             
             cl.__iter__ = channels.__iter__ if cl.useChannels else lambda: iter(channels[0][0])
             if hasattr(base, '__item__'): cl.__setitem__ = setitem
