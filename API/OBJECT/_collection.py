@@ -24,7 +24,7 @@ def private():
             ]
         
     getbase,        setbase         = getset( privateAttrs, '__base__',        privatize=False )
-    getbasehandler, setbasehandler  = getset( privateAttrs, '__basehandler__', privatize=False )
+    gethandler,     sethandler      = getset( privateAttrs, '__basehandler__', privatize=False )
     getbaseparents, setbaseparents  = getset( privateAttrs, '__baseparents__', privatize=False )
     getobjects,     setobjects      = getset( privateAttrs, '__objects__',     privatize=False )
     getitems,       setitems        = getset( privateAttrs, '__items__',       privatize=False )
@@ -63,7 +63,6 @@ def private():
                 
                 cl.__root__ = Base.__root__
                 cl.__parents__ = parents = Base.__parents__ + [Base]
-                
             else:
                 setbase( pr, Base )
                 cl.__objects__ = objects = {} # { object:object } # hash > object: object = __objects__['Name']
