@@ -4,9 +4,7 @@
     <option name="SCOPE_TYPE" value="3" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="983838c6-d952-43fb-b239-90a06b889443" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-    </list>
+    <list default="true" id="983838c6-d952-43fb-b239-90a06b889443" name="Default" comment="" />
     <ignored path="UGE.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -914,12 +912,12 @@
       <workItem from="1516733564529" duration="16176000" />
       <workItem from="1516881662821" duration="6042000" />
       <workItem from="1517233791595" duration="6017000" />
-      <workItem from="1517279003413" duration="7514000" />
+      <workItem from="1517279003413" duration="8103000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="35749000" />
+    <option name="totallyTimeSpent" value="36338000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="25" width="3200" height="1150" extended-state="0" />
