@@ -43,7 +43,7 @@ def private():
             '__root__',
             '__parents__',
         ]
-        def __new__(cls, Parent, Base, channels=False, named=False, **kw):
+        def __new__(cls, Parent: UGEObject, Base: UGEObject, **kw):
             """
             a collection of specific UGEObject types which behaves similar to an ordered collections.defaultdict.
             
@@ -55,16 +55,17 @@ def private():
             if Base.__class__ is UGECollection:
                 bpr = getprivate(Base)
                 setbase( pr, getbase(bpr) )
-                cl.__objects__ = objects = Base.__objects__
+                baseparents = getbaseparents( bpr ); baseparents[Parent.__name__] = Parent
+                setbaseparents( pr, baseparents     )
+                sethandler(     pr, gethandler(bpr) )
+                setobjects(     pr, getobjects(bpr) )
+                setbuiltin(     pr, getbuiltin(bpr) )
                 
                 cl.__root__ = Base.__root__
                 cl.__parents__ = parents = Base.__parents__ + [Base]
                 
             else:
-                cl.useChannels = channels
-                cl.namedChannels = named
-                
-                cl.__base__ = base = Base
+                setbase( pr, Base )
                 cl.__objects__ = objects = {} # { object:object } # hash > object: object = __objects__['Name']
                 
                 cl.__root__ = cl # for quick lookup (passed down)
