@@ -4,7 +4,9 @@
     <option name="SCOPE_TYPE" value="3" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="983838c6-d952-43fb-b239-90a06b889443" name="Default" comment="" />
+    <list default="true" id="983838c6-d952-43fb-b239-90a06b889443" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/../../API/OBJECT/_collection.py" afterPath="$PROJECT_DIR$/../../API/OBJECT/_collection.py" />
+    </list>
     <ignored path="UGE.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -297,8 +299,8 @@
                   <file leaf-file-name="_collection.py" pinned="false" current-in-tab="true">
                     <entry file="file://$PROJECT_DIR$/../../API/OBJECT/_collection.py">
                       <provider selected="true" editor-type-id="text-editor">
-                        <state relative-caret-position="-201">
-                          <caret line="61" column="16" lean-forward="true" selection-start-line="61" selection-start-column="16" selection-end-line="61" selection-end-column="16" />
+                        <state relative-caret-position="729">
+                          <caret line="123" column="12" lean-forward="false" selection-start-line="123" selection-start-column="12" selection-end-line="123" selection-end-column="12" />
                           <folding />
                         </state>
                       </provider>
@@ -916,12 +918,12 @@
       <workItem from="1517319748451" duration="177000" />
       <workItem from="1517320029536" duration="793000" />
       <workItem from="1517321348105" duration="1853000" />
-      <workItem from="1517332418327" duration="1197000" />
+      <workItem from="1517332418327" duration="1209000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="42339000" />
+    <option name="totallyTimeSpent" value="42351000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="25" width="3200" height="1150" extended-state="0" />
@@ -1728,8 +1730,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/../../API/OBJECT/_collection.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-201">
-          <caret line="61" column="16" lean-forward="true" selection-start-line="61" selection-start-column="16" selection-end-line="61" selection-end-column="16" />
+        <state relative-caret-position="729">
+          <caret line="123" column="12" lean-forward="false" selection-start-line="123" selection-start-column="12" selection-end-line="123" selection-end-column="12" />
           <folding />
         </state>
       </provider>

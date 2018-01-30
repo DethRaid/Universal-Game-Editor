@@ -121,7 +121,7 @@ def private():
                 if indexable: indices[Index] = current
                 objects[current] = current
             
-                return current
+            return current
             
         def __repr__(this):
             disabled = getattr(this.__base__,'__disabled__',set()).__contains__
