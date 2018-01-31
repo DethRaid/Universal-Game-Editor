@@ -184,80 +184,11 @@ def private():
                 else:
                     raise TypeError('%s is not a supported item type.'%itemType.__name__)
             return current
-            
-        def __getitem__(cl,item,channel=0):
-            """create a new base instance in the root or this collection (unless existent),
-            then link this instance to it (unless linked) and set it's current.
-            
-            Usage:
-            - <collection>[None]: return current
-            - <collection>[int(Index) or "Name"]: create or reference and return on channel 0
-            - <collection>[*above*, 1] if useChannels: operate on channel 1
-            - <collection>[*above*, "Name"] if namedChannels: operate on channel "Name"
-            - <collection>[int(Index)/"Name", None]: return the channels the specified item is in
-            - <collection>[channel,] if useChannels: iterate over the items in the channel"""
-            
-            if hasattr(item,'__value__'): item=item.__value__
-            if item is None: return cl.current
-            itemType = item.__class__
-            if itemType is tuple:
-                iterate = len(item)==1 # iterate over items in this channel
-                if iterate: channel = item[0]
-                else: item, channel = item
-                
-                if hasattr(channel,'__value__'): channel=channel.__value__
-                channelType = channel.__class__
-                if not cl.useChannels and channel!=0: print('WARNING: using channels on a non-channeled collection.')
-                if not cl.namedChannels and channelType is str:
-                    raise TypeError('named channels are not supported in this collection.')
-                elif not (channelType is int or channelType is str):
-                    raise TypeError('%s is not a valid channel type.'%channelType.__name__)
-                if iterate: return iter(cl.__channels__.get(channel,({},{}))[0])
-                
-                # since item and channel have changed:
-                if hasattr(item,'__value__'): item=item.__value__
-                if channel is None: return (channel for channel,(items,indices) in cl.__channels__.items() if item in items)
-                itemType = item.__class__
-            
-            # bring the item hashes and indices out of the channel for fast access
-            channels = cl.__channels__
-            if channel in channels: items,indices = channels[channel]
-            else: items,indices = channels[channel] = ({},{})
-            
-            base = cl.__base__
-            disabled = getattr(base,'__disabled__',set()).__contains__
-            doIndex = not disabled('Index')
-            if itemType is int:
-                if not doIndex:
-                    raise KeyError(item)
-                elif item in indices: cl.current = current = indices[item]; current.Index = item; return current
-                else:
-                    raise IndexError('collection index %sout of range.'%('on channel %s '%channel if cl.useChannels else ''))
-            objects = cl.__objects__
-            if item in objects:
-                cl.current = current = objects[item]
-                if item not in items:
-                    items[current] = Index = len(items) # link with collection
-                    if doIndex: current.Index = Index; indices[Index] = current
-            else: # item not registered
-                strtype = itemType is str
-                if cl.__parents__ and (strtype or itemType.__name__ == base.__name__): # create in parent and link here
-                    cl.current = current = cl.__parents__[-1](item,channel)
-                    items[current] = Index = len(items)
-                    if doIndex: current.Index = Index; indices[Index] = current
-                elif strtype:
-                    if disabled('Name'):
-                        raise TypeError('collection items %smust be integers, not %s'%('for channel %s '%channel if cl.useChannels else '',base.__name__))
-                    Index = len(items)
-                    if doIndex:
-                        cl.current = current = base(cl.__parent__,item,Index)
-                        items[current] = Index; indices[Index] = current
-                    else: cl.current = current = base(cl.__parent__,item); items[current] = Index
-                    current.__holder__ = cl # reverse-link for hierarchical validation (search this collection)
-                    objects[current] = current
-                else:
-                    raise TypeError('%s is not a supported item type.'%itemType.__name__)
-            return current
+
+        def __getitem__(cl,item: [str,int,None]) -> UGEObject:
+            """create a new base item instance (unless existent) in the current or root collection,
+            then link this collection to it (unless linked) and set it as the current item."""
+            current = __call__(cl,item); setcurrent(cl, current); return current
     
     setglobal = __builtins__.__dict__.__setitem__
     setcurrent = UGECollection.current.__set__
