@@ -299,8 +299,8 @@
                   <file leaf-file-name="_collection.py" pinned="false" current-in-tab="true">
                     <entry file="file://$PROJECT_DIR$/../../API/OBJECT/_collection.py">
                       <provider selected="true" editor-type-id="text-editor">
-                        <state relative-caret-position="600">
-                          <caret line="190" column="80" lean-forward="false" selection-start-line="190" selection-start-column="80" selection-end-line="190" selection-end-column="80" />
+                        <state relative-caret-position="660">
+                          <caret line="194" column="106" lean-forward="false" selection-start-line="194" selection-start-column="106" selection-end-line="194" selection-end-column="106" />
                           <folding>
                             <element signature="e#4224#5636#0" expanded="false" />
                           </folding>
@@ -920,12 +920,12 @@
       <workItem from="1517319748451" duration="177000" />
       <workItem from="1517320029536" duration="793000" />
       <workItem from="1517321348105" duration="1853000" />
-      <workItem from="1517332418327" duration="5656000" />
+      <workItem from="1517332418327" duration="5894000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="46798000" />
+    <option name="totallyTimeSpent" value="47036000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="25" width="3200" height="1150" extended-state="0" />
@@ -1734,8 +1734,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/../../API/OBJECT/_collection.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="600">
-          <caret line="190" column="80" lean-forward="false" selection-start-line="190" selection-start-column="80" selection-end-line="190" selection-end-column="80" />
+        <state relative-caret-position="660">
+          <caret line="194" column="106" lean-forward="false" selection-start-line="194" selection-start-column="106" selection-end-line="194" selection-end-column="106" />
           <folding>
             <element signature="e#4224#5636#0" expanded="false" />
           </folding>

@@ -189,6 +189,16 @@ def private():
             """create a new base item instance (unless existent) in the current or root collection,
             then link this collection to it (unless linked) and set it as the current item."""
             current = __call__(cl,item); setcurrent(cl, current); return current
+
+        def __setitem__( cl, item: [str,int,None], value: object ):
+            """create a new base instance in the root or this collection (unless existent),
+            then link this instance to it (unless linked) and set it as current, and set it's value(s)."""
+            current = cl.__getitem__(item)
+            if current: current[:] = value
+            elif item is None:
+                raise TypeError('collection has no current item.')
+            else:
+                print('WARNING: collection item %s could not be set'%item)
     
     setglobal = __builtins__.__dict__.__setitem__
     setcurrent = UGECollection.current.__set__
