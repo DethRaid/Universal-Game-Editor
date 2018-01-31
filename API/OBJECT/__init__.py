@@ -90,7 +90,8 @@ def private():
             if cls is UGEObject:
                 raise TypeError('UGEObject cannot be created or initialized.')
             obj = new(cls)
-            Name,Idx,*other = args+none3
+            Name,*other = args
+            if len(other): Idx,*other = other
             if Name.__class__ is int: Idx = Name; Name = None
     
             if useIndex: setIndex(obj,Idx)
