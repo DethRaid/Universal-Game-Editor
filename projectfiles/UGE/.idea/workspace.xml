@@ -4,9 +4,7 @@
     <option name="SCOPE_TYPE" value="3" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="983838c6-d952-43fb-b239-90a06b889443" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/SIDE_syntax_ex.icls" afterPath="$PROJECT_DIR$/SIDE_syntax_ex.icls" />
-    </list>
+    <list default="true" id="983838c6-d952-43fb-b239-90a06b889443" name="Default" comment="" />
     <ignored path="UGE.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -701,7 +699,7 @@
     <property name="full.screen.before.presentation.mode" value="false" />
     <property name="TODO_SCOPE" value="Project Files" />
     <property name="last.edited.regexp" value="" />
-    <property name="settings.editor.selected.configurable" value="editor.preferences.smartKeys" />
+    <property name="settings.editor.selected.configurable" value="preferences.sourceCode" />
     <property name="project.structure.last.edited" value="Problems" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
@@ -920,12 +918,12 @@
       <workItem from="1517319748451" duration="177000" />
       <workItem from="1517320029536" duration="793000" />
       <workItem from="1517321348105" duration="1853000" />
-      <workItem from="1517332418327" duration="4530000" />
+      <workItem from="1517332418327" duration="4576000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="45672000" />
+    <option name="totallyTimeSpent" value="45718000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="25" width="3200" height="1150" extended-state="0" />
