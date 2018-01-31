@@ -129,10 +129,7 @@ def private():
             
             Usage:
             - <collection>(None): return current (default)
-            - <collection>(int(Index) or "Name"): create or reference and return on channel 0
-            - <collection>(*above*, 1) if useChannels: operate on channel 1
-            - <collection>(*above*, "Name") if namedChannels: operate on channel "Name"
-            - <collection>(int()/"Name", None): return the channels the specified item is in"""
+            - <collection>(int(Index) or "Name"): create or reference and return on channel 0"""
             
             if not item: item=(None,)
             # untuple:
@@ -177,16 +174,12 @@ def private():
                 if cl.__parents__ and (strtype or itemType is base): # create in parent and link here
                     current = cl.__parents__[-1](item)
                     Index = items[current] = len(items)
-                    if indexable: current.Index = Index; indices[Index] = current
+                    if indexable: indices[Index] = current
                 elif strtype:
-                    if 'Name' in basedict:
-                        raise TypeError('collection items %smust be integers, not %s'%('for channel %s '%channel if cl.useChannels else '',base.__name__))
                     Index = len(items)
-                    if indexable:
-                        current = base(cl.__parent__,item,Index)
-                        items[current] = Index; indices[Index] = current
-                    else: current = base(cl.__parent__,item); items[current] = Index
-                    current.__holder__ = cl # reverse-link for hierarchical validation (search this collection)
+                    current = base(mappingproxy(getbaseparents(pr)),cl,item,Index)
+                    items[current] = Index
+                    if indexable: indices[Index] = current
                     objects[current] = current
                 else:
                     raise TypeError('%s is not a supported item type.'%itemType.__name__)
