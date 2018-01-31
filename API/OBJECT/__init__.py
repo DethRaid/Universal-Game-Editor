@@ -55,7 +55,7 @@ def private():
                 Ob.Data=None
                 Ob.Viewport=0"""
         __public__ = {  '__getitem__':set(),'__setitem__':set(),'__contains__':set(),'__iter__':set(),'__len__':set()}
-        __slots__  = ['__name__','__holder__','__parents__']
+        __slots__  = ['__holder__','__parents__', 'Name','Index']
         __repr__   = lambda obj:'<%s "%s" >'%(obj.__name__,obj.Name)
         __hash__   = lambda obj: hash(obj.Name)
         __eq__     = lambda obj,other: obj.Name==other or obj.proxy is other or obj is other
@@ -71,7 +71,7 @@ def private():
 
             if 'Index' in cls.__dict__: cls.Index.fget.__self__.__set__(obj,Idx) # Tcll - I hate properties
             if 'Name' in cls.__dict__: obj.Name = Name
-    
+            
             # initialize
             setparents( obj, parents )
             setholder( obj, holder )
