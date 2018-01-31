@@ -156,9 +156,8 @@ def private():
             if channel in channels: items,indices = channels[channel]
             else: items,indices = channels[channel] = ({},{})
             
-            base = cl.__base__
-            disabled = getattr(base,'__disabled__',set()).__contains__
-            indexable = not disabled('Index')
+            base = cl.__base__; basedict = base.__dict__
+            indexable = 'Index' in basedict
             
             itemType = item.__class__
             if itemType is int:
@@ -180,7 +179,7 @@ def private():
                     Index = items[current] = len(items)
                     if indexable: current.Index = Index; indices[Index] = current
                 elif strtype:
-                    if disabled('Name'):
+                    if 'Name' in basedict:
                         raise TypeError('collection items %smust be integers, not %s'%('for channel %s '%channel if cl.useChannels else '',base.__name__))
                     Index = len(items)
                     if indexable:
