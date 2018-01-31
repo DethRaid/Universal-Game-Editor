@@ -158,11 +158,11 @@ def private():
             
             base = cl.__base__
             disabled = getattr(base,'__disabled__',set()).__contains__
-            doIndex = not disabled('Index')
+            indexable = not disabled('Index')
             
             itemType = item.__class__
             if itemType is int:
-                if not doIndex:
+                if not indexable:
                     raise KeyError(item)
                 elif item in indices: current = indices[item]; current.Index = item; return current
                 else:
@@ -172,18 +172,18 @@ def private():
                 current = objects[item]
                 if item not in items:
                     items[current] = Index = len(items) # link with collection
-                    if doIndex: current.Index = Index; indices[Index] = current
+                    if indexable: current.Index = Index; indices[Index] = current
             else: # item not registered
                 strtype = itemType is str
-                if cl.__parents__ and (strtype or itemType.__name__ == base.__name__): # create in parent and link here
-                    current = cl.__parents__[-1](item,channel)
-                    items[current] = Index = len(items)
-                    if doIndex: current.Index = Index; indices[Index] = current
+                if cl.__parents__ and (strtype or itemType is base): # create in parent and link here
+                    current = cl.__parents__[-1](item)
+                    Index = items[current] = len(items)
+                    if indexable: current.Index = Index; indices[Index] = current
                 elif strtype:
                     if disabled('Name'):
                         raise TypeError('collection items %smust be integers, not %s'%('for channel %s '%channel if cl.useChannels else '',base.__name__))
                     Index = len(items)
-                    if doIndex:
+                    if indexable:
                         current = base(cl.__parent__,item,Index)
                         items[current] = Index; indices[Index] = current
                     else: current = base(cl.__parent__,item); items[current] = Index

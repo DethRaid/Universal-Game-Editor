@@ -4,7 +4,10 @@
     <option name="SCOPE_TYPE" value="3" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="983838c6-d952-43fb-b239-90a06b889443" name="Default" comment="" />
+    <list default="true" id="983838c6-d952-43fb-b239-90a06b889443" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/../../API/OBJECT/_collection.py" afterPath="$PROJECT_DIR$/../../API/OBJECT/_collection.py" />
+      <change beforePath="$PROJECT_DIR$/SIDE_syntax_ex.icls" afterPath="$PROJECT_DIR$/SIDE_syntax_ex.icls" />
+    </list>
     <ignored path="UGE.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -297,9 +300,10 @@
                   <file leaf-file-name="_collection.py" pinned="false" current-in-tab="true">
                     <entry file="file://$PROJECT_DIR$/../../API/OBJECT/_collection.py">
                       <provider selected="true" editor-type-id="text-editor">
-                        <state relative-caret-position="822">
-                          <caret line="123" column="30" lean-forward="false" selection-start-line="123" selection-start-column="30" selection-end-line="123" selection-end-column="30" />
+                        <state relative-caret-position="406">
+                          <caret line="160" column="21" lean-forward="false" selection-start-line="160" selection-start-column="21" selection-end-line="160" selection-end-column="21" />
                           <folding>
+                            <element signature="e#1744#4150#0" expanded="false" />
                             <element signature="e#4224#5636#0" expanded="false" />
                           </folding>
                         </state>
@@ -699,7 +703,7 @@
     <property name="full.screen.before.presentation.mode" value="false" />
     <property name="TODO_SCOPE" value="Project Files" />
     <property name="last.edited.regexp" value="" />
-    <property name="settings.editor.selected.configurable" value="preferences.sourceCode" />
+    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors.General" />
     <property name="project.structure.last.edited" value="Problems" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
@@ -918,16 +922,15 @@
       <workItem from="1517319748451" duration="177000" />
       <workItem from="1517320029536" duration="793000" />
       <workItem from="1517321348105" duration="1853000" />
-      <workItem from="1517332418327" duration="4585000" />
+      <workItem from="1517332418327" duration="5128000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="45727000" />
+    <option name="totallyTimeSpent" value="46270000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="25" width="3200" height="1150" extended-state="0" />
-    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32777232" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -1279,6 +1282,7 @@
         <state relative-caret-position="6195">
           <caret line="413" column="25" lean-forward="false" selection-start-line="413" selection-start-column="25" selection-end-line="413" selection-end-column="25" />
           <folding>
+            <element signature="e#1744#4150#0" expanded="false" />
             <element signature="e#4224#5636#0" expanded="false" />
           </folding>
         </state>
@@ -1732,9 +1736,10 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/../../API/OBJECT/_collection.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="822">
-          <caret line="123" column="30" lean-forward="false" selection-start-line="123" selection-start-column="30" selection-end-line="123" selection-end-column="30" />
+        <state relative-caret-position="406">
+          <caret line="160" column="21" lean-forward="false" selection-start-line="160" selection-start-column="21" selection-end-line="160" selection-end-column="21" />
           <folding>
+            <element signature="e#1744#4150#0" expanded="false" />
             <element signature="e#4224#5636#0" expanded="false" />
           </folding>
         </state>
