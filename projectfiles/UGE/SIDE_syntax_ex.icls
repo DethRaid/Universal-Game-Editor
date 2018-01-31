@@ -1,9 +1,9 @@
 <scheme name="SIDE" version="142" parent_scheme="Default">
   <metaInfo>
-    <property name="created">2018-01-30T18:45:46</property>
+    <property name="created">2018-01-30T19:15:36</property>
     <property name="ide">idea</property>
     <property name="ideVersion">2017.3.3.0.0</property>
-    <property name="modified">2018-01-30T18:46:13</property>
+    <property name="modified">2018-01-30T19:15:54</property>
     <property name="originalScheme">SIDE</property>
   </metaInfo>
   <colors>
@@ -174,6 +174,17 @@
       <value>
         <option name="BACKGROUND" value="fff0f0" />
         <option name="ERROR_STRIPE_COLOR" value="ffc0c0" />
+      </value>
+    </option>
+    <option name="TYPO">
+      <value>
+        <option name="EFFECT_COLOR" value="8000" />
+        <option name="EFFECT_TYPE" value="2" />
+      </value>
+    </option>
+    <option name="UNMATCHED_BRACE_ATTRIBUTES">
+      <value>
+        <option name="BACKGROUND" value="ffdddd" />
       </value>
     </option>
     <option name="WARNING_ATTRIBUTES">
