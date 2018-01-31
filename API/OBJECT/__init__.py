@@ -54,9 +54,8 @@ def private():
             def __init__( Ob, *other ):
                 Ob.Data=None
                 Ob.Viewport=0"""
-        __public__ = {  '__getitem__':set(),'__setitem__':set(),'__contains__':set(),'__iter__':set(),'__len__':set(),
-            'Name':{'w'},'Index':set(),} # type: dict[str] -> set
-        __slots__  = ['__name__','__holder__','__parents__','__proxy__','proxy']
+        __public__ = {  '__getitem__':set(),'__setitem__':set(),'__contains__':set(),'__iter__':set(),'__len__':set()}
+        __slots__  = ['__name__','__holder__','__parents__']
         __repr__   = lambda obj:'<%s "%s" >'%(obj.__name__,obj.Name)
         __hash__   = lambda obj: hash(obj.Name)
         __eq__     = lambda obj,other: obj.Name==other or obj.proxy is other or obj is other
@@ -66,7 +65,8 @@ def private():
             if cls is UGEObject:
                 raise TypeError('UGEObject cannot be created or initialized.')
             obj = new(cls)
-            Name,Idx,*other = args+none3
+            Name,*other = args
+            if len(other): Idx,*other = other
             if Name.__class__ is int: Idx = Name; Name = None
     
             if useIndex: setIndex(obj,Idx)
