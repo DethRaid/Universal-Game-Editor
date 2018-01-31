@@ -68,9 +68,9 @@ def private():
             Name,*other = args
             if len(other): Idx,*other = other
             if Name.__class__ is int: Idx = Name; Name = None
-    
-            if useIndex: setIndex(obj,Idx)
-            if useName: obj.Name = Name
+
+            if 'Index' in cls.__dict__: cls.Index.fget.__self__.__set__(obj,Idx) # Tcll - I hate properties
+            if 'Name' in cls.__dict__: obj.Name = Name
     
             # initialize
             setparents( obj, parents )
