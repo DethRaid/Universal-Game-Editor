@@ -56,62 +56,51 @@ def private():
                 Ob.Viewport=0"""
         __public__ = {  '__getitem__':set(),'__setitem__':set(),'__contains__':set(),'__iter__':set(),'__len__':set(),
             'Name':{'w'},'Index':set(),} # type: dict[str] -> set
-        __slots__  = ['__name__','__holder__','__parent__','__proxy__','proxy']
+        __slots__  = ['__name__','__holder__','__parents__','__proxy__','proxy']
         __repr__   = lambda obj:'<%s "%s" >'%(obj.__name__,obj.Name)
         __hash__   = lambda obj: hash(obj.Name)
         __eq__     = lambda obj,other: obj.Name==other or obj.proxy is other or obj is other
         __ne__     = lambda obj,other: obj.Name!=other and obj.proxy is not other and obj is not other
-    
-        #__preinit__ = lambda obj,*other: None
-    
-        # noinspection PyUnresolvedReferences
-        def __newproxy__(cls,obj: UGEObject):
-            ocl = obj.__class__
-            PNS = cls.__dict__.__getitem__
-            prx=new(cls)
-            cls.__repr__.__set__(prx, lambda:'<%s>'%repr(obj))
-            cls.__eq__.__set__(prx, lambda other:obj==other)
-            cls.__ne__.__set__(prx, lambda other:obj!=other)
-            cls.__hash__.__set__(prx, lambda:hash(obj))
-            cls.__getattribute__.__set__(prx, lambda attr: PNS(attr).__get__(obj,ocl))
-            cls.__setattr__.__set__(prx, lambda attr, val: PNS(attr).__set__(obj,val))
-            return prx
-    
-        # noinspection PyUnresolvedReferences, PyDunderSlots
-        def __new__(cls, parent: UGEObject, *args):
+
+        def __new__(cls, parents: mappingproxy, holder: UGECollection, *args, **kw):
             if cls is UGEObject:
-                raise TypeError('UGEObject cannot be initialized.')
+                raise TypeError('UGEObject cannot be created or initialized.')
             obj = new(cls)
-            if len(args)==1:
-                (arg,) = args; argType = arg.__class__
-                if argType is int: obj.Index = arg
-                if argType is str: obj.Name = arg
-            else: obj.Name,obj.Index = args
-        
+            Name,Idx,*other = args+none3
+            if Name.__class__ is int: Idx = Name; Name = None
+    
+            if useIndex: setIndex(obj,Idx)
+            if useName: obj.Name = Name
+    
             # initialize
-            obj.__getitem__ = obj.__getattribute__
-            obj.__setitem__ = obj.__setattr__
-            obj.__name__ = cls.__name__
-            obj.__parent__ = parent
-            obj.__holder__ = None
-            if Hierarchical in cls.__mro__: obj.Pa = obj.Ch = obj.Pr = obj.Nx = None
-            obj.proxy = cls.__proxy__(obj)
-            return obj
+            setparents( obj, parents )
+            setholder( obj, holder )
+            for initializer in properties.get(cls,set()): initializer(obj)
+            if isinstance(cls,Hierarchical): setPa(obj,None); setCh(obj,None); setPr(obj,None); setNx(obj,None)
 
     setparents = UGEObject.__parents__.__set__
     UGEObject.__parents__ = property( UGEObject.__parents__.__get__ )
     setholder = UGEObject.__holder__.__set__
     UGEObject.__holder__ = property( UGEObject.__holder__.__get__ )
 
-    class Hierarchical(object):
+    class Hierarchical(object, metaclass=UGEObjectConstructor):
         """Hierarchical attributes"""
-        __public__={'Parent':set(),'Child':set(),'Prev':set(),'Next':set()}
-        __slots__ = ['Pa','Ch','Pr','Nx']
+        __slots__ = ['Parent','Child','Prev','Next']
+        def __new__(cls, parent: UGEObject, holder: UGEObject, *args, **kw):
+            if cls is UGEObject:
+                raise TypeError('UGEObject cannot be created or initialized.')
+            obj = new(cls)
+            Name,Idx,*other = args+none3
+            if Name.__class__ is int: Idx = Name; Name = None
     
-        Parent = property()
-        Child  = property()
-        Prev   = property()
-        Next   = property()
+            if useIndex: setIndex(obj,Idx)
+            if useName: obj.Name = Name
+    
+            # initialize
+            setparent( obj, parent )
+            setholder( obj, holder )
+            for initializer in properties.get(cls,set()): initializer(obj)
+            if isinstance(cls,Hierarchical): setPa(obj,None); setCh(obj,None); setPr(obj,None); setNx(obj,None)
     
     getPa = Hierarchical.Pa.__get__; setPa = Hierarchical.Pa.__set__
     getCh = Hierarchical.Ch.__get__; setCh = Hierarchical.Ch.__set__
