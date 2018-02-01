@@ -1,119 +1,123 @@
 # -*- coding: utf-8 -*-
 """UGE Primitive classes and associate functions"""
 
-from . import vector
-#from . import validObjectTypes, VectorProp
-from .. import CONST, UGE_GLOBAL_WRAPPER, register
-from ..OBJECT import UGEObject, extension, UGECollection, CollectionProp, UGEChannels#, ChannelsProp, IntProp
+# noinspection PyGlobalUndefined
+global mesh, Weight, Primitive, Facepoint, Object
 
-CONST.define( '''
-        UGE_UNTRANSFORMED
-        UGE_PRETRANSFORMED
-        '''.split(), type('UGE_Vector_Flag', (CONST.UGE_CONSTANT,), {}), [ CONST.UGE_MODEL_SCRIPT ])
-CONST.define( '''
-        UGE_POINTS
-        UGE_LINES UGE_LINESTRIP UGE_LINELOOP
-        UGE_TRIANGLES UGE_TRIANGLESTRIP UGE_TRIANGLEFAN
-        UGE_QUADS UGE_QUADSTRIP
-        UGE_POLYGON
-        '''.split(), type('UGE_Primitive', (CONST.UGE_CONSTANT,), {}), [ CONST.UGE_MODEL_SCRIPT ])
-# TODO: ^.triangulate()
-
-# noinspection PyUnresolvedReferences
+# noinspection PyShadowingNames,PyProtectedMember
 def private() -> None:
     """anything done here is not passed throughout FORMAT"""
-
-    forwarder_relations = (UGEChannels or UGECollection,function) # array, getindices
     
-    class Forwarder(UGEObject):
-        """unofficial"""
-
-        # noinspection PyUnresolvedReferences
-        def __new__(cls, *other: tuple ):
-            array, getindices = forwarder_relations
-            Fw = UGEObject.__new__(cls, *other)
-            Fp = Fw.__parent__
-            arrayget = array.__getitem__
-            if array.__class__ is UGEChannels: Fw.__getitem__ = lambda item: arrayget( (getindices(Fp)[item], item) )
-            else: Fw.__getitem__ = lambda item: arrayget( getindices(Fp)[item] )
-            return Fw
+    from . import Object
+    from ..OBJECT import UGEObject, newUGEObject, extension, UGECollection, CollectionProp, UGEChannels, ChannelsProp, StringProp, FloatProp, _protected, properties
     
-    class Facepoint(UGEObject):
-        """UGE Facepoint"""
-        __public__ = {  'Vertice':{'p','w'},    'VerticeIndex': {'w'},
-                        'Normal':{'p','w'},     'NormalIndex': {'w'},
-                        'BiNormal':{'p','w'},   'BiNormalIndex': {'w'},
-                        'Tangent':{'p','w'},    'TangentIndex': {'w'},
-                        'Colors':{'p','w'},     'ColorIndices': {'w'},
-                        'UVs':{'p','w'},        'UVsIndex': {'w'},
-                        'Weights':{'p','w'},    'WeightIndices': {'w'},
-                        'Materials':{'p','w'},  'MaterialIndices': {'w'}}
-        __disabled__ = {'Name'}
-        def __new__(cls, *other: tuple ):
-            global forwarder_relations
-            Fp = UGEObject.__new__(cls, *other)
-            Ob = Fp.__parent__.__parent__
-            # assign collections to instances
-            Vset( Fp, Ob.Vertices );    VIset( Fp, None )
-            Nset( Fp, Ob.Normals );     NIset( Fp, None )
-            Bset( Fp, Ob.BiNormals );   BIset( Fp, None )
-            Tset( Fp, Ob.Tangents );    TIset( Fp, None )
+    # NOTE: these property types might eventually be renamed and globalized after some work.
 
-            forwarder_relations = (Ob.Colors,   CIget)
-            Cset( Fp, Forwarder(Fp) );       CIset( Fp, {} ) # { channel, index }
-            
-            forwarder_relations = (Ob.UVs,      UIget)
-            Uset( Fp, Forwarder(Fp) );          UIset( Fp, {} ) # { channel, index }
-            
-            forwarder_relations = (Ob.Weights,  WIget)
-            Wset( Fp, Forwarder(Fp) );      WIset( Fp, {} ) # { 'BoneName', Index }
-            
-            forwarder_relations = (Ob.Materials,MIget)
-            Mset( Fp, Forwarder(Fp) );    MIset( Fp, [] ) # [ 'MaterialName' ]
-            return Fp
-    globals()['Facepoint'] = Facepoint
-    
-    def singleProp( cls, attr, iattr ) -> ( function, function ):
+    def singleProp( cls: object, attr: str, iattr: str ):
         """single value/index"""
-        name = Facepoint.__name__
+        name = cls.__name__; initializers = properties[name] = properties.get(name,set())
         dsc = cls.__dict__[attr]; idsc = cls.__dict__[iattr]
         dscget = dsc.__get__; dscset = dsc.__set__; idscget = idsc.__get__; idscset = idsc.__set__
-        def getter(Fp) -> vector: """get vector"""; idx = idscget(Fp); return None if idx is None else dscget(Fp)(idx)
-        def setter(Fp, val: iterable):
+        def getter(Fp) -> UGEVector: """get vector"""; idx = idscget(Fp ); return None if idx is None else dscget(Fp )(idx )
+        def setter(obj, val: iterable ):
             """set vector"""
-            if val is None: VIset(Fp,val)
+            if val is None: idscset(obj,val)
             else:
-                if idscget(Fp) is None: VIset(Fp,dscget(Fp).new(val).Index)
-                else: dscget(Fp)[idscget(Fp)] = val
-        cls.__dict__[attr] = property(getter, setter)
-        def isetter(Fp, val: (int, None)):
+                if idscget(obj) is None: idscset( obj, dscget(obj).new(val).Index )
+                else: dscget(obj)[idscget(obj)] = val
+        setattr(cls,attr,property( getter, setter ))
+        def isetter(obj, val: (int, None)):
             """set index"""
             val = getattr(val,'__value__',val)
             if val.__class__ in {str,int,float}: val = int(val)
             elif val is not None: print('ERROR: %s.%s received an invalid value (%s)'%(name,attr,val))
-            idscset(Fp,val)
-        cls.__dict__[iattr] = property(idscget, isetter)
-        return dscset, idscset
-    
-    def multiprop( cls, attr, iattr ) -> ( function, function ):
+            idscset(obj,val)
+        setattr(cls,iattr,property( idscget, isetter ))
+        def init(obj: UGEObject): """initializer"""; dscset( obj, getattr(obj.__parents__['Object'],'%ss'%attr) ); idscset( obj, None )
+        initializers.add( init )
+
+    forwarder_relations = (UGEChannels or UGECollection,function) # TODO: can't have this var if we're going to globalize
+    def multiprop( cls: object, attr: str, iattr: str ):
         """multi value/index"""
-        name = Facepoint.__name__
+        name = cls.__name__; initializers = properties[name] = properties.get(name,set())
         dsc = cls.__dict__[attr]; idsc = cls.__dict__[iattr]
         dscget = dsc.__get__; dscset = dsc.__set__; idscget = idsc.__get__; idscset = idsc.__set__
-        def setter(Fp, val: iterable): """set channeled vectors"""; dscget(Fp)[:] = val
-        def isetter(Fp, val: iterable): """set channeled indices"""; idscget(Fp)[:] = val
-        cls.__dict__[attr] = property(dscget, setter)
-        cls.__dict__[iattr] = property(idscget, isetter)
-        return dscset, idscget, idscset
+        def setter(Fp, val: iterable): """Fp.UVs = val"""; dscget(Fp)[:] = val
+        def isetter(Fp, val: iterable): """Fp.UVIndices = val"""; idscget(Fp)[:] = val
+        setattr(cls,attr,property( dscget, setter ))
+        setattr(cls,iattr,property( idscget, isetter ))
+        def init(obj: UGEObject):
+            """initializer"""
+            global forwarder_relations # Tcll - don't ask how this is linking without the global in multiprop, idek myself.
+            forwarder_relations = (getattr(obj.__parents__['Object'],attr),   idscget)
+            dscset( obj, Forwarder(obj) ); idscset( obj, {} )
+        initializers.add( init )
     
-    Vset, VIset = singleProp(   Facepoint, 'Vertice',   'VerticeIndex'      )
-    Nset, NIset = singleProp(   Facepoint, 'Normal',    'NormalIndex'       )
-    Bset, BIset = singleProp(   Facepoint, 'BiNormal',  'BiNormalIndex'     )
-    Tset, TIset = singleProp(   Facepoint, 'Tangent',   'TangentIndex'      )
-    Cset, CIget, CIset = multiprop(    Facepoint, 'Colors'     )
-    Uset, UIget, UIset = multiprop(    Facepoint, 'UVs'        )
-    Wset, WIget, WIset = multiprop(    Facepoint, 'Weights'    )
-    Mset, MIget, MIset = multiprop(    Facepoint, 'Materials'  )
+    class Forwarder(UGEObject):
+        """unofficial, multipriop forwarder"""
+        __disabled__ = {'Name','Index'}
+        def __new__(cls, *other: tuple ):
+            Fw = newUGEObject(cls, *other); Fp = Fw.__parents__['Facepoint']
+            array, getindices = forwarder_relations
+            arraygetitem = array.__getitem__; arraycall = array.__call__
+            if array.__class__ is UGEChannels:
+                def getitem( item ) -> object:
+                    """Fp.UVs[item]"""
+                    idx = getindices(Fp).get(item,None)
+                    return None if idx is None else arraycall(item)(idx)
+                Fw.__getitem__ = getitem
+                def setitem( item, val: object ):
+                    """Fp.UVs[item] = val"""
+                    getindices(Fp)[item] = arraygetitem(item).Index(val)
+                Fw.__setitem__ = setitem
+                Fw.__iter__ = lambda: ( (c, arraycall(c)(i)) for c,i in getindices(Fp).items() )
+                def contains(item) -> bool:
+                    """item in Fp.UVs"""
+                    for ch,idx in getindices(Fp).items():
+                        if arraycall(ch)(idx) == item: return True
+                    return False
+                Fw.__contains__ = contains
+            else:
+                def getitem( item ) -> object:
+                    """Fp.(Weights,Materials)[item]"""
+                    idx = getindices(Fp).get(item,None)
+                    return None if idx is None else arraycall(idx)
+                Fw.__getitem__ = getitem
+                def setitem( item, val: object ):
+                    """Fp.(Weights,Materials)[item] = val"""
+                    getindices(Fp)[item] = array.Index(val)
+                Fw.__setitem__ = setitem
+                Fw.__iter__ = lambda: ( (k, arraycall(i)) for k,i in getindices(Fp).items() )
+                # TODO: figure out how to reasonably support
+                #def contains(item) -> bool:
+                #    """item in Fp.(Weights,Materials)"""
+                #    for k,idx in getindices(Fp).items():
+                #        if arraycall(idx) == item: return True
+                #    return False
+                #Fw.__contains__ = contains
+            return Fw
+
+    class Facepoint(UGEObject):
+        """UGE Facepoint"""
+        __slots__ = [ 'Vertice',    'VerticeIndex',
+                      'Normal',     'NormalIndex',
+                      'BiNormal',   'BiNormalIndex',
+                      'Tangent',    'TangentIndex',
+                      'Colors',     'ColorIndices',
+                      'UVs',        'UVIndices',
+                      'Weights',    'WeightIndices',
+                      'Materials',  'MaterialIndices']
+        __disabled__ = {'Name'}
+    
+    singleProp( Facepoint, 'Vertice',   'VerticeIndex'    )
+    singleProp( Facepoint, 'Normal',    'NormalIndex'     )
+    singleProp( Facepoint, 'BiNormal',  'BiNormalIndex'   )
+    singleProp( Facepoint, 'Tangent',   'TangentIndex'    )
+    multiprop(  Facepoint, 'Colors',    'ColorIndices'    ) # { channel: index }
+    multiprop(  Facepoint, 'UVs',       'UVIndices'       ) # { channel: index }
+    multiprop(  Facepoint, 'Weights',   'WeightIndices'   ) # { Bone: Index }
+    multiprop(  Facepoint, 'Materials', 'MaterialIndices' ) # { index: index }
+    globals()['Facepoint'] = Facepoint
 
     # Facepoint.*Vector* >>> vector(0,0(,0(,1))) if not defined
     # Facepoint.*Vector* = (0,0,0,1)
@@ -122,579 +126,394 @@ def private() -> None:
     
     class Primitive(UGEObject):
         """UGE Primitive"""
-        __public__={'Type':{'w'},'FacepPoints':{'w','p'}}
+        __slots__=['Type','FacepPoints']
         __disabled__ = {'Name'}
-        def __new__(cls,*other: tuple ):
-            Pr = UGEObject.__new__(cls)
-            Pr.Type = None
-            FPset( Pr, UGECollection(Pr,Facepoint,True ) )
         
-        def new(cls, parents: mappingproxy, holder: UGECollection, item, Index, *args, **kw):
-            """Create a new primitive instance of the specified type"""
-            Pr = cls.__new__(parents,holder,Index,*args,**kw)
-            Pr.Type = item
+        def __new__( cls, *other: tuple, **kw ):
+            Pr = newUGEObject(cls,*other)
+            Pr.Type = None
             return Pr
         
+        def new(cls, parents: mappingproxy, holder: UGECollection, item, *args, **kw):
+            """Create a new primitive instance of the specified type"""
+            Pr = cls.__new__(parents,holder,*args,**kw)
+            Pr.Type = item
+            return Pr
+
+    CollectionProp( Primitive, 'Facepoints', Facepoint, __builtin__ = "CurrentFacepoint" )
     globals()['Primitive'] = Primitive
+
+    class Weight(UGEObject):
+        """UGE Weight"""
+        __slots__ = ['Value']
+        __disabled__ = {'Name'}
+        def __new__(cls, *other: tuple ):
+            Wt = newUGEObject(cls, *other)
+            Wt.Value = 1.0
+            return Wt
+    FloatProp(Weight,'Value')
+    globals()['Weight'] = Weight
     
-    FPset = CollectionProp( Primitive, 'Facepoints' )
-        
+    new = object.__new__
     class mesh(object):
         """mesh Type"""
-        __slots__=['Name','Vertices','Normals','BiNormals','Tangents','Colors','UVs','Weights','Primitives']
-        def __init__(Me,Ob: UGEObject):
+        __slots__=['Name','Vertices','Normals','BiNormals','Tangents','Colors','UVs','Weights','Primitives','__owner__']
+        def __new__(cls,Ob: UGEObject):
+            Me = new(cls)
+            Me.__owner__ = Ob
             Me.Name=Ob.Name
-            
-            Me.Vertices = UGECollection(Ob,vector)
-            Me.Normals  = UGECollection(Ob,vector)
-            Me.BiNormals= UGECollection(Ob,vector) # NOTE: some sources (such as the IQM demo) call these BiTangents
-            Me.Tangents = UGECollection(Ob,vector)
-            Me.Colors   = UGEChannels(Ob,vector)
-            Me.UVs      = UGEChannels(Ob,vector)
-            Me.Weights  = UGECollection(Ob,float)
-            
-            Me.Primitives = UGECollection(Ob,Primitive,True,True )
+            for initializer in properties.get('mesh',set()): initializer(Me)
+            return Me
         __eq__ = lambda this,other: this.Name == other or this is other
         __ne__ = lambda this,other: this.Name != other and this is not other
+    StringProp(     mesh, 'Name'                  )
+    CollectionProp( mesh, 'Vertices',   UGEVector )
+    CollectionProp( mesh, 'Normals',    UGEVector )
+    CollectionProp( mesh, 'BiNormals',  UGEVector ) # NOTE: some sources (such as the IQM demo) call these BiTangents
+    CollectionProp( mesh, 'Tangents',   UGEVector )
+    ChannelsProp(   mesh, 'Colors',     UGEVector )
+    ChannelsProp(   mesh, 'UVs',        UGEVector )
+    CollectionProp( mesh, 'Weights',    Weight    )
+    ChannelsProp(   mesh, 'Primitives', Primitive, __builtin__ = 'CurrentPrimitive' )
     globals()['mesh'] = mesh
+
+    getData, setData = _protected['Object']['Data']
+    
+    objectextension=extension('Object')
+    @objectextension
+    def Primitives(Ob: Object):
+        """Object.Primitives"""
+        if getData(Ob) is None: setData(Ob, mesh(Ob))
+        if Ob.Type=='mesh': return getData(Ob).Primitives
+        print('ERROR: Object.Primitives cannot be accessed for %s objects'%Ob.Type)
+    @objectextension.setter
+    def Primitives(Ob: Object, val: object):
+        """Set Object.Primitives"""
+        if getData(Ob) is None: setData(Ob,mesh(Ob))
+        getData(Ob).Primitives[:] = val
+    
+    # lists
+    @objectextension
+    def Vertices(Ob: Object):
+        """Object.Vertices"""
+        if getData(Ob) is None: setData(Ob, mesh(Ob))
+        if Ob.Type=='mesh': return getData(Ob).Vertices
+        print('ERROR: Object.Vertices cannot be accessed for %s objects'%Ob.Type)
+    @objectextension.setter
+    def Vertices(Ob: Object, val: object):
+        """Set Object.Vertices"""
+        if getData(Ob) is None: setData(Ob,mesh(Ob))
+        getData(Ob).Vertices[:] = val
+        
+    @objectextension
+    def Normals(Ob: Object):
+        """Object.Normals"""
+        if getData(Ob) is None: setData(Ob, mesh(Ob))
+        if Ob.Type=='mesh': return getData(Ob).Normals
+        print('ERROR: Object.Normals cannot be accessed for %s objects'%Ob.Type)
+    @objectextension.setter
+    def Normals(Ob: Object, val: object):
+        """Set Object.Normals"""
+        if getData(Ob) is None: setData(Ob,mesh(Ob))
+        getData(Ob).Normals[:] = val
+        
+    @objectextension
+    def BiNormals(Ob: Object):
+        """Object.BiNormals"""
+        if getData(Ob) is None: setData(Ob, mesh(Ob))
+        if Ob.Type=='mesh': return getData(Ob).BiNormals
+        print('ERROR: Object.BiNormals cannot be accessed for %s objects'%Ob.Type)
+    @objectextension.setter
+    def BiNormals(Ob: Object, val: object):
+        """Set Object.BiNormals"""
+        if getData(Ob) is None: setData(Ob,mesh(Ob))
+        getData(Ob).BiNormals[:] = val
+        
+    @objectextension
+    def Tangents(Ob: Object):
+        """Object.Tangents"""
+        if getData(Ob) is None: setData(Ob, mesh(Ob))
+        if Ob.Type=='mesh': return getData(Ob).Tangents
+        print('ERROR: Object.Tangents cannot be accessed for %s objects'%Ob.Type)
+    @objectextension.setter
+    def Tangents(Ob: Object, val: object):
+        """Set Object.Tangents"""
+        if getData(Ob) is None: setData(Ob,mesh(Ob))
+        getData(Ob).Tangents[:] = val
+        
+    @objectextension
+    def Colors(Ob: Object):
+        """Object.Colors"""
+        if getData(Ob) is None: setData(Ob, mesh(Ob))
+        if Ob.Type=='mesh': return getData(Ob).Colors
+        print('ERROR: Object.Colors cannot be accessed for %s objects'%Ob.Type)
+    @objectextension.setter
+    def Colors(Ob: Object, val: object):
+        """Set Object.Colors"""
+        if getData(Ob) is None: setData(Ob,mesh(Ob))
+        getData(Ob).Colors[:] = val
+        
+    @objectextension
+    def UVs(Ob: Object):
+        """Object.UVs"""
+        if getData(Ob) is None: setData(Ob, mesh(Ob))
+        if Ob.Type=='mesh': return getData(Ob).UVs
+        print('ERROR: Object.UVs cannot be accessed for %s objects'%Ob.Type)
+    @objectextension.setter
+    def UVs(Ob: Object, val: object):
+        """Set Object.UVs"""
+        if getData(Ob) is None: setData(Ob,mesh(Ob))
+        getData(Ob).UVs[:] = val
+
+    @objectextension
+    def Weights(Ob: Object):
+        """Object.UVs"""
+        if getData(Ob) is None: setData(Ob, mesh(Ob))
+        if Ob.Type=='mesh': return getData(Ob).Weights
+        print('ERROR: Object.Weights cannot be accessed for %s objects'%Ob.Type)
+    @objectextension.setter
+    def Weights(Ob: Object, val: object):
+        """Set Object.UVs"""
+        if getData(Ob) is None: setData(Ob,mesh(Ob))
+        getData(Ob).Weights[:] = val
+        
+
 private()
 del private
-# noinspection PyUnresolvedReferences
-from . import Facepoint, Primitive, mesh # IDEA can't comprehend dynamics
 
-objectextension=extension('Object')
-@objectextension
-def Primitives(Ob):
-    if not Ob.Data: Ob.Data=mesh(Ob)
-    if Ob.Type=='mesh': return Ob.Data.Primitives
-    print('ERROR: Object.Primitives cannot be accessed for %s objects'%Ob.Type)
-del Primitives
+from . import Material, Bone, UGEVector
 
-# lists
-@objectextension
-def Vertices(Ob):
-    if not Ob.Data: Ob.Data=mesh(Ob)
-    if Ob.Type=='mesh': return Ob.Data.Vertices
-    print('ERROR: Object.Vertices cannot be accessed for %s objects'%Ob.Type)
-del Vertices
-@objectextension
-def Normals(Ob):
-    if not Ob.Data: Ob.Data=mesh(Ob)
-    if Ob.Type=='mesh': return Ob.Data.Normals
-    print('ERROR: Object.Normals cannot be accessed for %s objects'%Ob.Type)
-del Normals
-@objectextension
-def BiNormals(Ob):
-    if not Ob.Data: Ob.Data=mesh(Ob)
-    if Ob.Type=='mesh': return Ob.Data.BiNormals
-    print('ERROR: Object.BiNormals cannot be accessed for %s objects'%Ob.Type)
-del BiNormals
-@objectextension
-def Tangents(Ob):
-    if not Ob.Data: Ob.Data=mesh(Ob)
-    if Ob.Type=='mesh': return Ob.Data.Tangents
-    print('ERROR: Object.Tangents cannot be accessed for %s objects'%Ob.Type)
-del Tangents
-@objectextension
-def Colors(Ob):
-    if not Ob.Data: Ob.Data=mesh(Ob)
-    if Ob.Type=='mesh': return Ob.Data.Colors
-    print('ERROR: Object.Colors cannot be accessed for %s objects'%Ob.Type)
-del Colors
-@objectextension
-def UVs(Ob):
-    if not Ob.Data: Ob.Data=mesh(Ob)
-    if Ob.Type=='mesh': return Ob.Data.UVs
-    print('ERROR: Object.UVs cannot be accessed for %s objects'%Ob.Type)
-del UVs
-'''
-@UGE_GLOBAL_WRAPPER
-@register([CONST.UGE_MODEL_SCRIPT])
-def ugeSetMesh(MeshName="Mesh0"):
-    """Creates or References a UGE Mesh in the current object
-    
-    usage:
-    - MeshID = ugeSetMesh( "Mesh0" ) # (default) Reference or create "Mesh0"
-    - MeshID = ugeSetMesh( int ) # Reference mesh by ID"""
-    CurrentObject = FORMAT.Roots._current.Objects._current
-    if not CurrentObject: print('ERROR: ugeSetMesh() expected a defined object.'); return
-    ObjectData = CurrentObject.Data
-    if not ObjectData: ObjectData = CurrentObject.Data = mesh(MeshName)
-    elif ObjectData!='mesh': print('ERROR: ugeSetMesh() cannot operate on %s objects.'%ObjectData.__class__.__name__); return
-    Meshes = ObjectData.Meshes
-    if MeshName in Meshes or MeshName.__class__ is str: Meshes.current = Meshes[MeshName]
-    elif MeshName.__class__ is int: print('ERROR: ugeSetMesh() cannot find mesh ID (%i)'%MeshName)
-    else: print('ERROR: ugeSetMesh() received an invalid value (%s)'%MeshName)
-    ugeSetMesh.func_defaults = ("Mesh%i"%len(Meshes),)
-    return Meshes.current.ID
+#from . import validObjectTypes
+from .. import UGE_GLOBAL_WRAPPER, register
+from ..CONST import define, UGE_CONSTANT, UGE_MODEL_SCRIPT, UGE_VECTOR_FLAG, UGE_PRETRANSFORMED, UGE_TRIANGLES
 
-def _localize(this): # NOTE: `this` refers to the current vector
-    MeshObject = this.data
-    ObjectData = MeshObject.data
-    Weights = ObjectData.Weights
-    Bones = [] # NOTE: Bones (if found) should be a collection instead of a list
-    Parent = CurrentObject.Parent
-    while Parent: # TODO: catalog the _rig object instead of searching for it every time
-        if Parent.Data=='_rig': Bones = Parent.Data.Bones; break
-        Parent = Parent.Parent
-'''
-    
+class UGE_PRIMITIVE_TYPE(UGE_CONSTANT ): """UGE Primitive Type"""
+define( '''
+        UGE_POINTS
+        UGE_LINES UGE_LINESTRIP UGE_LINELOOP
+        UGE_TRIANGLES UGE_TRIANGLESTRIP UGE_TRIANGLEFAN
+        UGE_QUADS UGE_QUADSTRIP
+        UGE_POLYGON
+        '''.split(), UGE_PRIMITIVE_TYPE, [ UGE_MODEL_SCRIPT] )
+
+# TODO: triangulate
 
 @UGE_GLOBAL_WRAPPER
-@register([CONST.UGE_MODEL_SCRIPT])
-def ugeSetVertArr(Vertices, flag=CONST.UGE_PRETRANSFORMED):
-    """Sets the vertex array of the current mesh.
-    
-    arguments:
-    - flag = UGE_PRETRANSFORMED # vertices in edit-position (T-pose)
-    - flag = UGE_UNTRANSFORMED # vertices in raw-position (ready for animation)
-    
-    usage:
-    - ugeSetVertArr( [ [X,Y,Z,W], ... ], flag = flag )"""
-    CurrentObject = FORMAT.Roots.current.Worlds.current.Scenes.current.Objects.current
-    if not CurrentObject: print('ERROR: ugeSetVertArr() expected a defined object.'); return
-    ObjectVertices =  CurrentObject.Vertices
-    for i,V in enumerate(Vertices): ObjectVertices[i] = vector( *V, flag=flag )
+@register([UGE_MODEL_SCRIPT])
+def ugeSetVertices(Vertices: [UGEVector], flag: UGE_VECTOR_FLAG = UGE_PRETRANSFORMED ):
+    """Sets the vertice array of the current mesh."""
+    if CurrentObject:
+        if CurrentObject.Type == 'mesh':
+            CurrentScope.UGE_VECTOR_FLAG = flag
+            CurrentObject.Vertices = Vertices
+        else: print('ERROR: ugeSetVertices() cannot operate on %s Objects'%CurrentObject.Type)
+    else: print('ERROR: ugeSetVertices() expected a defined Object.')
 
 @UGE_GLOBAL_WRAPPER
-@register([CONST.UGE_MODEL_SCRIPT])
-def ugeSetNormalArr(Normals, flag = CONST.UGE_PRETRANSFORMED):
-    """Sets the normal array of the current mesh.
-    
-    arguments:
-    - flag = UGE_PRETRANSFORMED # normals in edit-rotation (T-pose)
-    - flag = UGE_UNTRANSFORMED # normals in raw-rotation (ready for animation)
-    
-    usage:
-    - ugeSetNormalArr( [ [I,J,K,H], ... ], flag = flag )"""
-    CurrentObject = FORMAT.Roots._current.Objects._current
-    if not CurrentObject: print('ERROR: ugeSetNormalArr() expected a defined object.'); return
-    ObjectData = CurrentObject.Data
-    if not ObjectData: ObjectData = CurrentObject.Data=mesh(CurrentObject.Name)
-    elif ObjectData!='mesh': print('ERROR: ugeSetNormalArr() cannot operate on %s objects.'%ObjectData.__class__.__name__); return
-    normalArray = map(vector,Normals)
-    blankArray = [None]*len(normalArray)
-    if flag == CONST.UGE_UNTRANSFORMED: # DEPRECATED
-        ObjectData.UTNormals,ObjectData.Normals = normalArray,blankArray
-    else: ObjectData.Normals,ObjectData.UTNormals = normalArray,blankArray
-    
-@UGE_GLOBAL_WRAPPER
-@register([CONST.UGE_MODEL_SCRIPT], Deprecated=True)
-def ugeSetUTVertArr(Verts):
-    CurrentObject = FORMAT.Roots._current.Objects._current
-    if not CurrentObject: print('ERROR: ugeSetUTVertArr() expected a defined object.'); return
-    ObjectData = CurrentObject.Data
-    if not ObjectData: CurrentObject.Data=mesh(CurrentObject.Name)
-    elif ObjectData!='mesh': print('ERROR: ugeSetUTVertArr() cannot operate on %s objects.'%ObjectData.__class__.__name__); return
-    CurrentObject.Data.UTVerts = map(vector,Verts) # DEPRECATED
-    CurrentObject.Data.Vertices =[None]*len(Verts)
-    
-@UGE_GLOBAL_WRAPPER
-@register([CONST.UGE_MODEL_SCRIPT], Deprecated=True)
-def ugeSetUTNormalArr(Normals):
-    CurrentObject = FORMAT.Roots._current.Objects._current
-    if not CurrentObject: print('ERROR: ugeSetUTNormalArr() expected a defined object.'); return
-    ObjectData = CurrentObject.Data
-    if not ObjectData: CurrentObject.Data=mesh(CurrentObject.Name)
-    elif ObjectData!='mesh': print('ERROR: ugeSetUTNormalArr() cannot operate on %s objects.'%ObjectData.__class__.__name__); return
-    CurrentObject.Data.UTNormals = map(vector,Normals) # DEPRECATED
-    CurrentObject.Data.Normals = [None]*len(Normals)
-    
-# TODO: binormal, tangent, and bitangent
+@register([UGE_MODEL_SCRIPT])
+def ugeSetNormals(Normals: [UGEVector], flag: UGE_VECTOR_FLAG = UGE_PRETRANSFORMED ):
+    """Sets the normal array of the current mesh."""
+    if CurrentObject:
+        if CurrentObject.Type == 'mesh':
+            CurrentScope.UGE_VECTOR_FLAG = flag
+            CurrentObject.Normals = Normals
+        else: print('ERROR: ugeSetNormals() cannot operate on %s Objects'%CurrentObject.Type)
+    else: print('ERROR: ugeSetNormals() expected a defined Object.')
 
 @UGE_GLOBAL_WRAPPER
-@register([CONST.UGE_MODEL_SCRIPT])
-def ugeSetColorArr(Colors,channel=0):
-    """Sets the color array of the current mesh.
-    
-    arguments:
-    - channel = 0 # sets the UV channel (max value of 1)
-    
-    usage:
-    - ugeSetColorArr( [ [I,A], [R,G,B,A], ... ], channel )"""
-    CurrentObject = FORMAT.Roots._current.Objects._current
-    if not CurrentObject: print('ERROR: ugeSetColorArr() expected a defined object.'); return
-    ObjectData = CurrentObject.Data
-    if not ObjectData: CurrentObject.Data=mesh(CurrentObject.Name)
-    elif ObjectData!='mesh': print('ERROR: ugeSetColorArr() cannot operate on %s objects.'%ObjectData.__class__.__name__); return
-    CurrentObject.Data.Colors[channel] = map(vector,Colors)
+@register([UGE_MODEL_SCRIPT])
+def ugeSetBiNormals(BiNormals: [UGEVector], flag: UGE_VECTOR_FLAG = UGE_PRETRANSFORMED ):
+    """Sets the binormal/bitangent array of the current mesh."""
+    if CurrentObject:
+        if CurrentObject.Type == 'mesh':
+            CurrentScope.UGE_VECTOR_FLAG = flag
+            CurrentObject.BiNormals = BiNormals
+        else: print('ERROR: ugeSetBiNormals() cannot operate on %s Objects'%CurrentObject.Type)
+    else: print('ERROR: ugeSetBiNormals() expected a defined Object.')
 
 @UGE_GLOBAL_WRAPPER
-@register([CONST.UGE_MODEL_SCRIPT])
-def ugeSetUVArr(UVs,channel=0):
-    """Sets the UV array of the current mesh.
-    
-    arguments:
-    - channel = 0 # sets the UV channel (max value of 7)
-    
-    usage:
-    - ugeSetUVArr( [ [S,T,R,Q], ... ], channel )"""
-    CurrentObject = FORMAT.Roots._current.Objects._current
-    if not CurrentObject: print('ERROR: ugeSetUVArr() expected a defined object.'); return
-    ObjectData = CurrentObject.Data
-    if not ObjectData: CurrentObject.Data=mesh(CurrentObject.Name)
-    elif ObjectData!='mesh': print('ERROR: ugeSetUVArr() cannot operate on %s objects.'%ObjectData.__class__.__name__); return
-    CurrentObject.Data.UVs[channel] = map(vector,UVs)
+@register([UGE_MODEL_SCRIPT])
+def ugeSetTangents(Tangents: [UGEVector], flag: UGE_VECTOR_FLAG = UGE_PRETRANSFORMED ):
+    """Sets the tangent array of the current mesh."""
+    if CurrentObject:
+        if CurrentObject.Type == 'mesh':
+            CurrentScope.UGE_VECTOR_FLAG = flag
+            CurrentObject.Tangents = Tangents
+        else: print('ERROR: ugeSetTangents() cannot operate on %s Objects'%CurrentObject.Type)
+    else: print('ERROR: ugeSetTangents() expected a defined Object.')
+
+@UGE_GLOBAL_WRAPPER
+@register([UGE_MODEL_SCRIPT])
+def ugeSetColors(Colors: [UGEVector], channel: int = 0 ):
+    """Sets the color array of the current mesh."""
+    if CurrentObject:
+        if CurrentObject.Type == 'mesh': CurrentObject.Colors[channel] = Colors
+        else: print('ERROR: ugeSetColors() cannot operate on %s Objects'%CurrentObject.Type)
+    else: print('ERROR: ugeSetColors() expected a defined Object.')
+
+@UGE_GLOBAL_WRAPPER
+@register([UGE_MODEL_SCRIPT])
+def ugeSetUVs(UVs: [UGEVector], channel: int = 0 ):
+    """Sets the UV array of the current mesh."""
+    if CurrentObject:
+        if CurrentObject.Type == 'mesh': CurrentObject.UVs[channel] = UVs
+        else: print('ERROR: ugeSetUVs() cannot operate on %s Objects'%CurrentObject.Type)
+    else: print('ERROR: ugeSetUVs() expected a defined Object.')
+
+@UGE_GLOBAL_WRAPPER
+@register([UGE_MODEL_SCRIPT])
+def ugeSetWeights(Weights: [float] ):
+    """Sets the Weight array of the current mesh."""
+    if CurrentObject:
+        if CurrentObject.Type == 'mesh': CurrentObject.Weights = Weights
+        else: print('ERROR: ugeSetWeights() cannot operate on %s Objects'%CurrentObject.Type)
+    else: print('ERROR: ugeSetWeights() expected a defined Object.')
 
 # noinspection PyShadowingNames
 @UGE_GLOBAL_WRAPPER
-@register([CONST.UGE_MODEL_SCRIPT])
-def ugeSetPrimitive(Primitive=CONST.UGE_TRIANGLES):
-    """Creates or References a UGE Primitive
-    
-    usage:
-    - PrimID = ugeSetPrimitive( UGE_TRIANGLES ) # (default) Creates a new triangle primitive
-    - PrimID = ugeSetPrimitive( int ) # Reference primitive by ID"""
-    CurrentObject = FORMAT.Roots._current.Objects._current
-    if not CurrentObject: print('ERROR: ugeSetPrimitive() expected a defined object.'); return
-    ObjectData = CurrentObject.Data
-    if not ObjectData: ObjectData = CurrentObject.Data=mesh(CurrentObject.Name)
-    elif ObjectData!='mesh': print('ERROR: ugeSetPrimitive() cannot operate on %s objects.'%ObjectData.__class__.__name__); return
-    Primitives = ObjectData.Meshes.current.Primitives
-    if Primitive.__class__.__name__ == 'UGE_Primitive_Type':
-        CurrentPrimitive = Primitives._current = Primitives['']
-        CurrentPrimitive.Type = Primitive
-        return CurrentPrimitive.ID
-    elif Primitive in Primitives:
-        CurrentPrimitive = Primitives._current = Primitives[ Primitive ]
-        return CurrentPrimitive.ID
-    else: print('ERROR: ugeSetPrimitive() expects a UGE Primitive or an index.'); return
+@register([UGE_MODEL_SCRIPT])
+def ugeSetPrimitive(Primitive: [UGE_PRIMITIVE_TYPE, Primitive, int] = UGE_TRIANGLES, mesh: str = None ) -> Primitive:
+    """Creates or References a UGE Primitive"""
+    if CurrentObject:
+        if CurrentObject.Type == 'mesh': return CurrentObject.Primitives.new(Primitive,mesh)
+        else: print('ERROR: ugeSetPrimitive() cannot operate on %s Objects'%CurrentObject.Type)
+    else: print('ERROR: ugeSetPrimitive() expected a defined Object.')
 
 # noinspection PyShadowingNames
 @UGE_GLOBAL_WRAPPER
-@register([CONST.UGE_MODEL_SCRIPT])
-def ugeSetFacepoint(FacePoint=None):
-    """Creates or References a UGE FacePoint in the current primitive
-    
-    usage:
-    - FPID = ugeSetFacepoint( None ) # (default) Creates a new FacePoint
-    - FPID = ugeSetFacepoint( int ) # Reference FacePoint by ID"""
-    CurrentObject = FORMAT.Roots._current.Objects._current
-    if not CurrentObject: print('ERROR: ugeSetFacepoint() expected a defined object.'); return
-    ObjectData = CurrentObject.Data
-    if not ObjectData: ObjectData = CurrentObject.Data=mesh(CurrentObject.Name)
-    elif ObjectData!='mesh': print('ERROR: ugeSetFacepoint() cannot operate on %s objects.'%ObjectData.__class__.__name__); return
-    CurrentPrimitive = ObjectData.Meshes.current.Primitives._current
-    if not CurrentPrimitive: print('ERROR: ugeSetFacepoint() expected a defined primitive.'); return
-    FacePoints = CurrentPrimitive.FacePoints
-    if FacePoint==None:
-        CurrentFacePoint = FacePoints._current = FacePoints['']
-        return CurrentFacePoint.ID
-    elif FacePoint in FacePoints:
-        CurrentFacePoint = FacePoints._current = FacePoints[FacePoint]
-        return CurrentFacePoint.ID
-    else: print('ERROR: ugeSetFacepoint() expects a valid index.'); return
-    
-# NOTE: UT functions are not needed for indices, set a UT vector array and index to that.
+@register([UGE_MODEL_SCRIPT])
+def ugeSetFacepoint(Facepoint: [Facepoint, int] = None):
+    """Creates or References a UGE Facepoint in the current primitive"""
+    if CurrentPrimitive: return CurrentPrimitive.FacePoints.new(Facepoint)
+    else: print('ERROR: ugeSetFacepoint() expected a defined Primitive.')
     
 @UGE_GLOBAL_WRAPPER
-@register([CONST.UGE_MODEL_SCRIPT])
-def ugeSetVertIndex(ID):
-    """Sets the current FacePoint's vertex index
-    
-    usage:
-    - VID = ugeSetVertIndex( 0 )"""
-    Objects = FORMAT.Roots._current.Objects
-    if not Objects.objects: return # TODO: notify developer to define an object
-    CurrentObject = Objects._current
-    if not CurrentObject.Data: CurrentObject.Data=mesh(CurrentObject.Name)
-    elif CurrentObject.Data!=mesh: return # TODO: notify developer a mesh object is expected
-    CurrentPrimitive = CurrentObject.Data.Meshes.current.Primitives._current
-    if not CurrentPrimitive: return # TODO: notify developer to define a primitive
-    CurrentFacePoint = CurrentPrimitive.FacePoints._current
-    if not CurrentFacePoint: return # TODO: notify developer to define a facepoint
-    if ID.__class__ is int: CurrentFacePoint.VertID = ID; return ID
+@register([UGE_MODEL_SCRIPT])
+def ugeSetFpVerticeIndex(Index: int):
+    """Sets the current Facepoint's vertice index"""
+    if CurrentFacepoint: CurrentFacepoint.VerticeIndex = Index
+    else: print('ERROR: ugeSetFpVerticeIndex() expected a defined Facepoint.')
 
 @UGE_GLOBAL_WRAPPER
-@register([CONST.UGE_MODEL_SCRIPT])
-def ugeSetNormalIndex(ID):
-    """Sets the current FacePoint's normal index
-    
-    usage:
-    - NID = ugeSetNormalIndex( 0 )"""
-    Objects = FORMAT.Roots._current.Objects
-    if not Objects.objects: return # TODO: notify developer to define an object
-    CurrentObject = Objects._current
-    if not CurrentObject.Data: CurrentObject.Data=mesh(CurrentObject.Name)
-    elif CurrentObject.Data!=mesh: return # TODO: notify developer a mesh object is expected
-    CurrentPrimitive = CurrentObject.Data.Meshes.current.Primitives._current
-    if not CurrentPrimitive: return # TODO: notify developer to define a primitive
-    CurrentFacePoint = CurrentPrimitive.FacePoints._current
-    if not CurrentFacePoint: return # TODO: notify developer to define a facepoint
-    if ID.__class__ is int: CurrentFacePoint.NormalID = ID; return ID
-
-# TODO: binormal, tangent, and bitangent
+@register([UGE_MODEL_SCRIPT])
+def ugeSetFpNormalIndex(Index: int):
+    """Sets the current Facepoint's normal index"""
+    if CurrentFacepoint: CurrentFacepoint.NormalIndex = Index
+    else: print('ERROR: ugeSetFpNormalIndex() expected a defined Facepoint.')
 
 @UGE_GLOBAL_WRAPPER
-@register([CONST.UGE_MODEL_SCRIPT])
-def ugeSetColorIndex(ID,channel=0):
-    """Sets the current FacePoint's color index
-    
-    arguments:
-    - channel = 0 # sets the color channel (max value of 1)
-    
-    usage:
-    - CID = ugeSetColorIndex( 0 )
-    - CID = ugeSetColorIndex( 0, channel=1 )"""
-    Objects = FORMAT.Roots._current.Objects
-    if not Objects.objects: return # TODO: notify developer to define an object
-    CurrentObject = Objects._current
-    if not CurrentObject.Data: CurrentObject.Data=mesh(CurrentObject.Name)
-    elif CurrentObject.Data!=mesh: return # TODO: notify developer a mesh object is expected
-    CurrentPrimitive = CurrentObject.Data.Meshes.current.Primitives._current
-    if not CurrentPrimitive: return # TODO: notify developer to define a primitive
-    CurrentFacePoint = CurrentPrimitive.FacePoints._current
-    if not CurrentFacePoint: return # TODO: notify developer to define a facepoint
-    if ID.__class__ is int: CurrentFacePoint.ColorIDs[channel] = ID; return ID
+@register([UGE_MODEL_SCRIPT])
+def ugeSetFpBiNormalIndex(Index: int):
+    """Sets the current Facepoint's binormal index"""
+    if CurrentFacepoint: CurrentFacepoint.BiNormalIndex = Index
+    else: print('ERROR: ugeSetFpBiNormalIndex() expected a defined Facepoint.')
 
 @UGE_GLOBAL_WRAPPER
-@register([CONST.UGE_MODEL_SCRIPT])
-def ugeSetUVIndex(ID,channel=0):
-    """Sets the current FacePoint's UV index
-    
-    arguments:
-    - channel = 0 # sets the UV channel (max value of 7)
-    
-    usage:
-    - UVID = ugeSetUVIndex( 0 )
-    - UVID = ugeSetUVIndex( 0, channel=1 )"""
-    Objects = FORMAT.Roots._current.Objects
-    if not Objects.objects: return # TODO: notify developer to define an object
-    CurrentObject = Objects._current
-    if not CurrentObject.Data: CurrentObject.Data=mesh(CurrentObject.Name)
-    elif CurrentObject.Data!=mesh: return # TODO: notify developer a mesh object is expected
-    CurrentPrimitive = CurrentObject.Data.Meshes.current.Primitives._current
-    if not CurrentPrimitive: return # TODO: notify developer to define a primitive
-    CurrentFacePoint = CurrentPrimitive.FacePoints._current
-    if not CurrentFacePoint: return # TODO: notify developer to define a facepoint
-    if ID.__class__ is int: CurrentFacePoint.UVIDs[channel] = ID; return ID
+@register([UGE_MODEL_SCRIPT])
+def ugeSetFpTangentIndex(Index: int):
+    """Sets the current Facepoint's tangent index"""
+    if CurrentFacepoint: CurrentFacepoint.TangentIndex = Index
+    else: print('ERROR: ugeSetFpTangentIndex() expected a defined Facepoint.')
 
 @UGE_GLOBAL_WRAPPER
-@register([CONST.UGE_MODEL_SCRIPT])
-def ugeSetVert(X,Y=None,Z=None,W=None, flag = CONST.UGE_PRETRANSFORMED):
-    """Applies a vertex index to the current facepoint and appends the given vertex if necessary.
-    
-    arguments:
-    - flag = UGE_PRETRANSFORMED # (default) vertices in edit-position (T-pose)
-    - flag = UGE_UNTRANSFORMED # vertices in raw-position (ready for animation)
-    
-    usage:
-    - VID = ugeSetVert( X,Y,Z,W )
-    - VID = ugeSetVert( X,Y,Z, flag = flag )
-    - VID = ugeSetVert( [X,Y,Z], flag = flag )"""
-    Objects = FORMAT.Roots._current.Objects
-    if not Objects.objects: return # TODO: notify developer to define an object
-    CurrentObject = Objects._current
-    if not CurrentObject.Data: CurrentObject.Data=mesh(CurrentObject.Name)
-    elif CurrentObject.Data!=mesh: return # TODO: notify developer a mesh object is expected
-    CurrentMesh = CurrentObject.Data.Meshes.current
-    CurrentPrimitive = CurrentMesh.Primitives._current
-    if not CurrentPrimitive: return # TODO: notify developer to define a primitive
-    CurrentFacePoint = CurrentPrimitive.FacePoints._current
-    if not CurrentFacePoint: return # TODO: notify developer to define a facepoint
-    VertArray,OtherArray = (CurrentObject.Data.UTVerts,CurrentObject.Data.Vertices)\
-        if flag == CONST.UGE_UNTRANSFORMED else (CurrentObject.Data.Vertices,CurrentObject.Data.UTVerts)
-    NewVert = vector(X,Y,Z,W)
-    ID = 0
-    for Vert in VertArray: # iterate once, not twice (both `in` and `.index()` do this)
-        if Vert==NewVert: break
-        ID+=1 # if the loop completes, ID should == len(VertArray)
-    else: # if not found, append the new vert (yes, loops have an else case)
-        VertArray.append(NewVert); OtherArray.append(None)
-    CurrentFacePoint.VertID = ID
-    return ID
-    
-@UGE_GLOBAL_WRAPPER
-@register([CONST.UGE_MODEL_SCRIPT])
-def ugeSetNormal(I,J=None,K=None,H=None, flag = CONST.UGE_PRETRANSFORMED):
-    """Applies a normal index to the current facepoint and appends the given normal if necessary.
-    
-    arguments:
-    - flag = UGE_PRETRANSFORMED # (default) normals in edit-rotation (T-pose)
-    - flag = UGE_UNTRANSFORMED # normals in raw-rotation (ready for animation)
-    
-    usage:
-    - NID = ugeSetNormal( I,J,K,H )
-    - NID = ugeSetNormal( I,J,K, flag = flag )
-    - NID = ugeSetNormal( [I,J,K], flag = flag )"""
-    Objects = FORMAT.Roots._current.Objects
-    if not Objects.objects: return # TODO: notify developer to define an object
-    CurrentObject = Objects._current
-    if not CurrentObject.Data: CurrentObject.Data=mesh(CurrentObject.Name)
-    elif CurrentObject.Data!=mesh: return # TODO: notify developer a mesh object is expected
-    CurrentMesh = CurrentObject.Data.Meshes.current
-    CurrentPrimitive = CurrentMesh.Primitives._current
-    if not CurrentPrimitive: return # TODO: notify developer to define a primitive
-    CurrentFacePoint = CurrentPrimitive.FacePoints._current
-    if not CurrentFacePoint: return # TODO: notify developer to define a facepoint
-    NormalArray,OtherArray = (CurrentObject.Data.UTNormals,CurrentObject.Data.Normals)\
-        if flag == CONST.UGE_UNTRANSFORMED else (CurrentObject.Data.Normals,CurrentObject.Data.UTNormals)
-    NewNormal = vector(I,J,K,H)
-    ID = 0
-    for Vert in NormalArray:
-        if Vert==NewNormal: break
-        ID+=1
-    else: NormalArray.append(NewNormal); OtherArray.append(None)
-    CurrentFacePoint.NormalID = ID
-    return ID
+@register([UGE_MODEL_SCRIPT])
+def ugeSetFpColorIndex(Index: int, channel: int = 0):
+    """Sets the current Facepoint's color index"""
+    if CurrentFacepoint: CurrentFacepoint.ColorIndices[channel] = Index
+    else: print('ERROR: ugeSetFpColorIndex() expected a defined Facepoint.')
 
 @UGE_GLOBAL_WRAPPER
-@register([CONST.UGE_MODEL_SCRIPT], Deprecated=True)
-def ugeSetUTVert(X,Y=None,Z=None,W=None):
-    Objects = FORMAT.Roots._current.Objects
-    if not Objects.objects: return # TODO: notify developer to define an object
-    CurrentObject = Objects._current
-    if not CurrentObject.Data: CurrentObject.Data=mesh(CurrentObject.Name)
-    elif CurrentObject.Data!=mesh: return # TODO: notify developer a mesh object is expected
-    CurrentMesh = CurrentObject.Data.Meshes.current
-    CurrentPrimitive = CurrentMesh.Primitives._current
-    if not CurrentPrimitive: return # TODO: notify developer to define a primitive
-    CurrentFacePoint = CurrentPrimitive.FacePoints._current
-    if not CurrentFacePoint: return # TODO: notify developer to define a facepoint
-    NewVert = vector(X,Y,Z,W)
-    ID = 0
-    for Vert in CurrentObject.Data.UTVerts:
-        if Vert==NewVert: break
-        ID+=1
-    else: CurrentObject.Data.UTVerts.append(NewVert); CurrentObject.Data.Vertices.append(None)
-    CurrentFacePoint.VertID = ID
-    return ID
-    
+@register([UGE_MODEL_SCRIPT])
+def ugeSetFpUVIndex(Index: int, channel: int = 0):
+    """Sets the current Facepoint's UV index"""
+    if CurrentFacepoint: CurrentFacepoint.UVIndices[channel] = Index
+    else: print('ERROR: ugeSetFpColorIndex() expected a defined Facepoint.')
+
+# noinspection PyShadowingNames
 @UGE_GLOBAL_WRAPPER
-@register([CONST.UGE_MODEL_SCRIPT], Deprecated=True)
-def ugeSetUTNormal(I,J=None,K=None,H=None):
-    Objects = FORMAT.Roots._current.Objects
-    if not Objects.objects: return # TODO: notify developer to define an object
-    CurrentObject = Objects._current
-    if not CurrentObject.Data: CurrentObject.Data=mesh(CurrentObject.Name)
-    elif CurrentObject.Data!=mesh: return # TODO: notify developer a mesh object is expected
-    CurrentMesh = CurrentObject.Data.Meshes.current
-    CurrentPrimitive = CurrentMesh.Primitives._current
-    if not CurrentPrimitive: return # TODO: notify developer to define a primitive
-    CurrentFacePoint = CurrentPrimitive.FacePoints._current
-    if not CurrentFacePoint: return # TODO: notify developer to define a facepoint
-    NewNormal = vector(I,J,K,H)
-    ID = 0
-    for Vert in CurrentObject.Data.UTNormals:
-        if Vert==NewNormal: break
-        ID+=1
-    else: CurrentObject.Data.UTNormals.append(NewNormal); CurrentObject.Data.Normals.append(None)
-    CurrentFacePoint.NormalID = ID
-    return ID
-    
-# TODO: binormal, tangent, and bitangent
+@register([UGE_MODEL_SCRIPT])
+def ugeSetFpWeightIndex(Bone: (str, Bone), Index: int):
+    """Sets the current Facepoint's Weight index"""
+    if CurrentFacepoint: CurrentFacepoint.WeightIndices[Bone] = Index
+    else: print('ERROR: ugeSetFpWeightIndex() expected a defined Facepoint.')
 
 @UGE_GLOBAL_WRAPPER
-@register([CONST.UGE_MODEL_SCRIPT])
-def ugeSetColor(R,G=None,B=None,A=None, channel=0):
-    """Applies a color index to the current facepoint and appends the given color if necessary.
-    
-    arguments:
-    - channel = 0 # sets the color channel (max value of 1)
-    
-    usage:
-    - CID = ugeSetColor( R,G,B,A )
-    - CID = ugeSetColor( [R,G,B], channel=1 )"""
-    Objects = FORMAT.Roots._current.Objects
-    if not Objects.objects: return # TODO: notify developer to define an object
-    CurrentObject = Objects._current
-    if not CurrentObject.Data: CurrentObject.Data=mesh(CurrentObject.Name)
-    elif CurrentObject.Data!=mesh: return # TODO: notify developer a mesh object is expected
-    CurrentMesh = CurrentObject.Data.Meshes.current
-    CurrentPrimitive = CurrentMesh.Primitives._current
-    if not CurrentPrimitive: return # TODO: notify developer to define a primitive
-    CurrentFacePoint = CurrentPrimitive.FacePoints._current
-    if not CurrentFacePoint: return # TODO: notify developer to define a facepoint
-    Colors = CurrentObject.Data.Colors
-    if channel in Colors: ColorArray = Colors[channel]
-    else: ColorArray = Colors[channel] = []
-    NewColor = vector(R,G,B,A)
-    ID = 0
-    for Vert in ColorArray:
-        if Vert==NewColor: break
-        ID+=1
-    else: ColorArray.append(NewColor)
-    CurrentFacePoint.ColorIDs[channel] = ID
-    return ID
-    
-@UGE_GLOBAL_WRAPPER
-@register([CONST.UGE_MODEL_SCRIPT])
-def ugeSetUV(S,T=None,R=None,Q=None, channel=0):
-    """Applies a UV index to the current facepoint and appends the given UV if necessary.
-    
-    arguments:
-    - channel = 0 # sets the UV channel (max value of 7)
-    
-    usage:
-    - UVID = ugeSetUV( S,T,R,Q )
-    - UVID = ugeSetUV( [S,T], channel=1 )"""
-    Objects = FORMAT.Roots._current.Objects
-    if not Objects.objects: return # TODO: notify developer to define an object
-    CurrentObject = Objects._current
-    if not CurrentObject.Data: CurrentObject.Data=mesh(CurrentObject.Name)
-    elif CurrentObject.Data!=mesh: return # TODO: notify developer a mesh object is expected
-    CurrentMesh = CurrentObject.Data.Meshes.current
-    CurrentPrimitive = CurrentMesh.Primitives._current
-    if not CurrentPrimitive: return # TODO: notify developer to define a primitive
-    CurrentFacePoint = CurrentPrimitive.FacePoints._current
-    if not CurrentFacePoint: return # TODO: notify developer to define a facepoint
-    UVs = CurrentObject.Data.UVs
-    if channel in UVs: UVArray = UVs[channel]
-    else: UVArray = UVs[channel] = []
-    NewUV = vector(S,T,R,Q)
-    ID = 0
-    for Vert in UVArray:
-        if Vert==NewUV: break
-        ID+=1
-    else: UVArray.append(NewUV)
-    CurrentFacePoint.UVIDs[channel] = ID
-    return ID
-    
-@UGE_GLOBAL_WRAPPER
-@register([CONST.UGE_MODEL_SCRIPT])
-def ugeSetWeight(Bone, Value=1.0):
-    """Appends the BoneID and the index of the given weight-value to the current facepoint.
-    
-    usage:
-    - WID = ugeSetWeight( 'BoneName', 1.0 )
-    - WID = ugeSetWeight( int, 1.0 ) # BoneID"""
-    Objects = FORMAT.Roots._current.Objects
-    if not Objects.objects: return # TODO: notify developer to define an object
-    CurrentObject = Objects._current
-    if not CurrentObject.Data: CurrentObject.Data=mesh(CurrentObject.Name)
-    elif CurrentObject.Data!=mesh: return # TODO: notify developer a mesh object is expected
-    CurrentMesh = CurrentObject.Data.Meshes.current
-    CurrentPrimitive = CurrentMesh.Primitives._current
-    if not CurrentPrimitive: return # TODO: notify developer to define a primitive
-    CurrentFacePoint = CurrentPrimitive.FacePoints._current
-    if not CurrentFacePoint: return # TODO: notify developer to define a facepoint
-    
-    Bones = []
-    # find the root _rig used by the current object (if any) or create it if possible
-    # TODO: deal with bone references from multiple hierarchical _rig objects 
-    Parent = CurrentObject.Parent
-    while Parent: # TODO: catalog the _rig object instead of searching for it every time
-        if Parent.Data=='_rig': Bones = Parent.Data.Bones; break
-        Parent = Parent.Parent
-    Bone = getattr(Bone, '__value__', Bone)
-    if Bones and Bone in Bones or Bone.__class__ is str: Bone = Bones[Bone].ID
-    elif Bone.__class__ is int: return # TODO: notify developer of the invalid ID
+@register([UGE_MODEL_SCRIPT])
+def ugeSetFpMaterialIndex(Index: int, MaterialIndex: int):
+    """Sets the current Facepoint's Material index"""
+    if CurrentFacepoint: CurrentFacepoint.MaterialIndices[Index] = MaterialIndex
+    else: print('ERROR: ugeSetFpMaterialIndex() expected a defined Facepoint.')
 
-    Value = getattr(Value, '__value__', Value)
-    if Value.__class__!=float:
-        try: Value=float(Value)
-        except (TypeError,ValueError): print('ERROR: ugeSetWeight() expects a float value.'); return
-        if not 0.0>=Value<=1.0: print('ERROR: ugeSetWeight() %s is not in range 0.0 to 1.0.'%Value); return
+@UGE_GLOBAL_WRAPPER
+@register([UGE_MODEL_SCRIPT])
+def ugeSetFpVertice(X: (float, int, str, tuple, list), Y: (float, int, str) = None, Z: (float, int, str) = None, W: (float, int, str) = None, flag: UGE_VECTOR_FLAG = UGE_PRETRANSFORMED):
+    """Sets the current Facepoint's vertice."""
+    if CurrentFacepoint:
+        CurrentFacepoint.Vertice = { 'XYZW':X, 'flag':flag } if iterable(X) else { 'X':X, 'Y':Y, 'Z':Z, 'W':W, 'flag':flag }
+        return CurrentFacepoint.Vertice
+    else: print('ERROR: ugeSetFpVertice() expected a defined Facepoint.')
     
-    Weights = CurrentObject.Data.Weights
-    WeightID = 0
-    for WeightValue in Weights:
-        if WeightValue==Value: break
-        WeightID+=1
-    else: Weights.append(Value)
+@UGE_GLOBAL_WRAPPER
+@register([UGE_MODEL_SCRIPT])
+def ugeSetFpNormal(X: (float, int, str, tuple, list), Y: (float, int, str) = None, Z: (float, int, str) = None, W: (float, int, str) = None, flag: UGE_VECTOR_FLAG = UGE_PRETRANSFORMED):
+    """Sets the current Facepoint's normal."""
+    if CurrentFacepoint:
+        CurrentFacepoint.Normal = { 'XYZW':X, 'flag':flag } if iterable(X) else { 'X':X, 'Y':Y, 'Z':Z, 'W':W, 'flag':flag }
+        return CurrentFacepoint.Normal
+    else: print('ERROR: ugeSetFpNormal() expected a defined Facepoint.')
     
-    WeightIDs = CurrentFacePoint.WeightIDs
-    IDs = [Bone,WeightID]
-    if IDs not in WeightIDs: WeightIDs.append(IDs)
-    return WeightID
+@UGE_GLOBAL_WRAPPER
+@register([UGE_MODEL_SCRIPT])
+def ugeSetFpBiNormal(X: (float, int, str, tuple, list), Y: (float, int, str) = None, Z: (float, int, str) = None, W: (float, int, str) = None, flag: UGE_VECTOR_FLAG = UGE_PRETRANSFORMED):
+    """Sets the current Facepoint's binormal."""
+    if CurrentFacepoint:
+        CurrentFacepoint.BiNormal = { 'XYZW':X, 'flag':flag } if iterable(X) else { 'X':X, 'Y':Y, 'Z':Z, 'W':W, 'flag':flag }
+        return CurrentFacepoint.BiNormal
+    else: print('ERROR: ugeSetFpBiNormal() expected a defined Facepoint.')
+
+@UGE_GLOBAL_WRAPPER
+@register([UGE_MODEL_SCRIPT])
+def ugeSetFpTangent(X: (float, int, str, tuple, list), Y: (float, int, str) = None, Z: (float, int, str) = None, W: (float, int, str) = None, flag: UGE_VECTOR_FLAG = UGE_PRETRANSFORMED):
+    """Sets the current Facepoint's tangent."""
+    if CurrentFacepoint:
+        CurrentFacepoint.Tangent = { 'XYZW':X, 'flag':flag } if iterable(X) else { 'X':X, 'Y':Y, 'Z':Z, 'W':W, 'flag':flag }
+        return CurrentFacepoint.Tangent
+    else: print('ERROR: ugeSetFpTangent() expected a defined Facepoint.')
+
+@UGE_GLOBAL_WRAPPER
+@register([UGE_MODEL_SCRIPT])
+def ugeSetFpColor(R: (float, int, str, tuple, list), G: (float, int, str) = None, B: (float, int, str) = None, A: (float, int, str) = None, channel: int = 0):
+    """Sets the current Facepoint's color."""
+    if CurrentFacepoint:
+        CurrentFacepoint.Colors[channel] = R if iterable(R) else (R,G,B,A)
+        return CurrentFacepoint.Colors[channel]
+    else: print('ERROR: ugeSetFpColor() expected a defined Facepoint.')
     
+@UGE_GLOBAL_WRAPPER
+@register([UGE_MODEL_SCRIPT])
+def ugeSetFpUV(X: (float, int, str, tuple, list), Y: (float, int, str) = None, Z: (float, int, str) = None, W: (float, int, str) = None, channel: int = 0):
+    """Sets the current Facepoint's UV."""
+    if CurrentFacepoint:
+        CurrentFacepoint.UVs[channel] = X if iterable(X) else (X,Y,Z,W)
+        return CurrentFacepoint.UVs[channel]
+    else: print('ERROR: ugeSetFpUV() expected a defined Facepoint.')
+
+# noinspection PyShadowingNames
+@UGE_GLOBAL_WRAPPER
+@register([UGE_MODEL_SCRIPT])
+def ugeSetFpWeight(Bone: (str, Bone), Value: float = 1.0):
+    """Sets a weight on the current Facepoint."""
+    if CurrentFacepoint:
+        CurrentFacepoint.Weights[Bone] = Value
+        return CurrentFacepoint.WeightIndices[Bone]
+    else: print('ERROR: ugeSetFpWeight() expected a defined Facepoint.')
+
+# noinspection PyShadowingNames
+@UGE_GLOBAL_WRAPPER
+@register([UGE_MODEL_SCRIPT])
+def ugeSetFpMaterial(Index: int, Material: (str, Material)):
+    """Sets the current Facepoint's UV."""
+    if CurrentFacepoint:
+        CurrentFacepoint.Materials[Index] = Material
+        return CurrentFacepoint.Materials[Index]
+    else: print('ERROR: ugeSetFpMaterial() expected a defined Facepoint.')
