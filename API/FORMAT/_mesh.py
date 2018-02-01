@@ -1,9 +1,6 @@
 # -*- coding: utf-8 -*-
 """UGE Primitive classes and associate functions"""
 
-# noinspection PyGlobalUndefined
-global mesh, Weight, Primitive, Facepoint, Object
-
 # noinspection PyShadowingNames,PyProtectedMember
 def private():
     """private namespace"""
