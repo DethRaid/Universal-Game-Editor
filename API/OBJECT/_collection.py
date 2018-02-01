@@ -206,7 +206,9 @@ def private():
         setcurrent( cl, val )
         if cl.__builtin__: setglobal( cl.__builtin__, getattr(val,'proxy',val) )
     UGECollection.current = property( UGECollection.current.__get__, setter )
-private()
+    
+    return UGECollection
+UGECollection = private()
 del private
 
 from ..OBJECT import properties
