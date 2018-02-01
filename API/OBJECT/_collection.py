@@ -199,6 +199,8 @@ def private():
                 raise TypeError('collection has no current item.')
             else:
                 print('WARNING: collection item %s could not be set'%item)
+                
+    __call__ = UGEObject.__call__
     
     setglobal = __builtins__.__dict__.__setitem__
     setcurrent = UGECollection.current.__set__
