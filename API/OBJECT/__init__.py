@@ -179,6 +179,8 @@ def private():
 UGEObjectConstructor, UGEObject, Hierarchical = private()
 del private
 
+newUGEObject = UGEObject.__new__
+
 # noinspection PyUnresolvedReferences
 from ._collection import UGECollection, CollectionProp
 from ._channels import UGEChannels, ChannelsProp
