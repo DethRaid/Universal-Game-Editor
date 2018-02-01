@@ -90,16 +90,16 @@ def private():
                 repr(obj.Name) if showName else '', ' | '*showBoth, Index if showIndex else '', obj ) for obj,Index in iteritems() ) )
             
             return cl
-    
+        
         def new(cl, item: [str,int,dict]) -> UGEObject:
             """create a new base item instance (unless existent) in the current or root collection,
             then link this collection to it (unless linked) and set it as the current item."""
-        
+            
             item = getattr(item,'__value__',item)
             itemType = item.__class__
             strtype = itemType is str
             inttype = itemType is int
-        
+            
             base = getbase(cl)
             basedict = base.__dict__
             nameable = 'Name' in basedict
@@ -120,7 +120,7 @@ def private():
                 items[current] = Index
                 if indexable: indices[Index] = current
                 objects[current] = current
-            
+                
                 return current
         
         def __call__(cl,*item):
