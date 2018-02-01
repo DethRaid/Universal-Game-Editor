@@ -11,6 +11,11 @@ import _warnings
 
 #'''
 
+def getset( cls: object, attr: str, privatize: bool = True ):
+    """return the getter and setter of a class descriptor, and optionally delete the attribute."""
+    dsc = cls.__dict__[attr]; dscget = dsc.__get__; dscset = dsc.__set__
+    if privatize: delattr(cls,attr)
+    return dscget, dscset
 
 def newmap(): # DEPRECATED
     """DEPRECATED"""

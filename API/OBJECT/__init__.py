@@ -14,6 +14,8 @@ class extension(object):
 
 def private():
     """link Hierarchical properties with descriptors"""
+    
+    from ..utilities import getset
 
     newType = type.__new__
     new = object.__new__
@@ -41,7 +43,7 @@ def private():
             def __init__( Ob, *other ):
                 Ob.Data=None
                 Ob.Viewport=0"""
-        __public__ = {  '__getitem__':set(),'__setitem__':set(),'__contains__':set(),'__iter__':set(),'__len__':set()}
+        #__public__ = {  '__getitem__':set(),'__setitem__':set(),'__contains__':set(),'__iter__':set(),'__len__':set()}
         __slots__  = ['__holder__','__parents__', 'Name','Index']
         __repr__   = lambda obj:'<%s "%s" >'%(obj.__name__,obj.Name)
         __hash__   = lambda obj: hash(obj.Name)
@@ -60,8 +62,7 @@ def private():
             if 'Name' in cls.__dict__: obj.Name = Name
             
             # initialize
-            setparents( obj, parents )
-            setholder( obj, holder )
+            setparents( obj, parents ); setholder( obj, holder )
             for initializer in properties.get(cls,set()): initializer(obj)
 
     setparents = UGEObject.__parents__.__set__
@@ -71,8 +72,8 @@ def private():
 
     class Hierarchical(object, metaclass=UGEObjectConstructor):
         """Hierarchical attributes"""
-        __slots__ = ['Parent','Child','Prev','Next']
-        def __new__(cls, parent: UGEObject, holder: UGEObject, *args, **kw):
+        __slots__ = ['__holder__','__parents__', 'Name','Index','Parent','Child','Prev','Next']
+        def __new__(cls, parents: mappingproxy, holder: UGECollection, *args, **kw):
             if cls is UGEObject:
                 raise TypeError('UGEObject cannot be created or initialized.')
             obj = new(cls)
@@ -84,15 +85,19 @@ def private():
             if useName: obj.Name = Name
     
             # initialize
-            setparent( obj, parent )
-            setholder( obj, holder )
+            sethparents( obj, parents ); sethholder( obj, holder )
+            setPa(obj,None); setCh(obj,None); setPr(obj,None); setNx(obj,None)
             for initializer in properties.get(cls,set()): initializer(obj)
-            if isinstance(cls,Hierarchical): setPa(obj,None); setCh(obj,None); setPr(obj,None); setNx(obj,None)
+
+    sethparents = Hierarchical.__parents__.__set__
+    Hierarchical.__parents__ = property( Hierarchical.__parents__.__get__ )
+    sethholder = Hierarchical.__holder__.__set__
+    Hierarchical.__holder__ = property( Hierarchical.__holder__.__get__ )
     
-    getPa = Hierarchical.Pa.__get__; setPa = Hierarchical.Pa.__set__
-    getCh = Hierarchical.Ch.__get__; setCh = Hierarchical.Ch.__set__
-    getPr = Hierarchical.Pr.__get__; setPr = Hierarchical.Pr.__set__
-    getNx = Hierarchical.Nx.__get__; setNx = Hierarchical.Nx.__set__
+    getPa, setPa = getset( Hierarchical, 'Parent', privatize=False )
+    getCh, setCh = getset( Hierarchical, 'Child',  privatize=False )
+    getPr, setPr = getset( Hierarchical, 'Prev',   privatize=False )
+    getNx, setNx = getset( Hierarchical, 'Next',   privatize=False )
 
     def Paset(obj,value: (str, UGEObject)):
         """set Parent"""
@@ -116,8 +121,7 @@ def private():
                         setNx(ParentChild,obj); setPr(obj,ParentChild)
             else: print("ERROR: %s.Parent cannot apply itself as it's parent"%cls.__name__)
         else: print('ERROR: %s.Parent received an invalid value (%s)'%(cls.__name__,value))
-    # noinspection PyPropertyAccess
-    Hierarchical.Parent.__init__(getPa,Paset)
+    Hierarchical.Parent = property(getPa,Paset)
     
     def Chset(obj,value: (str, UGEObject)):
         """set Child"""
@@ -125,8 +129,7 @@ def private():
         value = getattr(value, '__value__', value) # Object.Child = string()() # abstract
         ClearChild = value is None
         if ClearChild or value.__class__ in {str,cls,cls.__proxy__}: setCh(obj,None if ClearChild else obj.__holder__(value))
-    # noinspection PyPropertyAccess
-    Hierarchical.Child.__init__(getCh,Chset)
+    Hierarchical.Child = property(getCh,Chset)
     
     def Prset(obj,value: (str, UGEObject)):
         """set Prev"""
@@ -161,8 +164,7 @@ def private():
                         if NewNext: setPr(NewNext,obj)
                 else: print('ERROR: %s.Prev cannot apply itself as previous'%cls)
         else: print('ERROR: %s.Prev received an invalid value (%s)'%(cls,value))
-    # noinspection PyPropertyAccess
-    Hierarchical.Prev.__init__(getPr,Prset)
+    Hierarchical.Prev = property(getPr,Prset)
     
     def Nxset(obj,value: (str, UGEObject)):
         """set Next"""
@@ -170,12 +172,11 @@ def private():
         value = getattr(value, '__value__', value) # Object.Next = string()() # abstract
         ClearNext = value is None
         if ClearNext or value.__class__ in {str,cls,cls.__proxy__}: setNx(obj,None if ClearNext else obj.__holder__(value))
-    # noinspection PyPropertyAccess
-    Hierarchical.Next.__init__(getNx,Nxset)
+    Hierarchical.Next = property(getNx,Nxset)
     
     return UGEObjectConstructor, UGEObject, Hierarchical
 
-private()
+UGEObjectConstructor, UGEObject, Hierarchical = private()
 del private
 
 # noinspection PyUnresolvedReferences
