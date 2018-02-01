@@ -209,7 +209,7 @@ def private():
     
     return UGECollection
 UGECollection = private()
-del private
+del privateUGECollection
 
 from ..OBJECT import properties
 def CollectionProp( cls: object, attr: str, base: object, **kw ):
