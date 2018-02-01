@@ -29,8 +29,9 @@ def private():
             NS['__slots__'].extend(attr for attr in public if attr not in NS)
             for n,f in extensions.get(name,{}).items(): NS[n]=property(f); public[n]={'w'}
             disabled = NS.get('__disabled__',set())
-            cls = newType(meta, name, bases, NS)
-            defined.add(name); return cls
+            
+            ugeobj = newType(meta, name, bases, NS) # TODO: mappingproxy(NS))
+            defined.add(name); return ugeobj
 
     class UGEObject(object, metaclass=UGEObjectConstructor):
         """A base class to be inherited for UGE Object types
