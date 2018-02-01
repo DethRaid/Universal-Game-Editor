@@ -28,19 +28,6 @@ def private():
             for n,f in extensions.get(name,{}).items(): NS[n]=property(f); public[n]={'w'}
             disabled = NS.get('__disabled__',set())
             cls = newType(meta, name, bases, NS)
-            PNS={}
-            # this creates prx->obj link attributes using __public__ (if available and not disabled) from each class in cls.__mro__
-            for c in cls.__mro__:
-                for attr,s in (c.__public__.items() if '__public__' in c.__dict__ else []):
-                    if attr not in disabled: ref = getattr(cls,attr); PNS[attr] = property( # need getattr on this line to search through __mro__
-                        ( lambda obj: getattr(ref.__get__(obj,cls),'proxy',cls) ) if 'p' in s else ref.__get_, ref.__set__ if 'w'in s else None )
-                    # Tcll - believe it or not, ^ this (excluding getattr()) is actually faster on average (though less
-                    # efficient (more CPU spikes)) than basic member descriptors by ~20ns)
-        
-            pcl = cls.__proxy__ = type('%s-proxy'%name,(object,),dict( PNS,
-                __slots__=['__repr__','__eq__','__ne__','__hash__','__getattribute__','__setattr__'],
-                __new__=cls.__newproxy__, __name__=property(lambda obj: obj.__name__), __class__=property() ))
-            classprop.__init__(lambda obj: pcl)
             defined.add(name); return cls
 
     class UGEObject(object, metaclass=UGEObjectConstructor):

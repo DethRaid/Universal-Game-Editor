@@ -4,7 +4,9 @@
     <option name="SCOPE_TYPE" value="3" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="983838c6-d952-43fb-b239-90a06b889443" name="Default" comment="" />
+    <list default="true" id="983838c6-d952-43fb-b239-90a06b889443" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/../../API/OBJECT/__init__.py" afterPath="$PROJECT_DIR$/../../API/OBJECT/__init__.py" />
+    </list>
     <ignored path="UGE.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -295,8 +297,8 @@
                   <file leaf-file-name="__init__.py" pinned="false" current-in-tab="true">
                     <entry file="file://$PROJECT_DIR$/../../API/OBJECT/__init__.py">
                       <provider selected="true" editor-type-id="text-editor">
-                        <state relative-caret-position="500">
-                          <caret line="77" column="74" lean-forward="false" selection-start-line="77" selection-start-column="74" selection-end-line="77" selection-end-column="74" />
+                        <state relative-caret-position="320">
+                          <caret line="29" column="48" lean-forward="false" selection-start-line="29" selection-start-column="48" selection-end-line="29" selection-end-column="48" />
                           <folding />
                         </state>
                       </provider>
@@ -305,7 +307,7 @@
                   <file leaf-file-name="_collection.py" pinned="false" current-in-tab="false">
                     <entry file="file://$PROJECT_DIR$/../../API/OBJECT/_collection.py">
                       <provider selected="true" editor-type-id="text-editor">
-                        <state relative-caret-position="660">
+                        <state relative-caret-position="2460">
                           <caret line="194" column="106" lean-forward="false" selection-start-line="194" selection-start-column="106" selection-end-line="194" selection-end-column="106" />
                           <folding>
                             <element signature="e#4224#5636#0" expanded="false" />
@@ -927,11 +929,12 @@
       <workItem from="1517320029536" duration="793000" />
       <workItem from="1517321348105" duration="1853000" />
       <workItem from="1517332418327" duration="9310000" />
+      <workItem from="1517486490479" duration="279000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="50452000" />
+    <option name="totallyTimeSpent" value="50731000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="25" width="3200" height="1150" extended-state="0" />
@@ -1712,7 +1715,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/../../API/OBJECT/_collection.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="660">
+        <state relative-caret-position="2460">
           <caret line="194" column="106" lean-forward="false" selection-start-line="194" selection-start-column="106" selection-end-line="194" selection-end-column="106" />
           <folding>
             <element signature="e#4224#5636#0" expanded="false" />
@@ -1738,8 +1741,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/../../API/OBJECT/__init__.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="500">
-          <caret line="77" column="74" lean-forward="false" selection-start-line="77" selection-start-column="74" selection-end-line="77" selection-end-column="74" />
+        <state relative-caret-position="320">
+          <caret line="29" column="48" lean-forward="false" selection-start-line="29" selection-start-column="48" selection-end-line="29" selection-end-column="48" />
           <folding />
         </state>
       </provider>
