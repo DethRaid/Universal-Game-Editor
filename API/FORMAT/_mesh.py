@@ -134,6 +134,7 @@ def private() -> None:
             Pr = cls.__new__(parents,holder,Index,*args,**kw)
             Pr.Type = item
             return Pr
+        
     globals()['Primitive'] = Primitive
     
     FPset = CollectionProp( Primitive, 'Facepoints' )
