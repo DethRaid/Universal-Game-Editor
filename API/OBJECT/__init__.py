@@ -76,7 +76,6 @@ def private():
             setparents( obj, parents )
             setholder( obj, holder )
             for initializer in properties.get(cls,set()): initializer(obj)
-            if isinstance(cls,Hierarchical): setPa(obj,None); setCh(obj,None); setPr(obj,None); setNx(obj,None)
 
     setparents = UGEObject.__parents__.__set__
     UGEObject.__parents__ = property( UGEObject.__parents__.__get__ )
