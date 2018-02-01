@@ -128,6 +128,12 @@ def private() -> None:
             Pr = UGEObject.__new__(cls)
             Pr.Type = None
             FPset( Pr, UGECollection(Pr,Facepoint,True ) )
+        
+        def new(cls, parents: mappingproxy, holder: UGECollection, item, Index, *args, **kw):
+            """Create a new primitive instance of the specified type"""
+            Pr = cls.__new__(parents,holder,Index,*args,**kw)
+            Pr.Type = item
+            return Pr
     globals()['Primitive'] = Primitive
     
     FPset = CollectionProp( Primitive, 'Facepoints' )
