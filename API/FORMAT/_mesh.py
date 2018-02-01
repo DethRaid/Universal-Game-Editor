@@ -5,8 +5,8 @@
 global mesh, Weight, Primitive, Facepoint, Object
 
 # noinspection PyShadowingNames,PyProtectedMember
-def private() -> None:
-    """anything done here is not passed throughout FORMAT"""
+def private():
+    """private namespace"""
     
     from . import Object
     from ..OBJECT import UGEObject, newUGEObject, extension, UGECollection, CollectionProp, UGEChannels, ChannelsProp, StringProp, FloatProp, _protected, properties
@@ -277,8 +277,10 @@ def private() -> None:
         if getData(Ob) is None: setData(Ob,mesh(Ob))
         getData(Ob).Weights[:] = val
         
+    return mesh, Weight, Primitive, Facepoint
 
-private()
+
+mesh, Weight, Primitive, Facepoint = private()
 del private
 
 from . import Material, Bone, UGEVector
