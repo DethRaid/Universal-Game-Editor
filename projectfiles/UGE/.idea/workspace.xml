@@ -4,7 +4,10 @@
     <option name="SCOPE_TYPE" value="3" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="983838c6-d952-43fb-b239-90a06b889443" name="Default" comment="" />
+    <list default="true" id="983838c6-d952-43fb-b239-90a06b889443" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/../../API/OBJECT/__init__.py" afterPath="$PROJECT_DIR$/../../API/OBJECT/__init__.py" />
+      <change beforePath="$PROJECT_DIR$/../../API/OBJECT/_collection.py" afterPath="$PROJECT_DIR$/../../API/OBJECT/_collection.py" />
+    </list>
     <ignored path="UGE.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -81,7 +84,7 @@
               <file leaf-file-name="_mesh.py" pinned="false" current-in-tab="true">
                 <entry file="file://$PROJECT_DIR$/../../API/FORMAT/_mesh.py">
                   <provider selected="true" editor-type-id="text-editor">
-                    <state relative-caret-position="120">
+                    <state relative-caret-position="-2351">
                       <caret line="8" column="48" lean-forward="false" selection-start-line="8" selection-start-column="36" selection-end-line="8" selection-end-column="48" />
                       <folding />
                     </state>
@@ -292,21 +295,21 @@
                       </provider>
                     </entry>
                   </file>
-                  <file leaf-file-name="__init__.py" pinned="false" current-in-tab="false">
+                  <file leaf-file-name="__init__.py" pinned="false" current-in-tab="true">
                     <entry file="file://$PROJECT_DIR$/../../API/OBJECT/__init__.py">
                       <provider selected="true" editor-type-id="text-editor">
-                        <state relative-caret-position="519">
-                          <caret line="181" column="32" lean-forward="false" selection-start-line="181" selection-start-column="32" selection-end-line="181" selection-end-column="32" />
+                        <state relative-caret-position="2664">
+                          <caret line="178" column="45" lean-forward="false" selection-start-line="178" selection-start-column="45" selection-end-line="178" selection-end-column="45" />
                           <folding />
                         </state>
                       </provider>
                     </entry>
                   </file>
-                  <file leaf-file-name="_collection.py" pinned="false" current-in-tab="true">
+                  <file leaf-file-name="_collection.py" pinned="false" current-in-tab="false">
                     <entry file="file://$PROJECT_DIR$/../../API/OBJECT/_collection.py">
                       <provider selected="true" editor-type-id="text-editor">
-                        <state relative-caret-position="515">
-                          <caret line="202" column="33" lean-forward="false" selection-start-line="202" selection-start-column="33" selection-end-line="202" selection-end-column="33" />
+                        <state relative-caret-position="860">
+                          <caret line="225" column="55" lean-forward="false" selection-start-line="225" selection-start-column="55" selection-end-line="225" selection-end-column="55" />
                           <folding />
                         </state>
                       </provider>
@@ -928,12 +931,12 @@
       <workItem from="1517320029536" duration="793000" />
       <workItem from="1517321348105" duration="1853000" />
       <workItem from="1517332418327" duration="9310000" />
-      <workItem from="1517486490479" duration="6926000" />
+      <workItem from="1517486490479" duration="8383000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="57378000" />
+    <option name="totallyTimeSpent" value="58835000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="25" width="3200" height="1150" extended-state="0" />
@@ -1396,14 +1399,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../../API/FORMAT/_world.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="10" column="32" lean-forward="false" selection-start-line="10" selection-start-column="32" selection-end-line="10" selection-end-column="32" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/../../API/FORMAT/_scene.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="150">
@@ -1718,26 +1713,34 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../../API/FORMAT/_mesh.py">
+    <entry file="file://$PROJECT_DIR$/../../API/FORMAT/_world.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="8" column="48" lean-forward="false" selection-start-line="8" selection-start-column="36" selection-end-line="8" selection-end-column="48" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../../API/OBJECT/__init__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="519">
-          <caret line="181" column="32" lean-forward="false" selection-start-line="181" selection-start-column="32" selection-end-line="181" selection-end-column="32" />
+        <state relative-caret-position="150">
+          <caret line="10" column="32" lean-forward="false" selection-start-line="10" selection-start-column="32" selection-end-line="10" selection-end-column="32" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/../../API/OBJECT/_collection.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="515">
-          <caret line="202" column="33" lean-forward="false" selection-start-line="202" selection-start-column="33" selection-end-line="202" selection-end-column="33" />
+        <state relative-caret-position="860">
+          <caret line="225" column="55" lean-forward="false" selection-start-line="225" selection-start-column="55" selection-end-line="225" selection-end-column="55" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../API/OBJECT/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2664">
+          <caret line="178" column="45" lean-forward="false" selection-start-line="178" selection-start-column="45" selection-end-line="178" selection-end-column="45" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../API/FORMAT/_mesh.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2351">
+          <caret line="8" column="48" lean-forward="false" selection-start-line="8" selection-start-column="36" selection-end-line="8" selection-end-column="48" />
           <folding />
         </state>
       </provider>
