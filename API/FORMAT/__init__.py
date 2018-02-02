@@ -40,7 +40,7 @@ M_LN10     = 2.30258509299404568402  # log_e 10
 
 NULL=type('NULLType',(),{})() # Tcll - I needed something private :P
 
-class Object(object):
+class Object(object): __slots__ = []
 
 # IMPORTANT - all imports should be done here, sub-module references should use `from . import ______`
 # NOTE: the load order should not be changed, it works from the branches to the root for solidity
