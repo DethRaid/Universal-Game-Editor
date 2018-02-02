@@ -12,6 +12,8 @@ class World(UGEObject):
     def __init__(Wd,*other: tuple ):
         Rt = Wd.__parent__
         Wd.Scenes = UGECollection( Wd, Rt.Scenes )
+        
+CollectionProp( World, 'Scenes', 'Root' )
 
 CollectionProp( World, 'Scenes' )
 
