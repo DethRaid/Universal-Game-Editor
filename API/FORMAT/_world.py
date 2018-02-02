@@ -3,7 +3,7 @@
 
 from . import ugeSetScene
 from .. import CONST, UGE_GLOBAL_WRAPPER, register
-from ..OBJECT import UGEObject, UGECollection, CollectionProp
+from ..OBJECT import UGEObject, CollectionProp
 
 class World(UGEObject):
     """UGE World"""
