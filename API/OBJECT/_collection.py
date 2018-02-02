@@ -222,7 +222,7 @@ def CollectionProp( cls: object, attr: str, base: object, **kw ):
     def setter(obj, val) -> None: """verify and set a collection"""; dscget(obj,cls)[:] = val
     setattr(cls,attr,property( dscget, setter ))
     strbase = base.__class__ is str
-    def init(obj: UGECollection):
+    def init(obj):
         """Initializer"""
         # NOTE: obj.__owner__ is for UGEObject sub-type objects to link back to the owner when referenced from (otherwize the owner is itself).
         own = getattr(obj,'__owner__',obj)
