@@ -4,6 +4,7 @@
 from . import ugeSetScene
 from .. import CONST, UGE_GLOBAL_WRAPPER, register
 
+# noinspection PyShadowingNames
 def private():
     from ..OBJECT import UGEObject, CollectionProp
     
