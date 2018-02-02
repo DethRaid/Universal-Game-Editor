@@ -7,11 +7,7 @@ from ..OBJECT import UGEObject, UGECollection, CollectionProp
 
 class World(UGEObject):
     """UGE World"""
-    __public__ = {'Scenes':{'p','w'}}
-    # noinspection PyUnusedLocal
-    def __init__(Wd,*other: tuple ):
-        Rt = Wd.__parent__
-        Wd.Scenes = UGECollection( Wd, Rt.Scenes )
+    __slots__ = ['Scenes']
         
 CollectionProp( World, 'Scenes', 'Root' )
 
@@ -31,7 +27,7 @@ def ugeSetWorld( WorldName: (str, World) = "World0" ) -> World:
 
 @UGE_GLOBAL_WRAPPER
 @register([CONST.UGE_MODEL_SCRIPT])
-def ugeGetWorlds() -> UGECollection: """Returns the current Root's Worlds."""; return CurrentRoot.Worlds
+def ugeGetWorlds(): """Returns the current Root's Worlds."""; return CurrentRoot.Worlds
 
 @UGE_GLOBAL_WRAPPER
 @register([CONST.UGE_MODEL_SCRIPT])
