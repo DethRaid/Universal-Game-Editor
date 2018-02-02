@@ -5,8 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="983838c6-d952-43fb-b239-90a06b889443" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/../../API/OBJECT/__init__.py" afterPath="$PROJECT_DIR$/../../API/OBJECT/__init__.py" />
-      <change beforePath="$PROJECT_DIR$/../../API/OBJECT/_collection.py" afterPath="$PROJECT_DIR$/../../API/OBJECT/_collection.py" />
+      <change beforePath="$PROJECT_DIR$/../../API/FORMAT/_world.py" afterPath="$PROJECT_DIR$/../../API/FORMAT/_world.py" />
     </list>
     <ignored path="UGE.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -28,120 +27,138 @@
       <split-first>
         <splitter split-orientation="horizontal" split-proportion="0.9">
           <split-first>
-            <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-              <file leaf-file-name="_root.py" pinned="false" current-in-tab="false">
-                <entry file="file://$PROJECT_DIR$/../../API/FORMAT/_root.py">
-                  <provider selected="true" editor-type-id="text-editor">
-                    <state relative-caret-position="630">
-                      <caret line="69" column="113" lean-forward="false" selection-start-line="69" selection-start-column="113" selection-end-line="69" selection-end-column="113" />
-                      <folding />
-                    </state>
-                  </provider>
-                </entry>
-              </file>
-              <file leaf-file-name="_world.py" pinned="false" current-in-tab="false">
-                <entry file="file://$PROJECT_DIR$/../../API/FORMAT/_world.py">
-                  <provider selected="true" editor-type-id="text-editor">
-                    <state relative-caret-position="150">
-                      <caret line="10" column="32" lean-forward="false" selection-start-line="10" selection-start-column="32" selection-end-line="10" selection-end-column="32" />
-                      <folding />
-                    </state>
-                  </provider>
-                </entry>
-              </file>
-              <file leaf-file-name="_scene.py" pinned="false" current-in-tab="false">
-                <entry file="file://$PROJECT_DIR$/../../API/FORMAT/_scene.py">
-                  <provider selected="true" editor-type-id="text-editor">
-                    <state relative-caret-position="150">
-                      <caret line="10" column="36" lean-forward="false" selection-start-line="10" selection-start-column="36" selection-end-line="10" selection-end-column="36" />
-                      <folding />
-                    </state>
-                  </provider>
-                </entry>
-              </file>
-              <file leaf-file-name="_object.py" pinned="false" current-in-tab="false">
-                <entry file="file://$PROJECT_DIR$/../../API/FORMAT/_object.py">
-                  <provider selected="true" editor-type-id="text-editor">
-                    <state relative-caret-position="255">
-                      <caret line="15" column="35" lean-forward="false" selection-start-line="15" selection-start-column="35" selection-end-line="15" selection-end-column="35" />
-                      <caret line="16" column="20" lean-forward="false" selection-start-line="16" selection-start-column="20" selection-end-line="16" selection-end-column="20" />
-                      <caret line="17" column="35" lean-forward="false" selection-start-line="17" selection-start-column="35" selection-end-line="17" selection-end-column="35" />
-                      <folding />
-                    </state>
-                  </provider>
-                </entry>
-              </file>
-              <file leaf-file-name="_rig.py" pinned="false" current-in-tab="false">
-                <entry file="file://$PROJECT_DIR$/../../API/FORMAT/_rig.py">
-                  <provider selected="true" editor-type-id="text-editor">
-                    <state relative-caret-position="1845">
-                      <caret line="123" column="19" lean-forward="false" selection-start-line="123" selection-start-column="19" selection-end-line="123" selection-end-column="19" />
-                      <folding />
-                    </state>
-                  </provider>
-                </entry>
-              </file>
-              <file leaf-file-name="_mesh.py" pinned="false" current-in-tab="true">
-                <entry file="file://$PROJECT_DIR$/../../API/FORMAT/_mesh.py">
-                  <provider selected="true" editor-type-id="text-editor">
-                    <state relative-caret-position="-2351">
-                      <caret line="8" column="48" lean-forward="false" selection-start-line="8" selection-start-column="36" selection-end-line="8" selection-end-column="48" />
-                      <folding />
-                    </state>
-                  </provider>
-                </entry>
-              </file>
-              <file leaf-file-name="_material.py" pinned="false" current-in-tab="false">
-                <entry file="file://$PROJECT_DIR$/../../API/FORMAT/_material.py">
-                  <provider selected="true" editor-type-id="text-editor">
-                    <state relative-caret-position="90">
-                      <caret line="6" column="0" lean-forward="false" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
-                      <folding />
-                    </state>
-                  </provider>
-                </entry>
-              </file>
-              <file leaf-file-name="_shader.py" pinned="false" current-in-tab="false">
-                <entry file="file://$PROJECT_DIR$/../../API/FORMAT/_shader.py">
-                  <provider selected="true" editor-type-id="text-editor">
-                    <state relative-caret-position="0">
-                      <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-                      <folding />
-                    </state>
-                  </provider>
-                </entry>
-              </file>
-              <file leaf-file-name="_texture.py" pinned="false" current-in-tab="false">
-                <entry file="file://$PROJECT_DIR$/../../API/FORMAT/_texture.py">
-                  <provider selected="true" editor-type-id="text-editor">
-                    <state relative-caret-position="285">
-                      <caret line="19" column="24" lean-forward="false" selection-start-line="19" selection-start-column="24" selection-end-line="19" selection-end-column="24" />
-                      <folding />
-                    </state>
-                  </provider>
-                </entry>
-              </file>
-              <file leaf-file-name="_image.py" pinned="false" current-in-tab="false">
-                <entry file="file://$PROJECT_DIR$/../../API/FORMAT/_image.py">
-                  <provider selected="true" editor-type-id="text-editor">
-                    <state relative-caret-position="105">
-                      <caret line="7" column="0" lean-forward="false" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
-                      <folding />
-                    </state>
-                  </provider>
-                </entry>
-              </file>
-              <file leaf-file-name="test_FORMAT.py" pinned="false" current-in-tab="false">
-                <entry file="file://$PROJECT_DIR$/../../test_FORMAT.py">
-                  <provider selected="true" editor-type-id="text-editor">
-                    <state relative-caret-position="450">
-                      <caret line="30" column="34" lean-forward="false" selection-start-line="30" selection-start-column="34" selection-end-line="30" selection-end-column="34" />
-                      <folding />
-                    </state>
-                  </provider>
-                </entry>
-              </file>
-            </leaf>
+            <splitter split-orientation="vertical" split-proportion="0.6986028">
+              <split-first>
+                <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+                  <file leaf-file-name="_root.py" pinned="false" current-in-tab="false">
+                    <entry file="file://$PROJECT_DIR$/../../API/FORMAT/_root.py">
+                      <provider selected="true" editor-type-id="text-editor">
+                        <state relative-caret-position="1035">
+                          <caret line="69" column="113" lean-forward="false" selection-start-line="69" selection-start-column="113" selection-end-line="69" selection-end-column="113" />
+                          <folding />
+                        </state>
+                      </provider>
+                    </entry>
+                  </file>
+                  <file leaf-file-name="_world.py" pinned="false" current-in-tab="true">
+                    <entry file="file://$PROJECT_DIR$/../../API/FORMAT/_world.py">
+                      <provider selected="true" editor-type-id="text-editor">
+                        <state relative-caret-position="225">
+                          <caret line="15" column="41" lean-forward="false" selection-start-line="15" selection-start-column="41" selection-end-line="15" selection-end-column="41" />
+                          <folding />
+                        </state>
+                      </provider>
+                    </entry>
+                  </file>
+                  <file leaf-file-name="_scene.py" pinned="false" current-in-tab="false">
+                    <entry file="file://$PROJECT_DIR$/../../API/FORMAT/_scene.py">
+                      <provider selected="true" editor-type-id="text-editor">
+                        <state relative-caret-position="150">
+                          <caret line="10" column="36" lean-forward="false" selection-start-line="10" selection-start-column="36" selection-end-line="10" selection-end-column="36" />
+                          <folding />
+                        </state>
+                      </provider>
+                    </entry>
+                  </file>
+                  <file leaf-file-name="_object.py" pinned="false" current-in-tab="false">
+                    <entry file="file://$PROJECT_DIR$/../../API/FORMAT/_object.py">
+                      <provider selected="true" editor-type-id="text-editor">
+                        <state relative-caret-position="255">
+                          <caret line="15" column="35" lean-forward="false" selection-start-line="15" selection-start-column="35" selection-end-line="15" selection-end-column="35" />
+                          <caret line="16" column="20" lean-forward="false" selection-start-line="16" selection-start-column="20" selection-end-line="16" selection-end-column="20" />
+                          <caret line="17" column="35" lean-forward="false" selection-start-line="17" selection-start-column="35" selection-end-line="17" selection-end-column="35" />
+                          <folding />
+                        </state>
+                      </provider>
+                    </entry>
+                  </file>
+                  <file leaf-file-name="_rig.py" pinned="false" current-in-tab="false">
+                    <entry file="file://$PROJECT_DIR$/../../API/FORMAT/_rig.py">
+                      <provider selected="true" editor-type-id="text-editor">
+                        <state relative-caret-position="1845">
+                          <caret line="123" column="19" lean-forward="false" selection-start-line="123" selection-start-column="19" selection-end-line="123" selection-end-column="19" />
+                          <folding />
+                        </state>
+                      </provider>
+                    </entry>
+                  </file>
+                  <file leaf-file-name="_mesh.py" pinned="false" current-in-tab="false">
+                    <entry file="file://$PROJECT_DIR$/../../API/FORMAT/_mesh.py">
+                      <provider selected="true" editor-type-id="text-editor">
+                        <state relative-caret-position="-2351">
+                          <caret line="8" column="48" lean-forward="false" selection-start-line="8" selection-start-column="36" selection-end-line="8" selection-end-column="48" />
+                          <folding />
+                        </state>
+                      </provider>
+                    </entry>
+                  </file>
+                  <file leaf-file-name="_material.py" pinned="false" current-in-tab="false">
+                    <entry file="file://$PROJECT_DIR$/../../API/FORMAT/_material.py">
+                      <provider selected="true" editor-type-id="text-editor">
+                        <state relative-caret-position="90">
+                          <caret line="6" column="0" lean-forward="false" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
+                          <folding />
+                        </state>
+                      </provider>
+                    </entry>
+                  </file>
+                  <file leaf-file-name="_shader.py" pinned="false" current-in-tab="false">
+                    <entry file="file://$PROJECT_DIR$/../../API/FORMAT/_shader.py">
+                      <provider selected="true" editor-type-id="text-editor">
+                        <state relative-caret-position="0">
+                          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+                          <folding />
+                        </state>
+                      </provider>
+                    </entry>
+                  </file>
+                  <file leaf-file-name="_texture.py" pinned="false" current-in-tab="false">
+                    <entry file="file://$PROJECT_DIR$/../../API/FORMAT/_texture.py">
+                      <provider selected="true" editor-type-id="text-editor">
+                        <state relative-caret-position="285">
+                          <caret line="19" column="24" lean-forward="false" selection-start-line="19" selection-start-column="24" selection-end-line="19" selection-end-column="24" />
+                          <folding />
+                        </state>
+                      </provider>
+                    </entry>
+                  </file>
+                  <file leaf-file-name="_image.py" pinned="false" current-in-tab="false">
+                    <entry file="file://$PROJECT_DIR$/../../API/FORMAT/_image.py">
+                      <provider selected="true" editor-type-id="text-editor">
+                        <state relative-caret-position="105">
+                          <caret line="7" column="0" lean-forward="false" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
+                          <folding />
+                        </state>
+                      </provider>
+                    </entry>
+                  </file>
+                  <file leaf-file-name="test_FORMAT.py" pinned="false" current-in-tab="false">
+                    <entry file="file://$PROJECT_DIR$/../../test_FORMAT.py">
+                      <provider selected="true" editor-type-id="text-editor">
+                        <state relative-caret-position="450">
+                          <caret line="30" column="34" lean-forward="false" selection-start-line="30" selection-start-column="34" selection-end-line="30" selection-end-column="34" />
+                          <folding />
+                        </state>
+                      </provider>
+                    </entry>
+                  </file>
+                </leaf>
+              </split-first>
+              <split-second>
+                <leaf>
+                  <file leaf-file-name="_root.py" pinned="false" current-in-tab="true">
+                    <entry file="file://$PROJECT_DIR$/../../API/FORMAT/_root.py">
+                      <provider selected="true" editor-type-id="text-editor">
+                        <state relative-caret-position="135">
+                          <caret line="21" column="80" lean-forward="true" selection-start-line="21" selection-start-column="4" selection-end-line="21" selection-end-column="80" />
+                          <folding />
+                        </state>
+                      </provider>
+                    </entry>
+                  </file>
+                </leaf>
+              </split-second>
+            </splitter>
           </split-first>
           <split-second>
             <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
@@ -295,7 +312,7 @@
                       </provider>
                     </entry>
                   </file>
-                  <file leaf-file-name="__init__.py" pinned="false" current-in-tab="true">
+                  <file leaf-file-name="__init__.py" pinned="false" current-in-tab="false">
                     <entry file="file://$PROJECT_DIR$/../../API/OBJECT/__init__.py">
                       <provider selected="true" editor-type-id="text-editor">
                         <state relative-caret-position="2664">
@@ -325,10 +342,10 @@
                       </provider>
                     </entry>
                   </file>
-                  <file leaf-file-name="__init__.py" pinned="false" current-in-tab="false">
+                  <file leaf-file-name="__init__.py" pinned="false" current-in-tab="true">
                     <entry file="file://$PROJECT_DIR$/../../API/FORMAT/__init__.py">
                       <provider selected="true" editor-type-id="text-editor">
-                        <state relative-caret-position="3870">
+                        <state relative-caret-position="3475">
                           <caret line="258" column="20" lean-forward="false" selection-start-line="258" selection-start-column="20" selection-end-line="258" selection-end-column="20" />
                           <folding />
                         </state>
@@ -590,7 +607,6 @@
         <option value="$PROJECT_DIR$/../../API/FORMAT/_texture.py" />
         <option value="$PROJECT_DIR$/../../API/FORMAT/_image.py" />
         <option value="$PROJECT_DIR$/../../API/FORMAT/_material.py" />
-        <option value="$PROJECT_DIR$/../../API/FORMAT/_world.py" />
         <option value="$PROJECT_DIR$/../../API/FORMAT/_scene.py" />
         <option value="$PROJECT_DIR$/../../API/FORMAT/_object.py" />
         <option value="$PROJECT_DIR$/../../API/FORMAT/_rig.py" />
@@ -605,6 +621,7 @@
         <option value="$PROJECT_DIR$/../../API/FORMAT/_mesh.py" />
         <option value="$PROJECT_DIR$/../../API/OBJECT/__init__.py" />
         <option value="$PROJECT_DIR$/../../API/OBJECT/_collection.py" />
+        <option value="$PROJECT_DIR$/../../API/FORMAT/_world.py" />
       </list>
     </option>
   </component>
@@ -647,7 +664,7 @@
     <option name="STATE" value="0" />
   </component>
   <component name="ProjectView">
-    <navigator currentView="ProjectPane" proportions="" version="1">
+    <navigator proportions="" version="1">
       <flattenPackages />
       <showMembers />
       <showModules />
@@ -660,46 +677,7 @@
       <manualOrder />
       <foldersAlwaysOnTop value="true" />
     </navigator>
-    <panes>
-      <pane id="AndroidView" />
-      <pane id="PackagesPane" />
-      <pane id="Scratches" />
-      <pane id="Scope" />
-      <pane id="ProjectPane">
-        <subPane>
-          <expand>
-            <path>
-              <item name="UGE" type="b2602c69:ProjectViewProjectNode" />
-              <item name="UGE" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="UGE" type="b2602c69:ProjectViewProjectNode" />
-              <item name="UGE" type="462c0819:PsiDirectoryNode" />
-              <item name="API" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="UGE" type="b2602c69:ProjectViewProjectNode" />
-              <item name="UGE" type="462c0819:PsiDirectoryNode" />
-              <item name="API" type="462c0819:PsiDirectoryNode" />
-              <item name="DATA" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="UGE" type="b2602c69:ProjectViewProjectNode" />
-              <item name="UGE" type="462c0819:PsiDirectoryNode" />
-              <item name="API" type="462c0819:PsiDirectoryNode" />
-              <item name="FORMAT" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="UGE" type="b2602c69:ProjectViewProjectNode" />
-              <item name="UGE" type="462c0819:PsiDirectoryNode" />
-              <item name="API" type="462c0819:PsiDirectoryNode" />
-              <item name="OBJECT" type="462c0819:PsiDirectoryNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
-    </panes>
+    <panes />
   </component>
   <component name="PropertiesComponent">
     <property name="options.lastSelected" value="editor.preferences.completion" />
@@ -931,12 +909,12 @@
       <workItem from="1517320029536" duration="793000" />
       <workItem from="1517321348105" duration="1853000" />
       <workItem from="1517332418327" duration="9310000" />
-      <workItem from="1517486490479" duration="8383000" />
+      <workItem from="1517486490479" duration="9325000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="58835000" />
+    <option name="totallyTimeSpent" value="59777000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="25" width="3200" height="1150" extended-state="0" />
@@ -1423,14 +1401,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../../API/FORMAT/_material.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="6" column="0" lean-forward="false" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/../../API/FORMAT/_shader.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -1541,14 +1511,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="900">
           <caret line="60" column="32" lean-forward="false" selection-start-line="60" selection-start-column="32" selection-end-line="60" selection-end-column="32" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../../API/FORMAT/__init__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3870">
-          <caret line="258" column="20" lean-forward="false" selection-start-line="258" selection-start-column="20" selection-end-line="258" selection-end-column="20" />
           <folding />
         </state>
       </provider>
@@ -1705,22 +1667,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../../API/FORMAT/_root.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="630">
-          <caret line="69" column="113" lean-forward="false" selection-start-line="69" selection-start-column="113" selection-end-line="69" selection-end-column="113" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../../API/FORMAT/_world.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="10" column="32" lean-forward="false" selection-start-line="10" selection-start-column="32" selection-end-line="10" selection-end-column="32" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/../../API/OBJECT/_collection.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="860">
@@ -1737,10 +1683,42 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/../../API/FORMAT/_material.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="6" column="0" lean-forward="false" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/../../API/FORMAT/_mesh.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-2351">
           <caret line="8" column="48" lean-forward="false" selection-start-line="8" selection-start-column="36" selection-end-line="8" selection-end-column="48" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../API/FORMAT/_root.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1035">
+          <caret line="69" column="113" lean-forward="false" selection-start-line="69" selection-start-column="113" selection-end-line="69" selection-end-column="113" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../API/FORMAT/_world.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="15" column="41" lean-forward="false" selection-start-line="15" selection-start-column="41" selection-end-line="15" selection-end-column="41" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../API/FORMAT/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3475">
+          <caret line="258" column="20" lean-forward="false" selection-start-line="258" selection-start-column="20" selection-end-line="258" selection-end-column="20" />
           <folding />
         </state>
       </provider>

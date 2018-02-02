@@ -15,8 +15,6 @@ class World(UGEObject):
         
 CollectionProp( World, 'Scenes', 'Root' )
 
-CollectionProp( World, 'Scenes' )
-
 validWorldTypes = {str,World,World.__proxy__}
 
 # noinspection PyStatementEffect
