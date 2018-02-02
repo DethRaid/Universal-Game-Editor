@@ -176,6 +176,8 @@ def private():
     
     return UGEObjectConstructor, UGEObject, Hierarchical
 
+instatiators = {}
+
 UGEObjectConstructor, UGEObject, Hierarchical = private()
 del private
 
