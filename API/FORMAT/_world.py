@@ -3,15 +3,21 @@
 
 from . import ugeSetScene
 from .. import CONST, UGE_GLOBAL_WRAPPER, register
-from ..OBJECT import UGEObject, CollectionProp
 
-class World(UGEObject):
-    """UGE World"""
-    __slots__ = ['Scenes']
+def private():
+    from ..OBJECT import UGEObject, CollectionProp
+    
+    class World(UGEObject):
+        """UGE World"""
+        __slots__ = ['Scenes']
         
-CollectionProp( World, 'Scenes', 'Root' )
+    CollectionProp( World, 'Scenes', 'Root' )
+    
+    return World
+World = private()
+del private
 
-validWorldTypes = {str,World,World.__proxy__}
+validWorldTypes = {str,World}
 
 # noinspection PyStatementEffect
 @UGE_GLOBAL_WRAPPER
