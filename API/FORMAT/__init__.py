@@ -38,8 +38,7 @@ M_LOG10E   = 0.43429448190325182765  # log_10 e
 M_LN2      = 0.69314718055994530942  # log_e 2
 M_LN10     = 2.30258509299404568402  # log_e 10
 
-NULL=type('NULLType',(),{})() # Tcll - I needed something private :P
-
+class   Root(object): __slots__ = []
 class Object(object): __slots__ = []
 
 # IMPORTANT - all imports should be done here, sub-module references should use `from . import ______`
