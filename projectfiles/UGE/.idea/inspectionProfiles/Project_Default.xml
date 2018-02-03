@@ -259,7 +259,7 @@
           <option value="traceback" />
           <option value="frame" />
           <option value="numtype" />
-          <option value="Current\w" />
+          <option value="Current" />
         </list>
       </option>
     </inspection_tool>
