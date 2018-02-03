@@ -73,8 +73,8 @@
                   <file leaf-file-name="_rig.py" pinned="false" current-in-tab="true">
                     <entry file="file://$PROJECT_DIR$/../../API/FORMAT/_rig.py">
                       <provider selected="true" editor-type-id="text-editor">
-                        <state relative-caret-position="435">
-                          <caret line="151" column="17" lean-forward="false" selection-start-line="151" selection-start-column="17" selection-end-line="151" selection-end-column="17" />
+                        <state relative-caret-position="465">
+                          <caret line="153" column="93" lean-forward="false" selection-start-line="153" selection-start-column="93" selection-end-line="153" selection-end-column="93" />
                           <folding />
                         </state>
                       </provider>
@@ -607,7 +607,6 @@
         <option value="$PROJECT_DIR$/../../API/FORMAT/_material.py" />
         <option value="$PROJECT_DIR$/../../API/FORMAT/_scene.py" />
         <option value="$PROJECT_DIR$/../../API/FORMAT/_object.py" />
-        <option value="$PROJECT_DIR$/../../API/FORMAT/_rig.py" />
         <option value="$PROJECT_DIR$/../../API/types.py" />
         <option value="$PROJECT_DIR$/../../API/FORMAT/_collection.py" />
         <option value="$PROJECT_DIR$/../../test_FORMAT.py" />
@@ -620,6 +619,7 @@
         <option value="$PROJECT_DIR$/../../API/OBJECT/_collection.py" />
         <option value="$PROJECT_DIR$/../../API/FORMAT/__init__.py" />
         <option value="$PROJECT_DIR$/../../API/FORMAT/_world.py" />
+        <option value="$PROJECT_DIR$/../../API/FORMAT/_rig.py" />
       </list>
     </option>
   </component>
@@ -907,12 +907,12 @@
       <workItem from="1517320029536" duration="793000" />
       <workItem from="1517321348105" duration="1853000" />
       <workItem from="1517332418327" duration="9310000" />
-      <workItem from="1517486490479" duration="13184000" />
+      <workItem from="1517486490479" duration="13249000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="63636000" />
+    <option name="totallyTimeSpent" value="63701000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="25" width="3200" height="1150" extended-state="0" />
@@ -1715,8 +1715,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/../../API/FORMAT/_rig.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="435">
-          <caret line="151" column="17" lean-forward="false" selection-start-line="151" selection-start-column="17" selection-end-line="151" selection-end-column="17" />
+        <state relative-caret-position="465">
+          <caret line="153" column="93" lean-forward="false" selection-start-line="153" selection-start-column="93" selection-end-line="153" selection-end-column="93" />
           <folding />
         </state>
       </provider>
