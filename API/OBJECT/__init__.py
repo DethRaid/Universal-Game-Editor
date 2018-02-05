@@ -11,6 +11,7 @@ class extension(object):
         this.objname = applyto
         extensions[applyto] = extensions.get(applyto,{})
     def __call__(this, func: function): extensions[this.objname][func.__name__] = (func,)
+    def setter(this, func: function): extensions[this.objname][func.__name__] += (func,)
 
 def private():
     """link Hierarchical properties with descriptors"""
