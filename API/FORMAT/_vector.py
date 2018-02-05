@@ -28,7 +28,7 @@ class vector(UGEObject):
     __disabled__ = {'Name'}
     
     __hash__ = lambda vec: hash(tuple(stop() if v is None else v for v in (vec.x,vec.y,vec.z,vec.w)))
-    __repr__ = lambda vec: '<vector %s >'%(', '.join('%s: %s'%(attr,vec.__getattribute__(attr)) for attr in order.lower()))
+    __repr__ = lambda vec: '<vector %s >'%(', '.join('%s: %s'%(attr,vec.__getattribute__(attr)) for attr in order))
     __eq__=lambda vec,other: (vec.x,vec.y,vec.z,vec.w)[:len(other)]==other[:len(other)] or vec.proxy is other or vec is other
     __ne__=lambda vec,other: (vec.x,vec.y,vec.z,vec.w)[:len(other)]!=other[:len(other)] and vec.proxy is not other and vec is not other
     __len__ = lambda this: (this.X!=None)+(this.Y!=None)+(this.Z!=None)+(this.W!=None)
