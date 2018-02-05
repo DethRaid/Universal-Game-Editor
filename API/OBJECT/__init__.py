@@ -8,6 +8,7 @@ class extension(object):
     __slots__ = ['ext']
     def __init__(this, applyto: str) -> None:
         if applyto in defined: print('WARNING: %s has already been defined, extensions cannot be applied.')
+        
         if applyto in extensions: this.ext = extensions[applyto]
         else: this.ext = extensions[applyto] = {}
     def __call__(this, func: function): this.ext[func.__name__] = (func,)
