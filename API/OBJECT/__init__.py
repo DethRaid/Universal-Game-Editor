@@ -10,7 +10,7 @@ class extension(object):
         if applyto in defined: print('WARNING: %s has already been defined, extensions cannot be applied.')
         if applyto in extensions: this.ext = extensions[applyto]
         else: this.ext = extensions[applyto] = {}
-    def __call__(this, func: function): this.ext[func.__name__] = func
+    def __call__(this, func: function): this.ext[func.__name__] = (func,)
 
 def private():
     """link Hierarchical properties with descriptors"""
