@@ -43,27 +43,16 @@ class Object(object): __slots__ = []
 
 # IMPORTANT - all imports should be done here, sub-module references should use `from . import ______`
 # NOTE: the load order should not be changed, it works from the branches to the root for solidity
-# noinspection PyUnresolvedReferences
 from ..OBJECT import *
-# noinspection PyUnresolvedReferences
 from ._vector import vector, VectorProp
-# noinspection PyUnresolvedReferences
 from ._image import *
-# noinspection PyUnresolvedReferences
 from ._texture import *
-# noinspection PyUnresolvedReferences
 from ._shader import *
-# noinspection PyUnresolvedReferences
 from ._material import *
-# noinspection PyUnresolvedReferences
 from ._rig import *
-# noinspection PyUnresolvedReferences
 from ._mesh import *
-# noinspection PyUnresolvedReferences
 from ._object import *
-# noinspection PyUnresolvedReferences
 from ._scene import *
-# noinspection PyUnresolvedReferences
 from ._world import *
 from ._root import *
 
