@@ -67,7 +67,6 @@ from ._scene import *
 from ._world import *
 from ._root import *
 
-Roots = UGECollection( None, Root )
 # noinspection PyStatementEffect
 Roots['UGE_Default_Root']
 
