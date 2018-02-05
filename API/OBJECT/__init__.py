@@ -5,13 +5,12 @@ defined = set()
 extensions = {}
 class extension(object):
     """decorator to apply read-only properties to UGEObject sub-classes when defined."""
-    __slots__ = ['applicator']
+    __slots__ = ['objname']
     def __init__(this, applyto: str):
         if applyto in defined: print('WARNING: %s has already been defined, extensions cannot be applied.')
-        this.applicator
-        if applyto in extensions: this.applicator = extensions[applyto]
-        else: this.applicator = extensions[applyto] = {}
-    def __call__(this, func: function): this.applicator[func.__name__] = (func,)
+        this.objname = applyto
+        extensions[applyto] = extensions.get(applyto,{})
+    def __call__(this, func: function): extensions[this.objname][func.__name__] = (func,)
 
 def private():
     """link Hierarchical properties with descriptors"""
