@@ -259,7 +259,21 @@
           <option value="traceback" />
           <option value="frame" />
           <option value="numtype" />
-          <option value="Current*" />
+          <option value="CurrentScope" />
+          <option value="CurrentRoot" />
+          <option value="CurrentWorld" />
+          <option value="CurrentScene" />
+          <option value="CurrentObject" />
+          <option value="CurrentMaterial" />
+          <option value="CurrentShader" />
+          <option value="CurrentTexture" />
+          <option value="CurrentImage" />
+          <option value="CurrentBone" />
+          <option value="CurrentPrimitive" />
+          <option value="CurrentFacepoint" />
+          <option value="CurrentWeight" />
+          <option value="" />
+          <option value="" />
         </list>
       </option>
     </inspection_tool>
