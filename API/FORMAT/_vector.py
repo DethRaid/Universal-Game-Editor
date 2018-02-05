@@ -24,9 +24,7 @@ def validate(vec,val,attr):
 order='XYZW'
 class vector(UGEObject):
     """represents a (up to 4D) vector, quaternion, or color object"""
-    __public__ = {
-        'X':{'w'},'Y':{'w'},'Z':{'w'},'W':{'w'},
-        '__getitem__':{'w'}}
+    __slots__ = order
     __disabled__ = {'Name'}
     
     __hash__ = lambda vec: hash(tuple(stop() if v is None else v for v in (vec.x,vec.y,vec.z,vec.w)))
