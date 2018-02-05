@@ -6,6 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="983838c6-d952-43fb-b239-90a06b889443" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/../../API/FORMAT/__init__.py" afterPath="$PROJECT_DIR$/../../API/FORMAT/__init__.py" />
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" afterPath="$PROJECT_DIR$/.idea/php.xml" />
     </list>
     <ignored path="UGE.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -30,7 +32,7 @@
             <splitter split-orientation="vertical" split-proportion="0.6986028">
               <split-first>
                 <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-                  <file leaf-file-name="_root.py" pinned="false" current-in-tab="true">
+                  <file leaf-file-name="_root.py" pinned="false" current-in-tab="false">
                     <entry file="file://$PROJECT_DIR$/../../API/FORMAT/_root.py">
                       <provider selected="true" editor-type-id="text-editor">
                         <state relative-caret-position="1035">
@@ -82,10 +84,10 @@
                       </provider>
                     </entry>
                   </file>
-                  <file leaf-file-name="_mesh.py" pinned="false" current-in-tab="false">
+                  <file leaf-file-name="_mesh.py" pinned="false" current-in-tab="true">
                     <entry file="file://$PROJECT_DIR$/../../API/FORMAT/_mesh.py">
                       <provider selected="true" editor-type-id="text-editor">
-                        <state relative-caret-position="120">
+                        <state relative-caret-position="-4056">
                           <caret line="8" column="48" lean-forward="false" selection-start-line="8" selection-start-column="36" selection-end-line="8" selection-end-column="48" />
                           <folding />
                         </state>
@@ -910,12 +912,12 @@
       <workItem from="1517321348105" duration="1853000" />
       <workItem from="1517332418327" duration="9310000" />
       <workItem from="1517486490479" duration="22020000" />
-      <workItem from="1517793644537" duration="790000" />
+      <workItem from="1517793644537" duration="849000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="73262000" />
+    <option name="totallyTimeSpent" value="73321000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="25" width="3200" height="1150" extended-state="0" />
@@ -1387,14 +1389,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../../API/FORMAT/_mesh.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="8" column="48" lean-forward="false" selection-start-line="8" selection-start-column="36" selection-end-line="8" selection-end-column="48" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/../../API/FORMAT/_material.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="90">
@@ -1719,6 +1713,14 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="495">
           <caret line="45" column="15" lean-forward="false" selection-start-line="45" selection-start-column="15" selection-end-line="45" selection-end-column="15" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../API/FORMAT/_mesh.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-4056">
+          <caret line="8" column="48" lean-forward="false" selection-start-line="8" selection-start-column="36" selection-end-line="8" selection-end-column="48" />
           <folding />
         </state>
       </provider>
