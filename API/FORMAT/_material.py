@@ -3,31 +3,39 @@
 
 from . import VectorProp
 from .. import CONST, UGE_GLOBAL_WRAPPER, register
-from ..OBJECT import UGEObject, UGECollection, FloatProp, CollectionProp
 
-class Material(UGEObject):
-    """UGE Material"""
-    __public__ = {'Ambient':{'p','w'},'Diffuse':{'p','w'},'Specular':{'p','w'},'Emmisive':{'p','w'},'Glossiness':{'w'},'Shaders':{'p','w'},'Textures':{'p','w'}}
-    # noinspection PyUnusedLocal
-    def __init__(Ma,*other: tuple ):
-        Rt = Ma.__parent__
-        Ma.Ambient = (1.,1.,1.,1.)
-        Ma.Diffuse = (1.,1.,1.,1.)
-        Ma.Specular = (.5,.5,.5,1.)
-        Ma.Emissive = (0.,0.,0.,0.)
-        Ma.Glossiness = 25.0
-        
-        Ma.Shaders = UGECollection( Ma, Rt.Shaders )
-        Ma.Textures = UGECollection( Ma, Rt.Textures )
+# noinspection PyShadowingNames
+def private():
+    """private namespace"""
+    from ..OBJECT import UGEObject, UGECollection, FloatProp, CollectionProp
+    
+    class Material(UGEObject):
+        """UGE Material"""
+        __public__ = {'Ambient':{'p','w'},'Diffuse':{'p','w'},'Specular':{'p','w'},'Emmisive':{'p','w'},'Glossiness':{'w'},'Shaders':{'p','w'},'Textures':{'p','w'}}
+        # noinspection PyUnusedLocal
+        def __init__(Ma,*other: tuple ):
+            Rt = Ma.__parent__
+            Ma.Ambient = (1.,1.,1.,1.)
+            Ma.Diffuse = (1.,1.,1.,1.)
+            Ma.Specular = (.5,.5,.5,1.)
+            Ma.Emissive = (0.,0.,0.,0.)
+            Ma.Glossiness = 25.0
+            
+            Ma.Shaders = UGECollection( Ma, Rt.Shaders )
+            Ma.Textures = UGECollection( Ma, Rt.Textures )
+    
+    VectorProp(     Material, 'Ambient' )
+    VectorProp(     Material, 'Diffuse' )
+    VectorProp(     Material, 'Specular' )
+    VectorProp(     Material, 'Emissive' )
+    FloatProp(      Material, 'Glossiness' )
+    CollectionProp( Material, 'Pixels' )
+    CollectionProp( Material, 'Colors' )
+    
+    return Material
 
-VectorProp(     Material, 'Ambient' )
-VectorProp(     Material, 'Diffuse' )
-VectorProp(     Material, 'Specular' )
-VectorProp(     Material, 'Emissive' )
-FloatProp(      Material, 'Glossiness' )
-CollectionProp( Material, 'Pixels' )
-CollectionProp( Material, 'Colors' )
-
+Material = private()
+del private
 validMaterialTypes = {str,Material,Material.__proxy__}
 
 # noinspection PyStatementEffect
