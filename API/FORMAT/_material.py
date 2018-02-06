@@ -30,7 +30,7 @@ def private():
     VectorProp(     Material, 'Emissive' )
     FloatProp(      Material, 'Glossiness' )
     CollectionProp( Material, 'Shaders', 'Root' )
-    CollectionProp( Material, 'Textures' )
+    CollectionProp( Material, 'Textures', 'Root' )
     
     return Material
 
