@@ -29,8 +29,8 @@ def private():
     VectorProp(     Material, 'Specular' )
     VectorProp(     Material, 'Emissive' )
     FloatProp(      Material, 'Glossiness' )
-    CollectionProp( Material, 'Pixels' )
-    CollectionProp( Material, 'Colors' )
+    CollectionProp( Material, 'Shaders', 'Root' )
+    CollectionProp( Material, 'Textures' )
     
     return Material
 
