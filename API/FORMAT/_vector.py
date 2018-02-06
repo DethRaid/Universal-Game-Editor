@@ -33,8 +33,8 @@ class vector(UGEObject):
     __ne__=lambda vec,other: (vec.x,vec.y,vec.z,vec.w)[:len(other)]!=other[:len(other)] and vec.proxy is not other and vec is not other
     __len__ = lambda this: (this.X!=None)+(this.Y!=None)+(this.Z!=None)+(this.W!=None)
     
-    def __newproxy__(cls,obj):
-        prx=newproxy(cls,obj)
+    def __new__(cls, *other: tuple, **kw ):
+        prx=newUGEObject(cls,obj)
         
         olen = obj.__len__
         cls.__len__.__set__(prx, lambda:olen() )
