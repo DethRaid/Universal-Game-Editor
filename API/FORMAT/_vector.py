@@ -13,7 +13,7 @@ from ..OBJECT import UGEObject, newUGEObject, FloatProp
 from ..utilities import stop
 newproxy = UGEObject.__newproxy__
 
-CONST.define( '''
+define( '''
         UGE_UNTRANSFORMED
         UGE_PRETRANSFORMED
         '''.split(), type('UGE_Vector_Flag', (CONST.UGE_CONSTANT,), {}), [ CONST.UGE_MODEL_SCRIPT ])
