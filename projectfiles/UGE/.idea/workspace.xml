@@ -353,8 +353,8 @@
                   <file leaf-file-name="_vector.py" pinned="false" current-in-tab="true">
                     <entry file="file://$PROJECT_DIR$/../../API/FORMAT/_vector.py">
                       <provider selected="true" editor-type-id="text-editor">
-                        <state relative-caret-position="450">
-                          <caret line="30" column="53" lean-forward="false" selection-start-line="30" selection-start-column="53" selection-end-line="30" selection-end-column="53" />
+                        <state relative-caret-position="705">
+                          <caret line="47" column="27" lean-forward="true" selection-start-line="47" selection-start-column="27" selection-end-line="47" selection-end-column="27" />
                           <folding />
                         </state>
                       </provider>
@@ -908,12 +908,12 @@
       <workItem from="1517321348105" duration="1853000" />
       <workItem from="1517332418327" duration="9310000" />
       <workItem from="1517486490479" duration="22020000" />
-      <workItem from="1517793644537" duration="6241000" />
+      <workItem from="1517793644537" duration="6300000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="78713000" />
+    <option name="totallyTimeSpent" value="78772000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="25" width="3200" height="1150" extended-state="0" />
@@ -1716,8 +1716,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/../../API/FORMAT/_vector.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="450">
-          <caret line="30" column="53" lean-forward="false" selection-start-line="30" selection-start-column="53" selection-end-line="30" selection-end-column="53" />
+        <state relative-caret-position="705">
+          <caret line="47" column="27" lean-forward="true" selection-start-line="47" selection-start-column="27" selection-end-line="47" selection-end-column="27" />
           <folding />
         </state>
       </provider>
