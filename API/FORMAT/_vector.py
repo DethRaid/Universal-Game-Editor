@@ -13,10 +13,12 @@ from ..OBJECT import UGEObject, newUGEObject, FloatProp
 from ..utilities import stop
 from ..CONST import define, UGE_CONSTANT, UGE_MODEL_SCRIPT
 
+class UGE_VECTOR_FLAG(UGE_CONSTANT): pass
+
 define( '''
         UGE_UNTRANSFORMED
         UGE_PRETRANSFORMED
-        '''.split(), type('UGE_Vector_Flag', (UGE_CONSTANT,), {}), [ UGE_MODEL_SCRIPT ])
+        '''.split(), UGE_VECTOR_FLAG, [ UGE_MODEL_SCRIPT ])
 
 def validate(vec,val,attr):
     if val==None: return
