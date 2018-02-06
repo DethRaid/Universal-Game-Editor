@@ -34,10 +34,8 @@ class vector(UGEObject):
     __len__ = lambda this: (this.X!=None)+(this.Y!=None)+(this.Z!=None)+(this.W!=None)
     
     def __new__(cls, *other: tuple, **kw ):
-        prx=newUGEObject(cls,obj)
-        
-        olen = obj.__len__
-        cls.__len__.__set__(prx, lambda:olen() )
+        vec=newUGEObject(cls,*other)
+        vec.x = vec.y = vec.z = vec.w = None
     
     #def new(vec,):
     
