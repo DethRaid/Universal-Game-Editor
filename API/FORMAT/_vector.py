@@ -27,10 +27,10 @@ class vector(UGEObject):
     __slots__ = order
     __disabled__ = {'Name'}
     
-    __hash__ = lambda vec: hash(tuple(stop() if v is None else v for v in (vec.x,vec.y,vec.z,vec.w)))
+    __hash__ = lambda vec: hash(tuple(stop() if v is None else v for v in (vec.X,vec.Y,vec.Z,vec.W)))
     __repr__ = lambda vec: '<vector %s >'%(', '.join('%s: %s'%(attr,vec.__getattribute__(attr)) for attr in order))
-    __eq__=lambda vec,other: (vec.x,vec.y,vec.z,vec.w)[:len(other)]==other[:len(other)] or vec.proxy is other or vec is other
-    __ne__=lambda vec,other: (vec.x,vec.y,vec.z,vec.w)[:len(other)]!=other[:len(other)] and vec.proxy is not other and vec is not other
+    __eq__=lambda vec,other: (vec.X,vec.Y,vec.Z,vec.W)[:len(other)]==other[:len(other)] or vec.proxy is other or vec is other
+    __ne__=lambda vec,other: (vec.X,vec.Y,vec.Z,vec.W)[:len(other)]!=other[:len(other)] and vec.proxy is not other and vec is not other
     __len__ = lambda vec: (vec.X!=None)+(vec.Y!=None)+(vec.Z!=None)+(vec.W!=None)
     
     def __new__(cls, *other: tuple, **kw ):
