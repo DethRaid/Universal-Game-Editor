@@ -13,6 +13,11 @@ from ..OBJECT import UGEObject, newUGEObject, FloatProp
 from ..utilities import stop
 newproxy = UGEObject.__newproxy__
 
+CONST.define( '''
+        UGE_UNTRANSFORMED
+        UGE_PRETRANSFORMED
+        '''.split(), type('UGE_Vector_Flag', (CONST.UGE_CONSTANT,), {}), [ CONST.UGE_MODEL_SCRIPT ])
+
 def validate(vec,val,attr):
     if val==None: return
     val = getattr(val,'__value__',val) # from UGE data-type (bf32 or such)
