@@ -7,22 +7,20 @@ from .. import CONST, UGE_GLOBAL_WRAPPER, register
 # noinspection PyShadowingNames
 def private():
     """private namespace"""
-    from ..OBJECT import UGEObject, UGECollection, FloatProp, CollectionProp
+    from ..OBJECT import UGEObject, newUGEObject, FloatProp, CollectionProp
     
     class Material(UGEObject):
         """UGE Material"""
         __public__ = {'Ambient':{'p','w'},'Diffuse':{'p','w'},'Specular':{'p','w'},'Emmisive':{'p','w'},'Glossiness':{'w'},'Shaders':{'p','w'},'Textures':{'p','w'}}
-        # noinspection PyUnusedLocal
-        def __init__(Ma,*other: tuple ):
-            Rt = Ma.__parent__
+        
+        def __new__(cls, *other: tuple, **kw ):
+            Ma=newUGEObject(cls,*other)
             Ma.Ambient = (1.,1.,1.,1.)
             Ma.Diffuse = (1.,1.,1.,1.)
             Ma.Specular = (.5,.5,.5,1.)
             Ma.Emissive = (0.,0.,0.,0.)
             Ma.Glossiness = 25.0
-            
-            Ma.Shaders = UGECollection( Ma, Rt.Shaders )
-            Ma.Textures = UGECollection( Ma, Rt.Textures )
+            return Ma
     
     VectorProp(     Material, 'Ambient' )
     VectorProp(     Material, 'Diffuse' )
