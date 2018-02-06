@@ -9,7 +9,7 @@ multi-dimensional vectors are a planned feature to possibly re-implement matrice
 # TODO: performance could use some work
 
 from math import cos, sin, asin, atan2, sqrt
-from ..OBJECT import UGEObject, FloatProp
+from ..OBJECT import UGEObject, newUGEObject, FloatProp
 from ..utilities import stop
 newproxy = UGEObject.__newproxy__
 
