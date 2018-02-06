@@ -11,12 +11,12 @@ multi-dimensional vectors are a planned feature to possibly re-implement matrice
 from math import cos, sin, asin, atan2, sqrt
 from ..OBJECT import UGEObject, newUGEObject, FloatProp
 from ..utilities import stop
-from ..CONST import define
+from ..CONST import define, UGE_CONSTANT, UGE_MODEL_SCRIPT
 
 define( '''
         UGE_UNTRANSFORMED
         UGE_PRETRANSFORMED
-        '''.split(), type('UGE_Vector_Flag', (CONST.UGE_CONSTANT,), {}), [ CONST.UGE_MODEL_SCRIPT ])
+        '''.split(), type('UGE_Vector_Flag', (UGE_CONSTANT,), {}), [ UGE_MODEL_SCRIPT ])
 
 def validate(vec,val,attr):
     if val==None: return
