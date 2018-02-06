@@ -36,6 +36,7 @@ class vector(UGEObject):
     def __new__(cls, *other: tuple, **kw ):
         vec=newUGEObject(cls,*other)
         vec.X = vec.Y = vec.Z = vec.W = None
+        return vec
     
     #def new(vec,):
     
