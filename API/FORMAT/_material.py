@@ -12,7 +12,6 @@ def private():
     class Material(UGEObject):
         """UGE Material"""
         __slots__ = ['Ambient', 'Diffuse', 'Specular', 'Emmisive', 'Glossiness', 'Shaders', 'Textures']
-        
         def __new__(cls, *other: tuple, **kw ):
             Ma=newUGEObject(cls,*other)
             Ma.Ambient = (1.,1.,1.,1.)

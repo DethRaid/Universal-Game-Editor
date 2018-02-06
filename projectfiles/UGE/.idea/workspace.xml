@@ -4,7 +4,9 @@
     <option name="SCOPE_TYPE" value="3" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="983838c6-d952-43fb-b239-90a06b889443" name="Default" comment="" />
+    <list default="true" id="983838c6-d952-43fb-b239-90a06b889443" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/../../API/FORMAT/_material.py" afterPath="$PROJECT_DIR$/../../API/FORMAT/_material.py" />
+    </list>
     <ignored path="UGE.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -94,7 +96,7 @@
                     <entry file="file://$PROJECT_DIR$/../../API/FORMAT/_material.py">
                       <provider selected="true" editor-type-id="text-editor">
                         <state relative-caret-position="159">
-                          <caret line="13" column="20" lean-forward="false" selection-start-line="13" selection-start-column="20" selection-end-line="13" selection-end-column="20" />
+                          <caret line="13" column="103" lean-forward="false" selection-start-line="13" selection-start-column="103" selection-end-line="13" selection-end-column="103" />
                           <folding />
                         </state>
                       </provider>
@@ -937,12 +939,12 @@
       <workItem from="1517321348105" duration="1853000" />
       <workItem from="1517332418327" duration="9310000" />
       <workItem from="1517486490479" duration="22020000" />
-      <workItem from="1517793644537" duration="9165000" />
+      <workItem from="1517793644537" duration="9223000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="81637000" />
+    <option name="totallyTimeSpent" value="81695000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="25" width="3200" height="1150" extended-state="0" />
@@ -1746,7 +1748,7 @@
     <entry file="file://$PROJECT_DIR$/../../API/FORMAT/_material.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="159">
-          <caret line="13" column="20" lean-forward="false" selection-start-line="13" selection-start-column="20" selection-end-line="13" selection-end-column="20" />
+          <caret line="13" column="103" lean-forward="false" selection-start-line="13" selection-start-column="103" selection-end-line="13" selection-end-column="103" />
           <folding />
         </state>
       </provider>
