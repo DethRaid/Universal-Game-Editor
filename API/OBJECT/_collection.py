@@ -70,7 +70,7 @@ def private():
                 if '__builtin__' in kw:
                     setbuiltin( pr, kw['__builtin__'] )
                     __builtins__[cl.__builtin__] = None
-                else: cl.__builtin__ = ''
+                else: setbuiltin( pr, '' )
                 
                 cl.__root__     = cl # for quick lookup (passed down)
                 cl.__parents__  = () # for Base instance creation
