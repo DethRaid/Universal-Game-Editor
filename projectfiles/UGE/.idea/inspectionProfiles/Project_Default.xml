@@ -273,7 +273,7 @@
           <option value="CurrentPrimitive" />
           <option value="CurrentFacepoint" />
           <option value="CurrentWeight" />
-          <option value="" />
+          <option value="__builtins__" />
           <option value="" />
         </list>
       </option>
