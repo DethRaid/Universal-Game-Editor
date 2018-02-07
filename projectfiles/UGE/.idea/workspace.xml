@@ -5,7 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="983838c6-d952-43fb-b239-90a06b889443" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/../../API/OBJECT/__init__.py" afterPath="$PROJECT_DIR$/../../API/OBJECT/__init__.py" />
+      <change beforePath="$PROJECT_DIR$/../../API/OBJECT/_collection.py" afterPath="$PROJECT_DIR$/../../API/OBJECT/_collection.py" />
     </list>
     <ignored path="UGE.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -83,8 +83,8 @@
                   <file leaf-file-name="_mesh.py" pinned="false" current-in-tab="true">
                     <entry file="file://$PROJECT_DIR$/../../API/FORMAT/_mesh.py">
                       <provider selected="true" editor-type-id="text-editor">
-                        <state relative-caret-position="429">
-                          <caret line="139" column="21" lean-forward="false" selection-start-line="131" selection-start-column="21" selection-end-line="139" selection-end-column="21" />
+                        <state relative-caret-position="534">
+                          <caret line="146" column="29" lean-forward="false" selection-start-line="146" selection-start-column="29" selection-end-line="146" selection-end-column="29" />
                           <folding />
                         </state>
                       </provider>
@@ -310,7 +310,7 @@
                       </provider>
                     </entry>
                   </file>
-                  <file leaf-file-name="__init__.py" pinned="false" current-in-tab="true">
+                  <file leaf-file-name="__init__.py" pinned="false" current-in-tab="false">
                     <entry file="file://$PROJECT_DIR$/../../API/OBJECT/__init__.py">
                       <provider selected="true" editor-type-id="text-editor">
                         <state relative-caret-position="276">
@@ -325,11 +325,11 @@
                       </provider>
                     </entry>
                   </file>
-                  <file leaf-file-name="_collection.py" pinned="false" current-in-tab="false">
+                  <file leaf-file-name="_collection.py" pinned="false" current-in-tab="true">
                     <entry file="file://$PROJECT_DIR$/../../API/OBJECT/_collection.py">
                       <provider selected="true" editor-type-id="text-editor">
-                        <state relative-caret-position="-96">
-                          <caret line="8" column="37" lean-forward="false" selection-start-line="8" selection-start-column="25" selection-end-line="8" selection-end-column="37" />
+                        <state relative-caret-position="753">
+                          <caret line="115" column="37" lean-forward="false" selection-start-line="115" selection-start-column="37" selection-end-line="115" selection-end-column="37" />
                           <folding />
                         </state>
                       </provider>
@@ -631,8 +631,8 @@
         <option value="$PROJECT_DIR$/../../API/FORMAT/_image.py" />
         <option value="$PROJECT_DIR$/../../API/scripts.py" />
         <option value="$PROJECT_DIR$/../../API/FORMAT/_mesh.py" />
-        <option value="$PROJECT_DIR$/../../API/OBJECT/_collection.py" />
         <option value="$PROJECT_DIR$/../../API/OBJECT/__init__.py" />
+        <option value="$PROJECT_DIR$/../../API/OBJECT/_collection.py" />
       </list>
     </option>
   </component>
@@ -1206,12 +1206,12 @@
       <workItem from="1517321348105" duration="1853000" />
       <workItem from="1517332418327" duration="9310000" />
       <workItem from="1517486490479" duration="22020000" />
-      <workItem from="1517793644537" duration="19243000" />
+      <workItem from="1517793644537" duration="19660000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="91715000" />
+    <option name="totallyTimeSpent" value="92132000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="25" width="3200" height="1150" extended-state="0" />
@@ -1999,22 +1999,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../../API/FORMAT/_mesh.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="429">
-          <caret line="139" column="21" lean-forward="false" selection-start-line="131" selection-start-column="21" selection-end-line="139" selection-end-column="21" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../../API/OBJECT/_collection.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-96">
-          <caret line="8" column="37" lean-forward="false" selection-start-line="8" selection-start-column="25" selection-end-line="8" selection-end-column="37" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/../../API/OBJECT/__init__.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="276">
@@ -2025,6 +2009,22 @@
             <element signature="e#7022#8697#0" expanded="false" />
             <element signature="e#8801#9090#0" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../API/FORMAT/_mesh.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="534">
+          <caret line="146" column="29" lean-forward="false" selection-start-line="146" selection-start-column="29" selection-end-line="146" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../API/OBJECT/_collection.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="753">
+          <caret line="115" column="37" lean-forward="false" selection-start-line="115" selection-start-column="37" selection-end-line="115" selection-end-column="37" />
+          <folding />
         </state>
       </provider>
     </entry>
