@@ -25,7 +25,7 @@ def private():
         __slots__ = []
         # noinspection PyUnresolvedReferences
         def __new__(meta, name: str, bases: tuple, NS: dict, **kw):
-            NS['__slots__'] = set(NS.get('__slots__',set()))
+            NS['__slots__'] = set(NS.get('__slots__',set())).union({'Name','Index'})
             disabled = NS.get('__disabled__',set())
             NS['__slots__'].extend(attr for attr in public if attr not in NS)
             for n,f in extensions.get(name,{}).items(): NS[n]=property(f)
