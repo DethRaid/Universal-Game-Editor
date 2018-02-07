@@ -92,11 +92,6 @@ class UGE_Scope(object):
                 
                 # TODO: apply copy to current root
                 
-                if scopeType=='Model':
-                    FORMAT._Verify()
-                    #FORMAT._Transform()
-                    FORMAT._Finalize()
-                
                 break
             except:
                 if scopeType=='Model':
