@@ -27,7 +27,6 @@ def private():
         def __new__(meta, name: str, bases: tuple, NS: dict, **kw):
             slots = NS['__slots__'] = set(NS.get('__slots__',set())).union({'Name','Index'}).difference(NS.get('__disabled__',set()))
             for n,funcs in extensions.get(name,{}).items(): NS[n]=property(*funcs)
-            
             if 'new' in NS: basehandlers[name] = NS.pop('new')
             
             ugeobj = newType(meta, name, bases, NS) # TODO: mappingproxy(NS))
