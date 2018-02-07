@@ -387,6 +387,7 @@ class vector(object):
         )'''
 
 
+from ..OBJECT import properties
 def VectorProp( cls: object, attr: str ):
     """reassigns a vector verification property to an existing member_descriptor attribute"""
     initializers = properties[cls] = properties.get(cls,set())
