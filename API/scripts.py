@@ -94,8 +94,6 @@ class UGE_Scope(object):
                 
                 break
             except:
-                if scopeType=='Model':
-                    FORMAT._Recall()
                 print(); traceback.print_exception(*exc_info()); print()
         modules[__name__].clean()
         
