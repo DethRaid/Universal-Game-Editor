@@ -177,6 +177,7 @@ def private():
     return UGEObjectConstructor, UGEObject, Hierarchical
 
 properties = {} # { class_name: { initializer } }
+basehandlers = {} # { class_name: { initializer } }
 
 UGEObjectConstructor, UGEObject, Hierarchical = private()
 del private
