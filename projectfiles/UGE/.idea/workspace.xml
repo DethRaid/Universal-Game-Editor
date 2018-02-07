@@ -81,8 +81,8 @@
                   <file leaf-file-name="_mesh.py" pinned="false" current-in-tab="true">
                     <entry file="file://$PROJECT_DIR$/../../API/FORMAT/_mesh.py">
                       <provider selected="true" editor-type-id="text-editor">
-                        <state relative-caret-position="519">
-                          <caret line="145" column="24" lean-forward="false" selection-start-line="145" selection-start-column="24" selection-end-line="145" selection-end-column="24" />
+                        <state relative-caret-position="474">
+                          <caret line="142" column="38" lean-forward="true" selection-start-line="142" selection-start-column="38" selection-end-line="142" selection-end-column="38" />
                           <folding />
                         </state>
                       </provider>
@@ -336,8 +336,8 @@
                   <file leaf-file-name="_channels.py" pinned="false" current-in-tab="true">
                     <entry file="file://$PROJECT_DIR$/../../API/OBJECT/_channels.py">
                       <provider selected="true" editor-type-id="text-editor">
-                        <state relative-caret-position="30">
-                          <caret line="2" column="14" lean-forward="false" selection-start-line="2" selection-start-column="14" selection-end-line="2" selection-end-column="14" />
+                        <state relative-caret-position="465">
+                          <caret line="31" column="16" lean-forward="false" selection-start-line="31" selection-start-column="4" selection-end-line="31" selection-end-column="16" />
                           <folding />
                         </state>
                       </provider>
@@ -1204,12 +1204,12 @@
       <workItem from="1517321348105" duration="1853000" />
       <workItem from="1517332418327" duration="9310000" />
       <workItem from="1517486490479" duration="22020000" />
-      <workItem from="1517793644537" duration="20070000" />
+      <workItem from="1517793644537" duration="20108000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="92542000" />
+    <option name="totallyTimeSpent" value="92580000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="25" width="3200" height="1150" extended-state="0" />
@@ -2002,14 +2002,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../../API/FORMAT/_mesh.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="519">
-          <caret line="145" column="24" lean-forward="false" selection-start-line="145" selection-start-column="24" selection-end-line="145" selection-end-column="24" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/../../API/OBJECT/_collection.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="534">
@@ -2018,10 +2010,18 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/../../API/FORMAT/_mesh.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="474">
+          <caret line="142" column="38" lean-forward="true" selection-start-line="142" selection-start-column="38" selection-end-line="142" selection-end-column="38" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/../../API/OBJECT/_channels.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="14" lean-forward="false" selection-start-line="2" selection-start-column="14" selection-end-line="2" selection-end-column="14" />
+        <state relative-caret-position="465">
+          <caret line="31" column="16" lean-forward="false" selection-start-line="31" selection-start-column="4" selection-end-line="31" selection-end-column="16" />
           <folding />
         </state>
       </provider>
