@@ -69,7 +69,7 @@ def private():
                 setobjects(     pr, {}   ) # { object:object } # hash > object: object = __objects__['Name']
                 if '__builtin__' in kw:
                     setbuiltin( pr, kw['__builtin__'] )
-                    __builtins__[cl.__builtin__] = None
+                    __builtins__[getbuiltin(pr)] = None
                 else: setbuiltin( pr, '' )
                 
                 cl.__root__     = cl # for quick lookup (passed down)
