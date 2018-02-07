@@ -1,6 +1,11 @@
 # -*- coding: utf-8 -*-
 
+# noinspection PyShadowingNames
 def private():
+    """private namespace"""
+    
+    from . import UGEObject, UGECollection
+    
     new = object.new
     class UGEChannels(object):
         def __new__( cls ):
