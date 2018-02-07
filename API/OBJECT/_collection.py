@@ -113,7 +113,7 @@ def private():
                 items   = getitems(cl)
                 indices = getindices(cl)
                 objects = getobjects(cl)
-                Index   = len(items)
+                Index   = len(objects)
                 handler = gethandler(cl)
                 current = handler(mappingproxy(getbaseparents(cl)),cl,item,Index,**kw) if handler else\
                     base(mappingproxy(getbaseparents(cl)),cl,item,Index)
