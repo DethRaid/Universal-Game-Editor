@@ -37,11 +37,12 @@ def private():
         Usage:
         class Object(UGEObject):
             '''full example in API.FORMAT._object'''
-            __public__ = {'Viewport':{'w'}} # enable: 'p': obj.proxy, 'w': link.__set__
-            __slots__ = ['Data']
-            def __init__( Ob, *other ):
+            __slots__ = ['Data','Viewport']
+            def __new__(cls, *other: tuple, **kw ):
+                Ob=newUGEObject(cls,*other)
                 Ob.Data=None
-                Ob.Viewport=0"""
+                Ob.Viewport=0
+                return Ob"""
         #__public__ = {  '__getitem__':set(),'__setitem__':set(),'__contains__':set(),'__iter__':set(),'__len__':set()}
         __slots__  = ['__holder__','__parents__', 'Name','Index']
         __repr__   = lambda obj:'<%s "%s" >'%(obj.__name__,obj.Name)
