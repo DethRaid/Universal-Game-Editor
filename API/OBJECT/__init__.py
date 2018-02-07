@@ -30,7 +30,7 @@ def private():
             
             ugeobj = newType(meta, name, bases, NS) # TODO: mappingproxy(NS))
             if 'Name' in slots: properties[name]['Name'] = ugeobj.Name.__set__
-            if 'Index' in slots:
+            if 'Index' in slots: # NOTE: Index is relative to the root collection of this object
                 properties[name]['Index'] = ugeobj.Index.__set__
                 ugeobj.Index = property(ugeobj.Index.__get__)
             defined.add(name); return ugeobj
