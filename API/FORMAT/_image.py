@@ -22,9 +22,9 @@ IntProp(        Image, 'Height' )
 CollectionProp( Image, 'Pixels' )
 CollectionProp( Image, 'Colors' )
 
-# noinspection PyUnresolvedReferences
-def reassign() -> None: # TODO: FileProp
-    """required"""
+# noinspection PyShadowingNames
+def private():
+    """private namespace"""
     setPixels = Image.Pixels.__set__
     setColors = Image.Colors.__set__
     def PixelsSetter(obj,val) -> None:
@@ -43,8 +43,8 @@ def reassign() -> None: # TODO: FileProp
         elif '__iter__' in vtype.__dict__ or hasattr(val,'__iter__'): setColors(obj,val)
         else: print('ERROR: Image.Colors received an invalid value (%s)'%val.__class__)
     Image.Colors.__init__(Image.Colors.__get__, ColorsSetter)
-reassign()
-del reassign
+Image = private()
+del private
 
 validImageTypes = {str,Image,Image.__proxy__}
 
