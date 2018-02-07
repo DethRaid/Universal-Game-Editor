@@ -25,10 +25,11 @@ def private():
         __slots__ = []
         # noinspection PyUnresolvedReferences
         def __new__(meta, name: str, bases: tuple, NS: dict, **kw):
-            NS['__slots__'] = set(NS.get('__slots__',set())).union({'Name','Index'}).difference(NS.get('__disabled__',set()))
+            slots = NS['__slots__'] = set(NS.get('__slots__',set())).union({'Name','Index'}).difference(NS.get('__disabled__',set()))
             for n,funcs in extensions.get(name,{}).items(): NS[n]=property(*funcs)
             
             ugeobj = newType(meta, name, bases, NS) # TODO: mappingproxy(NS))
+            if 'Name' in slots: 
             defined.add(name); return ugeobj
 
     class UGEObject(object, metaclass=UGEObjectConstructor):
@@ -61,8 +62,8 @@ def private():
             # initialize
             setparents( obj, parents ); setholder( obj, holder )
             for name,initializer in properties.get(cls,{}).items():
-                if name=='Index': initializer(obj,Idx)
                 if name=='Name': initializer(obj,Name)
+                if name=='Index': initializer(obj,Idx)
                 else: initializer(obj)
 
     setparents = UGEObject.__parents__.__set__
@@ -85,8 +86,8 @@ def private():
             sethparents( obj, parents ); sethholder( obj, holder )
             setPa(obj,None); setCh(obj,None); setPr(obj,None); setNx(obj,None)
             for name,initializer in properties.get(cls,{}).items():
-                if name=='Index': initializer(obj,Idx)
                 if name=='Name': initializer(obj,Name)
+                if name=='Index': initializer(obj,Idx)
                 else: initializer(obj)
 
     sethparents = Hierarchical.__parents__.__set__
