@@ -57,14 +57,12 @@ def private():
             Name,*other = args
             if len(other): Idx,*other = other
             if Name.__class__ is int: Idx = Name; Name = None
-
-            if 'Index' in cls.__dict__: cls.Index.fget.__self__.__set__(obj,Idx) # Tcll - I hate properties
-            if 'Name' in cls.__dict__: obj.Name = Name
             
             # initialize
             setparents( obj, parents ); setholder( obj, holder )
-            for initializer in properties.get(cls,set()):
-                if 
+            for name,initializer in properties.get(cls,{}).items():
+                if name=='Index': initializer(obj,Idx)
+                if name=='Name': initializer(obj,Name)
                 else: initializer(obj)
 
     setparents = UGEObject.__parents__.__set__
@@ -83,13 +81,13 @@ def private():
             if len(other): Idx,*other = other
             if Name.__class__ is int: Idx = Name; Name = None
     
-            if useIndex: setIndex(obj,Idx)
-            if useName: obj.Name = Name
-    
             # initialize
             sethparents( obj, parents ); sethholder( obj, holder )
             setPa(obj,None); setCh(obj,None); setPr(obj,None); setNx(obj,None)
-            for initializer in properties.get(cls,set()): initializer(obj)
+            for name,initializer in properties.get(cls,{}).items():
+                if name=='Index': initializer(obj,Idx)
+                if name=='Name': initializer(obj,Name)
+                else: initializer(obj)
 
     sethparents = Hierarchical.__parents__.__set__
     Hierarchical.__parents__ = property( Hierarchical.__parents__.__get__ )
