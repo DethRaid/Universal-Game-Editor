@@ -4,9 +4,7 @@
     <option name="SCOPE_TYPE" value="3" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="983838c6-d952-43fb-b239-90a06b889443" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/../../API/FORMAT/_vector.py" afterPath="$PROJECT_DIR$/../../API/FORMAT/_vector.py" />
-    </list>
+    <list default="true" id="983838c6-d952-43fb-b239-90a06b889443" name="Default" comment="" />
     <ignored path="UGE.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -96,7 +94,7 @@
                     <entry file="file://$PROJECT_DIR$/../../API/FORMAT/_material.py">
                       <provider selected="true" editor-type-id="text-editor">
                         <state relative-caret-position="429">
-                          <caret line="31" column="19" lean-forward="true" selection-start-line="31" selection-start-column="19" selection-end-line="31" selection-end-column="19" />
+                          <caret line="31" column="19" lean-forward="false" selection-start-line="31" selection-start-column="19" selection-end-line="31" selection-end-column="19" />
                           <folding />
                         </state>
                       </provider>
@@ -316,7 +314,7 @@
                     <entry file="file://$PROJECT_DIR$/../../API/OBJECT/__init__.py">
                       <provider selected="true" editor-type-id="text-editor">
                         <state relative-caret-position="450">
-                          <caret line="30" column="51" lean-forward="true" selection-start-line="30" selection-start-column="51" selection-end-line="30" selection-end-column="51" />
+                          <caret line="30" column="51" lean-forward="false" selection-start-line="30" selection-start-column="51" selection-end-line="30" selection-end-column="51" />
                           <folding />
                         </state>
                       </provider>
@@ -326,7 +324,7 @@
                     <entry file="file://$PROJECT_DIR$/../../API/OBJECT/_collection.py">
                       <provider selected="true" editor-type-id="text-editor">
                         <state relative-caret-position="650">
-                          <caret line="215" column="31" lean-forward="true" selection-start-line="214" selection-start-column="0" selection-end-line="215" selection-end-column="31" />
+                          <caret line="215" column="31" lean-forward="false" selection-start-line="214" selection-start-column="0" selection-end-line="215" selection-end-column="31" />
                           <folding />
                         </state>
                       </provider>
@@ -356,7 +354,7 @@
                     <entry file="file://$PROJECT_DIR$/../../API/FORMAT/_vector.py">
                       <provider selected="true" editor-type-id="text-editor">
                         <state relative-caret-position="725">
-                          <caret line="388" column="0" lean-forward="true" selection-start-line="388" selection-start-column="0" selection-end-line="388" selection-end-column="0" />
+                          <caret line="388" column="0" lean-forward="false" selection-start-line="388" selection-start-column="0" selection-end-line="388" selection-end-column="0" />
                           <folding />
                         </state>
                       </provider>
@@ -1724,7 +1722,7 @@
     <entry file="file://$PROJECT_DIR$/../../API/FORMAT/_material.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="429">
-          <caret line="31" column="19" lean-forward="true" selection-start-line="31" selection-start-column="19" selection-end-line="31" selection-end-column="19" />
+          <caret line="31" column="19" lean-forward="false" selection-start-line="31" selection-start-column="19" selection-end-line="31" selection-end-column="19" />
           <folding />
         </state>
       </provider>
@@ -1732,7 +1730,7 @@
     <entry file="file://$PROJECT_DIR$/../../API/OBJECT/_collection.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="650">
-          <caret line="215" column="31" lean-forward="true" selection-start-line="214" selection-start-column="0" selection-end-line="215" selection-end-column="31" />
+          <caret line="215" column="31" lean-forward="false" selection-start-line="214" selection-start-column="0" selection-end-line="215" selection-end-column="31" />
           <folding />
         </state>
       </provider>
@@ -1740,7 +1738,7 @@
     <entry file="file://$PROJECT_DIR$/../../API/FORMAT/_vector.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="725">
-          <caret line="388" column="0" lean-forward="true" selection-start-line="388" selection-start-column="0" selection-end-line="388" selection-end-column="0" />
+          <caret line="388" column="0" lean-forward="false" selection-start-line="388" selection-start-column="0" selection-end-line="388" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -1748,7 +1746,7 @@
     <entry file="file://$PROJECT_DIR$/../../API/OBJECT/__init__.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="450">
-          <caret line="30" column="51" lean-forward="true" selection-start-line="30" selection-start-column="51" selection-end-line="30" selection-end-column="51" />
+          <caret line="30" column="51" lean-forward="false" selection-start-line="30" selection-start-column="51" selection-end-line="30" selection-end-column="51" />
           <folding />
         </state>
       </provider>
