@@ -91,7 +91,7 @@ def private():
             
             return cl
         
-        def new(cl, item: [str,int,dict]) -> UGEObject:
+        def new(cl, item: [str,int,dict], **kw) -> UGEObject:
             """create a new base item instance (unless existent) in the current or root collection,
             then link this collection to it (unless linked) and set it as the current item."""
             
