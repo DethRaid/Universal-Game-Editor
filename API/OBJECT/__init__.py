@@ -29,7 +29,7 @@ def private():
             for n,funcs in extensions.get(name,{}).items(): NS[n]=property(*funcs)
             
             ugeobj = newType(meta, name, bases, NS) # TODO: mappingproxy(NS))
-            if 'Name' in slots: properties[name]['Name'] = 
+            if 'Name' in slots: properties[name]['Name'] = ugeobj.Name.__set__
             defined.add(name); return ugeobj
 
     class UGEObject(object, metaclass=UGEObjectConstructor):
