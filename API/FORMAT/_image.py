@@ -3,21 +3,22 @@
 
 from . import vector
 from .. import CONST, UGE_GLOBAL_WRAPPER, register
-from ..OBJECT import UGEObject, UGECollection, IntProp, CollectionProp
-from ..FILE import ugeImportFile
 
 # noinspection PyShadowingNames
 def private():
     """private namespace"""
+    from ..OBJECT import UGEObject, newUGEObject, IntProp, CollectionProp
+    from ..FILE import ugeImportFile
 
     class Image(UGEObject):
         """UGE Image Object"""
         __public__ = {'Width':{'w'},'Height':{'w'},'Data':{'w','p'},'Colors':{'w','p'}}
-    
-        # noinspection PyUnusedLocal
-        def __init__(Im,*other: tuple ):
+
+        def __new__(cls,*other: tuple, **kw):
+            Im = newUGEObject(cls,*other)
             Im.Width = 1
             Im.Height = 1
+            return Im
 
     IntProp(        Image, 'Width' )
     IntProp(        Image, 'Height' )
@@ -94,7 +95,7 @@ def ugeSetImageHeight(H: (int, str) = 1) -> None:
     CONST.UGE_MODEL_SCRIPT,
     CONST.UGE_IMAGE_SCRIPT
     ])
-def ugeSetImagePixels(Pixels: str or [vector or int] = [[255,255,255,255]] ) -> None:
+def ugeSetImagePixels(Pixels: str or [vector] = [[255,255,255,255]] ) -> None:
     """Sets the current Image's pixel data."""
     if CurrentImage:
         Pixels = getattr(Pixels, '__value__', Pixels )
