@@ -36,7 +36,7 @@ def private():
     
         Usage:
         class Object(UGEObject):
-            '''full example in API.FORMAT._object'''
+            '''full examples among API.FORMAT'''
             __slots__ = ['Data','Viewport']
             def __new__(cls, *other: tuple, **kw ):
                 Ob=newUGEObject(cls,*other)
