@@ -30,6 +30,7 @@ def private():
             
             ugeobj = newType(meta, name, bases, NS) # TODO: mappingproxy(NS))
             if 'Name' in slots: properties[name]['Name'] = ugeobj.Name.__set__
+            if 'Name' in slots: properties[name]['Name'] = ugeobj.Name.__set__
             defined.add(name); return ugeobj
 
     class UGEObject(object, metaclass=UGEObjectConstructor):
