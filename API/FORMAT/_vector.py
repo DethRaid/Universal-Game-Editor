@@ -393,5 +393,5 @@ def VectorProp( cls: object, attr: str ):
     dsc = cls.__dict__[attr]
     dscget = dsc.__get__; dscset = dsc.__set__
     def setter(obj, val): dscget(obj,cls)[:] = val
-    property( dscget, setter )
+    setattr(cls,attr,property( dscget, setter ))
     initializers.add( lambda obj: dscset(obj,vector(obj,0)) )
