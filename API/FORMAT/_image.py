@@ -18,13 +18,11 @@ def private():
         def __init__(Im,*other: tuple ):
             Im.Width = 1
             Im.Height = 1
-            Im.Pixels = UGECollection( Im, (vector, int) ) # vector( I/R(, A/G(, B(, A ))) )
-            Im.Colors = UGECollection( Im, vector ) # vector( I/R(, A/G(, B(, A ))) )
 
     IntProp(        Image, 'Width' )
     IntProp(        Image, 'Height' )
-    CollectionProp( Image, 'Pixels' )
-    CollectionProp( Image, 'Colors' )
+    CollectionProp( Image, 'Pixels', vector ) # vector( II/R(, A/G(, B(, A ))) )
+    CollectionProp( Image, 'Colors', vector ) # vector( I/R(, A/G(, B(, A ))) )
     
     setPixels = Image.Pixels.__set__
     setColors = Image.Colors.__set__
