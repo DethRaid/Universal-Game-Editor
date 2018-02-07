@@ -26,9 +26,9 @@ def private():
         # noinspection PyUnresolvedReferences
         def __new__(meta, name: str, bases: tuple, NS: dict, **kw):
             if '__slots__' not in NS: NS['__slots__'] = []
+            disabled = NS.get('__disabled__',set())
             NS['__slots__'].extend(attr for attr in public if attr not in NS)
             for n,f in extensions.get(name,{}).items(): NS[n]=property(f)
-            disabled = NS.get('__disabled__',set())
             
             ugeobj = newType(meta, name, bases, NS) # TODO: mappingproxy(NS))
             defined.add(name); return ugeobj
