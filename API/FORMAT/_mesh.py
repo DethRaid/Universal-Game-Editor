@@ -134,6 +134,7 @@ def private():
         def new(cls, parents: mappingproxy, holder: UGECollection, item, *args, **kw):
             """Create a new primitive instance of the specified type"""
             Pr = cls.__new__(parents,holder,*args,**kw)
+            item = getattr(item,'__value__',item) # from UGE data-type (struct or such)
             if item.__class__ is dict: Pr[:] = item
             else: Pr.Type = item
             return Pr
