@@ -6,25 +6,26 @@ from .. import CONST, UGE_GLOBAL_WRAPPER, register
 from ..OBJECT import UGEObject, UGECollection, IntProp, CollectionProp
 from ..FILE import ugeImportFile
 
-class Image(UGEObject):
-    """UGE Image Object"""
-    __public__ = {'Width':{'w'},'Height':{'w'},'Data':{'w','p'},'Colors':{'w','p'}}
-    
-    # noinspection PyUnusedLocal
-    def __init__(Im,*other: tuple ):
-        Im.Width = 1
-        Im.Height = 1
-        Im.Pixels = UGECollection( Im, (vector, int) ) # vector( I/R(, A/G(, B(, A ))) )
-        Im.Colors = UGECollection( Im, vector ) # vector( I/R(, A/G(, B(, A ))) )
-
-IntProp(        Image, 'Width' )
-IntProp(        Image, 'Height' )
-CollectionProp( Image, 'Pixels' )
-CollectionProp( Image, 'Colors' )
-
 # noinspection PyShadowingNames
 def private():
     """private namespace"""
+
+    class Image(UGEObject):
+        """UGE Image Object"""
+        __public__ = {'Width':{'w'},'Height':{'w'},'Data':{'w','p'},'Colors':{'w','p'}}
+    
+        # noinspection PyUnusedLocal
+        def __init__(Im,*other: tuple ):
+            Im.Width = 1
+            Im.Height = 1
+            Im.Pixels = UGECollection( Im, (vector, int) ) # vector( I/R(, A/G(, B(, A ))) )
+            Im.Colors = UGECollection( Im, vector ) # vector( I/R(, A/G(, B(, A ))) )
+
+    IntProp(        Image, 'Width' )
+    IntProp(        Image, 'Height' )
+    CollectionProp( Image, 'Pixels' )
+    CollectionProp( Image, 'Colors' )
+    
     setPixels = Image.Pixels.__set__
     setColors = Image.Colors.__set__
     def PixelsSetter(obj,val) -> None:
@@ -43,6 +44,8 @@ def private():
         elif '__iter__' in vtype.__dict__ or hasattr(val,'__iter__'): setColors(obj,val)
         else: print('ERROR: Image.Colors received an invalid value (%s)'%val.__class__)
     Image.Colors.__init__(Image.Colors.__get__, ColorsSetter)
+    
+    return Image
 Image = private()
 del private
 
