@@ -74,8 +74,6 @@ class UGE_Scope(object):
             try: 
                 mod_dict = modules[script].__dict__
                 
-                # TODO: operate on copy of current root (if an errors occur, the copy will be discarded)
-                
                 if not name: # specified script should disregard polling
                     if poll_name not in mod_dict: continue
                     poll_result = FunctionType( mod_dict[poll_name].__code__, NameSpace )()
@@ -89,8 +87,6 @@ class UGE_Scope(object):
                 FunctionType( mod_dict[func_name].__code__, NameSpace )( FILE._current._name.split('.')[-1], None )
                 
                 time.checkpoint()
-                
-                # TODO: apply copy to current root
                 
                 break
             except:
