@@ -82,10 +82,7 @@ class UGE_Scope(object):
                     for types in FILE._current._types: types[:] = [] # clear unused data-types
                     FILE._current.offset = 0 # reset the offset
                     if not poll_result: continue
-                
-                if scopeType=='Model': # TODO: need a more interactive interface.
-                    FORMAT._Reset()  # reset the data for importing
-                
+                    
                 print('executing %s-import script "%s"...'%(scopeType.lower(),script))
                 time=timer()
                 
