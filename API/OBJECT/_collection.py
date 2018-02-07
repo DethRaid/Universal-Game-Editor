@@ -66,7 +66,7 @@ def private():
                 setbase(        pr, Base )
                 setbaseparents( pr, {Parent.__name__:Parent} if Parent else {} )
                 sethandler(     pr, basehandlers[Base.__name__] )
-                setobjects(     pr, {}   ) # { object:object } # hash > object: object = __objects__['Name']
+                setobjects(     pr, {}   ) # { object:object } # hash -> object: object = __objects__['Name']
                 if '__builtin__' in kw:
                     setbuiltin( pr, kw['__builtin__'] )
                     __builtins__[getbuiltin(pr)] = None
