@@ -14,7 +14,7 @@ class extension(object):
     def setter(this, func: function): extensions[this.objname][func.__name__] += (func,)
 
 def private():
-    """link Hierarchical properties with descriptors"""
+    """private namespace"""
     
     from ..utilities import getset
 
