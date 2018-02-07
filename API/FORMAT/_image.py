@@ -12,8 +12,7 @@ def private():
 
     class Image(UGEObject):
         """UGE Image Object"""
-        __public__ = {'Width':{'w'},'Height':{'w'},'Data':{'w','p'},'Colors':{'w','p'}}
-
+        __slots__ = ['Width','Height','Pixels','Colors']
         def __new__(cls,*other: tuple, **kw):
             Im = newUGEObject(cls,*other)
             Im.Width = 1
