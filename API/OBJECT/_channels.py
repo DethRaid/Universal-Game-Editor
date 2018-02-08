@@ -9,8 +9,10 @@ def private():
     
     new = object.new
     class UGEChannels(object):
-        def __new__( cls ):
+        def __new__(cls, Parent: UGEObject, Base: UGEObject, **kw):
             ch = new(cls)
+            
+            
             def call(*items: [str,int,None]) -> UGEObject:
                 """create a new or reference an existing collection."""
                 if len(items) > 1:
