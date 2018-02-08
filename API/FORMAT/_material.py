@@ -8,6 +8,7 @@ from .. import CONST, UGE_GLOBAL_WRAPPER, register
 def private():
     """private namespace"""
     from ..OBJECT import UGEObject, newUGEObject, FloatProp, CollectionProp
+    from ..FILE import ugeImportFile
     
     class Material(UGEObject):
         """UGE Material"""
@@ -26,7 +27,7 @@ def private():
             Ma = cls.__new__(parents,holder,*args,**kw)
             item = getattr(item,'__value__',item) # from UGE data-type (struct or such)
             if item.__class__ is dict: Ma[:] = item
-            else: ugeImportFile(item,CONST.UGE_MATERIAL_SCRIPT)
+            elif external: ugeImportFile(item,CONST.UGE_MATERIAL_SCRIPT)
             return Ma
     
     VectorProp(     Material, 'Ambient' )
