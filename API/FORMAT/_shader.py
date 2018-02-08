@@ -13,9 +13,9 @@ def private():
     class Shader(UGEObject):
         """UGE Shader"""
         __slots__ = ['Type']
-        def __new__(cls, *other: tuple, **kw ):
-            Sh=newUGEObject(cls,*other)
-            return Sh
+        #def __new__(cls, *other: tuple, **kw ):
+        #    Sh=newUGEObject(cls,*other)
+        #    return Sh
     
         def new(cls, parents: mappingproxy, holder: UGECollection, item, external=False, *args, **kw):
             """Create a new Shader instance, optionally using the name to reference an external file."""
