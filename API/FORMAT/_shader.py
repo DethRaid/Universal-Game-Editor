@@ -22,7 +22,7 @@ def private():
             Sh = cls.__new__(parents,holder,*args,**kw)
             item = getattr(item,'__value__',item) # from UGE data-type (struct or such)
             if item.__class__ is dict: Sh[:] = item
-            elif external: ugeImportFile(item,CONST.UGE_MATERIAL_SCRIPT)
+            elif external: ugeImportFile(item,CONST.UGE_SHADER_SCRIPT)
             return Sh
 
     return Shader
