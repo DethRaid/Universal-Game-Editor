@@ -6,7 +6,7 @@ def private():
     
     from . import UGEObject
     from ..utilities import getset
-    from ..OBJECT import basehandlers
+    from ..OBJECT import basehandlers, properties
     
     privateRegistry = {}
     getprivate = privateRegistry.__getitem__ # WARNING: do not use in __repr__ of target class
@@ -209,7 +209,6 @@ def private():
         if cl.__builtin__: setglobal( cl.__builtin__, getattr(val,'proxy',val) )
     UGECollection.current = property( UGECollection.current.__get__, setter )
     
-    from ..OBJECT import properties
     def CollectionProp( cls: object, attr: str, base: object, **kw ):
         """reassigns a collection verification property to an existing member_descriptor attribute"""
         name = cls.__name__; initializers = properties[name] = properties.get(name,set())
