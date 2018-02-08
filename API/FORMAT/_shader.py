@@ -7,7 +7,8 @@ from .. import CONST, UGE_GLOBAL_WRAPPER, register
 # noinspection PyShadowingNames
 def private():
     """private namespace"""
-    from ..OBJECT import UGEObject, UGECollection
+    from ..OBJECT import UGEObject, newUGEObject, UGECollection
+    from ..FILE import ugeImportFile
     
     class Shader(UGEObject):
         """UGE Shader"""
@@ -18,11 +19,11 @@ def private():
     
         def new(cls, parents: mappingproxy, holder: UGECollection, item, external=False, *args, **kw):
             """Create a new Shader instance, optionally using the name to reference an external file."""
-            Ma = cls.__new__(parents,holder,*args,**kw)
+            Sh = cls.__new__(parents,holder,*args,**kw)
             item = getattr(item,'__value__',item) # from UGE data-type (struct or such)
-            if item.__class__ is dict: Ma[:] = item
+            if item.__class__ is dict: Sh[:] = item
             elif external: ugeImportFile(item,CONST.UGE_MATERIAL_SCRIPT)
-            return Ma
+            return Sh
 
     return Shader
 
