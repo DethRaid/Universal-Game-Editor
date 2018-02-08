@@ -275,6 +275,8 @@
           <option value="CurrentWeight" />
           <option value="__builtins__" />
           <option value="" />
+          <option value="UGE_MATERIAL_SCRIPT" />
+          <option value="UGE_SHADER_SCRIPT" />
         </list>
       </option>
     </inspection_tool>
