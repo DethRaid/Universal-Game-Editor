@@ -12,7 +12,7 @@ def private():
     
     class Shader(UGEObject):
         """UGE Shader"""
-        __slots__ = {}
+        __slots__ = ['Type']
         def __new__(cls, *other: tuple, **kw ):
             Sh=newUGEObject(cls,*other)
             return Sh
