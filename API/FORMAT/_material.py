@@ -23,7 +23,7 @@ def private():
             return Ma
 
         def new(cls, parents: mappingproxy, holder: UGECollection, item, external=False, *args, **kw):
-            """Create a new primitive instance of the specified type"""
+            """Create a new material instance"""
             Ma = cls.__new__(parents,holder,*args,**kw)
             item = getattr(item,'__value__',item) # from UGE data-type (struct or such)
             if item.__class__ is dict: Ma[:] = item
