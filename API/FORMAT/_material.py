@@ -26,7 +26,8 @@ def private():
             Ma = cls.__new__(parents,holder,*args,**kw)
             item = getattr(item,'__value__',item) # from UGE data-type (struct or such)
             if item.__class__ is dict: Ma[:] = item
-            else: Ma.Type = item
+            else:
+                ugeImportFile(val,CONST.UGE_PALETTE_SCRIPT)
             return Ma
     
     VectorProp(     Material, 'Ambient' )
