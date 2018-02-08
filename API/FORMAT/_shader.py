@@ -3,16 +3,32 @@
 
 from . import Texture, vector
 from .. import CONST, UGE_GLOBAL_WRAPPER, register
-from ..OBJECT import UGEObject, UGECollection
 
-class Shader(UGEObject):
-    """UGE Shader"""
-    __public__ = {}
-    # noinspection PyUnusedLocal
-    def __init__(Sh,*other: tuple ):
-        pass
+# noinspection PyShadowingNames
+def private():
+    """private namespace"""
+    from ..OBJECT import UGEObject, UGECollection
+    
+    class Shader(UGEObject):
+        """UGE Shader"""
+        __slots__ = {}
+        def __new__(cls, *other: tuple, **kw ):
+            Sh=newUGEObject(cls,*other)
+            return Sh
+    
+        def new(cls, parents: mappingproxy, holder: UGECollection, item, external=False, *args, **kw):
+            """Create a new material instance, optionally using the name to reference an external file."""
+            Ma = cls.__new__(parents,holder,*args,**kw)
+            item = getattr(item,'__value__',item) # from UGE data-type (struct or such)
+            if item.__class__ is dict: Ma[:] = item
+            elif external: ugeImportFile(item,CONST.UGE_MATERIAL_SCRIPT)
+            return Ma
 
-validShaderTypes = {str,Shader,Shader.__proxy__}
+    return Shader
+
+Shader = private()
+del private
+validShaderTypes = {str,Shader}
 
 # noinspection PyStatementEffect
 @UGE_GLOBAL_WRAPPER
