@@ -45,7 +45,7 @@ def private():
     VectorProp( Bone, 'Location' )
     VectorProp( Bone, 'Rotation' )
     VectorProp( Bone, 'Scale' )
-
+    
     new = object.__new__
     class rig(object):
         """rig Type"""
@@ -57,12 +57,12 @@ def private():
             return Rg
         __eq__ = lambda this,other: this.Name == other or this is other
         __ne__ = lambda this,other: this.Name != other and this is not other
-
+    
     StringProp(     rig, 'Name'          )
     CollectionProp( rig, 'Bones', 'Root' )
-
+    
     getData, setData = _protected['Object']['Data']
-
+    
     objectextension = extension('Object')
     
     @objectextension
@@ -76,7 +76,7 @@ def private():
         """Object.Bones = val"""
         if getData(Ob) is None: setData(Ob,rig(Ob))
         getData(Ob).Bones[:] = val
-        
+    
     return rig, Bone
 
 rig, Bone = private()
