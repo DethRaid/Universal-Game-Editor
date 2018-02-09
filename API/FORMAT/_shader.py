@@ -2,21 +2,23 @@
 """UGE Shader class and associate functions"""
 
 from . import Texture, vector
-from .. import CONST, UGE_GLOBAL_WRAPPER, register
+from .. import UGE_GLOBAL_WRAPPER, register
+from ..CONST import UGE_MODEL_SCRIPT, UGE_SHADER_SCRIPT
 
 # noinspection PyShadowingNames
 def private():
     """private namespace"""
     from ..OBJECT import UGEObject, newUGEObject, UGECollection
     from ..FILE import ugeImportFile
+    from ..CONST import define, UGE_CONSTANT
 
 
     class UGE_SHADER_TYPE(UGE_CONSTANT): pass
     
     define( '''
-            UGE_UNTRANSFORMED
-            UGE_PRETRANSFORMED
-            '''.split(), UGE_VECTOR_FLAG, [ UGE_MODEL_SCRIPT ])
+            UGE_VERTEX_SHADER
+            UGE_FRAGMENT_SHADER
+            '''.split(), UGE_SHADER_TYPE, [ UGE_MODEL_SCRIPT ])
     
     class Shader(UGEObject):
         """UGE Shader"""
@@ -30,7 +32,7 @@ def private():
             Sh = cls.__new__(parents,holder,*args,**kw)
             item = getattr(item,'__value__',item) # from UGE data-type (struct or such)
             if item.__class__ is dict: Sh[:] = item
-            elif external: ugeImportFile(item,CONST.UGE_SHADER_SCRIPT)
+            elif external: ugeImportFile(item,UGE_SHADER_SCRIPT)
             return Sh
 
     return Shader
@@ -41,7 +43,7 @@ validShaderTypes = {str,Shader}
 
 # noinspection PyStatementEffect
 @UGE_GLOBAL_WRAPPER
-@register([CONST.UGE_MODEL_SCRIPT])
+@register([UGE_MODEL_SCRIPT])
 def ugeSetShader(ShaderName: (str, Shader) = "Shader0", assign: bool = True ) -> Shader:
     """Creates or References a Shader and optionally assigns it to the current Material."""
     ShaderName = getattr(ShaderName, '__value__', ShaderName)
