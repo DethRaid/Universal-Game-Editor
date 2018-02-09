@@ -3,16 +3,17 @@
 
 from . import Object, vector
 from . import validObjectTypes, VectorProp
-from .. import CONST, UGE_GLOBAL_WRAPPER, register
+from .. import UGE_GLOBAL_WRAPPER, register
 from ..CONST import UGE_MODEL_SCRIPT
 
 # noinspection PyShadowingNames
 def private():
     """private namespace"""
     from ..OBJECT import UGEObject, Hierarchical, extension, UGECollection, CollectionProp, IntProp, StringProp, _protected
+    from ..CONST import define
     
     # TODO: reuse these
-    CONST.define( '''
+    define( '''
             UGE_PARENT
             UGE_OBJECT
             UGE_WORLD
