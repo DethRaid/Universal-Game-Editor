@@ -9,7 +9,7 @@ from ..CONST import UGE_MODEL_SCRIPT
 # noinspection PyShadowingNames
 def private():
     """private namespace"""
-    from ..OBJECT import UGEObject, Hierarchical, extension, CollectionProp, IntProp, StringProp, _protected
+    from ..OBJECT import UGEObject, newUGEObject, Hierarchical, extension, CollectionProp, IntProp, StringProp, _protected
     from ..CONST import define
     
     # TODO: reuse these
@@ -32,14 +32,14 @@ def private():
     
     class Bone(UGEObject, Hierarchical):
         """UGE Bone"""
-        __public__ = {'Viewport':{'w'},'Location':{'p','w'},'Rotation':{'p','w'},'Scale':{'p','w'}}
-        
-        # noinspection PyUnusedLocal
-        def __init__(Bn,*other: tuple ):
+        __slots__ = ['Viewport', 'Location', 'Rotation', 'Scale']
+        def __new__(cls, *other: tuple, **kw ):
+            Bn=newUGEObject(cls,*other)
             Bn.Viewport = 0
             Bn.Location = (0,0,0)
             Bn.Rotation = (0,0,0)
             Bn.Scale    = (1,1,1)
+            return Bn
     
     IntProp(    Bone, 'Viewport' )
     VectorProp( Bone, 'Location' )

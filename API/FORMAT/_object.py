@@ -21,23 +21,21 @@ def private():
     
     class Object(UGEObject, Hierarchical):
         """UGE Object"""
-        __public__ = {'Viewport':{'w'},'Location':{'p','w'},'Rotation':{'p','w'},'Scale':{'p','w'},'Materials':{'p','w'},'Type':set(),'SubName':{'w'}}
         __slots__ = ['Data', 'Viewport', 'Location', 'Rotation', 'Scale', 'Materials']
-        
-        # noinspection PyUnusedLocal, PyDunderSlots, PyUnresolvedReferences
-        def __init__(Ob,*other: tuple ):
-            Rt = Ob.__parent__
-            Ob.Data = None
+        def __new__(cls, *other: tuple, **kw ):
+            Ob=newUGEObject(cls,*other)
+            setData(Ob, None)
             
             Ob.Viewport  = 0
             Ob.Location  = (0,0,0)
             Ob.Rotation  = (0,0,0)
             Ob.Scale     = (1,1,1)
+            return Ob
         
         Type = property( lambda Ob: getData(Ob).__class__.__name__ if getData(Ob) else None) # type: str -> (str, None)
         SubName = property(
             lambda Ob: getData(Ob).Name if getData(Ob) else Ob.Name, # returning Object.Name for compatibility
-            lambda Ob, Name = None: setData(Ob, Ob.Name if Name is None else Name) )
+            lambda Ob, Name = None: getData(Ob).Name.__set__(Ob.Name if Name is None else Name) )
     
     getData, setData = getset( Object, 'Data' )
     
