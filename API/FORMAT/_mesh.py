@@ -266,13 +266,13 @@ def private():
 
     @objectextension
     def Weights(Ob: Object):
-        """Object.UVs"""
+        """Object.Weights"""
         if getData(Ob) is None: setData(Ob, mesh(Ob))
         if Ob.Type=='mesh': return getData(Ob).Weights
         print('ERROR: Object.Weights cannot be accessed for %s objects'%Ob.Type)
     @objectextension.setter
     def Weights(Ob: Object, val: object):
-        """Set Object.UVs"""
+        """Set Object.Weights"""
         if getData(Ob) is None: setData(Ob,mesh(Ob))
         getData(Ob).Weights[:] = val
         

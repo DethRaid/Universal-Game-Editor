@@ -63,10 +63,10 @@ def private():
         if Ob.Type=='rig': return Ob.Data.Bones
         print('ERROR: Object.Bones cannot be accessed for %s objects'%Ob.Type)
     @objectextension.setter
-    def Weights(Ob: Object, val: object):
-        """Set Object.UVs"""
-        if getData(Ob) is None: setData(Ob,mesh(Ob))
-        getData(Ob).Weights[:] = val
+    def Bones(Ob: Object, val: object):
+        """Set Object.Bones"""
+        if getData(Ob) is None: setData(Ob,rig(Ob))
+        getData(Ob).Bones[:] = val
         
     return rig, Bone
 
@@ -286,7 +286,7 @@ def ugeRigObject(ObjectName: (str, Object) = None) -> bool:
 
 @UGE_GLOBAL_WRAPPER
 @register([CONST.UGE_MODEL_SCRIPT])
-def ugeGetBones(ObjectName: (str, Object) = None) -> UGECollection:
+def ugeGetBones(ObjectName: (str, Object) = None):
     """returns the Bones in the current or specified Object"""
     ObjectName = getattr(ObjectName, '__value__', ObjectName)
     if ObjectName.__class__ in validObjectTypes: return CurrentScene.Objects(ObjectName).Bones
