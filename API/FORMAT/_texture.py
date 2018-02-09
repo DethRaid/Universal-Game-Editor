@@ -1,46 +1,55 @@
 # -*- coding: utf-8 -*-
 """UGE Texture class and associate functions"""
 
-from .. import CONST, UGE_GLOBAL_WRAPPER, register
+from .. import UGE_GLOBAL_WRAPPER, register
 from ..OBJECT import UGEObject, UGECollection, CollectionProp
+from ..CONST import UGE_MODEL_SCRIPT
 
-#CONST.define( '''
-#        UGE_TEX_2D
-#        '''.split(), type('UGE_TextureParam_Target', (CONST.UGE_CONSTANT,), {}), [ CONST.UGE_MODEL_SCRIPT ])
-#CONST.define( '''
-#        UGE_TEX_WRAP_S
-#        UGE_TEX_WRAP_T
-#        '''.split(), type('UGE_TextureParam_Name', (CONST.UGE_CONSTANT,), {}), [ CONST.UGE_MODEL_SCRIPT ])
-#CONST.define( '''
-#        UGE_TEX_CLAMP_EDGE
-#        UGE_TEX_REPEAT
-#        UGE_TEX_MIRRORED_REPEAT
-#        '''.split(), type('UGE_TextureParam', (CONST.UGE_CONSTANT,), {}), [ CONST.UGE_MODEL_SCRIPT ])
-#
-#class Param(UGEObject):
-#    """UGE Texture Param"""
-#    __public__ ={'Target':{'p'},'Name':{'p'},'Param':{'p'}}
-#    def __init__(Pm,*other):
-#        Pm.Target=None
-#        Pm.Name=None
-#        Pm.Param=None
+# noinspection PyShadowingNames
+def private():
+    """private namespace"""
 
-class Texture(UGEObject):
-    """UGE Texture"""
-    __public__ = {'Images':{'p','w'}}
-    # noinspection PyUnusedLocal
-    def __init__( Tx, *other: tuple ):
-        Rt = Tx.__parent__
-        #Tx.Params = UGECollection( Param )
-        Tx.Images = UGECollection( Tx, Rt.Images )
-        
-CollectionProp( Texture, 'Images' )
+    #CONST.define( '''
+    #        UGE_TEX_2D
+    #        '''.split(), type('UGE_TextureParam_Target', (CONST.UGE_CONSTANT,), {}), [ CONST.UGE_MODEL_SCRIPT ])
+    #CONST.define( '''
+    #        UGE_TEX_WRAP_S
+    #        UGE_TEX_WRAP_T
+    #        '''.split(), type('UGE_TextureParam_Name', (CONST.UGE_CONSTANT,), {}), [ CONST.UGE_MODEL_SCRIPT ])
+    #CONST.define( '''
+    #        UGE_TEX_CLAMP_EDGE
+    #        UGE_TEX_REPEAT
+    #        UGE_TEX_MIRRORED_REPEAT
+    #        '''.split(), type('UGE_TextureParam', (CONST.UGE_CONSTANT,), {}), [ CONST.UGE_MODEL_SCRIPT ])
+    #
+    #class Param(UGEObject):
+    #    """UGE Texture Param"""
+    #    __public__ ={'Target':{'p'},'Name':{'p'},'Param':{'p'}}
+    #    def __init__(Pm,*other):
+    #        Pm.Target=None
+    #        Pm.Name=None
+    #        Pm.Param=None
+    
+    class Texture(UGEObject):
+        """UGE Texture"""
+        __slots__ = ['Images']
+        # noinspection PyUnusedLocal
+        def __init__( Tx, *other: tuple ):
+            Rt = Tx.__parent__
+            #Tx.Params = UGECollection( Param )
+            Tx.Images = UGECollection( Tx, Rt.Images )
+            
+    CollectionProp( Texture, 'Images' )
+    
+    return Texture
 
-validTextureTypes = {str,Texture,Texture.__proxy__}
+Texture = private()
+del private
+validTextureTypes = {str,Texture}
 
 # noinspection PyStatementEffect
 @UGE_GLOBAL_WRAPPER
-@register([CONST.UGE_MODEL_SCRIPT])
+@register([UGE_MODEL_SCRIPT])
 def ugeSetTexture(TextureName: (str, Texture) = "Texture0", assign: bool = True ) -> Texture:
     """Creates or References a Texture and optionally assigns it to the current Material."""
     TextureName = getattr(TextureName, '__value__', TextureName)
