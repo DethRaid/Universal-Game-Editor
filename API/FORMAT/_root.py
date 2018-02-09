@@ -2,7 +2,8 @@
 """UGE Root class and associate functions"""
 
 from . import ugeSetWorld, ugeSetScene, ugeSetObject
-from .. import CONST, UGE_GLOBAL_WRAPPER, register
+from .. import UGE_GLOBAL_WRAPPER, register
+from ..CONST import UGE_MODEL_SCRIPT
 
 # noinspection PyShadowingNames
 def private():
@@ -48,7 +49,7 @@ def ugeSetRoot(RootName: (str, Root)) -> Root:
     else: print('ERROR: ugeSetRoot() received an invalid value (%s)'%RootName)
 
 @UGE_GLOBAL_WRAPPER
-@register([CONST.UGE_MODEL_SCRIPT])
+@register([UGE_MODEL_SCRIPT])
 def ugeGetRootName(RootObject: (Root, None) = None ) -> str:
     """Returns the Name of the current or given Root."""
     if RootObject in validRootTypes and RootObject is not str: return RootObject.Name
