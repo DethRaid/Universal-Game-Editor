@@ -32,18 +32,17 @@ def private():
             Ob.Location  = (0,0,0)
             Ob.Rotation  = (0,0,0)
             Ob.Scale     = (1,1,1)
-            Ob.Materials = UGECollection( Ob, Rt.Materials )
         
         Type = property( lambda this: this.Data.__class__.__name__ if this.Data else None ) # type: str -> (str, None)
         SubName = property(
             lambda this: this.Data.Name if this.Data else this.Name, # returning Object.Name for compatibility
             lambda this, Name: this.Data.__setattr__('Name',this.Name if Name is None else Name) )
     
-    IntProp(        Object, 'Viewport' )
-    VectorProp(     Object, 'Location' )
-    VectorProp(     Object, 'Rotation' )
-    VectorProp(     Object, 'Scale' )
-    CollectionProp( Object, 'Materials' )
+    IntProp(        Object, 'Viewport'          )
+    VectorProp(     Object, 'Location'          )
+    VectorProp(     Object, 'Rotation'          )
+    VectorProp(     Object, 'Scale'             )
+    CollectionProp( Object, 'Materials', 'Root' )
     return Object
 
 Object = private()
