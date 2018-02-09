@@ -3,6 +3,7 @@
 
 from .. import  UGE_GLOBAL_WRAPPER, register
 from ..CONST import UGE_MODEL_SCRIPT
+from ..OBJECT import UGECollection
 
 # noinspection PyShadowingNames
 def private():
