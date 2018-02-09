@@ -37,7 +37,7 @@ def private():
         Type = property( lambda Ob: getData(Ob).__class__.__name__ if getData(Ob) else None) # type: str -> (str, None)
         SubName = property(
             lambda Ob: getData(Ob).Name if getData(Ob) else Ob.Name, # returning Object.Name for compatibility
-            lambda Ob, Name: setData(Ob, Ob.Name if Name is None else Name) )
+            lambda Ob, Name = None: setData(Ob, Ob.Name if Name is None else Name) )
     
     getData, setData = getset( Object, 'Data' )
     
