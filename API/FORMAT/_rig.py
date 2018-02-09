@@ -52,6 +52,8 @@ def private():
         __eq__ = lambda this,other: this.Name == other or this is other
         __ne__ = lambda this,other: this.Name != other and this is not other
 
+    getData, setData = _protected['Object']['Data']
+
     objectextension = extension('Object')
     
     @objectextension
@@ -66,9 +68,9 @@ def private():
         if getData(Ob) is None: setData(Ob,mesh(Ob))
         getData(Ob).Weights[:] = val
         
-    return Bone
+    return rig, Bone
 
-Bone = private()
+rig, Bone = private()
 del private
 validBoneTypes = {str,Bone}
 
