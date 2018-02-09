@@ -41,8 +41,8 @@
                   <file leaf-file-name="_world.py" pinned="false" current-in-tab="true">
                     <entry file="file://$PROJECT_DIR$/../../API/FORMAT/_world.py">
                       <provider selected="true" editor-type-id="text-editor">
-                        <state relative-caret-position="225">
-                          <caret line="15" column="45" lean-forward="true" selection-start-line="14" selection-start-column="8" selection-end-line="15" selection-end-column="45" />
+                        <state relative-caret-position="146">
+                          <caret line="15" column="45" lean-forward="false" selection-start-line="14" selection-start-column="8" selection-end-line="15" selection-end-column="45" />
                           <folding />
                         </state>
                       </provider>
@@ -61,7 +61,7 @@
                   <file leaf-file-name="_object.py" pinned="false" current-in-tab="false">
                     <entry file="file://$PROJECT_DIR$/../../API/FORMAT/_object.py">
                       <provider selected="true" editor-type-id="text-editor">
-                        <state relative-caret-position="515">
+                        <state relative-caret-position="570">
                           <caret line="38" column="8" lean-forward="false" selection-start-line="38" selection-start-column="8" selection-end-line="38" selection-end-column="8" />
                           <folding />
                         </state>
@@ -71,7 +71,7 @@
                   <file leaf-file-name="_rig.py" pinned="false" current-in-tab="false">
                     <entry file="file://$PROJECT_DIR$/../../API/FORMAT/_rig.py">
                       <provider selected="true" editor-type-id="text-editor">
-                        <state relative-caret-position="378">
+                        <state relative-caret-position="630">
                           <caret line="42" column="4" lean-forward="false" selection-start-line="42" selection-start-column="4" selection-end-line="42" selection-end-column="4" />
                           <folding />
                         </state>
@@ -91,7 +91,7 @@
                   <file leaf-file-name="_material.py" pinned="false" current-in-tab="false">
                     <entry file="file://$PROJECT_DIR$/../../API/FORMAT/_material.py">
                       <provider selected="true" editor-type-id="text-editor">
-                        <state relative-caret-position="219">
+                        <state relative-caret-position="255">
                           <caret line="17" column="39" lean-forward="false" selection-start-line="15" selection-start-column="103" selection-end-line="17" selection-end-column="39" />
                           <folding />
                         </state>
@@ -111,7 +111,7 @@
                   <file leaf-file-name="_texture.py" pinned="false" current-in-tab="false">
                     <entry file="file://$PROJECT_DIR$/../../API/FORMAT/_texture.py">
                       <provider selected="true" editor-type-id="text-editor">
-                        <state relative-caret-position="114">
+                        <state relative-caret-position="150">
                           <caret line="10" column="4" lean-forward="false" selection-start-line="10" selection-start-column="4" selection-end-line="10" selection-end-column="4" />
                           <folding />
                         </state>
@@ -281,7 +281,7 @@
                   <file leaf-file-name="scripts.py" pinned="false" current-in-tab="false">
                     <entry file="file://$PROJECT_DIR$/../../API/scripts.py">
                       <provider selected="true" editor-type-id="text-editor">
-                        <state relative-caret-position="3885">
+                        <state relative-caret-position="4065">
                           <caret line="271" column="36" lean-forward="false" selection-start-line="271" selection-start-column="36" selection-end-line="271" selection-end-column="36" />
                           <folding />
                         </state>
@@ -291,7 +291,7 @@
                   <file leaf-file-name="utilities.py" pinned="false" current-in-tab="false">
                     <entry file="file://$PROJECT_DIR$/../../API/utilities.py">
                       <provider selected="true" editor-type-id="text-editor">
-                        <state relative-caret-position="621">
+                        <state relative-caret-position="945">
                           <caret line="63" column="45" lean-forward="false" selection-start-line="63" selection-start-column="45" selection-end-line="63" selection-end-column="45" />
                           <folding />
                         </state>
@@ -311,7 +311,7 @@
                   <file leaf-file-name="__init__.py" pinned="false" current-in-tab="false">
                     <entry file="file://$PROJECT_DIR$/../../API/OBJECT/__init__.py">
                       <provider selected="true" editor-type-id="text-editor">
-                        <state relative-caret-position="141">
+                        <state relative-caret-position="285">
                           <caret line="19" column="0" lean-forward="false" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
                           <folding>
                             <element signature="e#5158#6548#0" expanded="false" />
@@ -326,7 +326,7 @@
                   <file leaf-file-name="_collection.py" pinned="false" current-in-tab="false">
                     <entry file="file://$PROJECT_DIR$/../../API/OBJECT/_collection.py">
                       <provider selected="true" editor-type-id="text-editor">
-                        <state relative-caret-position="64">
+                        <state relative-caret-position="675">
                           <caret line="45" column="67" lean-forward="false" selection-start-line="44" selection-start-column="9" selection-end-line="45" selection-end-column="67" />
                           <folding />
                         </state>
@@ -346,7 +346,7 @@
                   <file leaf-file-name="__init__.py" pinned="false" current-in-tab="false">
                     <entry file="file://$PROJECT_DIR$/../../API/FORMAT/__init__.py">
                       <provider selected="true" editor-type-id="text-editor">
-                        <state relative-caret-position="-3768">
+                        <state relative-caret-position="300">
                           <caret line="20" column="26" lean-forward="false" selection-start-line="20" selection-start-column="26" selection-end-line="20" selection-end-column="26" />
                           <folding />
                         </state>
@@ -356,7 +356,7 @@
                   <file leaf-file-name="_vector.py" pinned="false" current-in-tab="true">
                     <entry file="file://$PROJECT_DIR$/../../API/FORMAT/_vector.py">
                       <provider selected="true" editor-type-id="text-editor">
-                        <state relative-caret-position="-153">
+                        <state relative-caret-position="15">
                           <caret line="9" column="0" lean-forward="false" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
                           <folding />
                         </state>
@@ -1215,11 +1215,12 @@
       <workItem from="1517486490479" duration="22020000" />
       <workItem from="1517793644537" duration="20652000" />
       <workItem from="1518029471259" duration="17875000" />
+      <workItem from="1518200795640" duration="9000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="110999000" />
+    <option name="totallyTimeSpent" value="111008000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="25" width="3200" height="1150" extended-state="0" />
@@ -1671,6 +1672,94 @@
     <entry file="file://$PROJECT_DIR$/../../plugins/VIEWER/GL/__init__.py" />
     <entry file="file://$PROJECT_DIR$/../../API/types.py" />
     <entry file="file://$PROJECT_DIR$/../../API/FORMAT/_collection.py" />
+    <entry file="file://$PROJECT_DIR$/../../API/FORMAT/_scene.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="19" column="4" lean-forward="false" selection-start-line="19" selection-start-column="4" selection-end-line="19" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../API/FORMAT/_object.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="570">
+          <caret line="38" column="8" lean-forward="false" selection-start-line="38" selection-start-column="8" selection-end-line="38" selection-end-column="8" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../API/FORMAT/_rig.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="630">
+          <caret line="42" column="4" lean-forward="false" selection-start-line="42" selection-start-column="4" selection-end-line="42" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../API/FORMAT/_mesh.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="8" column="129" lean-forward="false" selection-start-line="8" selection-start-column="117" selection-end-line="8" selection-end-column="129" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../API/FORMAT/_material.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="17" column="39" lean-forward="false" selection-start-line="15" selection-start-column="103" selection-end-line="17" selection-end-column="39" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../API/FORMAT/_shader.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="510">
+          <caret line="34" column="21" lean-forward="false" selection-start-line="26" selection-start-column="22" selection-end-line="34" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../API/FORMAT/_texture.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="10" column="4" lean-forward="false" selection-start-line="10" selection-start-column="4" selection-end-line="10" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../API/FORMAT/_image.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="9" column="64" lean-forward="false" selection-start-line="9" selection-start-column="64" selection-end-line="9" selection-end-column="64" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../test_FORMAT.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="5" column="0" lean-forward="false" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../API/FORMAT/_world.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="146">
+          <caret line="15" column="45" lean-forward="false" selection-start-line="14" selection-start-column="8" selection-end-line="15" selection-end-column="45" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../API/FORMAT/_root.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="22" column="80" lean-forward="false" selection-start-line="21" selection-start-column="4" selection-end-line="22" selection-end-column="80" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/../../API/DATA/__init__.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2700">
@@ -1743,6 +1832,14 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/../../API/FILE.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="126">
+          <caret line="378" column="4" lean-forward="false" selection-start-line="378" selection-start-column="4" selection-end-line="378" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/../../API/LOGIC.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="30">
@@ -1751,10 +1848,79 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/../../API/scripts.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4065">
+          <caret line="271" column="36" lean-forward="false" selection-start-line="271" selection-start-column="36" selection-end-line="271" selection-end-column="36" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../API/utilities.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="945">
+          <caret line="63" column="45" lean-forward="false" selection-start-line="63" selection-start-column="45" selection-end-line="63" selection-end-column="45" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../API/addedbuiltins.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="20" column="41" lean-forward="false" selection-start-line="20" selection-start-column="41" selection-end-line="20" selection-end-column="41" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../API/OBJECT/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="19" column="0" lean-forward="false" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
+          <folding>
+            <element signature="e#5158#6548#0" expanded="false" />
+            <element signature="e#6654#6948#0" expanded="false" />
+            <element signature="e#7053#8728#0" expanded="false" />
+            <element signature="e#8832#9121#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../API/OBJECT/_collection.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="675">
+          <caret line="45" column="67" lean-forward="false" selection-start-line="44" selection-start-column="9" selection-end-line="45" selection-end-column="67" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../API/OBJECT/_channels.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="19" column="60" lean-forward="false" selection-start-line="19" selection-start-column="60" selection-end-line="19" selection-end-column="60" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../API/FORMAT/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="20" column="26" lean-forward="false" selection-start-line="20" selection-start-column="26" selection-end-line="20" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/../../doc/OOP_SceneGraph.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="150">
           <caret line="10" column="8" lean-forward="false" selection-start-line="10" selection-start-column="8" selection-end-line="10" selection-end-column="8" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../API/FORMAT/_vector.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="9" column="0" lean-forward="false" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -1867,171 +2033,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1530">
           <caret line="102" column="79" lean-forward="false" selection-start-line="102" selection-start-column="79" selection-end-line="102" selection-end-column="79" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../../API/addedbuiltins.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="20" column="41" lean-forward="false" selection-start-line="20" selection-start-column="41" selection-end-line="20" selection-end-column="41" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../../API/FILE.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="126">
-          <caret line="378" column="4" lean-forward="false" selection-start-line="378" selection-start-column="4" selection-end-line="378" selection-end-column="4" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../../API/FORMAT/__init__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-3768">
-          <caret line="20" column="26" lean-forward="false" selection-start-line="20" selection-start-column="26" selection-end-line="20" selection-end-column="26" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../../API/scripts.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3885">
-          <caret line="271" column="36" lean-forward="false" selection-start-line="271" selection-start-column="36" selection-end-line="271" selection-end-column="36" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../../API/OBJECT/_collection.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="64">
-          <caret line="45" column="67" lean-forward="false" selection-start-line="44" selection-start-column="9" selection-end-line="45" selection-end-column="67" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../../API/OBJECT/__init__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="141">
-          <caret line="19" column="0" lean-forward="false" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
-          <folding>
-            <element signature="e#5158#6548#0" expanded="false" />
-            <element signature="e#6654#6948#0" expanded="false" />
-            <element signature="e#7053#8728#0" expanded="false" />
-            <element signature="e#8832#9121#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../../API/utilities.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="621">
-          <caret line="63" column="45" lean-forward="false" selection-start-line="63" selection-start-column="45" selection-end-line="63" selection-end-column="45" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../../API/OBJECT/_channels.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="19" column="60" lean-forward="false" selection-start-line="19" selection-start-column="60" selection-end-line="19" selection-end-column="60" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../../API/FORMAT/_vector.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-153">
-          <caret line="9" column="0" lean-forward="false" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../../API/FORMAT/_material.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="219">
-          <caret line="17" column="39" lean-forward="false" selection-start-line="15" selection-start-column="103" selection-end-line="17" selection-end-column="39" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../../API/FORMAT/_shader.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="510">
-          <caret line="34" column="21" lean-forward="false" selection-start-line="26" selection-start-column="22" selection-end-line="34" selection-end-column="21" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../../API/FORMAT/_texture.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="114">
-          <caret line="10" column="4" lean-forward="false" selection-start-line="10" selection-start-column="4" selection-end-line="10" selection-end-column="4" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../../test_FORMAT.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" column="0" lean-forward="false" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../../API/FORMAT/_image.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="9" column="64" lean-forward="false" selection-start-line="9" selection-start-column="64" selection-end-line="9" selection-end-column="64" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../../API/FORMAT/_mesh.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="8" column="129" lean-forward="false" selection-start-line="8" selection-start-column="117" selection-end-line="8" selection-end-column="129" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../../API/FORMAT/_rig.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="378">
-          <caret line="42" column="4" lean-forward="false" selection-start-line="42" selection-start-column="4" selection-end-line="42" selection-end-column="4" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../../API/FORMAT/_object.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="515">
-          <caret line="38" column="8" lean-forward="false" selection-start-line="38" selection-start-column="8" selection-end-line="38" selection-end-column="8" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../../API/FORMAT/_scene.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="19" column="4" lean-forward="false" selection-start-line="19" selection-start-column="4" selection-end-line="19" selection-end-column="4" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../../API/FORMAT/_root.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="22" column="80" lean-forward="false" selection-start-line="21" selection-start-column="4" selection-end-line="22" selection-end-column="80" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../../API/FORMAT/_world.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="15" column="45" lean-forward="true" selection-start-line="14" selection-start-column="8" selection-end-line="15" selection-end-column="45" />
           <folding />
         </state>
       </provider>
