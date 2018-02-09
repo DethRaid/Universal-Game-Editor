@@ -33,11 +33,9 @@ def private():
     class Texture(UGEObject):
         """UGE Texture"""
         __slots__ = ['Images']
-        # noinspection PyUnusedLocal
-        def __init__( Tx, *other: tuple ):
-            Rt = Tx.__parent__
-            #Tx.Params = UGECollection( Param )
-            Tx.Images = UGECollection( Tx, Rt.Images )
+        #def __new__(cls, *other: tuple, **kw ):
+        #    Tx=newUGEObject(cls,*other)
+        #    return Tx
             
     CollectionProp( Texture, 'Images' )
     
