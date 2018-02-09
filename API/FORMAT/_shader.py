@@ -9,6 +9,14 @@ def private():
     """private namespace"""
     from ..OBJECT import UGEObject, newUGEObject, UGECollection
     from ..FILE import ugeImportFile
+
+
+    class UGE_SHADER_TYPE(UGE_CONSTANT): pass
+    
+    define( '''
+            UGE_UNTRANSFORMED
+            UGE_PRETRANSFORMED
+            '''.split(), UGE_VECTOR_FLAG, [ UGE_MODEL_SCRIPT ])
     
     class Shader(UGEObject):
         """UGE Shader"""
