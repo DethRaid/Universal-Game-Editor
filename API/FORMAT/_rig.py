@@ -51,7 +51,7 @@ def private():
         __slots__=['Bones','Name','__owner__']
         def __new__(cls,Ob: UGEObject):
             Rg = new(cls)
-            Me.__owner__ = Ob
+            Rg.__owner__ = Ob
             Rg.Name = Ob.Name
             return Rg
         __eq__ = lambda this,other: this.Name == other or this is other
