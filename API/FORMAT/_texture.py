@@ -2,12 +2,13 @@
 """UGE Texture class and associate functions"""
 
 from .. import UGE_GLOBAL_WRAPPER, register
-from ..OBJECT import UGEObject, UGECollection, CollectionProp
 from ..CONST import UGE_MODEL_SCRIPT
 
 # noinspection PyShadowingNames
 def private():
     """private namespace"""
+    
+    from ..OBJECT import UGEObject, CollectionProp
 
     #CONST.define( '''
     #        UGE_TEX_2D
