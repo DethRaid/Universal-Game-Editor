@@ -44,26 +44,33 @@ def private():
     VectorProp( Bone, 'Location' )
     VectorProp( Bone, 'Rotation' )
     VectorProp( Bone, 'Scale' )
+    
+    class rig(object):
+        """rig Type"""
+        __slots__=['Bones','Name']
+        def __init__(Rg,Ob: UGEObject): Rg.Name = Ob.Name; Rg.Bones = UGECollection( Ob, Bone, __builtin__ = 'CurrentBone' )
+        __eq__ = lambda this,other: this.Name == other or this is other
+        __ne__ = lambda this,other: this.Name != other and this is not other
+
+    objectextension = extension('Object')
+    
+    @objectextension
+    def Bones(Ob: Object):
+        """Bones property"""
+        if Ob.Data is None: Ob.Data=rig(Ob)
+        if Ob.Type=='rig': return Ob.Data.Bones
+        print('ERROR: Object.Bones cannot be accessed for %s objects'%Ob.Type)
+    @objectextension.setter
+    def Weights(Ob: Object, val: object):
+        """Set Object.UVs"""
+        if getData(Ob) is None: setData(Ob,mesh(Ob))
+        getData(Ob).Weights[:] = val
+        
     return Bone
 
 Bone = private()
 del private
 validBoneTypes = {str,Bone}
-
-class rig(object):
-    """rig Type"""
-    __slots__=['Bones','Name']
-    def __init__(Rg,Ob: UGEObject): Rg.Name = Ob.Name; Rg.Bones = UGECollection( Ob, Bone, __builtin__ = 'CurrentBone' )
-    __eq__ = lambda this,other: this.Name == other or this is other
-    __ne__ = lambda this,other: this.Name != other and this is not other
-
-@extension('Object')
-def Bones(Ob: Object):
-    """Bones property"""
-    if Ob.Data is None: Ob.Data=rig(Ob)
-    if Ob.Type=='rig': return Ob.Data.Bones
-    print('ERROR: Object.Bones cannot be accessed for %s objects'%Ob.Type)
-del Bones
 
 @UGE_GLOBAL_WRAPPER
 @register([CONST.UGE_MODEL_SCRIPT])
