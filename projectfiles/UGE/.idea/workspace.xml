@@ -4,10 +4,7 @@
     <option name="SCOPE_TYPE" value="3" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="983838c6-d952-43fb-b239-90a06b889443" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/../../API/FORMAT/_object.py" afterPath="$PROJECT_DIR$/../../API/FORMAT/_object.py" />
-      <change beforePath="$PROJECT_DIR$/../../API/FORMAT/_rig.py" afterPath="$PROJECT_DIR$/../../API/FORMAT/_rig.py" />
-    </list>
+    <list default="true" id="983838c6-d952-43fb-b239-90a06b889443" name="Default" comment="" />
     <ignored path="UGE.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -34,8 +31,8 @@
                   <file leaf-file-name="_root.py" pinned="false" current-in-tab="true">
                     <entry file="file://$PROJECT_DIR$/../../API/FORMAT/_root.py">
                       <provider selected="true" editor-type-id="text-editor">
-                        <state relative-caret-position="525">
-                          <caret line="35" column="26" lean-forward="false" selection-start-line="35" selection-start-column="26" selection-end-line="35" selection-end-column="26" />
+                        <state relative-caret-position="330">
+                          <caret line="22" column="80" lean-forward="false" selection-start-line="21" selection-start-column="4" selection-end-line="22" selection-end-column="80" />
                           <folding />
                         </state>
                       </provider>
@@ -75,7 +72,7 @@
                     <entry file="file://$PROJECT_DIR$/../../API/FORMAT/_rig.py">
                       <provider selected="true" editor-type-id="text-editor">
                         <state relative-caret-position="378">
-                          <caret line="42" column="4" lean-forward="true" selection-start-line="42" selection-start-column="4" selection-end-line="42" selection-end-column="4" />
+                          <caret line="42" column="4" lean-forward="false" selection-start-line="42" selection-start-column="4" selection-end-line="42" selection-end-column="4" />
                           <folding />
                         </state>
                       </provider>
@@ -95,7 +92,7 @@
                     <entry file="file://$PROJECT_DIR$/../../API/FORMAT/_material.py">
                       <provider selected="true" editor-type-id="text-editor">
                         <state relative-caret-position="219">
-                          <caret line="17" column="39" lean-forward="true" selection-start-line="15" selection-start-column="103" selection-end-line="17" selection-end-column="39" />
+                          <caret line="17" column="39" lean-forward="false" selection-start-line="15" selection-start-column="103" selection-end-line="17" selection-end-column="39" />
                           <folding />
                         </state>
                       </provider>
@@ -1217,12 +1214,12 @@
       <workItem from="1517332418327" duration="9310000" />
       <workItem from="1517486490479" duration="22020000" />
       <workItem from="1517793644537" duration="20652000" />
-      <workItem from="1518029471259" duration="16983000" />
+      <workItem from="1518029471259" duration="17131000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="110107000" />
+    <option name="totallyTimeSpent" value="110255000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="25" width="3200" height="1150" extended-state="0" />
@@ -1954,7 +1951,7 @@
     <entry file="file://$PROJECT_DIR$/../../API/FORMAT/_material.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="219">
-          <caret line="17" column="39" lean-forward="true" selection-start-line="15" selection-start-column="103" selection-end-line="17" selection-end-column="39" />
+          <caret line="17" column="39" lean-forward="false" selection-start-line="15" selection-start-column="103" selection-end-line="17" selection-end-column="39" />
           <folding />
         </state>
       </provider>
@@ -2002,7 +1999,7 @@
     <entry file="file://$PROJECT_DIR$/../../API/FORMAT/_rig.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="378">
-          <caret line="42" column="4" lean-forward="true" selection-start-line="42" selection-start-column="4" selection-end-line="42" selection-end-column="4" />
+          <caret line="42" column="4" lean-forward="false" selection-start-line="42" selection-start-column="4" selection-end-line="42" selection-end-column="4" />
           <folding />
         </state>
       </provider>
@@ -2033,8 +2030,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/../../API/FORMAT/_root.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="525">
-          <caret line="35" column="26" lean-forward="false" selection-start-line="35" selection-start-column="26" selection-end-line="35" selection-end-column="26" />
+        <state relative-caret-position="330">
+          <caret line="22" column="80" lean-forward="false" selection-start-line="21" selection-start-column="4" selection-end-line="22" selection-end-column="80" />
           <folding />
         </state>
       </provider>
