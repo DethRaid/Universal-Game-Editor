@@ -10,6 +10,7 @@ from ..CONST import UGE_MODEL_SCRIPT
 def private():
     """private namespace"""
     from ..OBJECT import UGEObject, Hierarchical, UGECollection, IntProp, CollectionProp
+    from ..utilities import getset
     
     #CONST.define( '''
     #        UGE_EULER
@@ -33,10 +34,12 @@ def private():
             Ob.Rotation  = (0,0,0)
             Ob.Scale     = (1,1,1)
         
-        Type = property( lambda this: this.Data.__class__.__name__ if this.Data else None ) # type: str -> (str, None)
+        Type = property( lambda Ob: getData(Ob).__class__.__name__ if getData(Ob) else None) # type: str -> (str, None)
         SubName = property(
-            lambda this: this.Data.Name if this.Data else this.Name, # returning Object.Name for compatibility
-            lambda this, Name: this.Data.__setattr__('Name',this.Name if Name is None else Name) )
+            lambda Ob: getData(Ob).Name if getData(Ob) else Ob.Name, # returning Object.Name for compatibility
+            lambda Ob, Name: setData(Ob, Ob.Name if Name is None else Name) )
+    
+    getData, setData = getset( Object, 'Data' )
     
     IntProp(        Object, 'Viewport'          )
     VectorProp(     Object, 'Location'          )
