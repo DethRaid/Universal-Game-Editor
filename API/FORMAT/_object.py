@@ -9,7 +9,7 @@ from ..CONST import UGE_MODEL_SCRIPT
 # noinspection PyShadowingNames
 def private():
     """private namespace"""
-    from ..OBJECT import UGEObject, Hierarchical, IntProp, CollectionProp
+    from ..OBJECT import UGEObject, newUGEObject, Hierarchical, IntProp, CollectionProp
     from ..utilities import getset
     
     #CONST.define( '''
