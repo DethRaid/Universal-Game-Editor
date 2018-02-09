@@ -9,7 +9,7 @@ from ..OBJECT import UGECollection
 def private():
     """private namespace"""
 
-    from ..OBJECT import UGEObject, UGECollection, CollectionProp
+    from ..OBJECT import UGEObject, CollectionProp
     
     class Scene(UGEObject):
         """UGE Scene"""
