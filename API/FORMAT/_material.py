@@ -43,7 +43,7 @@ def private():
 
 Material = private()
 del private
-validMaterialTypes = {str,Material,Material.__proxy__}
+validMaterialTypes = {str,Material}
 
 # noinspection PyStatementEffect
 @UGE_GLOBAL_WRAPPER

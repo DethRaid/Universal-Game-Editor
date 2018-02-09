@@ -33,7 +33,7 @@ def private():
 
 Root, Roots = private()
 del private
-validRootTypes = {str,Root,Root.__proxy__}
+validRootTypes = {str,Root}
 
 # for SES/UI usage:
 # noinspection PyStatementEffect
