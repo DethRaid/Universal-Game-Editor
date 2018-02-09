@@ -20,7 +20,7 @@ def private():
             UGE_INVERSE_PARENT
             UGE_INVERSE_OBJECT
             UGE_INVERSE_WORLD
-            '''.split(), type('UGE_Relation', (object,), dict(__init__=lambda this,name:None)), [ CONST.UGE_MODEL_SCRIPT ])
+            '''.split(), type('UGE_Relation', (object,), dict(__init__=lambda this,name:None)), [ UGE_MODEL_SCRIPT ])
     """
         UGE_PARENT # (default) transformations relative to parent
         UGE_OBJECT # transformations relative to containing object
@@ -84,7 +84,7 @@ del private
 validBoneTypes = {str,Bone}
 
 @UGE_GLOBAL_WRAPPER
-@register([CONST.UGE_MODEL_SCRIPT])
+@register([UGE_MODEL_SCRIPT])
 def ugeSetBone(BoneName: (str, Bone) = "Bone0") -> Bone:
     """Creates or References a Bone"""
     if CurrentObject:
@@ -94,7 +94,7 @@ def ugeSetBone(BoneName: (str, Bone) = "Bone0") -> Bone:
     else: print('ERROR: ugeSetBone() expected a defined Object')
 
 @UGE_GLOBAL_WRAPPER
-@register([CONST.UGE_MODEL_SCRIPT])
+@register([UGE_MODEL_SCRIPT])
 def ugeSetBoneParent(BoneName: (str, Bone, None) = None) -> None:
     """clear or set the current Bone's parent"""
     if CurrentObject:
@@ -108,7 +108,7 @@ def ugeSetBoneParent(BoneName: (str, Bone, None) = None) -> None:
     else: print('ERROR: ugeSetBoneParent() expected a defined Object')
     
 @UGE_GLOBAL_WRAPPER
-@register([CONST.UGE_MODEL_SCRIPT])
+@register([UGE_MODEL_SCRIPT])
 def ugeSetBonePrev(BoneName: (str, Bone, None) = None) -> None:
     """Sets the current Bone's priority in it's parent Bone's children."""
     if CurrentObject:
@@ -126,7 +126,7 @@ def ugeSetBonePrev(BoneName: (str, Bone, None) = None) -> None:
     else: print('ERROR: ugeSetBonePrev() expected a defined Object')
 
 @UGE_GLOBAL_WRAPPER
-@register([CONST.UGE_MODEL_SCRIPT])
+@register([UGE_MODEL_SCRIPT])
 def ugeSetBoneLoc(X: (float, int, str, tuple, list), Y: (float, int, str) = None, Z: (float, int, str) = None) -> None:
     """Sets the current Bone's relative location to the specified (up to 3D) values"""
     if CurrentObject:
@@ -137,7 +137,7 @@ def ugeSetBoneLoc(X: (float, int, str, tuple, list), Y: (float, int, str) = None
     else: print('ERROR: ugeSetBoneLoc() expected a defined object')
     
 @UGE_GLOBAL_WRAPPER
-@register([CONST.UGE_MODEL_SCRIPT])
+@register([UGE_MODEL_SCRIPT])
 def ugeSetBoneLocX(X: (float, int, str)) -> None:
     """Sets the current Bone's relative X location to the specified value."""
     if CurrentObject:
@@ -148,7 +148,7 @@ def ugeSetBoneLocX(X: (float, int, str)) -> None:
     else: print('ERROR: ugeSetBoneLocX() expected a defined object')
     
 @UGE_GLOBAL_WRAPPER
-@register([CONST.UGE_MODEL_SCRIPT])
+@register([UGE_MODEL_SCRIPT])
 def ugeSetBoneLocY(Y: (float, int, str)) -> None:
     """Sets the current Bone's relative Y location to the specified value."""
     if CurrentObject:
@@ -159,7 +159,7 @@ def ugeSetBoneLocY(Y: (float, int, str)) -> None:
     else: print('ERROR: ugeSetBoneLocY() expected a defined object')
     
 @UGE_GLOBAL_WRAPPER
-@register([CONST.UGE_MODEL_SCRIPT])
+@register([UGE_MODEL_SCRIPT])
 def ugeSetBoneLocZ(Z: (float, int, str)) -> None:
     """Sets the current Bone's relative Z location to the specified value."""
     if CurrentObject:
@@ -170,7 +170,7 @@ def ugeSetBoneLocZ(Z: (float, int, str)) -> None:
     else: print('ERROR: ugeSetBoneLocZ() expected a defined object')
     
 @UGE_GLOBAL_WRAPPER
-@register([CONST.UGE_MODEL_SCRIPT])
+@register([UGE_MODEL_SCRIPT])
 def ugeSetBoneRot(X: (float, int, str, tuple, list), Y: (float, int, str) = None, Z: (float, int, str) = None, W: (float, int, str) = None) -> None:
     """Sets the current Bone's relative rotation to the specified (up to 4D) values"""
     if CurrentObject:
@@ -181,7 +181,7 @@ def ugeSetBoneRot(X: (float, int, str, tuple, list), Y: (float, int, str) = None
     else: print('ERROR: ugeSetBoneRot() expected a defined object')
 
 @UGE_GLOBAL_WRAPPER
-@register([CONST.UGE_MODEL_SCRIPT])
+@register([UGE_MODEL_SCRIPT])
 def ugeSetBoneRotX(X: (float, int, str)) -> None:
     """Sets the current Bone's relative X rotation to the specified value."""
     if CurrentObject:
@@ -192,7 +192,7 @@ def ugeSetBoneRotX(X: (float, int, str)) -> None:
     else: print('ERROR: ugeSetBoneRotX() expected a defined object')
     
 @UGE_GLOBAL_WRAPPER
-@register([CONST.UGE_MODEL_SCRIPT])
+@register([UGE_MODEL_SCRIPT])
 def ugeSetBoneRotY(Y: (float, int, str)) -> None:
     """Sets the current Bone's relative Y rotation to the specified value."""
     if CurrentObject:
@@ -203,7 +203,7 @@ def ugeSetBoneRotY(Y: (float, int, str)) -> None:
     else: print('ERROR: ugeSetBoneRotY() expected a defined object')
     
 @UGE_GLOBAL_WRAPPER
-@register([CONST.UGE_MODEL_SCRIPT])
+@register([UGE_MODEL_SCRIPT])
 def ugeSetBoneRotZ(Z: (float, int, str)) -> None:
     """Sets the current Bone's relative Z rotation to the specified value."""
     if CurrentObject:
@@ -214,7 +214,7 @@ def ugeSetBoneRotZ(Z: (float, int, str)) -> None:
     else: print('ERROR: ugeSetBoneRotZ() expected a defined object')
     
 @UGE_GLOBAL_WRAPPER
-@register([CONST.UGE_MODEL_SCRIPT])
+@register([UGE_MODEL_SCRIPT])
 def ugeSetBoneRotW(W: (float, int, str)) -> None:
     """Sets the current Bone's relative W rotation to the specified value."""
     if CurrentObject:
@@ -225,7 +225,7 @@ def ugeSetBoneRotW(W: (float, int, str)) -> None:
     else: print('ERROR: ugeSetBoneRotW() expected a defined object')
 
 @UGE_GLOBAL_WRAPPER
-@register([CONST.UGE_MODEL_SCRIPT])
+@register([UGE_MODEL_SCRIPT])
 def ugeSetBoneSca(X: (float, int, str, tuple, list), Y: (float, int, str) = None, Z: (float, int, str) = None) -> None:
     """Sets the current Bone's relative scale to the specified (up to 3D) values"""
     if CurrentObject:
@@ -236,7 +236,7 @@ def ugeSetBoneSca(X: (float, int, str, tuple, list), Y: (float, int, str) = None
     else: print('ERROR: ugeSetBoneSca() expected a defined object')
     
 @UGE_GLOBAL_WRAPPER
-@register([CONST.UGE_MODEL_SCRIPT])
+@register([UGE_MODEL_SCRIPT])
 def ugeSetBoneScaX(X: (float, int, str)) -> None:
     """Sets the current Bone's relative X scale to the specified value."""
     if CurrentObject:
@@ -247,7 +247,7 @@ def ugeSetBoneScaX(X: (float, int, str)) -> None:
     else: print('ERROR: ugeSetBoneScaX() expected a defined object')
     
 @UGE_GLOBAL_WRAPPER
-@register([CONST.UGE_MODEL_SCRIPT])
+@register([UGE_MODEL_SCRIPT])
 def ugeSetBoneScaY(Y: (float, int, str)) -> None:
     """Sets the current Bone's relative Y scale to the specified value."""
     if CurrentObject:
@@ -258,7 +258,7 @@ def ugeSetBoneScaY(Y: (float, int, str)) -> None:
     else: print('ERROR: ugeSetBoneScaY() expected a defined object')
     
 @UGE_GLOBAL_WRAPPER
-@register([CONST.UGE_MODEL_SCRIPT])
+@register([UGE_MODEL_SCRIPT])
 def ugeSetBoneScaZ(Z: (float, int, str)) -> None:
     """Sets the current Bone's relative Z scale to the specified value."""
     if CurrentObject:
@@ -269,17 +269,17 @@ def ugeSetBoneScaZ(Z: (float, int, str)) -> None:
     else: print('ERROR: ugeSetBoneScaZ() expected a defined object')
 
 ## @UGE_GLOBAL_WRAPPER
-## @register([CONST.UGE_MODEL_SCRIPT])
+## @register([UGE_MODEL_SCRIPT])
 ## def ugeSetBoneBindMtx(): return 
 ## @UGE_GLOBAL_WRAPPER
-## @register([CONST.UGE_MODEL_SCRIPT])
+## @register([UGE_MODEL_SCRIPT])
 ## def ugeSetBoneInvMtx(): return 
 ## @UGE_GLOBAL_WRAPPER
-## @register([CONST.UGE_MODEL_SCRIPT])
+## @register([UGE_MODEL_SCRIPT])
 ## def ugeSetBoneFlag(): return
 
 @UGE_GLOBAL_WRAPPER
-@register([CONST.UGE_MODEL_SCRIPT])
+@register([UGE_MODEL_SCRIPT])
 def ugeRigObject(ObjectName: (str, Object) = None) -> bool:
     """Tests that the current Object is a Rig"""
     ObjectName = getattr(ObjectName, '__value__', ObjectName)
@@ -294,7 +294,7 @@ def ugeRigObject(ObjectName: (str, Object) = None) -> bool:
 
 
 @UGE_GLOBAL_WRAPPER
-@register([CONST.UGE_MODEL_SCRIPT])
+@register([UGE_MODEL_SCRIPT])
 def ugeGetBones(ObjectName: (str, Object) = None):
     """returns the Bones in the current or specified Object"""
     ObjectName = getattr(ObjectName, '__value__', ObjectName)
@@ -308,7 +308,7 @@ def ugeGetBones(ObjectName: (str, Object) = None):
 
 # noinspection PyShadowingNames
 @UGE_GLOBAL_WRAPPER
-@register([CONST.UGE_MODEL_SCRIPT])
+@register([UGE_MODEL_SCRIPT])
 def ugeGetBoneName(Bone: (str, Bone, None) = None ) -> str:
     """returns the name of the current, specified, or given Bone"""
     if CurrentObject.Type == 'rig':
@@ -319,7 +319,7 @@ def ugeGetBoneName(Bone: (str, Bone, None) = None ) -> str:
     else: print('ERROR: ugeGetBoneName() cannot operate on %s Objects'%CurrentObject.Type)
 
 @UGE_GLOBAL_WRAPPER
-@register([CONST.UGE_MODEL_SCRIPT])
+@register([UGE_MODEL_SCRIPT])
 def ugeGetBoneViewport(BoneName: (str, Bone, None) = None) -> vector:
     """returns the current, specified, or given Bone's relative location"""
     if CurrentObject.Type == 'rig':
@@ -330,7 +330,7 @@ def ugeGetBoneViewport(BoneName: (str, Bone, None) = None) -> vector:
     else: print('ERROR: ugeGetBoneViewport() cannot operate on %s Objects'%CurrentObject.Type)
 
 @UGE_GLOBAL_WRAPPER
-@register([CONST.UGE_MODEL_SCRIPT])
+@register([UGE_MODEL_SCRIPT])
 def ugeGetBoneParent(BoneName: (str, Bone, None) = None ) -> Bone:
     """returns the current, specified, or given Bone's parent Bone"""
     if CurrentObject.Type == 'rig':
@@ -341,7 +341,7 @@ def ugeGetBoneParent(BoneName: (str, Bone, None) = None ) -> Bone:
     else: print('ERROR: ugeGetBoneParent() cannot operate on %s Objects'%CurrentObject.Type)
 
 @UGE_GLOBAL_WRAPPER
-@register([CONST.UGE_MODEL_SCRIPT])
+@register([UGE_MODEL_SCRIPT])
 def ugeGetBoneChild(BoneName: (str, Bone, None) = None ) -> Bone:
     """returns the current, specified, or given Bone's parent Bone"""
     if CurrentObject.Type == 'rig':
@@ -352,7 +352,7 @@ def ugeGetBoneChild(BoneName: (str, Bone, None) = None ) -> Bone:
     else: print('ERROR: ugeGetBoneChild() cannot operate on %s Objects'%CurrentObject.Type)
 
 @UGE_GLOBAL_WRAPPER
-@register([CONST.UGE_MODEL_SCRIPT])
+@register([UGE_MODEL_SCRIPT])
 def ugeGetBonePrev(BoneName: (str, Bone, None) = None ) -> Bone:
     """returns the current, specified, or given Bone's parent Bone"""
     if CurrentObject.Type == 'rig':
@@ -363,7 +363,7 @@ def ugeGetBonePrev(BoneName: (str, Bone, None) = None ) -> Bone:
     else: print('ERROR: ugeGetBonePrev() cannot operate on %s Objects'%CurrentObject.Type)
 
 @UGE_GLOBAL_WRAPPER
-@register([CONST.UGE_MODEL_SCRIPT])
+@register([UGE_MODEL_SCRIPT])
 def ugeGetBoneNext(BoneName: (str, Bone, None) = None ) -> Bone:
     """returns the current, specified, or given Bone's parent Bone"""
     if CurrentObject.Type == 'rig':
@@ -375,7 +375,7 @@ def ugeGetBoneNext(BoneName: (str, Bone, None) = None ) -> Bone:
 
 
 @UGE_GLOBAL_WRAPPER
-@register([CONST.UGE_MODEL_SCRIPT])
+@register([UGE_MODEL_SCRIPT])
 def ugeGetBoneLoc(BoneName: (str, Bone, None) = None) -> vector:
     """returns the current, specified, or given Bone's relative location"""
     if CurrentObject.Type == 'rig':
@@ -386,7 +386,7 @@ def ugeGetBoneLoc(BoneName: (str, Bone, None) = None) -> vector:
     else: print('ERROR: ugeGetBoneLoc() cannot operate on %s Objects'%CurrentObject.Type)
 
 @UGE_GLOBAL_WRAPPER
-@register([CONST.UGE_MODEL_SCRIPT])
+@register([UGE_MODEL_SCRIPT])
 def ugeGetBoneLocX(BoneName: (str, Bone, None) = None) -> (float, int):
     """returns the current, specified, or given Bone's relative X location"""
     if CurrentObject.Type == 'rig':
@@ -397,7 +397,7 @@ def ugeGetBoneLocX(BoneName: (str, Bone, None) = None) -> (float, int):
     else: print('ERROR: ugeGetBoneLocX() cannot operate on %s Objects'%CurrentObject.Type)
 
 @UGE_GLOBAL_WRAPPER
-@register([CONST.UGE_MODEL_SCRIPT])
+@register([UGE_MODEL_SCRIPT])
 def ugeGetBoneLocY(BoneName: (str, Bone, None) = None) -> (float, int):
     """returns the current, specified, or given Bone's relative Y location"""
     if CurrentObject.Type == 'rig':
@@ -408,7 +408,7 @@ def ugeGetBoneLocY(BoneName: (str, Bone, None) = None) -> (float, int):
     else: print('ERROR: ugeGetBoneLocY() cannot operate on %s Objects'%CurrentObject.Type)
 
 @UGE_GLOBAL_WRAPPER
-@register([CONST.UGE_MODEL_SCRIPT])
+@register([UGE_MODEL_SCRIPT])
 def ugeGetBoneLocZ(BoneName: (str, Bone, None) = None) -> (float, int):
     """returns the current, specified, or given Bone's relative Z location"""
     if CurrentObject.Type == 'rig':
@@ -419,7 +419,7 @@ def ugeGetBoneLocZ(BoneName: (str, Bone, None) = None) -> (float, int):
     else: print('ERROR: ugeGetBoneLocZ() cannot operate on %s Objects'%CurrentObject.Type)
 
 @UGE_GLOBAL_WRAPPER
-@register([CONST.UGE_MODEL_SCRIPT])
+@register([UGE_MODEL_SCRIPT])
 def ugeGetBoneRot(BoneName: (str, Bone, None) = None) -> vector:
     """returns the current, specified, or given Bone's relative rotation"""
     if CurrentObject.Type == 'rig':
@@ -430,7 +430,7 @@ def ugeGetBoneRot(BoneName: (str, Bone, None) = None) -> vector:
     else: print('ERROR: ugeGetBoneRot() cannot operate on %s Objects'%CurrentObject.Type)
 
 @UGE_GLOBAL_WRAPPER
-@register([CONST.UGE_MODEL_SCRIPT])
+@register([UGE_MODEL_SCRIPT])
 def ugeGetBoneRotX(BoneName: (str, Bone, None) = None) -> (float, int):
     """returns the current, specified, or given Bone's relative X rotation"""
     if CurrentObject.Type == 'rig':
@@ -441,7 +441,7 @@ def ugeGetBoneRotX(BoneName: (str, Bone, None) = None) -> (float, int):
     else: print('ERROR: ugeGetBoneRotX() cannot operate on %s Objects'%CurrentObject.Type)
 
 @UGE_GLOBAL_WRAPPER
-@register([CONST.UGE_MODEL_SCRIPT])
+@register([UGE_MODEL_SCRIPT])
 def ugeGetBoneRotY(BoneName: (str, Bone, None) = None) -> (float, int):
     """returns the current, specified, or given Bone's relative Y rotation"""
     if CurrentObject.Type == 'rig':
@@ -452,7 +452,7 @@ def ugeGetBoneRotY(BoneName: (str, Bone, None) = None) -> (float, int):
     else: print('ERROR: ugeGetBoneRotY() cannot operate on %s Objects'%CurrentObject.Type)
 
 @UGE_GLOBAL_WRAPPER
-@register([CONST.UGE_MODEL_SCRIPT])
+@register([UGE_MODEL_SCRIPT])
 def ugeGetBoneRotZ(BoneName: (str, Bone, None) = None) -> (float, int):
     """returns the current, specified, or given Bone's relative Z rotation"""
     if CurrentObject.Type == 'rig':
@@ -463,7 +463,7 @@ def ugeGetBoneRotZ(BoneName: (str, Bone, None) = None) -> (float, int):
     else: print('ERROR: ugeGetBoneRotZ() cannot operate on %s Objects'%CurrentObject.Type)
 
 @UGE_GLOBAL_WRAPPER
-@register([CONST.UGE_MODEL_SCRIPT])
+@register([UGE_MODEL_SCRIPT])
 def ugeGetBoneRotW(BoneName: (str, Bone, None) = None) -> (float, int):
     """returns the current, specified, or given Bone's relative W rotation"""
     if CurrentObject.Type == 'rig':
@@ -474,7 +474,7 @@ def ugeGetBoneRotW(BoneName: (str, Bone, None) = None) -> (float, int):
     else: print('ERROR: ugeGetBoneRotW() cannot operate on %s Objects'%CurrentObject.Type)
 
 @UGE_GLOBAL_WRAPPER
-@register([CONST.UGE_MODEL_SCRIPT])
+@register([UGE_MODEL_SCRIPT])
 def ugeGetBoneSca(BoneName: (str, Bone, None) = None) -> vector:
     """returns the current, specified, or given Bone's relative scale"""
     if CurrentObject.Type == 'rig':
@@ -485,7 +485,7 @@ def ugeGetBoneSca(BoneName: (str, Bone, None) = None) -> vector:
     else: print('ERROR: ugeGetBoneSca() cannot operate on %s Objects'%CurrentObject.Type)
 
 @UGE_GLOBAL_WRAPPER
-@register([CONST.UGE_MODEL_SCRIPT])
+@register([UGE_MODEL_SCRIPT])
 def ugeGetBoneScaX(BoneName: (str, Bone, None) = None) -> (float, int):
     """returns the current, specified, or given Bone's relative X scale"""
     if CurrentObject.Type == 'rig':
@@ -496,7 +496,7 @@ def ugeGetBoneScaX(BoneName: (str, Bone, None) = None) -> (float, int):
     else: print('ERROR: ugeGetBoneScaX() cannot operate on %s Objects'%CurrentObject.Type)
 
 @UGE_GLOBAL_WRAPPER
-@register([CONST.UGE_MODEL_SCRIPT])
+@register([UGE_MODEL_SCRIPT])
 def ugeGetBoneScaY(BoneName: (str, Bone, None) = None) -> (float, int):
     """returns the current, specified, or given Bone's relative Y scale"""
     if CurrentObject.Type == 'rig':
@@ -507,7 +507,7 @@ def ugeGetBoneScaY(BoneName: (str, Bone, None) = None) -> (float, int):
     else: print('ERROR: ugeGetBoneScaY() cannot operate on %s Objects'%CurrentObject.Type)
 
 @UGE_GLOBAL_WRAPPER
-@register([CONST.UGE_MODEL_SCRIPT])
+@register([UGE_MODEL_SCRIPT])
 def ugeGetBoneScaZ(BoneName: (str, Bone, None) = None) -> (float, int):
     """returns the current, specified, or given Bone's relative Z scale"""
     if CurrentObject.Type == 'rig':
@@ -518,11 +518,11 @@ def ugeGetBoneScaZ(BoneName: (str, Bone, None) = None) -> (float, int):
     else: print('ERROR: ugeGetBoneScaZ() cannot operate on %s Objects'%CurrentObject.Type)
 
 ## @UGE_GLOBAL_WRAPPER
-## @register([CONST.UGE_MODEL_SCRIPT])
+## @register([UGE_MODEL_SCRIPT])
 ## def ugeGetBoneBindMtx(): return 
 ## @UGE_GLOBAL_WRAPPER
-## @register([CONST.UGE_MODEL_SCRIPT])
+## @register([UGE_MODEL_SCRIPT])
 ## def ugeGetBoneInvMtx(): return 
 ## @UGE_GLOBAL_WRAPPER
-## @register([CONST.UGE_MODEL_SCRIPT])
+## @register([UGE_MODEL_SCRIPT])
 ## def ugeHasBoneFlag(): return
