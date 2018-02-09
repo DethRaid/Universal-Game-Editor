@@ -12,7 +12,6 @@ def private():
     from ..FILE import ugeImportFile
     from ..CONST import define, UGE_CONSTANT
 
-
     class UGE_SHADER_TYPE(UGE_CONSTANT): pass
     
     define( '''
