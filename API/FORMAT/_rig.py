@@ -4,43 +4,51 @@
 from . import Object, vector
 from . import validObjectTypes, VectorProp
 from .. import CONST, UGE_GLOBAL_WRAPPER, register
-from ..OBJECT import UGEObject, Hierarchical, extension, UGECollection, IntProp
+from ..CONST import UGE_MODEL_SCRIPT
 
-# TODO: reuse these
-CONST.define( '''
-        UGE_PARENT
-        UGE_OBJECT
-        UGE_WORLD
+# noinspection PyShadowingNames
+def private():
+    """private namespace"""
+    from ..OBJECT import UGEObject, Hierarchical, extension, UGECollection, IntProp
+    
+    # TODO: reuse these
+    CONST.define( '''
+            UGE_PARENT
+            UGE_OBJECT
+            UGE_WORLD
+            UGE_INVERSE_PARENT
+            UGE_INVERSE_OBJECT
+            UGE_INVERSE_WORLD
+            '''.split(), type('UGE_Relation', (object,), dict(__init__=lambda this,name:None)), [ CONST.UGE_MODEL_SCRIPT ])
+    """
+        UGE_PARENT # (default) transformations relative to parent
+        UGE_OBJECT # transformations relative to containing object
+        UGE_WORLD # transformations relative to world (0,0,0)
         UGE_INVERSE_PARENT
         UGE_INVERSE_OBJECT
         UGE_INVERSE_WORLD
-        '''.split(), type('UGE_Relation', (object,), dict(__init__=lambda this,name:None)), [ CONST.UGE_MODEL_SCRIPT ])
-"""
-    UGE_PARENT # (default) transformations relative to parent
-    UGE_OBJECT # transformations relative to containing object
-    UGE_WORLD # transformations relative to world (0,0,0)
-    UGE_INVERSE_PARENT
-    UGE_INVERSE_OBJECT
-    UGE_INVERSE_WORLD
-"""
-
-class Bone(UGEObject, Hierarchical):
-    """UGE Bone"""
-    __public__ = {'Viewport':{'w'},'Location':{'p','w'},'Rotation':{'p','w'},'Scale':{'p','w'}}
+    """
     
-    # noinspection PyUnusedLocal
-    def __init__(Bn,*other: tuple ):
-        Bn.Viewport = 0
-        Bn.Location = (0,0,0)
-        Bn.Rotation = (0,0,0)
-        Bn.Scale    = (1,1,1)
+    class Bone(UGEObject, Hierarchical):
+        """UGE Bone"""
+        __public__ = {'Viewport':{'w'},'Location':{'p','w'},'Rotation':{'p','w'},'Scale':{'p','w'}}
+        
+        # noinspection PyUnusedLocal
+        def __init__(Bn,*other: tuple ):
+            Bn.Viewport = 0
+            Bn.Location = (0,0,0)
+            Bn.Rotation = (0,0,0)
+            Bn.Scale    = (1,1,1)
+    
+    IntProp(    Bone, 'Viewport' )
+    VectorProp( Bone, 'Location' )
+    VectorProp( Bone, 'Rotation' )
+    VectorProp( Bone, 'Scale' )
+    return Bone
 
-IntProp(    Bone, 'Viewport' )
-VectorProp( Bone, 'Location' )
-VectorProp( Bone, 'Rotation' )
-VectorProp( Bone, 'Scale' )
-
-validBoneTypes = {str,Bone,Bone.__proxy__}
+Bone = private()
+del private
+validBoneTypes = {str,Bone}
 
 class rig(object):
     """rig Type"""
