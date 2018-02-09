@@ -9,7 +9,7 @@ from ..CONST import UGE_MODEL_SCRIPT
 # noinspection PyShadowingNames
 def private():
     """private namespace"""
-    from ..OBJECT import UGEObject, Hierarchical, extension, UGECollection, IntProp, _protected
+    from ..OBJECT import UGEObject, Hierarchical, extension, UGECollection, CollectionProp, IntProp, StringProp, _protected
     
     # TODO: reuse these
     CONST.define( '''
@@ -57,7 +57,7 @@ def private():
         __eq__ = lambda this,other: this.Name == other or this is other
         __ne__ = lambda this,other: this.Name != other and this is not other
 
-    StringProp(     mesh, 'Name'         )
+    StringProp(     rig, 'Name'          )
     CollectionProp( rig, 'Bones', 'Root' )
 
     getData, setData = _protected['Object']['Data']
