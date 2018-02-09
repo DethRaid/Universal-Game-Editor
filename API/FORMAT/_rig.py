@@ -48,14 +48,17 @@ def private():
     new = object.__new__
     class rig(object):
         """rig Type"""
-        __slots__=['Bones','Name']
+        __slots__=['Bones','Name','__owner__']
         def __new__(cls,Ob: UGEObject):
             Rg = new(cls)
+            Me.__owner__ = Ob
             Rg.Name = Ob.Name
-            Rg.Bones = UGECollection( Ob, Bone, __builtin__ = 'CurrentBone' )
             return Rg
         __eq__ = lambda this,other: this.Name == other or this is other
         __ne__ = lambda this,other: this.Name != other and this is not other
+
+    StringProp(     mesh, 'Name'         )
+    CollectionProp( rig, 'Bones', 'Root' )
 
     getData, setData = _protected['Object']['Data']
 
