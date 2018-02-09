@@ -19,6 +19,14 @@ def private():
             Im.Height = 1
             return Im
 
+        def new(cls, parents: mappingproxy, holder: UGECollection, item, external=False, *args, **kw):
+            """Create a new Image instance, optionally using the name to reference an external file."""
+            Im = cls.__new__(parents,holder,*args,**kw)
+            item = getattr(item,'__value__',item) # from UGE data-type (struct or such)
+            if item.__class__ is dict: Im[:] = item
+            elif external: ugeImportFile(item,UGE_IMAGE_SCRIPT)
+            return Im
+
     IntProp(        Image, 'Width' )
     IntProp(        Image, 'Height' )
     CollectionProp( Image, 'Pixels', vector ) # vector( II/R(, A/G(, B(, A ))) )
