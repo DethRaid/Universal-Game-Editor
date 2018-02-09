@@ -1,24 +1,33 @@
 # -*- coding: utf-8 -*-
 """UGE Scene class and associate functions"""
 
-from .. import CONST, UGE_GLOBAL_WRAPPER, register
-from ..OBJECT import UGEObject, UGECollection, CollectionProp
+from .. import  UGE_GLOBAL_WRAPPER, register
+from ..CONST import UGE_MODEL_SCRIPT
 
-class Scene(UGEObject):
-    """UGE Scene"""
-    __public__ = {'Objects':{'p','w'}}
-    # noinspection PyUnusedLocal
-    def __init__(Sc,*other: tuple ):
-        Rt = Sc.__parent__
-        Sc.Objects = UGECollection( Sc, Rt.Objects )
+# noinspection PyShadowingNames
+def private():
+    """private namespace"""
 
-CollectionProp( Scene, 'Objects' )
+    from ..OBJECT import UGEObject, UGECollection, CollectionProp
+    
+    class Scene(UGEObject):
+        """UGE Scene"""
+        __slots__ = ['Objects']
+        #def __init__(Sc,*other: tuple ):
+        #    Sc = newUGEObject(cls,*other)
+        #    return Sc
+    
+    CollectionProp( Scene, 'Objects', 'Root' )
+    
+    return Scene
 
-validSceneTypes = {str,Scene,Scene.__proxy__}
+Scene = private()
+del private
+validSceneTypes = {str,Scene}
 
 # noinspection PyStatementEffect
 @UGE_GLOBAL_WRAPPER
-@register([CONST.UGE_MODEL_SCRIPT])
+@register([UGE_MODEL_SCRIPT])
 def ugeSetScene(SceneName: (str, Scene) = "Scene0") -> Scene:
     """Creates or References a Scene"""
     SceneName = getattr(SceneName, '__value__', SceneName)
@@ -29,13 +38,13 @@ def ugeSetScene(SceneName: (str, Scene) = "Scene0") -> Scene:
     else: print('ERROR: ugeSetScene() received an invalid value (%s)'%SceneName)
 
 @UGE_GLOBAL_WRAPPER
-@register([CONST.UGE_MODEL_SCRIPT])
+@register([UGE_MODEL_SCRIPT])
 def ugeGetScenes() -> UGECollection: # TODO: return scenes from current, specified, or given world
     """Returns the current Root's Scenes."""
     return CurrentRoot.Scenes
 
 @UGE_GLOBAL_WRAPPER
-@register([CONST.UGE_MODEL_SCRIPT])
+@register([UGE_MODEL_SCRIPT])
 def ugeGetSceneName(SceneObject: (Scene, None) = None) -> str:
     """Returns the Name of the current or given Scene."""
     if SceneObject is None or SceneObject.__class__ in validSceneTypes: return CurrentRoot.Scenes(SceneObject).Name

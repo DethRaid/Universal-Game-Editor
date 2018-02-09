@@ -2,7 +2,8 @@
 """UGE World class and associate functions"""
 
 from . import ugeSetScene
-from .. import CONST, UGE_GLOBAL_WRAPPER, register
+from .. import UGE_GLOBAL_WRAPPER, register
+from ..CONST import UGE_MODEL_SCRIPT
 
 # noinspection PyShadowingNames
 def private():
@@ -22,7 +23,7 @@ validWorldTypes = {str,World}
 
 # noinspection PyStatementEffect
 @UGE_GLOBAL_WRAPPER
-@register([CONST.UGE_MODEL_SCRIPT])
+@register([UGE_MODEL_SCRIPT])
 def ugeSetWorld( WorldName: (str, World) = "World0" ) -> World:
     """Creates or References a World"""
     WorldName = getattr(WorldName, '__value__', WorldName)
@@ -33,11 +34,11 @@ def ugeSetWorld( WorldName: (str, World) = "World0" ) -> World:
     else: print('ERROR: ugeSetWorld() received an invalid value (%s)'%WorldName)
 
 @UGE_GLOBAL_WRAPPER
-@register([CONST.UGE_MODEL_SCRIPT])
+@register([UGE_MODEL_SCRIPT])
 def ugeGetWorlds(): """Returns the current Root's Worlds."""; return CurrentRoot.Worlds
 
 @UGE_GLOBAL_WRAPPER
-@register([CONST.UGE_MODEL_SCRIPT])
+@register([UGE_MODEL_SCRIPT])
 def ugeGetWorldName(WorldObject: (World, None) = None) -> str:
     """Returns the Name of the current or given World."""
     if WorldObject in validWorldTypes and WorldObject is not str: return WorldObject.Name
