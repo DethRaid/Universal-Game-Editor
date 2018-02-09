@@ -3,48 +3,56 @@
 
 from . import Root, Scene, vector
 from . import validSceneTypes, ugeSetBone, VectorProp
-from .. import CONST, UGE_GLOBAL_WRAPPER, register
-from ..OBJECT import UGEObject, Hierarchical, UGECollection, IntProp, CollectionProp
+from .. import UGE_GLOBAL_WRAPPER, register
+from ..CONST import UGE_MODEL_SCRIPT
 
-#CONST.define( '''
-#        UGE_EULER
-#        UGE_QUAT
-#        '''.split(), type('UGE_Rotation', (CONST.UGE_CONSTANT,), {}), [ CONST.UGE_MODEL_SCRIPT ])
-
-#from CONST import UGE_EULER, UGE_QUAT
-
-class Object(UGEObject, Hierarchical):
-    """UGE Object"""
-    __public__ = {'Viewport':{'w'},'Location':{'p','w'},'Rotation':{'p','w'},'Scale':{'p','w'},'Materials':{'p','w'},'Type':set(),'SubName':{'w'}}
-    __slots__ = ['Data']
+# noinspection PyShadowingNames
+def private():
+    """private namespace"""
+    from ..OBJECT import UGEObject, Hierarchical, UGECollection, IntProp, CollectionProp
     
-    # noinspection PyUnusedLocal, PyDunderSlots, PyUnresolvedReferences
-    def __init__(Ob,*other: tuple ):
-        Rt = Ob.__parent__
-        Ob.Data = None
+    #CONST.define( '''
+    #        UGE_EULER
+    #        UGE_QUAT
+    #        '''.split(), type('UGE_Rotation', (CONST.UGE_CONSTANT,), {}), [ UGE_MODEL_SCRIPT ])
+    
+    #from CONST import UGE_EULER, UGE_QUAT
+    
+    class Object(UGEObject, Hierarchical):
+        """UGE Object"""
+        __public__ = {'Viewport':{'w'},'Location':{'p','w'},'Rotation':{'p','w'},'Scale':{'p','w'},'Materials':{'p','w'},'Type':set(),'SubName':{'w'}}
+        __slots__ = ['Data']
         
-        Ob.Viewport  = 0
-        Ob.Location  = (0,0,0)
-        Ob.Rotation  = (0,0,0)
-        Ob.Scale     = (1,1,1)
-        Ob.Materials = UGECollection( Ob, Rt.Materials )
+        # noinspection PyUnusedLocal, PyDunderSlots, PyUnresolvedReferences
+        def __init__(Ob,*other: tuple ):
+            Rt = Ob.__parent__
+            Ob.Data = None
+            
+            Ob.Viewport  = 0
+            Ob.Location  = (0,0,0)
+            Ob.Rotation  = (0,0,0)
+            Ob.Scale     = (1,1,1)
+            Ob.Materials = UGECollection( Ob, Rt.Materials )
+        
+        Type = property( lambda this: this.Data.__class__.__name__ if this.Data else None ) # type: str -> (str, None)
+        SubName = property(
+            lambda this: this.Data.Name if this.Data else this.Name, # returning Object.Name for compatibility
+            lambda this, Name: this.Data.__setattr__('Name',this.Name if Name is None else Name) )
     
-    Type = property( lambda this: this.Data.__class__.__name__ if this.Data else None ) # type: str -> (str, None)
-    SubName = property(
-        lambda this: this.Data.Name if this.Data else this.Name, # returning Object.Name for compatibility
-        lambda this, Name: this.Data.__setattr__('Name',this.Name if Name is None else Name) )
+    IntProp(        Object, 'Viewport' )
+    VectorProp(     Object, 'Location' )
+    VectorProp(     Object, 'Rotation' )
+    VectorProp(     Object, 'Scale' )
+    CollectionProp( Object, 'Materials' )
+    return Object
 
-IntProp(        Object, 'Viewport' )
-VectorProp(     Object, 'Location' )
-VectorProp(     Object, 'Rotation' )
-VectorProp(     Object, 'Scale' )
-CollectionProp( Object, 'Materials' )
-
-validObjectTypes = {str,Object,Object.__proxy__}
+Object = private()
+del private
+validObjectTypes = {str,Object}
 
 # noinspection PyStatementEffect
 @UGE_GLOBAL_WRAPPER
-@register([CONST.UGE_MODEL_SCRIPT])
+@register([UGE_MODEL_SCRIPT])
 def ugeSetObject(ObjectName: (str, Object) = "Object0") -> Object:
     """Creates or References an Object"""
     ObjectName = getattr(ObjectName, '__value__', ObjectName)
@@ -56,7 +64,7 @@ def ugeSetObject(ObjectName: (str, Object) = "Object0") -> Object:
     else: print('ERROR: ugeSetObject() received an invalid value (%s)'%ObjectName)
 
 @UGE_GLOBAL_WRAPPER
-@register([CONST.UGE_MODEL_SCRIPT])
+@register([UGE_MODEL_SCRIPT])
 def ugeSetObjectSubName(Name: str = None) -> None:
     """Sets the name of the current Object's subtype, or clears it to the name of the containing object."""
     if CurrentObject:
@@ -69,7 +77,7 @@ def ugeSetObjectSubName(Name: str = None) -> None:
     else: print('ERROR: ugeSetObjectSubName() expected a defined object')
 
 @UGE_GLOBAL_WRAPPER
-@register([CONST.UGE_MODEL_SCRIPT])
+@register([UGE_MODEL_SCRIPT])
 def ugeSetObjectParent(ObjectName: (str, Object) = None) -> None:
     """Clears the current Object's parent, or sets it to an existing object."""
     if not CurrentObject:
@@ -79,7 +87,7 @@ def ugeSetObjectParent(ObjectName: (str, Object) = None) -> None:
     else: print('ERROR: ugeSetObjectParent() expected a defined object')
 
 @UGE_GLOBAL_WRAPPER
-@register([CONST.UGE_MODEL_SCRIPT])
+@register([UGE_MODEL_SCRIPT])
 def ugeSetObjectViewport(Viewport: int = 0) -> None:
     """Sets the current Object's viewport to the specified values"""
     if CurrentObject:
@@ -89,91 +97,91 @@ def ugeSetObjectViewport(Viewport: int = 0) -> None:
     else: print('ERROR: ugeSetObjectViewport() expected a defined object')
 
 @UGE_GLOBAL_WRAPPER
-@register([CONST.UGE_MODEL_SCRIPT])
+@register([UGE_MODEL_SCRIPT])
 def ugeSetObjectLoc(X: (float, int, str, tuple, list), Y: (float, int, str) = None, Z: (float, int, str) = None) -> None:
     """Sets the current Object's relative location to the specified (up to 3D) values"""
     if CurrentObject: CurrentObject.transform.Location = (X,Y,Z)
     else: print('ERROR: ugeSetObjectLoc() expected a defined object')
 
 @UGE_GLOBAL_WRAPPER
-@register([CONST.UGE_MODEL_SCRIPT])
+@register([UGE_MODEL_SCRIPT])
 def ugeSetObjectLocX(X: (float, int, str)) -> None:
     """Sets the current Object's relative X location to the specified value"""
     if CurrentObject: CurrentObject.transform.Location.X = X
     else: print('ERROR: ugeSetObjectLocX() expected a defined object')
 
 @UGE_GLOBAL_WRAPPER
-@register([CONST.UGE_MODEL_SCRIPT])
+@register([UGE_MODEL_SCRIPT])
 def ugeSetObjectLocY(Y: (float, int, str)) -> None:
     """Sets the current Object's relative Y location to the specified value"""
     if CurrentObject: CurrentObject.transform.Location.Y = Y
     else: print('ERROR: ugeSetObjectLocY() expected a defined object')
 
 @UGE_GLOBAL_WRAPPER
-@register([CONST.UGE_MODEL_SCRIPT])
+@register([UGE_MODEL_SCRIPT])
 def ugeSetObjectLocZ(Z: (float, int, str)) -> None:
     """Sets the current Object's relative Z location to the specified value"""
     if CurrentObject: CurrentObject.transform.Location.Z = Z
     else: print('ERROR: ugeSetObjectLocZ() expected a defined object')
 
 @UGE_GLOBAL_WRAPPER
-@register([CONST.UGE_MODEL_SCRIPT])
+@register([UGE_MODEL_SCRIPT])
 def ugeSetObjectRot(X: (float, int, str, tuple, list), Y: (float, int, str) = None, Z: (float, int, str) = None, W: (float, int, str) = None) -> None:
     """Sets the current Object's relative rotation to the specified (up to 4D) values"""
     if CurrentObject: CurrentObject.transform.Rotation = (X,Y,Z,W)
     else: print('ERROR: ugeSetObjectRot() expected a defined object')
 
 @UGE_GLOBAL_WRAPPER
-@register([CONST.UGE_MODEL_SCRIPT])
+@register([UGE_MODEL_SCRIPT])
 def ugeSetObjectRotX(X: (float, int, str)) -> None:
     """Sets the current Object's relative X rotation to the specified value"""
     if CurrentObject: CurrentObject.transform.Rotation.X = X
     else: print('ERROR: ugeSetObjectRotX() expected a defined object')
 
 @UGE_GLOBAL_WRAPPER
-@register([CONST.UGE_MODEL_SCRIPT])
+@register([UGE_MODEL_SCRIPT])
 def ugeSetObjectRotY(Y: (float, int, str)) -> None:
     """Sets the current Object's relative Y rotation to the specified value"""
     if CurrentObject: CurrentObject.transform.Rotation.Y = Y
     else: print('ERROR: ugeSetObjectRotY() expected a defined object')
 
 @UGE_GLOBAL_WRAPPER
-@register([CONST.UGE_MODEL_SCRIPT])
+@register([UGE_MODEL_SCRIPT])
 def ugeSetObjectRotZ(Z: (float, int, str)) -> None:
     """Sets the current Object's relative Z rotation to the specified value"""
     if CurrentObject: CurrentObject.transform.Rotation.Z = Z
     else: print('ERROR: ugeSetObjectRotZ() expected a defined object')
 
 @UGE_GLOBAL_WRAPPER
-@register([CONST.UGE_MODEL_SCRIPT])
+@register([UGE_MODEL_SCRIPT])
 def ugeSetObjectRotW(W: (float, int, str)) -> None:
     """Sets the current Object's relative W rotation to the specified value"""
     if CurrentObject: CurrentObject.transform.Rotation.W = W
     else: print('ERROR: ugeSetObjectRotW() expected a defined object')
 
 @UGE_GLOBAL_WRAPPER
-@register([CONST.UGE_MODEL_SCRIPT])
+@register([UGE_MODEL_SCRIPT])
 def ugeSetObjectSca(X: (float, int, str, tuple, list), Y: (float, int, str) = None, Z: (float, int, str) = None) -> None:
     """Sets the current Object's relative scale to the specified (up to 3D) values"""
     if not CurrentObject: CurrentObject.transform.Scale = vector(X,Y,Z)
     else: print('ERROR: ugeSetObjectSca() expected a defined object')
 
 @UGE_GLOBAL_WRAPPER
-@register([CONST.UGE_MODEL_SCRIPT])
+@register([UGE_MODEL_SCRIPT])
 def ugeSetObjectScaX(X: (float, int, str)) -> None:
     """Sets the current Object's relative X scale to the specified value"""
     if CurrentObject: CurrentObject.transform.Scale.X = X
     else: print('ERROR: ugeSetObjectScaX() expected a defined object')
 
 @UGE_GLOBAL_WRAPPER
-@register([CONST.UGE_MODEL_SCRIPT])
+@register([UGE_MODEL_SCRIPT])
 def ugeSetObjectScaY(Y: (float, int, str)) -> None:
     """Sets the current Object's relative Y scale to the specified value"""
     if CurrentObject: CurrentObject.transform.Scale.Y = Y
     else: print('ERROR: ugeSetObjectScaY() expected a defined object')
 
 @UGE_GLOBAL_WRAPPER
-@register([CONST.UGE_MODEL_SCRIPT])
+@register([UGE_MODEL_SCRIPT])
 def ugeSetObjectScaZ(Z: (float, int, str)) -> None:
     """Sets the current Object's relative Z scale to the specified value"""
     if CurrentObject: CurrentObject.transform.Scale.Z = Z
@@ -182,8 +190,8 @@ def ugeSetObjectScaZ(Z: (float, int, str)) -> None:
 #--- Get ---:
 
 @UGE_GLOBAL_WRAPPER
-@register([CONST.UGE_MODEL_SCRIPT])
-def ugeGetObjects(SceneName: (str, Scene, Root) = None) -> UGECollection:
+@register([UGE_MODEL_SCRIPT])
+def ugeGetObjects(SceneName: (str, Scene, Root) = None):
     """returns the Objects in the given Root or current, specified, or given Scene"""
     SceneName = getattr(SceneName, '__value__', SceneName)
     if SceneName is None: return CurrentScene.Objects
@@ -192,7 +200,7 @@ def ugeGetObjects(SceneName: (str, Scene, Root) = None) -> UGECollection:
     else: print('ERROR: ugeGetObjects() received an invalid value (%s)'%SceneName)
 
 @UGE_GLOBAL_WRAPPER
-@register([CONST.UGE_MODEL_SCRIPT])
+@register([UGE_MODEL_SCRIPT])
 def ugeGetObjectViewport(ObjectName: (str, Object, None) = None) -> int:
     """returns the viewport of the current, specified, or given Object"""
     ObjectName = getattr(ObjectName, '__value__', ObjectName)
@@ -202,7 +210,7 @@ def ugeGetObjectViewport(ObjectName: (str, Object, None) = None) -> int:
 
 # noinspection PyShadowingNames
 @UGE_GLOBAL_WRAPPER
-@register([CONST.UGE_MODEL_SCRIPT])
+@register([UGE_MODEL_SCRIPT])
 def ugeGetObjectName(Object: (str, Object, None) = None) -> str:
     """returns the name of the current, specified, or given Object"""
     Object = getattr(Object, '__value__', Object)
@@ -211,7 +219,7 @@ def ugeGetObjectName(Object: (str, Object, None) = None) -> str:
     else: print('ERROR: ugeGetObjectName() received an invalid value (%s)'%Object)
 
 @UGE_GLOBAL_WRAPPER
-@register([CONST.UGE_MODEL_SCRIPT])
+@register([UGE_MODEL_SCRIPT])
 def ugeGetObjectSubName(ObjectName: (str, Object, None) = None) -> str:
     """returns the name of the current, specified, or given Object's subtype"""
     ObjectName = getattr(ObjectName, '__value__', ObjectName)
@@ -220,7 +228,7 @@ def ugeGetObjectSubName(ObjectName: (str, Object, None) = None) -> str:
     else: print('ERROR: ugeGetObjectSubName() received an invalid value (%s)'%ObjectName)
 
 @UGE_GLOBAL_WRAPPER
-@register([CONST.UGE_MODEL_SCRIPT])
+@register([UGE_MODEL_SCRIPT])
 def ugeGetObjectParent(ObjectName: (str, Object, None) = None) -> Object:
     """returns the current, specified, or given Object's parent Object"""
     ObjectName = getattr(ObjectName, '__value__', ObjectName)
@@ -229,7 +237,7 @@ def ugeGetObjectParent(ObjectName: (str, Object, None) = None) -> Object:
     else: print('ERROR: ugeGetObjectParent() received an invalid value (%s)'%ObjectName)
 
 @UGE_GLOBAL_WRAPPER
-@register([CONST.UGE_MODEL_SCRIPT])
+@register([UGE_MODEL_SCRIPT])
 def ugeGetObjectLoc(ObjectName: (str, Object, None) = None) -> vector:
     """returns the current, specified, or given Object's relative location"""
     ObjectName = getattr(ObjectName, '__value__', ObjectName)
@@ -238,7 +246,7 @@ def ugeGetObjectLoc(ObjectName: (str, Object, None) = None) -> vector:
     else: print('ERROR: ugeGetObjectLoc() received an invalid value (%s)'%ObjectName)
 
 @UGE_GLOBAL_WRAPPER
-@register([CONST.UGE_MODEL_SCRIPT])
+@register([UGE_MODEL_SCRIPT])
 def ugeGetObjectLocX(ObjectName: (str, Object, None) = None) -> (float, int):
     """returns the current, specified, or given Object's relative X location"""
     ObjectName = getattr(ObjectName, '__value__', ObjectName)
@@ -247,7 +255,7 @@ def ugeGetObjectLocX(ObjectName: (str, Object, None) = None) -> (float, int):
     else: print('ERROR: ugeGetObjectLocX() received an invalid value (%s)'%ObjectName)
 
 @UGE_GLOBAL_WRAPPER
-@register([CONST.UGE_MODEL_SCRIPT])
+@register([UGE_MODEL_SCRIPT])
 def ugeGetObjectLocY(ObjectName: (str, Object, None) = None) -> (float, int):
     """returns the current, specified, or given Object's relative Y location"""
     ObjectName = getattr(ObjectName, '__value__', ObjectName)
@@ -256,7 +264,7 @@ def ugeGetObjectLocY(ObjectName: (str, Object, None) = None) -> (float, int):
     else: print('ERROR: ugeGetObjectLocY() received an invalid value (%s)'%ObjectName)
 
 @UGE_GLOBAL_WRAPPER
-@register([CONST.UGE_MODEL_SCRIPT])
+@register([UGE_MODEL_SCRIPT])
 def ugeGetObjectLocZ(ObjectName: (str, Object, None) = None) -> (float, int):
     """returns the current, specified, or given Object's relative Z location"""
     ObjectName = getattr(ObjectName, '__value__', ObjectName)
@@ -265,7 +273,7 @@ def ugeGetObjectLocZ(ObjectName: (str, Object, None) = None) -> (float, int):
     else: print('ERROR: ugeGetObjectLocZ() received an invalid value (%s)'%ObjectName)
 
 @UGE_GLOBAL_WRAPPER
-@register([CONST.UGE_MODEL_SCRIPT])
+@register([UGE_MODEL_SCRIPT])
 def ugeGetObjectRot(ObjectName: (str, Object, None) = None) -> vector:
     """returns the current, specified, or given Object's relative rotation"""
     ObjectName = getattr(ObjectName, '__value__', ObjectName)
@@ -274,7 +282,7 @@ def ugeGetObjectRot(ObjectName: (str, Object, None) = None) -> vector:
     else: print('ERROR: ugeGetObjectRot() received an invalid value (%s)'%ObjectName)
 
 @UGE_GLOBAL_WRAPPER
-@register([CONST.UGE_MODEL_SCRIPT])
+@register([UGE_MODEL_SCRIPT])
 def ugeGetObjectRotX(ObjectName: (str, Object, None) = None) -> (float, int):
     """returns the current, specified, or given Object's relative X rotation"""
     ObjectName = getattr(ObjectName, '__value__', ObjectName)
@@ -283,7 +291,7 @@ def ugeGetObjectRotX(ObjectName: (str, Object, None) = None) -> (float, int):
     else: print('ERROR: ugeGetObjectRotX() received an invalid value (%s)'%ObjectName)
 
 @UGE_GLOBAL_WRAPPER
-@register([CONST.UGE_MODEL_SCRIPT])
+@register([UGE_MODEL_SCRIPT])
 def ugeGetObjectRotY(ObjectName: (str, Object, None) = None) -> (float, int):
     """returns the current, specified, or given Object's relative Y rotation"""
     ObjectName = getattr(ObjectName, '__value__', ObjectName)
@@ -292,7 +300,7 @@ def ugeGetObjectRotY(ObjectName: (str, Object, None) = None) -> (float, int):
     else: print('ERROR: ugeGetObjectRotY() received an invalid value (%s)'%ObjectName)
 
 @UGE_GLOBAL_WRAPPER
-@register([CONST.UGE_MODEL_SCRIPT])
+@register([UGE_MODEL_SCRIPT])
 def ugeGetObjectRotZ(ObjectName: (str, Object, None) = None) -> (float, int):
     """returns the current, specified, or given Object's relative Z rotation"""
     ObjectName = getattr(ObjectName, '__value__', ObjectName)
@@ -301,7 +309,7 @@ def ugeGetObjectRotZ(ObjectName: (str, Object, None) = None) -> (float, int):
     else: print('ERROR: ugeGetObjectRotZ() received an invalid value (%s)'%ObjectName)
 
 @UGE_GLOBAL_WRAPPER
-@register([CONST.UGE_MODEL_SCRIPT])
+@register([UGE_MODEL_SCRIPT])
 def ugeGetObjectRotW(ObjectName: (str, Object, None) = None) -> (float, int):
     """returns the current, specified, or given Object's relative W rotation"""
     if ObjectName is None: return CurrentObject.Rotation.W
@@ -310,7 +318,7 @@ def ugeGetObjectRotW(ObjectName: (str, Object, None) = None) -> (float, int):
     else: print('ERROR: ugeGetObjectRotW() received an invalid value (%s)'%ObjectName)
 
 @UGE_GLOBAL_WRAPPER
-@register([CONST.UGE_MODEL_SCRIPT])
+@register([UGE_MODEL_SCRIPT])
 def ugeGetObjectSca(ObjectName: (str, Object, None) = None) -> vector:
     """returns the current, specified, or given Object's relative scale"""
     if ObjectName is None: return CurrentObject.Scale
@@ -319,7 +327,7 @@ def ugeGetObjectSca(ObjectName: (str, Object, None) = None) -> vector:
     else: print('ERROR: ugeGetObjectSca() received an invalid value (%s)'%ObjectName)
 
 @UGE_GLOBAL_WRAPPER
-@register([CONST.UGE_MODEL_SCRIPT])
+@register([UGE_MODEL_SCRIPT])
 def ugeGetObjectScaX(ObjectName: (str, Object, None) = None) -> (float, int):
     """returns the current, specified, or given Object's relative X scale"""
     if ObjectName is None: return CurrentObject.Scale.X
@@ -328,7 +336,7 @@ def ugeGetObjectScaX(ObjectName: (str, Object, None) = None) -> (float, int):
     else: print('ERROR: ugeGetObjectScaX() received an invalid value (%s)'%ObjectName)
 
 @UGE_GLOBAL_WRAPPER
-@register([CONST.UGE_MODEL_SCRIPT])
+@register([UGE_MODEL_SCRIPT])
 def ugeGetObjectScaY(ObjectName: (str, Object, None) = None) -> (float, int):
     """returns the current, specified, or given Object's relative Y scale"""
     if ObjectName is None: return CurrentObject.Scale.Y
@@ -337,7 +345,7 @@ def ugeGetObjectScaY(ObjectName: (str, Object, None) = None) -> (float, int):
     else: print('ERROR: ugeGetObjectScaY() received an invalid value (%s)'%ObjectName)
 
 @UGE_GLOBAL_WRAPPER
-@register([CONST.UGE_MODEL_SCRIPT])
+@register([UGE_MODEL_SCRIPT])
 def ugeGetObjectScaZ(ObjectName: (str, Object, None) = None) -> (float, int):
     """returns the current, specified, or given Object's relative Z scale"""
     if ObjectName is None: return CurrentObject.Scale.Z
