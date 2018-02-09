@@ -21,7 +21,7 @@ def private():
     class Object(UGEObject, Hierarchical):
         """UGE Object"""
         __public__ = {'Viewport':{'w'},'Location':{'p','w'},'Rotation':{'p','w'},'Scale':{'p','w'},'Materials':{'p','w'},'Type':set(),'SubName':{'w'}}
-        __slots__ = ['Data']
+        __slots__ = ['Data', 'Type', 'Viewport', 'Location', 'Rotation', 'Scale', 'Materials', 'SubName']
         
         # noinspection PyUnusedLocal, PyDunderSlots, PyUnresolvedReferences
         def __init__(Ob,*other: tuple ):
