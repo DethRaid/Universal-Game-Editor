@@ -7,7 +7,7 @@ from .. import CONST, UGE_GLOBAL_WRAPPER, register
 # noinspection PyShadowingNames
 def private():
     """private namespace"""
-    from ..OBJECT import UGEObject, newUGEObject, IntProp, CollectionProp
+    from ..OBJECT import UGEObject, newUGEObject, UGECollection, IntProp, CollectionProp
     from ..FILE import ugeImportFile
 
     class Image(UGEObject):
