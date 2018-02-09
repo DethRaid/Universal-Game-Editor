@@ -44,11 +44,16 @@ def private():
     VectorProp( Bone, 'Location' )
     VectorProp( Bone, 'Rotation' )
     VectorProp( Bone, 'Scale' )
-    
+
+    new = object.__new__
     class rig(object):
         """rig Type"""
         __slots__=['Bones','Name']
-        def __init__(Rg,Ob: UGEObject): Rg.Name = Ob.Name; Rg.Bones = UGECollection( Ob, Bone, __builtin__ = 'CurrentBone' )
+        def __new__(cls,Ob: UGEObject):
+            Rg = new(cls)
+            Rg.Name = Ob.Name
+            Rg.Bones = UGECollection( Ob, Bone, __builtin__ = 'CurrentBone' )
+            return Rg
         __eq__ = lambda this,other: this.Name == other or this is other
         __ne__ = lambda this,other: this.Name != other and this is not other
 
@@ -58,13 +63,13 @@ def private():
     
     @objectextension
     def Bones(Ob: Object):
-        """Bones property"""
-        if Ob.Data is None: Ob.Data=rig(Ob)
+        """Object.Bones"""
+        if Ob.Data is None: setData(Ob, rig(Ob))
         if Ob.Type=='rig': return Ob.Data.Bones
         print('ERROR: Object.Bones cannot be accessed for %s objects'%Ob.Type)
     @objectextension.setter
     def Bones(Ob: Object, val: object):
-        """Set Object.Bones"""
+        """Object.Bones = val"""
         if getData(Ob) is None: setData(Ob,rig(Ob))
         getData(Ob).Bones[:] = val
         
