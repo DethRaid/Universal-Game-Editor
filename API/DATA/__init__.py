@@ -153,7 +153,7 @@ def define(names,Type): # registers extended names for datatype objects
         [C.NS.update({name:Type}) for C in CONST.__dict__.values() if C.__class__.__name__=='UGE_Scope_Type'] # future-safe
 
 # register extensible data designers and structs:
-from . import u,s,f,h,string,array,struct
+from . import uge_u,uge_s,uge_f,uge_h,uge_string,uge_array,uge_struct
 
 ###########################################################################################
 # data transformation functions
