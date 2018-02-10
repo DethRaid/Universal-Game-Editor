@@ -1002,7 +1002,7 @@
     <property name="full.screen.before.presentation.mode" value="false" />
     <property name="TODO_SCOPE" value="Project Files" />
     <property name="last.edited.regexp" value="" />
-    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors.Language Defaults" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
     <property name="project.structure.last.edited" value="Problems" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
@@ -1226,12 +1226,12 @@
       <workItem from="1517793644537" duration="20652000" />
       <workItem from="1518029471259" duration="17875000" />
       <workItem from="1518200795640" duration="99000" />
-      <workItem from="1518200964327" duration="5020000" />
+      <workItem from="1518200964327" duration="5172000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="116118000" />
+    <option name="totallyTimeSpent" value="116270000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="25" width="3200" height="1150" extended-state="0" />
