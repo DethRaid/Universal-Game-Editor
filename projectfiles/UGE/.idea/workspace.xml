@@ -4,7 +4,23 @@
     <option name="SCOPE_TYPE" value="3" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="983838c6-d952-43fb-b239-90a06b889443" name="Default" comment="" />
+    <list default="true" id="983838c6-d952-43fb-b239-90a06b889443" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/../../API/DATA/__init__.py" afterPath="$PROJECT_DIR$/../../API/DATA/__init__.py" />
+      <change beforePath="$PROJECT_DIR$/../../API/DATA/u.py" afterPath="$PROJECT_DIR$/../../API/DATA/uge_u.py" />
+      <change beforePath="$PROJECT_DIR$/../../API/FILE.py" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../../API/FORMAT/__init__.py" afterPath="$PROJECT_DIR$/../../API/FORMAT/__init__.py" />
+      <change beforePath="$PROJECT_DIR$/../../API/FORMAT/_object.py" afterPath="$PROJECT_DIR$/../../API/FORMAT/uge_object.py" />
+      <change beforePath="$PROJECT_DIR$/../../API/FORMAT/_rig.py" afterPath="$PROJECT_DIR$/../../API/FORMAT/uge_rig.py" />
+      <change beforePath="$PROJECT_DIR$/../../API/FORMAT/_root.py" afterPath="$PROJECT_DIR$/../../API/FORMAT/uge_root.py" />
+      <change beforePath="$PROJECT_DIR$/../../API/FORMAT/_scene.py" afterPath="$PROJECT_DIR$/../../API/FORMAT/uge_scene.py" />
+      <change beforePath="$PROJECT_DIR$/../../API/FORMAT/_shader.py" afterPath="$PROJECT_DIR$/../../API/FORMAT/uge_shader.py" />
+      <change beforePath="$PROJECT_DIR$/../../API/FORMAT/_texture.py" afterPath="$PROJECT_DIR$/../../API/FORMAT/uge_texture.py" />
+      <change beforePath="$PROJECT_DIR$/../../API/FORMAT/_vector.py" afterPath="$PROJECT_DIR$/../../API/FORMAT/uge_vector.py" />
+      <change beforePath="$PROJECT_DIR$/../../API/FORMAT/_world.py" afterPath="$PROJECT_DIR$/../../API/FORMAT/uge_world.py" />
+      <change beforePath="$PROJECT_DIR$/../../API/OBJECT/__init__.py" afterPath="$PROJECT_DIR$/../../API/OBJECT/__init__.py" />
+      <change beforePath="$PROJECT_DIR$/../../API/OBJECT/_channels.py" afterPath="$PROJECT_DIR$/../../API/OBJECT/uge_channels.py" />
+      <change beforePath="$PROJECT_DIR$/../../API/OBJECT/_collection.py" afterPath="$PROJECT_DIR$/../../API/OBJECT/uge_collection.py" />
+    </list>
     <ignored path="UGE.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -23,23 +39,23 @@
   <component name="FileEditorManager">
     <splitter split-orientation="horizontal" split-proportion="0.5">
       <split-first>
-        <splitter split-orientation="horizontal" split-proportion="0.9">
+        <splitter split-orientation="horizontal" split-proportion="0.335873">
           <split-first>
             <splitter split-orientation="vertical" split-proportion="0.6986028">
               <split-first>
                 <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-                  <file leaf-file-name="_root.py" pinned="false" current-in-tab="true">
-                    <entry file="file://$PROJECT_DIR$/../../API/FORMAT/_root.py">
+                  <file leaf-file-name="uge_root.py" pinned="false" current-in-tab="false">
+                    <entry file="file://$PROJECT_DIR$/../../API/FORMAT/uge_root.py">
                       <provider selected="true" editor-type-id="text-editor">
-                        <state relative-caret-position="15">
-                          <caret line="35" column="27" lean-forward="false" selection-start-line="30" selection-start-column="54" selection-end-line="35" selection-end-column="27" />
+                        <state relative-caret-position="240">
+                          <caret line="50" column="19" lean-forward="false" selection-start-line="50" selection-start-column="19" selection-end-line="50" selection-end-column="19" />
                           <folding />
                         </state>
                       </provider>
                     </entry>
                   </file>
-                  <file leaf-file-name="_world.py" pinned="false" current-in-tab="false">
-                    <entry file="file://$PROJECT_DIR$/../../API/FORMAT/_world.py">
+                  <file leaf-file-name="uge_world.py" pinned="false" current-in-tab="false">
+                    <entry file="file://$PROJECT_DIR$/../../API/FORMAT/uge_world.py">
                       <provider selected="true" editor-type-id="text-editor">
                         <state relative-caret-position="210">
                           <caret line="14" column="48" lean-forward="false" selection-start-line="14" selection-start-column="48" selection-end-line="14" selection-end-column="48" />
@@ -48,8 +64,8 @@
                       </provider>
                     </entry>
                   </file>
-                  <file leaf-file-name="_scene.py" pinned="false" current-in-tab="false">
-                    <entry file="file://$PROJECT_DIR$/../../API/FORMAT/_scene.py">
+                  <file leaf-file-name="uge_scene.py" pinned="false" current-in-tab="false">
+                    <entry file="file://$PROJECT_DIR$/../../API/FORMAT/uge_scene.py">
                       <provider selected="true" editor-type-id="text-editor">
                         <state relative-caret-position="240">
                           <caret line="16" column="48" lean-forward="false" selection-start-line="16" selection-start-column="48" selection-end-line="16" selection-end-column="48" />
@@ -58,8 +74,8 @@
                       </provider>
                     </entry>
                   </file>
-                  <file leaf-file-name="_object.py" pinned="false" current-in-tab="false">
-                    <entry file="file://$PROJECT_DIR$/../../API/FORMAT/_object.py">
+                  <file leaf-file-name="uge_object.py" pinned="false" current-in-tab="false">
+                    <entry file="file://$PROJECT_DIR$/../../API/FORMAT/uge_object.py">
                       <provider selected="true" editor-type-id="text-editor">
                         <state relative-caret-position="570">
                           <caret line="38" column="8" lean-forward="false" selection-start-line="38" selection-start-column="8" selection-end-line="38" selection-end-column="8" />
@@ -68,8 +84,8 @@
                       </provider>
                     </entry>
                   </file>
-                  <file leaf-file-name="_rig.py" pinned="false" current-in-tab="false">
-                    <entry file="file://$PROJECT_DIR$/../../API/FORMAT/_rig.py">
+                  <file leaf-file-name="uge_rig.py" pinned="false" current-in-tab="false">
+                    <entry file="file://$PROJECT_DIR$/../../API/FORMAT/uge_rig.py">
                       <provider selected="true" editor-type-id="text-editor">
                         <state relative-caret-position="630">
                           <caret line="42" column="4" lean-forward="false" selection-start-line="42" selection-start-column="4" selection-end-line="42" selection-end-column="4" />
@@ -78,18 +94,18 @@
                       </provider>
                     </entry>
                   </file>
-                  <file leaf-file-name="_mesh.py" pinned="false" current-in-tab="false">
-                    <entry file="file://$PROJECT_DIR$/../../API/FORMAT/_mesh.py">
+                  <file leaf-file-name="uge_mesh.py" pinned="false" current-in-tab="true">
+                    <entry file="file://$PROJECT_DIR$/../../API/FORMAT/uge_mesh.py">
                       <provider selected="true" editor-type-id="text-editor">
-                        <state relative-caret-position="120">
+                        <state relative-caret-position="-1248">
                           <caret line="8" column="129" lean-forward="false" selection-start-line="8" selection-start-column="117" selection-end-line="8" selection-end-column="129" />
                           <folding />
                         </state>
                       </provider>
                     </entry>
                   </file>
-                  <file leaf-file-name="_material.py" pinned="false" current-in-tab="false">
-                    <entry file="file://$PROJECT_DIR$/../../API/FORMAT/_material.py">
+                  <file leaf-file-name="uge_material.py" pinned="false" current-in-tab="false">
+                    <entry file="file://$PROJECT_DIR$/../../API/FORMAT/uge_material.py">
                       <provider selected="true" editor-type-id="text-editor">
                         <state relative-caret-position="255">
                           <caret line="17" column="39" lean-forward="false" selection-start-line="15" selection-start-column="103" selection-end-line="17" selection-end-column="39" />
@@ -98,8 +114,8 @@
                       </provider>
                     </entry>
                   </file>
-                  <file leaf-file-name="_shader.py" pinned="false" current-in-tab="false">
-                    <entry file="file://$PROJECT_DIR$/../../API/FORMAT/_shader.py">
+                  <file leaf-file-name="uge_shader.py" pinned="false" current-in-tab="false">
+                    <entry file="file://$PROJECT_DIR$/../../API/FORMAT/uge_shader.py">
                       <provider selected="true" editor-type-id="text-editor">
                         <state relative-caret-position="360">
                           <caret line="24" column="48" lean-forward="false" selection-start-line="23" selection-start-column="35" selection-end-line="24" selection-end-column="48" />
@@ -108,8 +124,8 @@
                       </provider>
                     </entry>
                   </file>
-                  <file leaf-file-name="_texture.py" pinned="false" current-in-tab="false">
-                    <entry file="file://$PROJECT_DIR$/../../API/FORMAT/_texture.py">
+                  <file leaf-file-name="uge_texture.py" pinned="false" current-in-tab="false">
+                    <entry file="file://$PROJECT_DIR$/../../API/FORMAT/uge_texture.py">
                       <provider selected="true" editor-type-id="text-editor">
                         <state relative-caret-position="150">
                           <caret line="10" column="4" lean-forward="false" selection-start-line="10" selection-start-column="4" selection-end-line="10" selection-end-column="4" />
@@ -118,8 +134,8 @@
                       </provider>
                     </entry>
                   </file>
-                  <file leaf-file-name="_image.py" pinned="false" current-in-tab="false">
-                    <entry file="file://$PROJECT_DIR$/../../API/FORMAT/_image.py">
+                  <file leaf-file-name="uge_image.py" pinned="false" current-in-tab="false">
+                    <entry file="file://$PROJECT_DIR$/../../API/FORMAT/uge_image.py">
                       <provider selected="true" editor-type-id="text-editor">
                         <state relative-caret-position="135">
                           <caret line="9" column="64" lean-forward="false" selection-start-line="9" selection-start-column="64" selection-end-line="9" selection-end-column="64" />
@@ -142,8 +158,8 @@
               </split-first>
               <split-second>
                 <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-                  <file leaf-file-name="_root.py" pinned="false" current-in-tab="true">
-                    <entry file="file://$PROJECT_DIR$/../../API/FORMAT/_root.py">
+                  <file leaf-file-name="uge_root.py" pinned="false" current-in-tab="true">
+                    <entry file="file://$PROJECT_DIR$/../../API/FORMAT/uge_root.py">
                       <provider selected="true" editor-type-id="text-editor">
                         <state relative-caret-position="150">
                           <caret line="34" column="11" lean-forward="false" selection-start-line="30" selection-start-column="54" selection-end-line="34" selection-end-column="11" />
@@ -158,18 +174,18 @@
           </split-first>
           <split-second>
             <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-              <file leaf-file-name="__init__.py" pinned="false" current-in-tab="false">
+              <file leaf-file-name="__init__.py" pinned="false" current-in-tab="true">
                 <entry file="file://$PROJECT_DIR$/../../API/DATA/__init__.py">
                   <provider selected="true" editor-type-id="text-editor">
-                    <state relative-caret-position="2700">
+                    <state relative-caret-position="627">
                       <caret line="180" column="29" lean-forward="false" selection-start-line="180" selection-start-column="7" selection-end-line="180" selection-end-column="29" />
                       <folding />
                     </state>
                   </provider>
                 </entry>
               </file>
-              <file leaf-file-name="u.py" pinned="false" current-in-tab="false">
-                <entry file="file://$PROJECT_DIR$/../../API/DATA/u.py">
+              <file leaf-file-name="uge_u.py" pinned="false" current-in-tab="false">
+                <entry file="file://$PROJECT_DIR$/../../API/DATA/uge_u.py">
                   <provider selected="true" editor-type-id="text-editor">
                     <state relative-caret-position="1680">
                       <caret line="112" column="55" lean-forward="false" selection-start-line="112" selection-start-column="55" selection-end-line="112" selection-end-column="55" />
@@ -178,8 +194,8 @@
                   </provider>
                 </entry>
               </file>
-              <file leaf-file-name="s.py" pinned="false" current-in-tab="false">
-                <entry file="file://$PROJECT_DIR$/../../API/DATA/s.py">
+              <file leaf-file-name="uge_s.py" pinned="false" current-in-tab="false">
+                <entry file="file://$PROJECT_DIR$/../../API/DATA/uge_s.py">
                   <provider selected="true" editor-type-id="text-editor">
                     <state relative-caret-position="2505">
                       <caret line="167" column="55" lean-forward="false" selection-start-line="167" selection-start-column="55" selection-end-line="167" selection-end-column="55" />
@@ -188,8 +204,8 @@
                   </provider>
                 </entry>
               </file>
-              <file leaf-file-name="f.py" pinned="false" current-in-tab="false">
-                <entry file="file://$PROJECT_DIR$/../../API/DATA/f.py">
+              <file leaf-file-name="uge_f.py" pinned="false" current-in-tab="false">
+                <entry file="file://$PROJECT_DIR$/../../API/DATA/uge_f.py">
                   <provider selected="true" editor-type-id="text-editor">
                     <state relative-caret-position="60">
                       <caret line="4" column="33" lean-forward="false" selection-start-line="4" selection-start-column="33" selection-end-line="4" selection-end-column="33" />
@@ -198,8 +214,8 @@
                   </provider>
                 </entry>
               </file>
-              <file leaf-file-name="h.py" pinned="false" current-in-tab="false">
-                <entry file="file://$PROJECT_DIR$/../../API/DATA/h.py">
+              <file leaf-file-name="uge_h.py" pinned="false" current-in-tab="false">
+                <entry file="file://$PROJECT_DIR$/../../API/DATA/uge_h.py">
                   <provider selected="true" editor-type-id="text-editor">
                     <state relative-caret-position="1830">
                       <caret line="122" column="24" lean-forward="false" selection-start-line="122" selection-start-column="24" selection-end-line="122" selection-end-column="24" />
@@ -208,8 +224,8 @@
                   </provider>
                 </entry>
               </file>
-              <file leaf-file-name="string.py" pinned="false" current-in-tab="false">
-                <entry file="file://$PROJECT_DIR$/../../API/DATA/string.py">
+              <file leaf-file-name="uge_string.py" pinned="false" current-in-tab="false">
+                <entry file="file://$PROJECT_DIR$/../../API/DATA/uge_string.py">
                   <provider selected="true" editor-type-id="text-editor">
                     <state relative-caret-position="1680">
                       <caret line="112" column="41" lean-forward="false" selection-start-line="112" selection-start-column="41" selection-end-line="112" selection-end-column="41" />
@@ -218,8 +234,8 @@
                   </provider>
                 </entry>
               </file>
-              <file leaf-file-name="struct.py" pinned="false" current-in-tab="false">
-                <entry file="file://$PROJECT_DIR$/../../API/DATA/struct.py">
+              <file leaf-file-name="uge_struct.py" pinned="false" current-in-tab="false">
+                <entry file="file://$PROJECT_DIR$/../../API/DATA/uge_struct.py">
                   <provider selected="true" editor-type-id="text-editor">
                     <state relative-caret-position="2160">
                       <caret line="144" column="25" lean-forward="false" selection-start-line="144" selection-start-column="25" selection-end-line="144" selection-end-column="25" />
@@ -228,8 +244,8 @@
                   </provider>
                 </entry>
               </file>
-              <file leaf-file-name="array.py" pinned="false" current-in-tab="false">
-                <entry file="file://$PROJECT_DIR$/../../API/DATA/array.py">
+              <file leaf-file-name="uge_array.py" pinned="false" current-in-tab="false">
+                <entry file="file://$PROJECT_DIR$/../../API/DATA/uge_array.py">
                   <provider selected="true" editor-type-id="text-editor">
                     <state relative-caret-position="105">
                       <caret line="7" column="0" lean-forward="false" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
@@ -241,18 +257,8 @@
               <file leaf-file-name="IO.py" pinned="false" current-in-tab="false">
                 <entry file="file://$PROJECT_DIR$/../../API/IO.py">
                   <provider selected="true" editor-type-id="text-editor">
-                    <state relative-caret-position="975">
+                    <state relative-caret-position="920">
                       <caret line="65" column="57" lean-forward="false" selection-start-line="65" selection-start-column="57" selection-end-line="65" selection-end-column="57" />
-                      <folding />
-                    </state>
-                  </provider>
-                </entry>
-              </file>
-              <file leaf-file-name="FILE.py" pinned="false" current-in-tab="true">
-                <entry file="file://$PROJECT_DIR$/../../API/FILE.py">
-                  <provider selected="true" editor-type-id="text-editor">
-                    <state relative-caret-position="126">
-                      <caret line="378" column="4" lean-forward="false" selection-start-line="378" selection-start-column="4" selection-end-line="378" selection-end-column="4" />
                       <folding />
                     </state>
                   </provider>
@@ -333,8 +339,8 @@
                       </provider>
                     </entry>
                   </file>
-                  <file leaf-file-name="_collection.py" pinned="false" current-in-tab="false">
-                    <entry file="file://$PROJECT_DIR$/../../API/OBJECT/_collection.py">
+                  <file leaf-file-name="uge_collection.py" pinned="false" current-in-tab="false">
+                    <entry file="file://$PROJECT_DIR$/../../API/OBJECT/uge_collection.py">
                       <provider selected="true" editor-type-id="text-editor">
                         <state relative-caret-position="675">
                           <caret line="45" column="67" lean-forward="false" selection-start-line="44" selection-start-column="9" selection-end-line="45" selection-end-column="67" />
@@ -343,8 +349,8 @@
                       </provider>
                     </entry>
                   </file>
-                  <file leaf-file-name="_channels.py" pinned="false" current-in-tab="false">
-                    <entry file="file://$PROJECT_DIR$/../../API/OBJECT/_channels.py">
+                  <file leaf-file-name="uge_channels.py" pinned="false" current-in-tab="false">
+                    <entry file="file://$PROJECT_DIR$/../../API/OBJECT/uge_channels.py">
                       <provider selected="true" editor-type-id="text-editor">
                         <state relative-caret-position="285">
                           <caret line="19" column="60" lean-forward="false" selection-start-line="19" selection-start-column="60" selection-end-line="19" selection-end-column="60" />
@@ -356,15 +362,15 @@
                   <file leaf-file-name="__init__.py" pinned="false" current-in-tab="true">
                     <entry file="file://$PROJECT_DIR$/../../API/FORMAT/__init__.py">
                       <provider selected="true" editor-type-id="text-editor">
-                        <state relative-caret-position="300">
-                          <caret line="20" column="26" lean-forward="false" selection-start-line="20" selection-start-column="26" selection-end-line="20" selection-end-column="26" />
+                        <state relative-caret-position="690">
+                          <caret line="46" column="25" lean-forward="false" selection-start-line="46" selection-start-column="25" selection-end-line="46" selection-end-column="25" />
                           <folding />
                         </state>
                       </provider>
                     </entry>
                   </file>
-                  <file leaf-file-name="_vector.py" pinned="false" current-in-tab="false">
-                    <entry file="file://$PROJECT_DIR$/../../API/FORMAT/_vector.py">
+                  <file leaf-file-name="uge_vector.py" pinned="false" current-in-tab="false">
+                    <entry file="file://$PROJECT_DIR$/../../API/FORMAT/uge_vector.py">
                       <provider selected="true" editor-type-id="text-editor">
                         <state relative-caret-position="6060">
                           <caret line="404" column="7" lean-forward="false" selection-start-line="404" selection-start-column="7" selection-end-line="404" selection-end-column="7" />
@@ -628,7 +634,6 @@
         <option value="$PROJECT_DIR$/../../API/FORMAT/_collection.py" />
         <option value="$PROJECT_DIR$/../../test_FORMAT.py" />
         <option value="$PROJECT_DIR$/../../API/utilities.py" />
-        <option value="$PROJECT_DIR$/../../API/FORMAT/__init__.py" />
         <option value="$PROJECT_DIR$/../../API/scripts.py" />
         <option value="$PROJECT_DIR$/../../API/OBJECT/__init__.py" />
         <option value="$PROJECT_DIR$/../../API/OBJECT/_collection.py" />
@@ -644,6 +649,7 @@
         <option value="$PROJECT_DIR$/../../API/FORMAT/_scene.py" />
         <option value="$PROJECT_DIR$/../../API/FORMAT/_world.py" />
         <option value="$PROJECT_DIR$/../../API/FORMAT/_vector.py" />
+        <option value="$PROJECT_DIR$/../../API/FORMAT/__init__.py" />
       </list>
     </option>
   </component>
@@ -982,7 +988,25 @@
               <item name="UGE" type="b2602c69:ProjectViewProjectNode" />
               <item name="UGE" type="462c0819:PsiDirectoryNode" />
               <item name="API" type="462c0819:PsiDirectoryNode" />
+              <item name="DATA" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="UGE" type="b2602c69:ProjectViewProjectNode" />
+              <item name="UGE" type="462c0819:PsiDirectoryNode" />
+              <item name="API" type="462c0819:PsiDirectoryNode" />
+              <item name="FILE" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="UGE" type="b2602c69:ProjectViewProjectNode" />
+              <item name="UGE" type="462c0819:PsiDirectoryNode" />
+              <item name="API" type="462c0819:PsiDirectoryNode" />
               <item name="FORMAT" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="UGE" type="b2602c69:ProjectViewProjectNode" />
+              <item name="UGE" type="462c0819:PsiDirectoryNode" />
+              <item name="API" type="462c0819:PsiDirectoryNode" />
+              <item name="OBJECT" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -1227,15 +1251,16 @@
       <workItem from="1518029471259" duration="17875000" />
       <workItem from="1518200795640" duration="99000" />
       <workItem from="1518200964327" duration="5176000" />
-      <workItem from="1518275868417" duration="322000" />
+      <workItem from="1518275868417" duration="1132000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="116596000" />
+    <option name="totallyTimeSpent" value="117406000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="25" width="3200" height="1150" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32777232" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -1346,7 +1371,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../../API/FORMAT/_root.py">
+    <entry file="file://$PROJECT_DIR$/../../API/FORMAT/uge_root.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="795">
           <caret line="53" column="85" lean-forward="false" selection-start-line="53" selection-start-column="85" selection-end-line="53" selection-end-column="85" />
@@ -1354,7 +1379,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../../API/FORMAT/_world.py">
+    <entry file="file://$PROJECT_DIR$/../../API/FORMAT/uge_world.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="150">
           <caret line="10" column="32" lean-forward="false" selection-start-line="10" selection-start-column="32" selection-end-line="10" selection-end-column="32" />
@@ -1362,7 +1387,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../../API/FORMAT/_object.py">
+    <entry file="file://$PROJECT_DIR$/../../API/FORMAT/uge_object.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="255">
           <caret line="15" column="35" lean-forward="false" selection-start-line="15" selection-start-column="35" selection-end-line="15" selection-end-column="35" />
@@ -1372,7 +1397,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../../API/FORMAT/_scene.py">
+    <entry file="file://$PROJECT_DIR$/../../API/FORMAT/uge_scene.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="150">
           <caret line="10" column="36" lean-forward="false" selection-start-line="10" selection-start-column="36" selection-end-line="10" selection-end-column="36" />
@@ -1380,7 +1405,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../../API/FORMAT/_rig.py">
+    <entry file="file://$PROJECT_DIR$/../../API/FORMAT/uge_rig.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1845">
           <caret line="123" column="19" lean-forward="false" selection-start-line="123" selection-start-column="19" selection-end-line="123" selection-end-column="19" />
@@ -1388,7 +1413,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../../API/FORMAT/_material.py">
+    <entry file="file://$PROJECT_DIR$/../../API/FORMAT/uge_material.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="90">
           <caret line="6" column="0" lean-forward="false" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
@@ -1396,7 +1421,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../../API/FORMAT/_shader.py">
+    <entry file="file://$PROJECT_DIR$/../../API/FORMAT/uge_shader.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -1404,7 +1429,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../../API/FORMAT/_texture.py">
+    <entry file="file://$PROJECT_DIR$/../../API/FORMAT/uge_texture.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="285">
           <caret line="19" column="24" lean-forward="false" selection-start-line="19" selection-start-column="24" selection-end-line="19" selection-end-column="24" />
@@ -1412,7 +1437,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../../API/FORMAT/_image.py">
+    <entry file="file://$PROJECT_DIR$/../../API/FORMAT/uge_image.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="105">
           <caret line="7" column="0" lean-forward="false" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
@@ -1428,7 +1453,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../../API/FORMAT/_mesh.py">
+    <entry file="file://$PROJECT_DIR$/../../API/FORMAT/uge_mesh.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1725">
           <caret line="115" column="64" lean-forward="true" selection-start-line="115" selection-start-column="64" selection-end-line="115" selection-end-column="64" />
@@ -1444,7 +1469,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../../API/DATA/u.py">
+    <entry file="file://$PROJECT_DIR$/../../API/DATA/uge_u.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1680">
           <caret line="112" column="55" lean-forward="false" selection-start-line="112" selection-start-column="55" selection-end-line="112" selection-end-column="55" />
@@ -1452,7 +1477,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../../API/DATA/s.py">
+    <entry file="file://$PROJECT_DIR$/../../API/DATA/uge_s.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2505">
           <caret line="167" column="55" lean-forward="false" selection-start-line="167" selection-start-column="55" selection-end-line="167" selection-end-column="55" />
@@ -1460,7 +1485,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../../API/DATA/f.py">
+    <entry file="file://$PROJECT_DIR$/../../API/DATA/uge_f.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="60">
           <caret line="4" column="33" lean-forward="false" selection-start-line="4" selection-start-column="33" selection-end-line="4" selection-end-column="33" />
@@ -1468,7 +1493,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../../API/DATA/h.py">
+    <entry file="file://$PROJECT_DIR$/../../API/DATA/uge_h.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1830">
           <caret line="122" column="24" lean-forward="false" selection-start-line="122" selection-start-column="24" selection-end-line="122" selection-end-column="24" />
@@ -1476,7 +1501,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../../API/DATA/string.py">
+    <entry file="file://$PROJECT_DIR$/../../API/DATA/uge_string.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1680">
           <caret line="112" column="41" lean-forward="false" selection-start-line="112" selection-start-column="41" selection-end-line="112" selection-end-column="41" />
@@ -1484,7 +1509,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../../API/DATA/struct.py">
+    <entry file="file://$PROJECT_DIR$/../../API/DATA/uge_struct.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2160">
           <caret line="144" column="25" lean-forward="false" selection-start-line="144" selection-start-column="25" selection-end-line="144" selection-end-column="25" />
@@ -1492,7 +1517,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../../API/DATA/array.py">
+    <entry file="file://$PROJECT_DIR$/../../API/DATA/uge_array.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="105">
           <caret line="7" column="0" lean-forward="false" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
@@ -1545,7 +1570,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../../API/OBJECT/_channels.py">
+    <entry file="file://$PROJECT_DIR$/../../API/OBJECT/uge_channels.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="30">
           <caret line="2" column="14" lean-forward="false" selection-start-line="2" selection-start-column="14" selection-end-line="2" selection-end-column="14" />
@@ -1561,7 +1586,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../../API/FORMAT/_vector.py">
+    <entry file="file://$PROJECT_DIR$/../../API/FORMAT/uge_vector.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="5835">
           <caret line="389" column="29" lean-forward="true" selection-start-line="389" selection-start-column="29" selection-end-line="389" selection-end-column="29" />
@@ -1577,7 +1602,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../../API/OBJECT/_collection.py">
+    <entry file="file://$PROJECT_DIR$/../../API/OBJECT/uge_collection.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="6195">
           <caret line="413" column="25" lean-forward="false" selection-start-line="413" selection-start-column="25" selection-end-line="413" selection-end-column="25" />
@@ -1684,15 +1709,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../../API/DATA/__init__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2700">
-          <caret line="180" column="29" lean-forward="false" selection-start-line="180" selection-start-column="7" selection-end-line="180" selection-end-column="29" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../../API/DATA/u.py">
+    <entry file="file://$PROJECT_DIR$/../../API/DATA/uge_u.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1680">
           <caret line="112" column="55" lean-forward="false" selection-start-line="112" selection-start-column="55" selection-end-line="112" selection-end-column="55" />
@@ -1700,7 +1717,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../../API/DATA/s.py">
+    <entry file="file://$PROJECT_DIR$/../../API/DATA/uge_s.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2505">
           <caret line="167" column="55" lean-forward="false" selection-start-line="167" selection-start-column="55" selection-end-line="167" selection-end-column="55" />
@@ -1708,7 +1725,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../../API/DATA/f.py">
+    <entry file="file://$PROJECT_DIR$/../../API/DATA/uge_f.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="60">
           <caret line="4" column="33" lean-forward="false" selection-start-line="4" selection-start-column="33" selection-end-line="4" selection-end-column="33" />
@@ -1716,7 +1733,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../../API/DATA/h.py">
+    <entry file="file://$PROJECT_DIR$/../../API/DATA/uge_h.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1830">
           <caret line="122" column="24" lean-forward="false" selection-start-line="122" selection-start-column="24" selection-end-line="122" selection-end-column="24" />
@@ -1724,7 +1741,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../../API/DATA/string.py">
+    <entry file="file://$PROJECT_DIR$/../../API/DATA/uge_string.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1680">
           <caret line="112" column="41" lean-forward="false" selection-start-line="112" selection-start-column="41" selection-end-line="112" selection-end-column="41" />
@@ -1732,7 +1749,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../../API/DATA/struct.py">
+    <entry file="file://$PROJECT_DIR$/../../API/DATA/uge_struct.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2160">
           <caret line="144" column="25" lean-forward="false" selection-start-line="144" selection-start-column="25" selection-end-line="144" selection-end-column="25" />
@@ -1740,18 +1757,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../../API/DATA/array.py">
+    <entry file="file://$PROJECT_DIR$/../../API/DATA/uge_array.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="105">
           <caret line="7" column="0" lean-forward="false" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../../API/IO.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="975">
-          <caret line="65" column="57" lean-forward="false" selection-start-line="65" selection-start-column="57" selection-end-line="65" selection-end-column="57" />
           <folding />
         </state>
       </provider>
@@ -1809,7 +1818,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../../API/OBJECT/_channels.py">
+    <entry file="file://$PROJECT_DIR$/../../API/OBJECT/uge_channels.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="285">
           <caret line="19" column="60" lean-forward="false" selection-start-line="19" selection-start-column="60" selection-end-line="19" selection-end-column="60" />
@@ -1937,7 +1946,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../../API/FORMAT/_scene.py">
+    <entry file="file://$PROJECT_DIR$/../../API/FORMAT/uge_scene.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="240">
           <caret line="16" column="48" lean-forward="false" selection-start-line="16" selection-start-column="48" selection-end-line="16" selection-end-column="48" />
@@ -1945,7 +1954,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../../API/FORMAT/_world.py">
+    <entry file="file://$PROJECT_DIR$/../../API/FORMAT/uge_world.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="210">
           <caret line="14" column="48" lean-forward="false" selection-start-line="14" selection-start-column="48" selection-end-line="14" selection-end-column="48" />
@@ -1953,7 +1962,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../../API/FORMAT/_object.py">
+    <entry file="file://$PROJECT_DIR$/../../API/FORMAT/uge_object.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="570">
           <caret line="38" column="8" lean-forward="false" selection-start-line="38" selection-start-column="8" selection-end-line="38" selection-end-column="8" />
@@ -1961,7 +1970,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../../API/FORMAT/_rig.py">
+    <entry file="file://$PROJECT_DIR$/../../API/FORMAT/uge_rig.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="630">
           <caret line="42" column="4" lean-forward="false" selection-start-line="42" selection-start-column="4" selection-end-line="42" selection-end-column="4" />
@@ -1969,15 +1978,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../../API/FORMAT/_mesh.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="8" column="129" lean-forward="false" selection-start-line="8" selection-start-column="117" selection-end-line="8" selection-end-column="129" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../../API/FORMAT/_material.py">
+    <entry file="file://$PROJECT_DIR$/../../API/FORMAT/uge_material.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="255">
           <caret line="17" column="39" lean-forward="false" selection-start-line="15" selection-start-column="103" selection-end-line="17" selection-end-column="39" />
@@ -1985,7 +1986,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../../API/FORMAT/_shader.py">
+    <entry file="file://$PROJECT_DIR$/../../API/FORMAT/uge_shader.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="360">
           <caret line="24" column="48" lean-forward="false" selection-start-line="23" selection-start-column="35" selection-end-line="24" selection-end-column="48" />
@@ -1993,7 +1994,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../../API/FORMAT/_texture.py">
+    <entry file="file://$PROJECT_DIR$/../../API/FORMAT/uge_texture.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="150">
           <caret line="10" column="4" lean-forward="false" selection-start-line="10" selection-start-column="4" selection-end-line="10" selection-end-column="4" />
@@ -2001,7 +2002,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../../API/FORMAT/_image.py">
+    <entry file="file://$PROJECT_DIR$/../../API/FORMAT/uge_image.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="135">
           <caret line="9" column="64" lean-forward="false" selection-start-line="9" selection-start-column="64" selection-end-line="9" selection-end-column="64" />
@@ -2017,15 +2018,15 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../../API/FORMAT/_root.py">
+    <entry file="file://$PROJECT_DIR$/../../API/FORMAT/uge_root.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="35" column="27" lean-forward="false" selection-start-line="30" selection-start-column="54" selection-end-line="35" selection-end-column="27" />
+        <state relative-caret-position="240">
+          <caret line="50" column="19" lean-forward="false" selection-start-line="50" selection-start-column="19" selection-end-line="50" selection-end-column="19" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../../API/OBJECT/_collection.py">
+    <entry file="file://$PROJECT_DIR$/../../API/OBJECT/uge_collection.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="675">
           <caret line="45" column="67" lean-forward="false" selection-start-line="44" selection-start-column="9" selection-end-line="45" selection-end-column="67" />
@@ -2033,7 +2034,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../../API/FORMAT/_vector.py">
+    <entry file="file://$PROJECT_DIR$/../../API/FORMAT/uge_vector.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="6060">
           <caret line="404" column="7" lean-forward="false" selection-start-line="404" selection-start-column="7" selection-end-line="404" selection-end-column="7" />
@@ -2041,10 +2042,34 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/../../API/FORMAT/uge_mesh.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1248">
+          <caret line="8" column="129" lean-forward="false" selection-start-line="8" selection-start-column="117" selection-end-line="8" selection-end-column="129" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/../../API/FORMAT/__init__.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="20" column="26" lean-forward="false" selection-start-line="20" selection-start-column="26" selection-end-line="20" selection-end-column="26" />
+        <state relative-caret-position="690">
+          <caret line="46" column="25" lean-forward="false" selection-start-line="46" selection-start-column="25" selection-end-line="46" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../API/IO.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="920">
+          <caret line="65" column="57" lean-forward="false" selection-start-line="65" selection-start-column="57" selection-end-line="65" selection-end-column="57" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../API/DATA/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="627">
+          <caret line="180" column="29" lean-forward="false" selection-start-line="180" selection-start-column="7" selection-end-line="180" selection-end-column="29" />
           <folding />
         </state>
       </provider>
