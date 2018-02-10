@@ -402,6 +402,5 @@ def private():
 
     return vector, VectorProp
 
-Root, Roots = private()
+vector, VectorProp = private()
 del private
-validRootTypes = {str,Root}
