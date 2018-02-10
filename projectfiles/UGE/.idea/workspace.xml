@@ -963,35 +963,6 @@
               <item name="UGE" type="b2602c69:ProjectViewProjectNode" />
               <item name="UGE" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="UGE" type="b2602c69:ProjectViewProjectNode" />
-              <item name="UGE" type="462c0819:PsiDirectoryNode" />
-              <item name="API" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="UGE" type="b2602c69:ProjectViewProjectNode" />
-              <item name="UGE" type="462c0819:PsiDirectoryNode" />
-              <item name="API" type="462c0819:PsiDirectoryNode" />
-              <item name="DATA" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="UGE" type="b2602c69:ProjectViewProjectNode" />
-              <item name="UGE" type="462c0819:PsiDirectoryNode" />
-              <item name="API" type="462c0819:PsiDirectoryNode" />
-              <item name="FILE" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="UGE" type="b2602c69:ProjectViewProjectNode" />
-              <item name="UGE" type="462c0819:PsiDirectoryNode" />
-              <item name="API" type="462c0819:PsiDirectoryNode" />
-              <item name="FORMAT" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="UGE" type="b2602c69:ProjectViewProjectNode" />
-              <item name="UGE" type="462c0819:PsiDirectoryNode" />
-              <item name="API" type="462c0819:PsiDirectoryNode" />
-              <item name="OBJECT" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
@@ -1235,12 +1206,12 @@
       <workItem from="1518029471259" duration="17875000" />
       <workItem from="1518200795640" duration="99000" />
       <workItem from="1518200964327" duration="5176000" />
-      <workItem from="1518275868417" duration="2306000" />
+      <workItem from="1518275868417" duration="2307000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="118580000" />
+    <option name="totallyTimeSpent" value="118581000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="25" width="3200" height="1150" extended-state="0" />
@@ -1259,7 +1230,7 @@
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32647058" sideWeight="0.49874055" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" show_stripe_button="true" weight="0.086928934" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="true" show_stripe_button="true" weight="0.086928934" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="LuaJ" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="SciView" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
