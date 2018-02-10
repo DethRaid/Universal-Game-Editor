@@ -400,7 +400,7 @@ def private():
         setattr(cls,attr,property( dscget, setter ))
         initializers.add( lambda obj: dscset(obj,vector(obj,0)) )
 
-    return vector, VectorProp()
+    return vector, VectorProp
 
 Root, Roots = private()
 del private
