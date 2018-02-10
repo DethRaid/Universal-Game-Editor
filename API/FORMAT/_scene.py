@@ -14,7 +14,7 @@ def private():
     class Scene(UGEObject):
         """UGE Scene"""
         __slots__ = ['Objects']
-        #def __init__(Sc,*other: tuple ):
+        #def __new__(cls, *other: tuple, **kw ):
         #    Sc = newUGEObject(cls,*other)
         #    return Sc
     

@@ -12,6 +12,9 @@ def private():
     class World(UGEObject):
         """UGE World"""
         __slots__ = ['Scenes']
+        #def __new__(cls, *other: tuple, **kw ):
+        #    Wd = newUGEObject(cls,*other)
+        #    return Wd
         
     CollectionProp( World, 'Scenes', 'Root' )
     
