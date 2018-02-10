@@ -44,17 +44,17 @@ class Object(object): __slots__ = []
 # IMPORTANT - all imports should be done here, sub-module references should use `from . import ______`
 # NOTE: the load order should not be changed, it works from the branches to the root for solidity
 from ..OBJECT import *
-from ._vector import UGEVector, VectorProp
-from ._image import *
-from ._texture import *
-from ._shader import *
-from ._material import *
-from ._rig import *
-from ._mesh import *
-from ._object import *
-from ._scene import *
-from ._world import *
-from ._root import *
+from .uge_vector import UGEVector, VectorProp
+from .uge_image import *
+from .uge_texture import *
+from .uge_shader import *
+from .uge_material import *
+from .uge_rig import *
+from .uge_mesh import *
+from .uge_object import *
+from .uge_scene import *
+from .uge_world import *
+from .uge_root import *
 
 # noinspection PyStatementEffect
 Roots['UGE_Default_Root']
