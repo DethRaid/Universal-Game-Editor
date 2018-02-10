@@ -32,7 +32,7 @@ def private():
         # Anything unsupported
     
     order='XYZW'
-    class vector(UGEObject):
+    class UGEVector(UGEObject):
         """represents a (up to 4D) vector, quaternion, or color object"""
         __slots__ = order
         __disabled__ = {'Name'}
@@ -76,10 +76,10 @@ def private():
             if itemType is str: return tuple(getattr(vec,a) for a in item.lower())
             elif itemType is int: return getattr(vec,order[item].lower())
     
-    FloatProp(vector,'X')
-    FloatProp(vector,'Y')
-    FloatProp(vector,'Z')
-    FloatProp(vector,'W')
+    FloatProp(UGEVector,'X')
+    FloatProp(UGEVector,'Y')
+    FloatProp(UGEVector,'Z')
+    FloatProp(UGEVector,'W')
     
     '''
     def _validate(v): # DEPRECATED
@@ -398,9 +398,9 @@ def private():
         dscget = dsc.__get__; dscset = dsc.__set__
         def setter(obj, val): dscget(obj,cls)[:] = val
         setattr(cls,attr,property( dscget, setter ))
-        initializers.add( lambda obj: dscset(obj,vector(obj,0)) )
+        initializers.add( lambda obj: dscset(obj,UGEVector(obj,0)) )
 
-    return vector, VectorProp
+    return UGEVector, VectorProp
 
-vector, VectorProp = private()
+UGEVector, VectorProp = private()
 del private

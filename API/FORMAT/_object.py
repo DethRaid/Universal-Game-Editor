@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 """UGE Object class and associate functions"""
 
-from . import Root, Scene, vector
+from . import Root, Scene, UGEVector
 from . import validSceneTypes, ugeSetBone, VectorProp
 from .. import UGE_GLOBAL_WRAPPER, register
 from ..CONST import UGE_MODEL_SCRIPT
@@ -164,7 +164,7 @@ def ugeSetObjectRotW(W: (float, int, str)) -> None:
 @register([UGE_MODEL_SCRIPT])
 def ugeSetObjectSca(X: (float, int, str, tuple, list), Y: (float, int, str) = None, Z: (float, int, str) = None) -> None:
     """Sets the current Object's relative scale to the specified (up to 3D) values"""
-    if not CurrentObject: CurrentObject.transform.Scale = vector(X,Y,Z)
+    if not CurrentObject: CurrentObject.transform.Scale = UGEVector(X,Y,Z)
     else: print('ERROR: ugeSetObjectSca() expected a defined object')
 
 @UGE_GLOBAL_WRAPPER
@@ -239,7 +239,7 @@ def ugeGetObjectParent(ObjectName: (str, Object, None) = None) -> Object:
 
 @UGE_GLOBAL_WRAPPER
 @register([UGE_MODEL_SCRIPT])
-def ugeGetObjectLoc(ObjectName: (str, Object, None) = None) -> vector:
+def ugeGetObjectLoc(ObjectName: (str, Object, None) = None) -> UGEVector:
     """returns the current, specified, or given Object's relative location"""
     ObjectName = getattr(ObjectName, '__value__', ObjectName)
     if ObjectName is None: return CurrentObject.Location
@@ -275,7 +275,7 @@ def ugeGetObjectLocZ(ObjectName: (str, Object, None) = None) -> (float, int):
 
 @UGE_GLOBAL_WRAPPER
 @register([UGE_MODEL_SCRIPT])
-def ugeGetObjectRot(ObjectName: (str, Object, None) = None) -> vector:
+def ugeGetObjectRot(ObjectName: (str, Object, None) = None) -> UGEVector:
     """returns the current, specified, or given Object's relative rotation"""
     ObjectName = getattr(ObjectName, '__value__', ObjectName)
     if ObjectName is None: return CurrentObject.Rotation
@@ -320,7 +320,7 @@ def ugeGetObjectRotW(ObjectName: (str, Object, None) = None) -> (float, int):
 
 @UGE_GLOBAL_WRAPPER
 @register([UGE_MODEL_SCRIPT])
-def ugeGetObjectSca(ObjectName: (str, Object, None) = None) -> vector:
+def ugeGetObjectSca(ObjectName: (str, Object, None) = None) -> UGEVector:
     """returns the current, specified, or given Object's relative scale"""
     if ObjectName is None: return CurrentObject.Scale
     ObjectName = getattr(ObjectName, '__value__', ObjectName)

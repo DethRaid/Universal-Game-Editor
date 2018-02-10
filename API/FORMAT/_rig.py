@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 """UGE Bone class and associate functions"""
 
-from . import Object, vector
+from . import Object, UGEVector
 from . import validObjectTypes, VectorProp
 from .. import UGE_GLOBAL_WRAPPER, register
 from ..CONST import UGE_MODEL_SCRIPT
@@ -320,7 +320,7 @@ def ugeGetBoneName(Bone: (str, Bone, None) = None ) -> str:
 
 @UGE_GLOBAL_WRAPPER
 @register([UGE_MODEL_SCRIPT])
-def ugeGetBoneViewport(BoneName: (str, Bone, None) = None) -> vector:
+def ugeGetBoneViewport(BoneName: (str, Bone, None) = None) -> UGEVector:
     """returns the current, specified, or given Bone's relative location"""
     if CurrentObject.Type == 'rig':
         BoneName = getattr(BoneName, '__value__', BoneName)
@@ -376,7 +376,7 @@ def ugeGetBoneNext(BoneName: (str, Bone, None) = None ) -> Bone:
 
 @UGE_GLOBAL_WRAPPER
 @register([UGE_MODEL_SCRIPT])
-def ugeGetBoneLoc(BoneName: (str, Bone, None) = None) -> vector:
+def ugeGetBoneLoc(BoneName: (str, Bone, None) = None) -> UGEVector:
     """returns the current, specified, or given Bone's relative location"""
     if CurrentObject.Type == 'rig':
         BoneName = getattr(BoneName, '__value__', BoneName)
@@ -420,7 +420,7 @@ def ugeGetBoneLocZ(BoneName: (str, Bone, None) = None) -> (float, int):
 
 @UGE_GLOBAL_WRAPPER
 @register([UGE_MODEL_SCRIPT])
-def ugeGetBoneRot(BoneName: (str, Bone, None) = None) -> vector:
+def ugeGetBoneRot(BoneName: (str, Bone, None) = None) -> UGEVector:
     """returns the current, specified, or given Bone's relative rotation"""
     if CurrentObject.Type == 'rig':
         BoneName = getattr(BoneName, '__value__', BoneName)
@@ -475,7 +475,7 @@ def ugeGetBoneRotW(BoneName: (str, Bone, None) = None) -> (float, int):
 
 @UGE_GLOBAL_WRAPPER
 @register([UGE_MODEL_SCRIPT])
-def ugeGetBoneSca(BoneName: (str, Bone, None) = None) -> vector:
+def ugeGetBoneSca(BoneName: (str, Bone, None) = None) -> UGEVector:
     """returns the current, specified, or given Bone's relative scale"""
     if CurrentObject.Type == 'rig':
         BoneName = getattr(BoneName, '__value__', BoneName)

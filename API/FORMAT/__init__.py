@@ -44,7 +44,7 @@ class Object(object): __slots__ = []
 # IMPORTANT - all imports should be done here, sub-module references should use `from . import ______`
 # NOTE: the load order should not be changed, it works from the branches to the root for solidity
 from ..OBJECT import *
-from ._vector import vector, VectorProp
+from ._vector import UGEVector, VectorProp
 from ._image import *
 from ._texture import *
 from ._shader import *

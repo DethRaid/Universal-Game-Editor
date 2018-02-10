@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 """UGE Shader class and associate functions"""
 
-from . import Texture, vector
+from . import Texture, UGEVector
 from .. import UGE_GLOBAL_WRAPPER, register
 from ..CONST import UGE_MODEL_SCRIPT, UGE_SHADER_SCRIPT
 
