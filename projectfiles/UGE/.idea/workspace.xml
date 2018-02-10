@@ -4,23 +4,7 @@
     <option name="SCOPE_TYPE" value="3" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="983838c6-d952-43fb-b239-90a06b889443" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/../../API/DATA/__init__.py" afterPath="$PROJECT_DIR$/../../API/DATA/__init__.py" />
-      <change beforePath="$PROJECT_DIR$/../../API/DATA/u.py" afterPath="$PROJECT_DIR$/../../API/DATA/uge_u.py" />
-      <change beforePath="$PROJECT_DIR$/../../API/FILE.py" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/../../API/FORMAT/__init__.py" afterPath="$PROJECT_DIR$/../../API/FORMAT/__init__.py" />
-      <change beforePath="$PROJECT_DIR$/../../API/FORMAT/_object.py" afterPath="$PROJECT_DIR$/../../API/FORMAT/uge_object.py" />
-      <change beforePath="$PROJECT_DIR$/../../API/FORMAT/_rig.py" afterPath="$PROJECT_DIR$/../../API/FORMAT/uge_rig.py" />
-      <change beforePath="$PROJECT_DIR$/../../API/FORMAT/_root.py" afterPath="$PROJECT_DIR$/../../API/FORMAT/uge_root.py" />
-      <change beforePath="$PROJECT_DIR$/../../API/FORMAT/_scene.py" afterPath="$PROJECT_DIR$/../../API/FORMAT/uge_scene.py" />
-      <change beforePath="$PROJECT_DIR$/../../API/FORMAT/_shader.py" afterPath="$PROJECT_DIR$/../../API/FORMAT/uge_shader.py" />
-      <change beforePath="$PROJECT_DIR$/../../API/FORMAT/_texture.py" afterPath="$PROJECT_DIR$/../../API/FORMAT/uge_texture.py" />
-      <change beforePath="$PROJECT_DIR$/../../API/FORMAT/_vector.py" afterPath="$PROJECT_DIR$/../../API/FORMAT/uge_vector.py" />
-      <change beforePath="$PROJECT_DIR$/../../API/FORMAT/_world.py" afterPath="$PROJECT_DIR$/../../API/FORMAT/uge_world.py" />
-      <change beforePath="$PROJECT_DIR$/../../API/OBJECT/__init__.py" afterPath="$PROJECT_DIR$/../../API/OBJECT/__init__.py" />
-      <change beforePath="$PROJECT_DIR$/../../API/OBJECT/_channels.py" afterPath="$PROJECT_DIR$/../../API/OBJECT/uge_channels.py" />
-      <change beforePath="$PROJECT_DIR$/../../API/OBJECT/_collection.py" afterPath="$PROJECT_DIR$/../../API/OBJECT/uge_collection.py" />
-    </list>
+    <list default="true" id="983838c6-d952-43fb-b239-90a06b889443" name="Default" comment="" />
     <ignored path="UGE.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -39,7 +23,7 @@
   <component name="FileEditorManager">
     <splitter split-orientation="horizontal" split-proportion="0.5">
       <split-first>
-        <splitter split-orientation="horizontal" split-proportion="0.335873">
+        <splitter split-orientation="horizontal" split-proportion="0.9">
           <split-first>
             <splitter split-orientation="vertical" split-proportion="0.6986028">
               <split-first>
@@ -1251,12 +1235,12 @@
       <workItem from="1518029471259" duration="17875000" />
       <workItem from="1518200795640" duration="99000" />
       <workItem from="1518200964327" duration="5176000" />
-      <workItem from="1518275868417" duration="1132000" />
+      <workItem from="1518275868417" duration="1755000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="117406000" />
+    <option name="totallyTimeSpent" value="118029000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="25" width="3200" height="1150" extended-state="0" />
