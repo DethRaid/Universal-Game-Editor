@@ -134,3 +134,5 @@ dkms.conf
 *.lai
 
 # Executables
+
+projectfiles/UGE/.idea/workspace.xml
