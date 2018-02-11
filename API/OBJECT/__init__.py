@@ -190,8 +190,8 @@ del private
 newUGEObject = UGEObject.__new__
 
 # noinspection PyUnresolvedReferences
-from ._collection import UGECollection, CollectionProp
-from ._channels import UGEChannels, ChannelsProp
+from .uge_collection import UGECollection, CollectionProp
+from .uge_channels import UGEChannels, ChannelsProp
 
 def IntProp( cls: object, attr: str ) -> None:
     """reassigns an int verification property to an existing member_descriptor attribute"""

@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 """UGE Image class and associate functions"""
 
-from . import vector
+from . import UGEVector
 from .. import CONST, UGE_GLOBAL_WRAPPER, register
 
 # noinspection PyShadowingNames
@@ -29,8 +29,8 @@ def private():
 
     IntProp(        Image, 'Width' )
     IntProp(        Image, 'Height' )
-    CollectionProp( Image, 'Pixels', vector ) # vector( II/R(, A/G(, B(, A ))) )
-    CollectionProp( Image, 'Colors', vector ) # vector( I/R(, A/G(, B(, A ))) )
+    CollectionProp( Image, 'Pixels', UGEVector) # vector( II/R(, A/G(, B(, A ))) )
+    CollectionProp( Image, 'Colors', UGEVector) # vector( I/R(, A/G(, B(, A ))) )
     
     setPixels = Image.Pixels.__set__
     setColors = Image.Colors.__set__
@@ -102,7 +102,7 @@ def ugeSetImageHeight(H: (int, str) = 1) -> None:
     CONST.UGE_MODEL_SCRIPT,
     CONST.UGE_IMAGE_SCRIPT
     ])
-def ugeSetImagePixels(Pixels: str or [vector] = [[255,255,255,255]] ) -> None:
+def ugeSetImagePixels(Pixels: str or [UGEVector] = [[255,255,255,255]] ) -> None:
     """Sets the current Image's pixel data."""
     if CurrentImage:
         Pixels = getattr(Pixels, '__value__', Pixels )
@@ -116,7 +116,7 @@ def ugeSetImagePixels(Pixels: str or [vector] = [[255,255,255,255]] ) -> None:
     CONST.UGE_IMAGE_SCRIPT,
     CONST.UGE_PALETTE_SCRIPT
     ])
-def ugeSetImageColors(Colors: str or [vector] = [] ) -> None:
+def ugeSetImageColors(Colors: str or [UGEVector] = [] ) -> None:
     """Sets the current Image's palette colors."""
     if CurrentImage:
         Colors = getattr(Colors, '__value__', Colors )

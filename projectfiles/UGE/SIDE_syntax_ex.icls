@@ -1,9 +1,9 @@
 <scheme name="SIDE" version="142" parent_scheme="Default">
   <metaInfo>
-    <property name="created">2018-02-09T08:40:23</property>
+    <property name="created">2018-02-10T07:16:45</property>
     <property name="ide">idea</property>
     <property name="ideVersion">2017.3.3.0.0</property>
-    <property name="modified">2018-02-09T08:40:43</property>
+    <property name="modified">2018-02-10T07:17:00</property>
     <property name="originalScheme">SIDE</property>
   </metaInfo>
   <colors>
@@ -72,6 +72,7 @@
     </option>
     <option name="DEFAULT_INVALID_STRING_ESCAPE">
       <value>
+        <option name="FOREGROUND" value="aa00" />
         <option name="BACKGROUND" value="ffcccc" />
       </value>
     </option>
@@ -121,7 +122,9 @@
       </value>
     </option>
     <option name="DEFAULT_VALID_STRING_ESCAPE">
-      <value />
+      <value>
+        <option name="FOREGROUND" value="aa00" />
+      </value>
     </option>
     <option name="DEPRECATED_ATTRIBUTES">
       <value>
@@ -170,11 +173,6 @@
       </value>
     </option>
     <option name="PY.STRING.U" baseAttributes="DEFAULT_STRING" />
-    <option name="SEARCH_RESULT_ATTRIBUTES">
-      <value>
-        <option name="BACKGROUND" value="80f080" />
-      </value>
-    </option>
     <option name="TODO_DEFAULT_ATTRIBUTES">
       <value>
         <option name="BACKGROUND" value="fff0f0" />
@@ -203,11 +201,6 @@
       <value>
         <option name="BACKGROUND" value="a0ff40" />
         <option name="ERROR_STRIPE_COLOR" value="80ff00" />
-      </value>
-    </option>
-    <option name="WRITE_SEARCH_RESULT_ATTRIBUTES">
-      <value>
-        <option name="BACKGROUND" value="a0f040" />
       </value>
     </option>
   </attributes>
